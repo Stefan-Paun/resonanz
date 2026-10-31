@@ -9,7 +9,7 @@ const GEWICHT_ZEITRAUM = { "4w": 1.0, "6m": 0.85, "1y": 0.7 };
 // Wo die Galaxien am Himmel stehen (Azimut, Höhe in Grad). Deutschrap vorne in der Mitte,
 // Fokus hoch oben, Streulicht verteilt sich überall dazwischen.
 export const GALAXIE_ORT = {
-  deutschrap: [0, 22], rap: [-44, 10], nacht: [36, 38], pop: [-34, 50], fokus: [16, 66],
+  deutschrap: [0, 20], rap: [-44, 8], nacht: [36, 32], pop: [-34, 44], fokus: [16, 62],
   latino: [-88, 18], elektro: [90, 24], rock: [152, 28],
 };
 

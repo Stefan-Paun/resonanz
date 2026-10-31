@@ -4,6 +4,7 @@ import * as THREE from "three";
 import { WELTEN, welt } from "./welten.js";
 import { sterne, sternbilder, positionen, weltenZaehlung, galaxieRichtung, hash01, ZEITRAEUME } from "./daten.js";
 import { kapitelBauen } from "./kapitel.js";
+import { karteOeffnen, karteSchliessen, karteOffen, karteElement } from "./karte.js";
 
 const RADIUS = 100;
 const ruhig = matchMedia("(prefers-reduced-motion: reduce)");
@@ -11,7 +12,7 @@ const $ = (s) => document.querySelector(s);
 const cv = $("#cv"), labelsEl = $("#labels"), status = $("#status");
 
 const zustand = {
-  zeitraum: "1y", welt: null, hover: -1, fokus: null, dunkelZeigen: false, pan: false,
+  zeitraum: "1y", welt: null, hover: -1, gewaehlt: -1, fokus: null, dunkelZeigen: false, pan: false,
   yaw: 0, pitch: 0.36, zielYaw: 0, zielPitch: 0.36, drift: true,
   sterne: [], pos: [], groesseZiel: null, groesse: null,
 };
@@ -219,9 +220,10 @@ function labelsAnlegen(liste) {
   }
   liste.forEach((s, i) => {
     const el = document.createElement("span");
-    el.className = "label" + (i < 8 ? " hell" : "");
+    el.className = "label klick" + (i < 8 ? " hell" : "");
     el.textContent = s.name;
-    el.style.color = i < 8 ? "" : "";
+    el.dataset.i = i;
+    el.addEventListener("click", () => sternWaehlen(i));
     labelsEl.appendChild(el); labelEls.set(i, el);
   });
   for (const w of weltenZaehlung(liste)) {
@@ -237,10 +239,10 @@ function labelsAnlegen(liste) {
 let sperrzonen = [];
 function sperrzonenLesen() {
   const h = innerHeight;
-  const els = [$("#kartusche"), $("#hinweis"), $("#weiter"), ...document.querySelectorAll(".tafel")];
+  const els = [$("#kartusche"), $("#hinweis"), $("#weiter"), karteElement(), ...document.querySelectorAll(".tafel")];
   sperrzonen = [];
   for (const el of els) {
-    if (!el || el.classList.contains("weg")) continue;
+    if (!el || el.hidden || el.classList.contains("weg")) continue;
     const r = el.getBoundingClientRect();
     if (r.bottom < 0 || r.top > h || r.width === 0) continue;
     sperrzonen.push([r.left - 12, r.top - 12, r.right + 12, r.bottom + 12]);
@@ -263,12 +265,12 @@ function labelsZeichnen() {
   for (let i = 0; i < liste.length; i++) {
     const el = labelEls.get(i);
     const p = sichtbar2D[i];
-    const istHover = i === zustand.hover;
+    const istHover = i === zustand.hover || i === zustand.gewaehlt;
     if (p && zustand.hellZiel[i] > 0.5 && zustand.groesse[i] > 0.05 && p[1] > 0 && p[1] < h && p[0] > 0 && p[0] < w) {
       const hf = haufen.get(liste[i].welt) || { minY: Infinity, sumX: 0, n: 0 };
       hf.minY = Math.min(hf.minY, p[1]); hf.sumX += p[0]; hf.n++; haufen.set(liste[i].welt, hf);
     }
-    const sichtbar = p && p[0] > 10 && p[0] < w - 90 && p[1] > 20 && p[1] < h - 110 && !inSperrzone(p[0], p[1]) && !inSperrzone(p[0] + 90, p[1]);
+    const sichtbar = p && p[0] > 10 && p[0] < w - 24 - 7.2 * liste[i].name.length && p[1] > 20 && p[1] < h - 110 && !inSperrzone(p[0], p[1]) && !inSperrzone(p[0] + 90, p[1]);
     const imFokus = zustand.fokus ? zustand.fokus.has(liste[i].id) : false;
     let zeigen = sichtbar && (istHover || imFokus || (gezeigt < zeigbar && zustand.groesse[i] > 0.05 && zustand.hellZiel[i] > 0.5));
     if (zeigen && !istHover && !imFokus) {
@@ -281,6 +283,7 @@ function labelsZeichnen() {
       el.style.transform = `translate(${(p[0] + px * .5 + 4).toFixed(1)}px, ${p[1].toFixed(1)}px) translateY(-50%)`;
       el.style.opacity = istHover || imFokus ? 1 : (0.55 + 0.45 * zustand.groesse[i]);
       el.classList.toggle("aktiv", istHover || imFokus);
+      el.classList.toggle("gewaehlt", i === zustand.gewaehlt);
       el.classList.remove("aus");
     } else if (el.style.opacity !== "0") {
       el.style.opacity = 0; el.classList.add("aus");
@@ -296,8 +299,8 @@ function labelsZeichnen() {
   }
   for (const [id, el] of galaxieEls) {
     const hf = haufen.get(id);
-    const x = hf ? Math.max(80, Math.min(w - 80, hf.sumX / hf.n)) : 0, y = hf ? Math.max(40, hf.minY - 26) : 0;
-    const ok = hf && hf.n >= 3 && (!zustand.welt || zustand.welt === id) && hf.minY > 60 && !inSperrzone(x, y - 10) && !inSperrzone(x - 60, y - 10) && !inSperrzone(x + 60, y - 10);
+    const x = hf ? Math.max(80, Math.min(w - 80, hf.sumX / hf.n)) : 0, y = hf ? Math.max(44, hf.minY - 26) : 0;
+    const ok = hf && hf.n >= 3 && (!zustand.welt || zustand.welt === id) && !inSperrzone(x, y - 10) && !inSperrzone(x - 60, y - 10) && !inSperrzone(x + 60, y - 10);
     if (!ok) { el.style.opacity = 0; continue; }
     el.style.opacity = .9;
     el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -100%)`;
@@ -321,10 +324,22 @@ cv.addEventListener("pointermove", (e) => {
     hoverSuchen(e.clientX, e.clientY);
   }
 });
-const ziehEnde = () => { zieht = false; };
+const ziehEnde = (e) => {
+  if (zieht && bewegt < 6 && e && e.type === "pointerup") {
+    hoverSuchen(e.clientX, e.clientY);
+    if (zustand.hover >= 0) sternWaehlen(zustand.hover); else if (karteOffen()) karteSchliessen();
+  }
+  zieht = false;
+};
 cv.addEventListener("pointerup", ziehEnde); cv.addEventListener("pointercancel", ziehEnde);
 cv.addEventListener("pointerleave", () => { if (!zieht) { zustand.hover = -1; cv.classList.remove("zeigt"); } });
 cv.addEventListener("keydown", (e) => {
+  if (e.key === "Enter" || e.key === " ") { // nächster Stern zur Bildmitte
+    let best = -1, bd = Infinity;
+    for (let i = 0; i < sichtbar2D.length; i++) { const p = sichtbar2D[i]; if (!p || zustand.hellZiel[i] < .5 || zustand.groesse[i] < .05) continue; const d = (p[0] - innerWidth / 2) ** 2 + (p[1] - innerHeight / 2) ** 2; if (d < bd) { bd = d; best = i; } }
+    if (best >= 0) { e.preventDefault(); sternWaehlen(best); }
+    return;
+  }
   const s = e.shiftKey ? 0.3 : 0.1;
   if (e.key === "ArrowLeft") zustand.zielYaw += s; else if (e.key === "ArrowRight") zustand.zielYaw -= s;
   else if (e.key === "ArrowUp") zustand.zielPitch += s; else if (e.key === "ArrowDown") zustand.zielPitch -= s; else return;
@@ -399,13 +414,21 @@ function werteZeigen() {
     zahlSetzen(b.querySelector("b"), n);
     b.classList.toggle("leer", n === 0);
   }
+  for (const [id, el] of galaxieEls) {
+    const n = jeWelt.get(id) || 0, klein = el.querySelector("small");
+    if (klein) klein.textContent = `${n} ${n === 1 ? "Stern" : "Sterne"}`;
+  }
 }
+function cursorSetzen() {
+  const b = $(`#zeit button[data-z="${zustand.zeitraum}"]`), c = $("#zeit .cursor");
+  if (b && c) { c.style.left = b.offsetLeft + "px"; c.style.width = b.offsetWidth + "px"; }
+}
+addEventListener("resize", cursorSetzen);
 function zeitraumWaehlen(z) {
   if (!ZEITRAEUME.includes(z)) return;
   zustand.zeitraum = z;
   if (zustand.sterne.length) werteZeigen();
-  const idx = ZEITRAEUME.indexOf(z);
-  $("#zeit .cursor").style.transform = `translateX(${idx * 100}%)`;
+  cursorSetzen();
   for (const b of document.querySelectorAll("#zeit button")) b.setAttribute("aria-pressed", String(b.dataset.z === z));
   zieleSetzen();
 }
@@ -446,7 +469,7 @@ function tick() {
     const kg = ruhig.matches ? 1 : 1 - Math.exp(-dt * 5);
     let dirty = false;
     for (let i = 0; i < g.length; i++) {
-      const zg = zustand.groesseZiel[i] * (i === zustand.hover ? 1.25 : 1), zh = zustand.hellZiel[i];
+      const zg = zustand.groesseZiel[i] * (i === zustand.hover || i === zustand.gewaehlt ? 1.3 : 1), zh = zustand.hellZiel[i];
       if (Math.abs(g[i] - zg) > 0.001 || Math.abs(hl[i] - zh) > 0.001) {
         g[i] += (zg - g[i]) * kg; hl[i] += (zh - hl[i]) * kg; dirty = true;
       }
@@ -466,6 +489,18 @@ function tick() {
     blickEl.textContent = `Az ${az}° · Hö ${ho}°`;
   }
 }
+
+// ---------------------------------------------------------------- Sternkarte
+function rangIn(z, id) { const i = zustand.snapshot.zeitraeume[z]?.kuenstler.indexOf(id) ?? -1; return i >= 0 ? i + 1 : null; }
+function sternWaehlen(i) {
+  const s = zustand.sterne[i];
+  if (!s) return;
+  zustand.gewaehlt = i;
+  const p = zustand.pos[i];
+  zustand.zielYaw = -Math.atan2(p[0], -p[2]); zustand.zielPitch = Math.asin(p[1]); zustand.drift = false; blickBegrenzen();
+  karteOeffnen(s, { rang: rangIn, beimSchliessen: () => { zustand.gewaehlt = -1; } });
+}
+function sternPerId(id) { const i = zustand.sterne.findIndex((s) => s.id === id); if (i >= 0) { sternWaehlen(i); scrollTo({ top: 0, behavior: ruhig.matches ? "auto" : "smooth" }); } }
 
 // ---------------------------------------------------------------- Kapitel (Scroll steuert den Himmel)
 function blickAuf(weltId) {
@@ -538,7 +573,7 @@ async function start() {
     return;
   }
   const liste = sterne(snap), pos = positionen(liste), paare = sternbilder(snap);
-  zustand.sterne = liste; zustand.pos = pos; zustand.paare = paare;
+  zustand.sterne = liste; zustand.pos = pos; zustand.paare = paare; zustand.snapshot = snap;
   sterneBauen(liste, pos, paare);
   labelsAnlegen(liste);
   brettBauen(liste);
@@ -547,9 +582,10 @@ async function start() {
   status.textContent = "";
   // Startblick: auf die größte Galaxie
   const r = galaxieRichtung("deutschrap");
-  zustand.yaw = zustand.zielYaw = -Math.atan2(r[0], -r[2]); zustand.pitch = zustand.zielPitch = Math.asin(r[1]) - 0.02;
+  zustand.yaw = zustand.zielYaw = -Math.atan2(r[0], -r[2]); zustand.pitch = zustand.zielPitch = Math.asin(r[1]) + 0.07;
   zeitraumWaehlen(zustand.zeitraum);
   const kapitel = kapitelBauen($("#rueckblick"), snap, liste, null);
+  $("#rueckblick").addEventListener("click", (e) => { const b = e.target.closest("button[data-stern]"); if (b) sternPerId(b.dataset.stern); });
   kapitelVerdrahten(kapitel);
   tick();
 }

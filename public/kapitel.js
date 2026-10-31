@@ -36,7 +36,7 @@ export function kapitelBauen(main, snapshot, sterne, steuerung) {
       text: auf.length
         ? `${liste(auf.slice(0, 3).map((a) => a.name))} ${auf.length > 1 ? "waren" : "war"} im Jahresbild ${auf.every((a) => a.jahr === null) ? "nicht am Himmel" : "weit hinten"}. In den letzten vier Wochen ${auf.length > 1 ? "stehen sie" : "steht er"} auf Platz ${liste(auf.slice(0, 3).map((a) => a.jetzt))}.${aufWeltName ? ` Alle aus derselben Welt: ${aufWeltName}.` : ""}`
         : "In den letzten vier Wochen ist niemand Neues aufgestiegen. Der Himmel hält.",
-      tabelle: auf.map((a) => [esc(a.name), a.jetzt, a.jahr ?? "–"]),
+      tabelle: auf.map((a) => [knopf(a), a.jetzt, a.jahr ?? "–"]),
       spalten: ["Aufsteiger", "4 W", "1 J"],
       steuer: { zeitraum: "4w", welt: aufWelten.length === 1 ? aufWelten[0] : null, fokus: auf.map((a) => a.id), blick: aufWelten.length === 1 ? aufWelten[0] : null },
     },
@@ -45,7 +45,7 @@ export function kapitelBauen(main, snapshot, sterne, steuerung) {
       text: db.length
         ? `${db.length} Sterne stehen in allen drei Zeiträumen unter den ersten 25. ${db[0].name} führt mit den Plätzen ${db[0].plaetze.join(", ")}. Das ist kein Oktober, das ist ein Jahr.`
         : "Niemand hält sich in allen drei Zeiträumen vorne.",
-      tabelle: db.map((d) => [esc(d.name), ...d.plaetze]),
+      tabelle: db.map((d) => [knopf(d), ...d.plaetze]),
       spalten: ["Künstler", "4 W", "6 M", "1 J"],
       steuer: { zeitraum: "1y", welt: null, fokus: db.map((d) => d.id), blick: weltVon(db[0]?.id) || null },
     },
@@ -54,7 +54,7 @@ export function kapitelBauen(main, snapshot, sterne, steuerung) {
       text: weg.length
         ? `${liste(weg.slice(0, 3).map((w) => w.name))} ${weg.length > 1 ? "waren" : "war"} übers Jahr auf Platz ${liste(weg.slice(0, 3).map((w) => w.jahr))}. In den letzten vier Wochen: kein einziges Mal in der Liste. Die Sterne sind noch da, nur dunkler.`
         : "Niemand aus der Jahresspitze ist in den letzten vier Wochen verschwunden.",
-      tabelle: weg.map((w) => [esc(w.name), w.jahr, "–"]),
+      tabelle: weg.map((w) => [knopf(w), w.jahr, "–"]),
       spalten: ["Künstler", "1 J", "4 W"],
       steuer: { zeitraum: "4w", welt: null, fokus: weg.map((w) => w.id), blick: weltVon(weg[0]?.id) || null, dunkelZeigen: true },
     },
@@ -108,6 +108,8 @@ export function kapitelBauen(main, snapshot, sterne, steuerung) {
 
   return kapitel;
 }
+
+const knopf = (k) => `<button type="button" class="stern-link" data-stern="${esc(k.id)}">${esc(k.name)}</button>`;
 
 function tabelle(spalten, zeilen) {
   if (!zeilen.length) return "";

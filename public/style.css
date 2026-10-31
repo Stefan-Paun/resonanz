@@ -106,7 +106,7 @@ ul { padding: 0; list-style: none; }
 .zeit-schalter button[aria-pressed="true"] { color: var(--grund); }
 .zeit-schalter .cursor {
   position: absolute; top: 0; bottom: 0; left: 0; width: calc(100% / 3); background: var(--bernstein);
-  transition: transform .45s var(--ease);
+  transition: left .45s var(--ease), width .45s var(--ease);
 }
 .zeit-schalter::after { content: ""; position: absolute; inset: -1px; pointer-events: none; box-shadow: 0 0 16px rgba(255, 180, 84, .18); }
 .legende { display: flex; flex-wrap: wrap; gap: 4px 6px; justify-content: center; }
@@ -158,6 +158,8 @@ body.tastatur .nur-tastatur { display: block; }
 .tafel .links a { color: var(--bernstein); text-decoration: none; border-bottom: 1px solid var(--bernstein-dunkel); padding-bottom: 1px; }
 .tafel .links a:hover { border-bottom-color: var(--bernstein); }
 .leise { color: var(--text-3); }
+.stern-link { color: var(--text); border-bottom: 1px solid var(--linie); padding-bottom: 1px; }
+.stern-link:hover { color: var(--bernstein); border-bottom-color: var(--bernstein); }
 .punkt { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--w); margin-right: 9px; vertical-align: 1px; }
 .mess { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
 .mess th { text-align: left; font-weight: 500; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); padding: 0 0 6px; border-bottom: 1px solid var(--linie); }
@@ -191,6 +193,55 @@ body.tastatur .nur-tastatur { display: block; }
 .fluss a span { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); white-space: nowrap; font-size: 12px; color: var(--text-2); opacity: 0; transition: opacity .2s; pointer-events: none; }
 .fluss a:hover span, .fluss a:focus-visible span { opacity: 1; }
 
+/* ---------- Sternkarte */
+.stern {
+  position: fixed; z-index: 3; right: var(--rand); top: calc(var(--rand) + 44px); width: min(380px, calc(100vw - 2 * var(--rand)));
+  max-height: calc(100vh - var(--brett-h) - var(--rand) - 70px); overflow: auto; overscroll-behavior: contain;
+  border: 1px solid var(--linie); background: rgba(7, 9, 20, .92); padding: 18px 20px 16px;
+  opacity: 0; transform: translateY(8px); transition: opacity .35s var(--ease), transform .45s var(--ease);
+  scrollbar-width: thin;
+}
+.stern::after { content: ""; position: absolute; inset: 3px; border: 1px solid var(--gitter); pointer-events: none; }
+.stern.da { opacity: 1; transform: none; }
+.stern:focus { outline: none; }
+@media (max-width: 760px) { body.karte-offen .weiter, body.karte-offen .hinweis { opacity: 0; pointer-events: none; } }
+.stern .zu { position: absolute; right: 10px; top: 10px; z-index: 1; width: 32px; height: 32px; display: grid; place-items: center; color: var(--text-2); border: 1px solid transparent; }
+.stern .zu:hover { color: var(--text); border-color: var(--linie); }
+.stern .welt { display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); padding-right: 36px; }
+.stern .welt i { width: 7px; height: 7px; border-radius: 50%; background: var(--w); flex: none; }
+.stern h2 { margin: 6px 0 0; font-size: 28px; line-height: 1; letter-spacing: -.02em; font-variation-settings: "opsz" 96, "wdth" 90; }
+.stern .tags { margin-top: 8px; font-size: 13px; color: var(--text-2); }
+.plaetze { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 14px; border-top: 1px solid var(--linie); border-bottom: 1px solid var(--linie); }
+.plaetze div { padding: 8px 0; }
+.plaetze div + div { border-left: 1px solid var(--gitter); padding-left: 12px; }
+.plaetze dt { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); }
+.plaetze dd { margin-top: 2px; font-family: var(--mono); font-size: 18px; color: var(--rot); font-variant-numeric: tabular-nums; }
+.plaetze dd .leer { color: var(--text-3); }
+.songs { margin-top: 6px; }
+.songs li { position: relative; display: grid; grid-template-columns: 40px 1fr auto 28px; gap: 0 12px; align-items: center; padding: 8px 0; border-bottom: 1px solid var(--gitter); }
+.songs li:last-child { border-bottom: 0; }
+.songs img, .kein-cover { width: 40px; height: 40px; display: block; background: var(--grund-2); object-fit: cover; }
+.song-t { min-width: 0; position: relative; }
+.song-t b { display: block; font-weight: 500; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.song-t small { display: block; font-size: 12px; color: var(--text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.lauf { position: absolute; left: 0; right: 0; bottom: -8px; height: 1px; background: var(--gitter); opacity: 0; }
+.lauf i { display: block; height: 100%; background: var(--bernstein); transform: scaleX(0); transform-origin: left; }
+.spielt .lauf { opacity: 1; }
+.song-d { font-family: var(--mono); font-size: 12px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.play { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid var(--linie); color: var(--text-2); }
+.play:hover { color: var(--bernstein); border-color: var(--bernstein); }
+.play .s { display: none; }
+.spielt .play { color: var(--bernstein); border-color: var(--bernstein); }
+.spielt .play .p { display: none; } .spielt .play .s { display: block; }
+.laedt .play { opacity: .5; animation: puls 1s ease-in-out infinite; }
+@keyframes puls { 50% { opacity: 1; } }
+.ohne .play { opacity: .35; }
+.stern .fuss { margin-top: 12px; display: flex; flex-wrap: wrap; gap: 6px 16px; align-items: baseline; font-size: 12px; color: var(--text-3); }
+.stern .fuss a { color: var(--bernstein); text-decoration: none; border-bottom: 1px solid var(--bernstein-dunkel); }
+.label.klick { pointer-events: auto; cursor: pointer; }
+.label.klick:hover { color: #fff; }
+.label.gewaehlt { color: var(--bernstein); font-weight: 600; }
+
 /* ---------- Easing */
 :root { --ease: cubic-bezier(.16, 1, .3, 1); }
 
@@ -218,6 +269,8 @@ body.tastatur .nur-tastatur { display: block; }
   .weiter { right: auto; left: var(--rand); bottom: calc(var(--brett-h) + 14px + env(safe-area-inset-bottom)); font-size: 12px; }
   .hinweis { bottom: calc(var(--brett-h) + 14px + env(safe-area-inset-bottom)); font-size: 11px; max-width: 40%; }
   .tafel { background: rgba(7, 9, 20, .9); }
+  .stern { right: var(--rand); left: var(--rand); top: auto; bottom: calc(var(--brett-h) + 10px + env(safe-area-inset-bottom)); width: auto; max-height: 62vh; padding: 14px 16px 12px; }
+  .stern h2 { font-size: 24px; }
   .fluss { display: none; }
 }
 
