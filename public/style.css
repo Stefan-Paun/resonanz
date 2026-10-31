@@ -1,0 +1,159 @@
+/* Resonanz – Himmelsatlas. Grund Tiefindigo, Armaturen-Bernstein als einzige Bedienfarbe, Rotlicht für Zahlen. */
+:root {
+  --grund: #070914;
+  --grund-2: #0b0f1f;
+  --gitter: #1a2140;
+  --linie: #26305a;
+  --text: #e8e6f0;
+  --text-2: #a9a7c2;
+  --text-3: #7d7b9c;
+  --bernstein: #ffb454;
+  --bernstein-dunkel: #8a5a1a;
+  --rot: #ff5a3c;
+  --fokus: #ffb454;
+  --schrift: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Azeret Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --brett-h: 92px;
+  --rand: clamp(16px, 2.2vw, 32px);
+}
+* { box-sizing: border-box; }
+html { background: var(--grund); color-scheme: dark; scrollbar-color: var(--linie) var(--grund); }
+body {
+  margin: 0; min-height: 100vh; background: var(--grund); color: var(--text);
+  font-family: var(--schrift); font-variation-settings: "opsz" 14, "wdth" 100; font-size: 15px; line-height: 1.4;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+::selection { background: var(--bernstein); color: var(--grund); }
+:focus-visible { outline: 1px solid var(--fokus); outline-offset: 3px; }
+button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+h1, p, dl, dd, dt, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+
+/* ---------- Himmel */
+.himmel { position: fixed; inset: 0; z-index: 0; overflow: hidden; touch-action: none; }
+#cv { display: block; width: 100%; height: 100%; cursor: grab; }
+#cv:active { cursor: grabbing; }
+#cv.zeigt { cursor: pointer; }
+.labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.label {
+  position: absolute; left: 0; top: 0; transform: translate(-50%, -50%);
+  white-space: nowrap; font-size: 12px; letter-spacing: .01em; color: var(--text-2);
+  padding-left: 14px; opacity: 0; transition: opacity .5s var(--ease), color .2s;
+  will-change: transform, opacity;
+}
+.label::before {
+  content: ""; position: absolute; left: 0; top: 50%; width: 7px; height: 1px; background: currentColor; opacity: .6;
+}
+.label.hell { color: var(--text); font-weight: 500; }
+.label.aktiv { color: #fff; font-weight: 600; font-size: 13px; }
+.label.galaxie {
+  text-align: center; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; padding-left: 0;
+  transform: translate(-50%, -50%); color: var(--w, var(--text-2));
+}
+.label.galaxie::before { display: none; }
+.label.galaxie small { display: block; letter-spacing: .04em; font-weight: 400; text-transform: none; font-family: var(--mono); font-size: 10px; color: var(--text-3); margin-top: 2px; }
+.scheibe {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 42vh; pointer-events: none;
+  background: linear-gradient(to top, rgba(255, 180, 84, .16), rgba(255, 180, 84, .05) 40%, rgba(255, 180, 84, 0));
+}
+
+/* ---------- Kartusche (Titelblock wie auf einer gedruckten Karte) */
+.kartusche {
+  position: fixed; z-index: 2; left: var(--rand); top: var(--rand);
+  border: 1px solid var(--linie); padding: 14px 16px 12px; max-width: 290px;
+  background: rgba(7, 9, 20, .72);
+}
+.kartusche::after {
+  content: ""; position: absolute; inset: 3px; border: 1px solid var(--gitter); pointer-events: none;
+}
+.kartusche h1 {
+  font-size: 28px; line-height: 1; font-weight: 700; letter-spacing: -.02em;
+  font-variation-settings: "opsz" 96, "wdth" 90;
+}
+.kartusche .unter { margin-top: 5px; color: var(--text-2); font-size: 13px; }
+.meta { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--gitter); font-size: 11px; }
+.meta div { display: contents; }
+.meta dt { color: var(--text-3); text-transform: uppercase; letter-spacing: .14em; font-size: 10px; align-self: baseline; }
+.meta dd { font-family: var(--mono); font-weight: 400; color: var(--text-2); font-variant-numeric: tabular-nums; }
+.status { margin-top: 10px; font-size: 12px; color: var(--bernstein); min-height: 1em; }
+.status:empty { display: none; }
+.status.fehler { color: var(--rot); }
+
+/* ---------- Armaturenbrett */
+.brett {
+  position: fixed; z-index: 2; left: 0; right: 0; bottom: 0; min-height: var(--brett-h);
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 28px;
+  padding: 14px var(--rand) calc(14px + env(safe-area-inset-bottom));
+  border-top: 1px solid var(--linie); background: rgba(7, 9, 20, .82);
+}
+.brett::before {
+  content: ""; position: absolute; left: var(--rand); right: var(--rand); top: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--bernstein-dunkel), transparent);
+}
+.zeit-titel, .legende-titel, .werte dt {
+  display: block; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-3); margin-bottom: 6px;
+}
+.zeit-schalter { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; border: 1px solid var(--linie); }
+.zeit-schalter button {
+  position: relative; z-index: 1; padding: 7px 14px; font-size: 13px; font-weight: 500; letter-spacing: .02em;
+  color: var(--text-2); font-variant-numeric: tabular-nums; transition: color .25s;
+}
+.zeit-schalter button + button { box-shadow: inset 1px 0 var(--linie); }
+.zeit-schalter button:hover { color: var(--text); }
+.zeit-schalter button[aria-pressed="true"] { color: var(--grund); }
+.zeit-schalter .cursor {
+  position: absolute; top: 0; bottom: 0; left: 0; width: calc(100% / 3); background: var(--bernstein);
+  transition: transform .45s var(--ease); box-shadow: 0 0 18px rgba(255, 180, 84, .35);
+}
+.legende { display: flex; flex-wrap: wrap; gap: 4px 6px; justify-content: center; }
+.legende button {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px 6px 8px; border: 1px solid transparent;
+  font-size: 12px; color: var(--text-2); letter-spacing: .02em; transition: color .2s, border-color .2s, opacity .3s;
+}
+.legende button i { width: 8px; height: 8px; background: var(--w); border-radius: 50%; box-shadow: 0 0 10px var(--w); flex: none; }
+.legende button b { font-family: var(--mono); font-weight: 400; font-size: 11px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+.legende button:hover { color: var(--text); }
+.legende button[aria-pressed="true"] { color: var(--text); border-color: var(--w); }
+.legende.gefiltert button:not([aria-pressed="true"]) { opacity: .45; }
+.werte { display: grid; grid-auto-flow: column; gap: 22px; text-align: right; }
+.werte dt { margin-bottom: 2px; }
+.werte dd { font-family: var(--mono); font-size: 20px; font-weight: 500; color: var(--rot); font-variant-numeric: tabular-nums; letter-spacing: -.01em; line-height: 1; text-shadow: 0 0 14px rgba(255, 90, 60, .35); }
+
+/* ---------- Hinweis */
+.hinweis {
+  position: fixed; z-index: 2; right: var(--rand); top: var(--rand); display: grid; gap: 2px; text-align: right;
+  font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3);
+  transition: opacity .6s;
+}
+.hinweis.weg { opacity: 0; }
+.nur-tastatur { display: none; }
+body.tastatur .nur-tastatur { display: block; }
+
+.noscript { position: fixed; z-index: 5; inset: auto var(--rand) 120px; max-width: 48ch; color: var(--text); border: 1px solid var(--linie); padding: 14px 16px; background: var(--grund); }
+
+/* ---------- Easing */
+:root { --ease: cubic-bezier(.16, 1, .3, 1); }
+
+/* ---------- Handy */
+@media (max-width: 760px) {
+  :root { --brett-h: 118px; }
+  .kartusche { max-width: calc(100vw - 2 * var(--rand)); padding: 9px 12px 8px; }
+  .kartusche h1 { font-size: 20px; }
+  .kartusche .unter { font-size: 12px; margin-top: 3px; }
+  .meta { margin-top: 8px; padding-top: 7px; gap: 2px 10px; }
+  .meta div:nth-child(3) { display: none; }
+  .hinweis { top: auto; bottom: calc(var(--brett-h) + 10px + env(safe-area-inset-bottom)); }
+  .brett { grid-template-columns: auto 1fr; grid-template-rows: auto auto; gap: 10px 16px; padding-top: 10px; }
+  .legende { grid-column: 1 / -1; grid-row: 2; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; scrollbar-width: none; margin: 0 calc(-1 * var(--rand)); padding: 0 var(--rand); mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent); -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent); }
+  .legende::-webkit-scrollbar { display: none; }
+  .legende button { white-space: nowrap; }
+  .werte { gap: 14px; }
+  .werte dd { font-size: 16px; }
+  .zeit-schalter button { padding: 6px 11px; font-size: 12px; }
+}
+
+/* ---------- Gedruckte Karte: ohne Bewegung ist der Himmel eine stehende Sternkarte */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0s !important; }
+  .scheibe { opacity: .7; }
+}
