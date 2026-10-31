@@ -242,6 +242,50 @@ body.tastatur .nur-tastatur { display: block; }
 .label.klick:hover { color: #fff; }
 .label.gewaehlt { color: var(--bernstein); font-weight: 600; }
 
+/* ---------- Eigener Himmel (Dialog) */
+.eigen-knopf { margin-top: 10px; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--bernstein); border-bottom: 1px solid var(--bernstein-dunkel); padding-bottom: 1px; }
+.eigen-knopf:hover { border-bottom-color: var(--bernstein); }
+dialog.eigener { border: 1px solid var(--linie); background: var(--grund); color: var(--text); padding: 22px 24px 18px; width: min(560px, calc(100vw - 2 * var(--rand))); max-height: calc(100vh - 2 * var(--rand)); overflow: auto; margin: auto; }
+dialog.eigener::backdrop { background: rgba(2, 3, 8, .7); }
+.eg-kopf { display: flex; align-items: center; justify-content: space-between; margin: 0; }
+.eg-kopf h2 { font-size: 26px; letter-spacing: -.02em; font-variation-settings: "opsz" 96, "wdth" 90; }
+.eg-kopf .zu { width: 32px; height: 32px; display: grid; place-items: center; color: var(--text-2); border: 1px solid transparent; }
+.eg-kopf .zu:hover { color: var(--text); border-color: var(--linie); }
+.eg-lede { margin-top: 8px; color: var(--text-2); font-size: 14px; line-height: 1.5; }
+.eg-teil { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--linie); }
+.eg-teil h3 { margin: 0 0 6px; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--bernstein); font-weight: 600; }
+.eg-teil p { color: var(--text-2); font-size: 14px; line-height: 1.5; }
+.eg-teil p + p { margin-top: 8px; }
+.eg-teil a { color: var(--text); border-bottom: 1px solid var(--linie); text-decoration: none; }
+.eg-teil em { font-style: normal; color: var(--text); }
+.eg-teil code { font-family: var(--mono); font-size: 12px; color: var(--text); }
+.eg-klein { font-size: 12px !important; color: var(--text-3) !important; }
+.eg-klein button { color: var(--bernstein); border-bottom: 1px solid var(--bernstein-dunkel); }
+.eg-code { display: flex; gap: 10px; align-items: center; border: 1px solid var(--linie); padding: 8px 10px; margin-top: 8px; }
+.eg-code code { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.eg-code button, .eg-zeile button { padding: 7px 12px; border: 1px solid var(--linie); font-size: 13px; color: var(--text); white-space: nowrap; }
+.eg-code button:hover, .eg-zeile button:hover { border-color: var(--bernstein); color: var(--bernstein); }
+.eg-zeile { display: flex; gap: 10px; flex-wrap: wrap; align-items: stretch; margin-top: 10px; }
+.eg-zeile input { flex: 1 1 200px; min-width: 0; background: var(--grund-2); border: 1px solid var(--linie); color: var(--text); font: inherit; font-family: var(--mono); font-size: 13px; padding: 8px 10px; }
+.eg-zeile input:focus { border-color: var(--bernstein); outline: none; }
+.eg-haupt { background: var(--bernstein) !important; color: var(--grund) !important; border-color: var(--bernstein) !important; font-weight: 600; }
+.eg-haupt:hover { filter: brightness(1.08); }
+.ablage { display: grid; place-items: center; min-height: 86px; margin-top: 10px; border: 1px dashed var(--linie); color: var(--text-2); font-size: 14px; text-align: center; padding: 14px; cursor: pointer; transition: border-color .2s, background .2s; }
+.ablage:hover, .ablage.drueber { border-color: var(--bernstein); background: rgba(255, 180, 84, .05); }
+.ablage u { color: var(--bernstein); text-decoration: none; border-bottom: 1px solid var(--bernstein-dunkel); }
+body.ablage-aktiv::after { content: "Datei loslassen: ZIP mit Streaming-Verlauf oder gespeicherter Himmel"; position: fixed; inset: 12px; z-index: 9; border: 1px dashed var(--bernstein); display: grid; place-items: center; color: var(--bernstein); background: rgba(7, 9, 20, .6); font-size: 16px; pointer-events: none; }
+dialog.eigener .status { margin-top: 14px; }
+body.eigener .kartusche .unter::after { content: " · dein Himmel"; color: var(--bernstein); }
+
+/* Heatmap: Wochentag × Stunde, Zellen in Bernstein */
+.heat { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--linie); display: grid; gap: 3px; }
+.heat-reihe { display: grid; grid-template-columns: 26px repeat(24, 1fr); gap: 2px; align-items: center; }
+.heat-tag { font-family: var(--mono); font-size: 11px; color: var(--text-3); }
+.heat-reihe i { display: block; aspect-ratio: 1; min-height: 9px; background: var(--bernstein); opacity: calc(.06 + .94 * var(--a)); }
+.heat-achse { position: relative; height: 16px; margin-left: 26px; }
+.heat-achse b { position: absolute; left: calc(var(--h) / 24 * 100%); transform: translateX(-50%); font-family: var(--mono); font-weight: 400; font-size: 11px; color: var(--text-3); }
+.monate { gap: 1px; }
+
 /* ---------- Easing */
 :root { --ease: cubic-bezier(.16, 1, .3, 1); }
 

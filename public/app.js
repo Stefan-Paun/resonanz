@@ -381,11 +381,12 @@ function brettBauen(liste) {
     li.appendChild(b); leg.appendChild(li);
   }
   werteZeigen();
-  $("#zeit").addEventListener("click", (e) => {
-    const b = e.target.closest("button[data-z]"); if (!b) return;
-    zeitraumWaehlen(b.dataset.z);
-  });
 }
+$("#zeit").addEventListener("click", (e) => {
+  const b = e.target.closest("button[data-z]"); if (!b) return;
+  zeitraumWaehlen(b.dataset.z);
+});
+$("#rueckblick").addEventListener("click", (e) => { const b = e.target.closest("button[data-stern]"); if (b) sternPerId(b.dataset.stern); });
 // Zahlen laufen wie ein Zähler auf den neuen Wert
 const zaehler = new Map();
 function zahlSetzen(el, ziel) {
@@ -503,6 +504,7 @@ function sternWaehlen(i) {
 function sternPerId(id) { const i = zustand.sterne.findIndex((s) => s.id === id); if (i >= 0) { sternWaehlen(i); scrollTo({ top: 0, behavior: ruhig.matches ? "auto" : "smooth" }); } }
 
 // ---------------------------------------------------------------- Kapitel (Scroll steuert den Himmel)
+let kapitelIO = null;
 function blickAuf(weltId) {
   const r = galaxieRichtung(weltId);
   if (!r) return;
@@ -544,7 +546,8 @@ function kapitelVerdrahten(kapitel) {
     weiter.classList.toggle("weg", i >= 0 || scrollY > 40);
     hinweis.classList.toggle("weg", i >= 0 || hinweis.classList.contains("weg"));
   };
-  const io = new IntersectionObserver((eintraege) => {
+  if (kapitelIO) kapitelIO.disconnect();
+  const io = kapitelIO = new IntersectionObserver((eintraege) => {
     // das Kapitel, das die Bildmitte schneidet, gewinnt
     let best = -1, bestR = 0;
     for (const a of abschnitte) {
@@ -560,34 +563,64 @@ function kapitelVerdrahten(kapitel) {
   addEventListener("scroll", () => { weiter.classList.toggle("weg", scrollY > 40 || aktiv >= 0); }, { passive: true });
 }
 
+// ---------------------------------------------------------------- Aufbau und Abbau
+let gebaut = false;
+function himmelAbbauen() {
+  if (!gebaut) return;
+  karteSchliessen();
+  for (const o of [sternPunkte, sternbildLinien, ...haze]) { if (!o) continue; szene.remove(o); o.geometry?.dispose?.(); o.material?.dispose?.(); }
+  sternPunkte = sternbildLinien = sternGeo = sternMat = null; haze = [];
+  labelsEl.innerHTML = ""; labelEls.clear(); galaxieEls.clear(); richtungEls.length = 0; sichtbar2D.length = 0;
+  $("#legende").innerHTML = ""; zaehler.clear();
+  $("#rueckblick").innerHTML = ""; $("#fluss").innerHTML = "";
+  if (kapitelIO) { kapitelIO.disconnect(); kapitelIO = null; }
+  Object.assign(zustand, { sterne: [], pos: [], paare: [], hover: -1, gewaehlt: -1, fokus: null, dunkelZeigen: false, pan: false, welt: null, groesseZiel: null, groesse: null, hellZiel: null });
+  gebaut = false;
+}
+
+/** Baut den ganzen Himmel aus einem Schnappschuss (und optional einer Verlaufs-Auswertung) auf. */
+export function himmelAufbauen(snap, { verlauf = null, quelle = "Spotify · MusicBrainz", eigener = false } = {}) {
+  himmelAbbauen();
+  const liste = sterne(snap), pos = positionen(liste), paare = sternbilder(snap);
+  zustand.sterne = liste; zustand.pos = pos; zustand.paare = paare; zustand.snapshot = snap; zustand.eigener = eigener;
+  sterneBauen(liste, pos, paare);
+  labelsAnlegen(liste);
+  brettBauen(liste);
+  zieleSetzen();
+  $("#m-stand").textContent = new Date(snap.erstellt).toLocaleDateString("de-AT", { day: "numeric", month: "short", year: "numeric" });
+  $("#m-quelle").textContent = quelle;
+  document.body.classList.toggle("eigener", eigener);
+  status.textContent = "";
+  const r = galaxieRichtung("deutschrap");
+  zustand.yaw = zustand.zielYaw = -Math.atan2(r[0], -r[2]); zustand.pitch = zustand.zielPitch = Math.asin(r[1]) + 0.07; zustand.drift = true;
+  zeitraumWaehlen("1y");
+  const kapitel = kapitelBauen($("#rueckblick"), snap, liste, { verlauf, eigener });
+  kapitelVerdrahten(kapitel);
+  gebaut = true;
+  if (!laeuftSchonTick) { laeuftSchonTick = true; tick(); }
+}
+let laeuftSchonTick = false;
+
+export function statusMelden(text, fehler = false) {
+  status.textContent = text || "";
+  status.classList.toggle("fehler", !!fehler);
+}
+
 // ---------------------------------------------------------------- Start
 async function start() {
+  // Eigener Himmel (aus Konto oder Datei) hat Vorrang, sonst Stefans Schnappschuss
+  const eigen = await import("./eigener.js").catch((e) => { console.warn("eigener.js fehlt", e); return null; });
+  if (eigen && await eigen.start({ himmelAufbauen, statusMelden })) return;
   let snap;
   try {
     const r = await fetch("data/snapshot.json", { cache: "no-cache" });
     if (!r.ok) throw new Error("HTTP " + r.status);
     snap = await r.json();
   } catch (e) {
-    status.textContent = "Der Schnappschuss ließ sich nicht laden (" + (e.message || e) + "). Seite neu laden hilft meistens.";
-    status.classList.add("fehler");
+    statusMelden("Der Schnappschuss ließ sich nicht laden (" + (e.message || e) + "). Seite neu laden hilft meistens.", true);
     return;
   }
-  const liste = sterne(snap), pos = positionen(liste), paare = sternbilder(snap);
-  zustand.sterne = liste; zustand.pos = pos; zustand.paare = paare; zustand.snapshot = snap;
-  sterneBauen(liste, pos, paare);
-  labelsAnlegen(liste);
-  brettBauen(liste);
-  zieleSetzen();
-  $("#m-stand").textContent = new Date(snap.erstellt).toLocaleDateString("de-AT", { day: "numeric", month: "short", year: "numeric" });
-  status.textContent = "";
-  // Startblick: auf die größte Galaxie
-  const r = galaxieRichtung("deutschrap");
-  zustand.yaw = zustand.zielYaw = -Math.atan2(r[0], -r[2]); zustand.pitch = zustand.zielPitch = Math.asin(r[1]) + 0.07;
-  zeitraumWaehlen(zustand.zeitraum);
-  const kapitel = kapitelBauen($("#rueckblick"), snap, liste, null);
-  $("#rueckblick").addEventListener("click", (e) => { const b = e.target.closest("button[data-stern]"); if (b) sternPerId(b.dataset.stern); });
-  kapitelVerdrahten(kapitel);
-  tick();
+  himmelAufbauen(snap);
 }
 ruhig.addEventListener?.("change", () => { if (sternMat) sternMat.uniforms.uFunkeln.value = ruhig.matches ? 0 : 1; });
 start();
