@@ -44,7 +44,10 @@ ul { padding: 0; list-style: none; }
 .label::before {
   content: ""; position: absolute; left: 0; top: 50%; width: 7px; height: 1px; background: currentColor; opacity: .6;
 }
+.label.aus { transition: none; }
 .label.hell { color: var(--text); font-weight: 500; }
+.label.richtung { padding-left: 0; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; color: var(--bernstein); opacity: 0; }
+.label.richtung::before { width: 1px; height: 8px; left: 50%; top: -11px; transform: none; opacity: .8; }
 .label.aktiv { color: #fff; font-weight: 600; font-size: 13px; }
 .label.galaxie {
   text-align: center; font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; padding-left: 0;
@@ -54,7 +57,7 @@ ul { padding: 0; list-style: none; }
 .label.galaxie small { display: block; letter-spacing: .04em; font-weight: 400; text-transform: none; font-family: var(--mono); font-size: 11px; color: var(--text-3); margin-top: 2px; }
 .scheibe {
   position: absolute; left: 0; right: 0; bottom: 0; height: 42vh; pointer-events: none;
-  background: linear-gradient(to top, rgba(255, 180, 84, .16), rgba(255, 180, 84, .05) 40%, rgba(255, 180, 84, 0));
+  background: linear-gradient(to top, rgba(255, 180, 84, .32), rgba(255, 180, 84, .11) 38%, rgba(255, 180, 84, 0));
 }
 
 /* ---------- Kartusche (Titelblock wie auf einer gedruckten Karte) */
@@ -93,9 +96,9 @@ ul { padding: 0; list-style: none; }
 .zeit-titel, .legende-titel, .werte dt {
   display: block; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-3); margin-bottom: 6px;
 }
-.zeit-schalter { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; border: 1px solid var(--linie); }
+.zeit-schalter { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; border: 1px solid var(--linie); overflow: hidden; }
 .zeit-schalter button {
-  position: relative; z-index: 1; padding: 7px 14px; font-size: 13px; font-weight: 500; letter-spacing: .02em;
+  position: relative; z-index: 1; padding: 7px 14px; font-size: 13px; font-weight: 500; letter-spacing: .02em; white-space: nowrap;
   color: var(--text-2); font-variant-numeric: tabular-nums; transition: color .25s;
 }
 .zeit-schalter button + button { box-shadow: inset 1px 0 var(--linie); }
@@ -103,17 +106,20 @@ ul { padding: 0; list-style: none; }
 .zeit-schalter button[aria-pressed="true"] { color: var(--grund); }
 .zeit-schalter .cursor {
   position: absolute; top: 0; bottom: 0; left: 0; width: calc(100% / 3); background: var(--bernstein);
-  transition: transform .45s var(--ease); box-shadow: 0 0 18px rgba(255, 180, 84, .35);
+  transition: transform .45s var(--ease);
 }
+.zeit-schalter::after { content: ""; position: absolute; inset: -1px; pointer-events: none; box-shadow: 0 0 16px rgba(255, 180, 84, .18); }
 .legende { display: flex; flex-wrap: wrap; gap: 4px 6px; justify-content: center; }
 .legende button {
   display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px 6px 8px; border: 1px solid transparent;
   font-size: 12px; color: var(--text-2); letter-spacing: .02em; transition: color .2s, border-color .2s, opacity .3s;
 }
-.legende button i { width: 8px; height: 8px; background: var(--w); border-radius: 50%; box-shadow: 0 0 10px var(--w); flex: none; }
+.legende button i { width: 8px; height: 8px; background: var(--w); border-radius: 50%; flex: none; }
+.legende button.leer { opacity: .4; }
+.legende button.leer i { background: var(--text-3); }
 .legende button b { font-family: var(--mono); font-weight: 400; font-size: 11px; color: var(--text-3); font-variant-numeric: tabular-nums; }
 .legende button:hover { color: var(--text); }
-.legende button[aria-pressed="true"] { color: var(--text); border-color: var(--w); }
+.legende button[aria-pressed="true"] { color: var(--text); border-color: var(--bernstein); }
 .legende.gefiltert button:not([aria-pressed="true"]) { opacity: .45; }
 .werte { display: grid; grid-auto-flow: column; gap: 22px; text-align: right; }
 .werte dt { margin-bottom: 2px; }
@@ -131,6 +137,60 @@ body.tastatur .nur-tastatur { display: block; }
 
 .noscript { position: fixed; z-index: 5; inset: auto var(--rand) 120px; max-width: 48ch; color: var(--text); border: 1px solid var(--linie); padding: 14px 16px; background: var(--grund); }
 
+/* ---------- Rückblick: Kapitel scrollen über den stehenden Himmel */
+.buehne { height: 100vh; height: 100svh; }
+.rueckblick { position: relative; z-index: 1; padding-bottom: calc(var(--brett-h) + 40px); }
+.kapitel { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 10vh var(--rand) calc(var(--brett-h) + 6vh); }
+.kapitel:nth-child(even) { justify-content: flex-end; }
+.kapitel:nth-child(odd) { padding-top: clamp(280px, 34vh, 360px); }
+.tafel {
+  width: min(460px, 100%); border: 1px solid var(--linie); background: rgba(7, 9, 20, .78); padding: 22px 24px 20px;
+  position: relative;
+}
+.tafel::after { content: ""; position: absolute; inset: 3px; border: 1px solid var(--gitter); pointer-events: none; }
+.tafel h2 {
+  margin: 0 0 10px; font-size: clamp(30px, 3.4vw, 42px); line-height: .98; letter-spacing: -.025em; font-weight: 700;
+  font-variation-settings: "opsz" 96, "wdth" 88; text-wrap: balance;
+}
+.tafel p { color: var(--text-2); font-size: 15px; line-height: 1.5; max-width: 52ch; }
+.tafel .klein { margin-top: 14px; font-size: 12px; color: var(--text-3); line-height: 1.45; }
+.tafel .links { margin-top: 16px; display: flex; gap: 18px; }
+.tafel .links a { color: var(--bernstein); text-decoration: none; border-bottom: 1px solid var(--bernstein-dunkel); padding-bottom: 1px; }
+.tafel .links a:hover { border-bottom-color: var(--bernstein); }
+.leise { color: var(--text-3); }
+.punkt { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--w); margin-right: 9px; vertical-align: 1px; }
+.mess { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 14px; }
+.mess th { text-align: left; font-weight: 500; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); padding: 0 0 6px; border-bottom: 1px solid var(--linie); }
+.mess td { padding: 7px 0; border-bottom: 1px solid var(--gitter); color: var(--text); vertical-align: baseline; }
+.mess tr:last-child td { border-bottom-color: var(--linie); }
+.mess .zahl { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; color: var(--rot); font-size: 13px; padding-left: 14px; white-space: nowrap; }
+.mess th.zahl { color: var(--text-3); font-family: var(--schrift); }
+.jahre { display: flex; align-items: flex-end; gap: 2px; height: 118px; margin-top: 18px; padding: 14px 0 16px; border-top: 1px solid var(--linie); }
+.jahr { position: relative; flex: 1 1 0; display: grid; grid-template-rows: 1fr auto; align-items: end; height: 100%; min-width: 0; }
+.jahr i { display: block; height: calc(var(--h) * 60px); background: var(--bernstein); min-height: 0; justify-self: stretch; opacity: .95; }
+.jahr[style="--h:0.000"] i { height: 1px; background: var(--gitter); }
+.jahr b { font-family: var(--mono); font-weight: 400; font-size: 11px; color: var(--rot); text-align: center; line-height: 1; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+.jahr b:empty { display: none; }
+.jahr small { position: absolute; left: 50%; bottom: -16px; transform: translateX(-50%); font-family: var(--mono); font-size: 11px; color: var(--text-3); white-space: nowrap; }
+.jahr small:empty { display: none; }
+.weiter {
+  position: fixed; z-index: 2; right: var(--rand); bottom: calc(var(--brett-h) + 18px); display: inline-flex; align-items: center; gap: 8px;
+  color: var(--bernstein); text-decoration: none; font-size: 13px; letter-spacing: .02em; transition: opacity .5s;
+}
+.weiter svg { animation: nick 2.4s var(--ease) infinite; }
+@keyframes nick { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(3px); } }
+.weiter.weg { opacity: 0; pointer-events: none; }
+
+/* Laternenfluss: ein Pfad durch alle Kapitel, rechts am Rand */
+.fluss { position: fixed; z-index: 2; right: calc(var(--rand) - 4px); top: 50%; transform: translateY(-50%); display: grid; gap: 14px; opacity: 0; transition: opacity .5s; }
+.fluss.da { opacity: 1; }
+.fluss::before { content: ""; position: absolute; left: 50%; top: 4px; bottom: 4px; width: 1px; background: var(--gitter); transform: translateX(-50%); }
+.fluss a { position: relative; display: block; width: 9px; height: 9px; border-radius: 50%; background: var(--grund); border: 1px solid var(--linie); transition: background .3s, border-color .3s, box-shadow .3s; }
+.fluss a[aria-current="true"] { background: var(--bernstein); border-color: var(--bernstein); box-shadow: 0 0 12px rgba(255, 180, 84, .5); }
+.fluss a:hover { border-color: var(--bernstein); }
+.fluss a span { position: absolute; right: 18px; top: 50%; transform: translateY(-50%); white-space: nowrap; font-size: 12px; color: var(--text-2); opacity: 0; transition: opacity .2s; pointer-events: none; }
+.fluss a:hover span, .fluss a:focus-visible span { opacity: 1; }
+
 /* ---------- Easing */
 :root { --ease: cubic-bezier(.16, 1, .3, 1); }
 
@@ -142,7 +202,7 @@ body.tastatur .nur-tastatur { display: block; }
   .kartusche .unter { font-size: 12px; margin-top: 3px; }
   .meta { margin-top: 8px; padding-top: 7px; gap: 2px 10px; }
   .meta div:nth-child(3) { display: none; }
-  .hinweis { top: auto; bottom: calc(var(--brett-h) + 10px + env(safe-area-inset-bottom)); }
+  .hinweis { top: auto; }
   .brett { grid-template-columns: auto 1fr; grid-template-rows: auto auto; gap: 10px 16px; padding-top: 10px; }
   .legende { grid-column: 1 / -1; grid-row: 2; flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; scrollbar-width: none; margin: 0 calc(-1 * var(--rand)); padding: 0 var(--rand); mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent); -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 48px), transparent); }
   .legende::-webkit-scrollbar { display: none; }
@@ -150,10 +210,20 @@ body.tastatur .nur-tastatur { display: block; }
   .werte { gap: 14px; }
   .werte dd { font-size: 16px; }
   .zeit-schalter button { padding: 6px 11px; font-size: 12px; }
+  .kapitel, .kapitel:nth-child(even), .kapitel:nth-child(odd) { justify-content: center; align-items: flex-end; padding: 8vh var(--rand) calc(var(--brett-h) + 24px); }
+  .tafel { padding: 16px 16px 14px; }
+  .tafel h2 { font-size: 26px; }
+  .tafel p { font-size: 14px; }
+  .mess { font-size: 13px; }
+  .weiter { right: auto; left: var(--rand); bottom: calc(var(--brett-h) + 14px + env(safe-area-inset-bottom)); font-size: 12px; }
+  .hinweis { bottom: calc(var(--brett-h) + 14px + env(safe-area-inset-bottom)); font-size: 11px; max-width: 40%; }
+  .tafel { background: rgba(7, 9, 20, .9); }
+  .fluss { display: none; }
 }
 
 /* ---------- Gedruckte Karte: ohne Bewegung ist der Himmel eine stehende Sternkarte */
 @media (prefers-reduced-motion: reduce) {
-  * { transition-duration: 0s !important; }
+  * { transition-duration: 0s !important; animation: none !important; }
+  html { scroll-behavior: auto; }
   .scheibe { opacity: .7; }
 }

@@ -93,3 +93,51 @@ test("dauerText", () => {
   assert.equal(dauerText(60000), "1:00");
   assert.equal(dauerText(5000), "0:05");
 });
+
+import { aufsteiger, verblasst, dauerbrenner, laender, jahrgaenge, zuletzt, LANDNAMEN } from "../public/daten.js";
+
+test("Aufsteiger stehen jetzt vorne und im Jahr weit hinten oder gar nicht", () => {
+  const a = aufsteiger(snap);
+  assert.ok(a.length > 0);
+  for (const x of a) { assert.ok(x.jetzt <= 25); assert.ok(x.jahr === null || x.jahr - x.jetzt >= 15); }
+  for (let i = 1; i < a.length; i++) assert.ok(a[i - 1].jetzt <= a[i].jetzt);
+});
+
+test("Verblasst: im Jahr vorne, in 4 Wochen weg", () => {
+  for (const x of verblasst(snap)) {
+    assert.ok(x.jahr <= 25);
+    assert.equal(snap.zeitraeume["4w"].kuenstler.includes(x.id), false);
+  }
+});
+
+test("Dauerbrenner: in allen drei Zeiträumen unter 25, Capital Bra vorne", () => {
+  const d = dauerbrenner(snap);
+  assert.ok(d.length >= 3);
+  assert.equal(d[0].name, "Capital Bra");
+  for (const x of d) for (const p of x.plaetze) assert.ok(p >= 1 && p <= 25);
+});
+
+test("Länder: Deutschland vorne, Summe passt, Namen vorhanden", () => {
+  const s = sterne(snap);
+  const l = laender(s);
+  assert.equal(l.liste[0].code, "DE");
+  assert.equal(l.gesamt + l.unbekannt, s.length);
+  for (const x of l.liste) assert.ok(LANDNAMEN[x.code], "Name fehlt für " + x.code);
+});
+
+test("Jahrgänge: sortiert, ältester vor neuestem, Summe = Songs mit Datum", () => {
+  const j = jahrgaenge(snap, "1y");
+  assert.ok(j.jahre.length > 3);
+  for (let i = 1; i < j.jahre.length; i++) assert.ok(j.jahre[i - 1].jahr < j.jahre[i].jahr);
+  assert.equal(j.jahre.reduce((a, x) => a + x.anzahl, 0), j.gesamt);
+  assert.ok(j.aeltester.erschienen <= j.neuester.erschienen);
+  assert.equal(jahrgaenge({ zeitraeume: {} }, "1y").gesamt, 0);
+});
+
+test("Zuletzt: Zeitspanne und fünf Songs", () => {
+  const z = zuletzt(snap);
+  assert.equal(z.anzahl, 50);
+  assert.ok(z.von <= z.bis);
+  assert.equal(z.songs.length, 5);
+  assert.deepEqual(zuletzt({ zuletzt: [] }), { anzahl: 0, von: null, bis: null, songs: [] });
+});

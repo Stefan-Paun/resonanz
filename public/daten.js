@@ -9,8 +9,8 @@ const GEWICHT_ZEITRAUM = { "4w": 1.0, "6m": 0.85, "1y": 0.7 };
 // Wo die Galaxien am Himmel stehen (Azimut, Höhe in Grad). Deutschrap vorne in der Mitte,
 // Fokus hoch oben, Streulicht verteilt sich überall dazwischen.
 export const GALAXIE_ORT = {
-  deutschrap: [0, 26], rap: [-58, 16], nacht: [52, 34], elektro: [112, 22],
-  latino: [-112, 14], rock: [168, 20], pop: [-160, 32], fokus: [78, 60],
+  deutschrap: [0, 22], rap: [-44, 10], nacht: [36, 38], pop: [-34, 50], fokus: [16, 66],
+  latino: [-88, 18], elektro: [90, 24], rock: [152, 28],
 };
 
 /** Deterministischer Zufall aus einer Zeichenkette, damit der Himmel bei jedem Laden gleich aussieht. */
@@ -128,3 +128,75 @@ export function dauerText(ms) {
   const s = Math.round(ms / 1000);
   return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
 }
+
+// ---------------------------------------------------------------- Rückblick-Kapitel
+
+function rang(snapshot, zeitraum, id) {
+  const i = snapshot.zeitraeume[zeitraum]?.kuenstler.indexOf(id) ?? -1;
+  return i >= 0 ? i + 1 : null;
+}
+
+/** Künstler, die in den letzten 4 Wochen hoch stehen, im Jahr aber fehlen oder weit hinten lagen. */
+export function aufsteiger(snapshot, max = 6) {
+  const out = [];
+  for (const [id, k] of Object.entries(snapshot.kuenstler)) {
+    const r4 = rang(snapshot, "4w", id), r1 = rang(snapshot, "1y", id);
+    if (r4 && r4 <= 25 && (r1 === null || r1 - r4 >= 15)) out.push({ id, name: k.name, jetzt: r4, jahr: r1 });
+  }
+  return out.sort((a, b) => a.jetzt - b.jetzt).slice(0, max);
+}
+
+/** Im Jahr weit vorne, in den letzten 4 Wochen nicht mehr in der Liste. */
+export function verblasst(snapshot, max = 6) {
+  const out = [];
+  for (const [id, k] of Object.entries(snapshot.kuenstler)) {
+    const r4 = rang(snapshot, "4w", id), r1 = rang(snapshot, "1y", id);
+    if (r1 && r1 <= 25 && r4 === null) out.push({ id, name: k.name, jahr: r1 });
+  }
+  return out.sort((a, b) => a.jahr - b.jahr).slice(0, max);
+}
+
+/** In allen drei Zeiträumen unter den ersten 25, sortiert nach Summe der Plätze. */
+export function dauerbrenner(snapshot, max = 8) {
+  const out = [];
+  for (const [id, k] of Object.entries(snapshot.kuenstler)) {
+    const r = ZEITRAEUME.map((z) => rang(snapshot, z, id));
+    if (r.every((x) => x && x <= 25)) out.push({ id, name: k.name, plaetze: r, summe: r[0] + r[1] + r[2] });
+  }
+  return out.sort((a, b) => a.summe - b.summe).slice(0, max);
+}
+
+/** Herkunftsländer der Sterne (ISO-Code → Anzahl), häufigste zuerst, ohne Unbekannt. */
+export function laender(liste, max = 8) {
+  const z = new Map();
+  let unbekannt = 0;
+  for (const s of liste) { if (s.land) z.set(s.land, (z.get(s.land) || 0) + 1); else unbekannt++; }
+  const sortiert = [...z].sort((a, b) => b[1] - a[1]).map(([code, anzahl]) => ({ code, anzahl }));
+  return { liste: sortiert.slice(0, max), gesamt: liste.length - unbekannt, unbekannt };
+}
+
+/** Erscheinungsjahre der Top-Songs eines Zeitraums: Jahr → Anzahl, plus ältester und neuester Song. */
+export function jahrgaenge(snapshot, zeitraum = "1y") {
+  const songs = (snapshot.zeitraeume[zeitraum]?.songs || []).filter((s) => s.erschienen);
+  const z = new Map();
+  for (const s of songs) { const j = +s.erschienen.slice(0, 4); z.set(j, (z.get(j) || 0) + 1); }
+  const jahre = [...z].sort((a, b) => a[0] - b[0]).map(([jahr, anzahl]) => ({ jahr, anzahl }));
+  const sortiert = [...songs].sort((a, b) => a.erschienen.localeCompare(b.erschienen));
+  return { jahre, aeltester: sortiert[0] || null, neuester: sortiert[sortiert.length - 1] || null, gesamt: songs.length };
+}
+
+/** Zeitspanne der zuletzt gehörten Songs und die letzten fünf. */
+export function zuletzt(snapshot) {
+  const l = snapshot.zuletzt || [];
+  if (!l.length) return { anzahl: 0, von: null, bis: null, songs: [] };
+  const zeiten = l.map((e) => e.um).sort();
+  return { anzahl: l.length, von: zeiten[0], bis: zeiten[zeiten.length - 1], songs: l.slice(0, 5).map((e) => e.song) };
+}
+
+export const LANDNAMEN = {
+  DE: "Deutschland", US: "USA", AT: "Österreich", GB: "Großbritannien", CA: "Kanada", AU: "Australien", NO: "Norwegen",
+  FR: "Frankreich", PR: "Puerto Rico", IT: "Italien", ES: "Spanien", CO: "Kolumbien", MX: "Mexiko", JP: "Japan", SE: "Schweden",
+  NL: "Niederlande", CH: "Schweiz", TR: "Türkei", BR: "Brasilien", RU: "Russland", KR: "Südkorea", AZ: "Aserbaidschan",
+  CZ: "Tschechien", IE: "Irland", DK: "Dänemark", BE: "Belgien", PL: "Polen", NG: "Nigeria", JM: "Jamaika", AR: "Argentinien",
+  CL: "Chile", DO: "Dominikanische Republik", CU: "Kuba", NZ: "Neuseeland", IS: "Island", FI: "Finnland", PT: "Portugal",
+};

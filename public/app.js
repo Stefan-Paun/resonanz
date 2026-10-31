@@ -3,6 +3,7 @@
 import * as THREE from "three";
 import { WELTEN, welt } from "./welten.js";
 import { sterne, sternbilder, positionen, weltenZaehlung, galaxieRichtung, hash01, ZEITRAEUME } from "./daten.js";
+import { kapitelBauen } from "./kapitel.js";
 
 const RADIUS = 100;
 const ruhig = matchMedia("(prefers-reduced-motion: reduce)");
@@ -10,7 +11,7 @@ const $ = (s) => document.querySelector(s);
 const cv = $("#cv"), labelsEl = $("#labels"), status = $("#status");
 
 const zustand = {
-  zeitraum: "1y", welt: null, hover: -1,
+  zeitraum: "1y", welt: null, hover: -1, fokus: null, dunkelZeigen: false, pan: false,
   yaw: 0, pitch: 0.36, zielYaw: 0, zielPitch: 0.36, drift: true,
   sterne: [], pos: [], groesseZiel: null, groesse: null,
 };
@@ -27,7 +28,7 @@ function groesseSetzen() {
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, w < 760 ? 1.5 : 2));
   renderer.setSize(w, h, false);
   kamera.aspect = w / h;
-  kamera.fov = w < 760 ? 76 : 68;
+  kamera.fov = w < 760 ? 88 : 68;
   kamera.updateProjectionMatrix();
 }
 addEventListener("resize", groesseSetzen);
@@ -175,11 +176,11 @@ function sterneBauen(liste, pos, paare) {
   for (const w of weltenZaehlung(liste)) {
     const r = galaxieRichtung(w.id);
     if (!r || !w.anzahl) continue;
-    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: hazeTex, color: new THREE.Color(w.farbe), transparent: true, opacity: .16, blending: THREE.AdditiveBlending, depthWrite: false }));
+    const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: hazeTex, color: new THREE.Color(w.farbe), transparent: true, opacity: .3, blending: THREE.AdditiveBlending, depthWrite: false }));
     const gr2 = RADIUS * (0.34 + 0.16 * Math.sqrt(w.anzahl / 10));
     sp.scale.set(gr2 * 1.25, gr2, 1);
     sp.position.set(r[0] * RADIUS * 1.08, r[1] * RADIUS * 1.08, r[2] * RADIUS * 1.08);
-    sp.userData.welt = w.id; sp.userData.opazitaet = .16;
+    sp.userData.welt = w.id; sp.userData.opazitaet = .3;
     sp.renderOrder = -1; szene.add(sp); haze.push(sp);
   }
 }
@@ -194,10 +195,13 @@ function zieleSetzen() {
     const g = max ? s.je[zeitraum] / max : 0;
     const dabei = g > 0;
     const passt = !w || s.welt === w;
-    zustand.groesseZiel[i] = dabei ? 0.08 + 0.92 * Math.pow(g, 0.7) : 0.0;
-    zustand.hellZiel[i] = (dabei ? 1 : 0.22) * (passt ? 1 : 0.18);
+    const imFokus = zustand.fokus ? zustand.fokus.has(s.id) : null;
+    let groesse = dabei ? 0.08 + 0.92 * Math.pow(g, 0.7) : 0.0;
+    if (imFokus && !dabei && zustand.dunkelZeigen) groesse = 0.35; // Verblasste bleiben als dunkle Sterne sichtbar
+    zustand.groesseZiel[i] = imFokus ? Math.max(groesse, 0.5) : groesse;
+    zustand.hellZiel[i] = (dabei ? 1 : 0.22) * (passt ? 1 : 0.18) * (imFokus === false ? 0.3 : 1) * (imFokus && zustand.dunkelZeigen ? 0.55 : 1);
   });
-  for (const sp of haze) sp.userData.ziel = (!w || sp.userData.welt === w) ? .16 : .04;
+  for (const sp of haze) sp.userData.ziel = (!w || sp.userData.welt === w) ? .3 : .06;
 }
 
 // ---------------------------------------------------------------- Labels (HTML über dem Canvas)
@@ -205,7 +209,14 @@ const labelEls = new Map(); // index → element
 const galaxieEls = new Map();
 const v3 = new THREE.Vector3();
 
+const HIMMELSRICHTUNGEN = [["N", 0], ["O", 90], ["S", 180], ["W", 270]];
+const richtungEls = [];
 function labelsAnlegen(liste) {
+  for (const [n, az] of HIMMELSRICHTUNGEN) {
+    const el = document.createElement("span");
+    el.className = "label richtung"; el.textContent = n; el.dataset.az = az;
+    labelsEl.appendChild(el); richtungEls.push(el);
+  }
   liste.forEach((s, i) => {
     const el = document.createElement("span");
     el.className = "label" + (i < 8 ? " hell" : "");
@@ -222,15 +233,27 @@ function labelsAnlegen(liste) {
   }
 }
 
-function inSperrzone(x, y, w) {
-  // Kartusche oben links, Hinweis oben rechts: dort keine Sternnamen
-  if (x < 420 && y < 300) return true;
-  if (y < 90 && x > w - 340) return true;
+// Flächen, auf denen keine Labels liegen dürfen: Kartusche, Hinweise, sichtbare Tafeln
+let sperrzonen = [];
+function sperrzonenLesen() {
+  const h = innerHeight;
+  const els = [$("#kartusche"), $("#hinweis"), $("#weiter"), ...document.querySelectorAll(".tafel")];
+  sperrzonen = [];
+  for (const el of els) {
+    if (!el || el.classList.contains("weg")) continue;
+    const r = el.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > h || r.width === 0) continue;
+    sperrzonen.push([r.left - 12, r.top - 12, r.right + 12, r.bottom + 12]);
+  }
+}
+function inSperrzone(x, y) {
+  for (const z of sperrzonen) if (x > z[0] && x < z[2] && y > z[1] && y < z[3]) return true;
   return false;
 }
 
 function labelsZeichnen() {
   const w = innerWidth, h = innerHeight;
+  sperrzonenLesen();
   const liste = zustand.sterne;
   const alle = ruhig.matches;
   const zeigbar = alle ? 60 : (w < 760 ? 14 : 28);
@@ -245,9 +268,10 @@ function labelsZeichnen() {
       const hf = haufen.get(liste[i].welt) || { minY: Infinity, sumX: 0, n: 0 };
       hf.minY = Math.min(hf.minY, p[1]); hf.sumX += p[0]; hf.n++; haufen.set(liste[i].welt, hf);
     }
-    const sichtbar = p && p[0] > 10 && p[0] < w - 90 && p[1] > 20 && p[1] < h - 110 && !inSperrzone(p[0], p[1], w);
-    let zeigen = sichtbar && (istHover || (gezeigt < zeigbar && zustand.groesse[i] > 0.05 && zustand.hellZiel[i] > 0.5));
-    if (zeigen && !istHover) {
+    const sichtbar = p && p[0] > 10 && p[0] < w - 90 && p[1] > 20 && p[1] < h - 110 && !inSperrzone(p[0], p[1]) && !inSperrzone(p[0] + 90, p[1]);
+    const imFokus = zustand.fokus ? zustand.fokus.has(liste[i].id) : false;
+    let zeigen = sichtbar && (istHover || imFokus || (gezeigt < zeigbar && zustand.groesse[i] > 0.05 && zustand.hellZiel[i] > 0.5));
+    if (zeigen && !istHover && !imFokus) {
       for (const b of belegt) if (Math.abs(b[1] - p[1]) < 17 && Math.abs(b[0] - p[0]) < 130) { zeigen = false; break; }
     }
     if (zeigen) {
@@ -255,17 +279,26 @@ function labelsZeichnen() {
       belegt.push([p[0], p[1]]);
       const px = 3 + 13 * zustand.groesse[i];
       el.style.transform = `translate(${(p[0] + px * .5 + 4).toFixed(1)}px, ${p[1].toFixed(1)}px) translateY(-50%)`;
-      el.style.opacity = istHover ? 1 : (0.55 + 0.45 * zustand.groesse[i]);
-      el.classList.toggle("aktiv", istHover);
+      el.style.opacity = istHover || imFokus ? 1 : (0.55 + 0.45 * zustand.groesse[i]);
+      el.classList.toggle("aktiv", istHover || imFokus);
+      el.classList.remove("aus");
     } else if (el.style.opacity !== "0") {
-      el.style.opacity = 0;
+      el.style.opacity = 0; el.classList.add("aus");
     }
+  }
+  for (const el of richtungEls) {
+    const a = +el.dataset.az * Math.PI / 180;
+    v3.set(Math.sin(a) * RADIUS, 0, -Math.cos(a) * RADIUS).project(kamera);
+    const x = (v3.x * .5 + .5) * w, y = (-v3.y * .5 + .5) * h;
+    const ok = v3.z < 1 && x > 20 && x < w - 20 && y > 20 && y < h - 100 && !inSperrzone(x, y + 14);
+    el.style.opacity = ok ? .8 : 0;
+    if (ok) el.style.transform = `translate(${x.toFixed(1)}px, ${(y + 14).toFixed(1)}px) translate(-50%, 0)`;
   }
   for (const [id, el] of galaxieEls) {
     const hf = haufen.get(id);
-    const ok = hf && hf.n >= 3 && (!zustand.welt || zustand.welt === id) && hf.minY > 60;
+    const x = hf ? Math.max(80, Math.min(w - 80, hf.sumX / hf.n)) : 0, y = hf ? Math.max(40, hf.minY - 26) : 0;
+    const ok = hf && hf.n >= 3 && (!zustand.welt || zustand.welt === id) && hf.minY > 60 && !inSperrzone(x, y - 10) && !inSperrzone(x - 60, y - 10) && !inSperrzone(x + 60, y - 10);
     if (!ok) { el.style.opacity = 0; continue; }
-    const x = Math.max(80, Math.min(w - 80, hf.sumX / hf.n)), y = Math.max(40, hf.minY - 26);
     el.style.opacity = .9;
     el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -100%)`;
   }
@@ -332,18 +365,45 @@ function brettBauen(liste) {
     b.addEventListener("click", () => weltWaehlen(zustand.welt === w.id ? null : w.id));
     li.appendChild(b); leg.appendChild(li);
   }
-  $("#w-sterne").textContent = liste.length;
-  $("#w-welten").textContent = z.filter((w) => w.anzahl && w.id !== "streulicht").length;
-  const songs = new Set(); for (const s of liste) for (const x of s.songs) songs.add(x.id);
-  $("#w-songs").textContent = songs.size;
+  werteZeigen();
   $("#zeit").addEventListener("click", (e) => {
     const b = e.target.closest("button[data-z]"); if (!b) return;
     zeitraumWaehlen(b.dataset.z);
   });
 }
+// Zahlen laufen wie ein Zähler auf den neuen Wert
+const zaehler = new Map();
+function zahlSetzen(el, ziel) {
+  const von = zaehler.get(el) ?? ziel, start = performance.now(), dauer = ruhig.matches ? 0 : 420;
+  zaehler.set(el, ziel);
+  const schritt = (jetzt) => {
+    const p = dauer ? Math.min(1, (jetzt - start) / dauer) : 1, e = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.round(von + (ziel - von) * e);
+    if (p < 1 && zaehler.get(el) === ziel) requestAnimationFrame(schritt);
+  };
+  requestAnimationFrame(schritt);
+}
+/** Sterne, Welten und Sternbilder, die im gewählten Zeitraum wirklich leuchten. */
+function werteZeigen() {
+  const z = zustand.zeitraum, liste = zustand.sterne;
+  const aktiv = new Set(liste.filter((s) => s.je[z] > 0).map((s) => s.id));
+  const welten = new Set(liste.filter((s) => aktiv.has(s.id) && s.welt !== "streulicht").map((s) => s.welt));
+  const bilder = zustand.paare.filter((p) => aktiv.has(p.a) && aktiv.has(p.b)).length;
+  zahlSetzen($("#w-sterne"), aktiv.size);
+  zahlSetzen($("#w-welten"), welten.size);
+  zahlSetzen($("#w-songs"), bilder);
+  const jeWelt = new Map();
+  for (const s of liste) if (aktiv.has(s.id)) jeWelt.set(s.welt, (jeWelt.get(s.welt) || 0) + 1);
+  for (const b of document.querySelectorAll("#legende button")) {
+    const n = jeWelt.get(b.dataset.welt) || 0;
+    zahlSetzen(b.querySelector("b"), n);
+    b.classList.toggle("leer", n === 0);
+  }
+}
 function zeitraumWaehlen(z) {
   if (!ZEITRAEUME.includes(z)) return;
   zustand.zeitraum = z;
+  if (zustand.sterne.length) werteZeigen();
   const idx = ZEITRAEUME.indexOf(z);
   $("#zeit .cursor").style.transform = `translateX(${idx * 100}%)`;
   for (const b of document.querySelectorAll("#zeit button")) b.setAttribute("aria-pressed", String(b.dataset.z === z));
@@ -372,7 +432,7 @@ function tick() {
   requestAnimationFrame(tick);
   const dt = Math.min(uhr.getDelta(), 0.05);
   const t = uhr.elapsedTime;
-  if (zustand.drift && !ruhig.matches) { zustand.zielYaw -= dt * 0.012; }
+  if ((zustand.drift || zustand.pan) && !ruhig.matches) { zustand.zielYaw -= dt * (zustand.pan ? 0.05 : 0.012); }
   // träge Kamera: exponentielles Nachziehen
   const k = ruhig.matches ? 1 : 1 - Math.exp(-dt * 4.2);
   zustand.yaw += (zustand.zielYaw - zustand.yaw) * k;
@@ -394,7 +454,7 @@ function tick() {
     }
     if (dirty) { sternGeo.attributes.groesse.needsUpdate = true; sternGeo.attributes.hell.needsUpdate = true; }
     sternMat.uniforms.uZeit.value = t;
-    for (const sp of haze) sp.material.opacity += ((sp.userData.ziel ?? .16) - sp.material.opacity) * kg;
+    for (const sp of haze) sp.material.opacity += ((sp.userData.ziel ?? .3) - sp.material.opacity) * kg;
     if (sternbildLinien) sternbildLinien.material.opacity += (((zustand.welt ? .18 : .42)) - sternbildLinien.material.opacity) * kg;
     projektionMerken();
     labelsZeichnen();
@@ -405,6 +465,64 @@ function tick() {
     const az = Math.round(((-zustand.yaw * 180 / Math.PI) % 360 + 360) % 360), ho = Math.round(zustand.pitch * 180 / Math.PI);
     blickEl.textContent = `Az ${az}° · Hö ${ho}°`;
   }
+}
+
+// ---------------------------------------------------------------- Kapitel (Scroll steuert den Himmel)
+function blickAuf(weltId) {
+  const r = galaxieRichtung(weltId);
+  if (!r) return;
+  zustand.zielYaw = -Math.atan2(r[0], -r[2]); zustand.zielPitch = Math.asin(r[1]) - 0.02; zustand.drift = false;
+}
+function kapitelAnwenden(k) {
+  if (!k) { // zurück am Himmel: freier Blick
+    zustand.fokus = null; zustand.dunkelZeigen = false; zustand.pan = false;
+    weltWaehlen(null); zeitraumWaehlen("1y"); zieleSetzen();
+    return;
+  }
+  const st = k.steuer;
+  zustand.fokus = st.fokus ? new Set(st.fokus) : null;
+  zustand.dunkelZeigen = !!st.dunkelZeigen;
+  zustand.pan = !!st.pan;
+  zeitraumWaehlen(st.zeitraum);
+  weltWaehlen(st.welt || null);
+  if (st.blick) blickAuf(st.blick);
+  else if (st.fokus && st.fokus.length) {
+    const m = [0, 0, 0];
+    for (const id of st.fokus) { const i = zustand.sterne.findIndex((s) => s.id === id); if (i >= 0) { m[0] += zustand.pos[i][0]; m[1] += zustand.pos[i][1]; m[2] += zustand.pos[i][2]; } }
+    const l = Math.hypot(...m);
+    if (l > 0.01) { zustand.zielYaw = -Math.atan2(m[0] / l, -m[2] / l); zustand.zielPitch = Math.asin(m[1] / l) - 0.02; zustand.drift = false; }
+  }
+  zieleSetzen();
+}
+function kapitelVerdrahten(kapitel) {
+  const main = $("#rueckblick"), weiter = $("#weiter"), fluss = $("#fluss");
+  const abschnitte = [...main.querySelectorAll(".kapitel")];
+  fluss.innerHTML = kapitel.map((k) => `<a href="#k-${k.id}"><span>${k.titel.replace(/\.$/, "")}</span></a>`).join("");
+  const punkte = [...fluss.querySelectorAll("a")];
+  let aktiv = -1;
+  const setzen = (i) => {
+    if (i === aktiv) return;
+    aktiv = i;
+    kapitelAnwenden(i >= 0 ? kapitel[i] : null);
+    punkte.forEach((p, j) => p.toggleAttribute("aria-current", j === i) || (j === i ? p.setAttribute("aria-current", "true") : p.removeAttribute("aria-current")));
+    fluss.classList.toggle("da", i >= 0);
+    weiter.classList.toggle("weg", i >= 0 || scrollY > 40);
+    hinweis.classList.toggle("weg", i >= 0 || hinweis.classList.contains("weg"));
+  };
+  const io = new IntersectionObserver((eintraege) => {
+    // das Kapitel, das die Bildmitte schneidet, gewinnt
+    let best = -1, bestR = 0;
+    for (const a of abschnitte) {
+      const r = a.getBoundingClientRect();
+      const mitte = innerHeight * 0.5;
+      if (r.top < mitte && r.bottom > mitte) { best = +a.dataset.i; break; }
+      const sicht = Math.max(0, Math.min(r.bottom, innerHeight) - Math.max(r.top, 0)) / innerHeight;
+      if (sicht > bestR) { bestR = sicht; }
+    }
+    setzen(best);
+  }, { threshold: [0, .25, .5, .75, 1] });
+  abschnitte.forEach((a) => io.observe(a));
+  addEventListener("scroll", () => { weiter.classList.toggle("weg", scrollY > 40 || aktiv >= 0); }, { passive: true });
 }
 
 // ---------------------------------------------------------------- Start
@@ -420,7 +538,7 @@ async function start() {
     return;
   }
   const liste = sterne(snap), pos = positionen(liste), paare = sternbilder(snap);
-  zustand.sterne = liste; zustand.pos = pos;
+  zustand.sterne = liste; zustand.pos = pos; zustand.paare = paare;
   sterneBauen(liste, pos, paare);
   labelsAnlegen(liste);
   brettBauen(liste);
@@ -431,6 +549,8 @@ async function start() {
   const r = galaxieRichtung("deutschrap");
   zustand.yaw = zustand.zielYaw = -Math.atan2(r[0], -r[2]); zustand.pitch = zustand.zielPitch = Math.asin(r[1]) - 0.02;
   zeitraumWaehlen(zustand.zeitraum);
+  const kapitel = kapitelBauen($("#rueckblick"), snap, liste, null);
+  kapitelVerdrahten(kapitel);
   tick();
 }
 ruhig.addEventListener?.("change", () => { if (sternMat) sternMat.uniforms.uFunkeln.value = ruhig.matches ? 0 : 1; });
