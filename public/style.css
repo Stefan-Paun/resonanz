@@ -51,7 +51,7 @@ ul { padding: 0; list-style: none; }
   transform: translate(-50%, -50%); color: var(--w, var(--text-2));
 }
 .label.galaxie::before { display: none; }
-.label.galaxie small { display: block; letter-spacing: .04em; font-weight: 400; text-transform: none; font-family: var(--mono); font-size: 10px; color: var(--text-3); margin-top: 2px; }
+.label.galaxie small { display: block; letter-spacing: .04em; font-weight: 400; text-transform: none; font-family: var(--mono); font-size: 11px; color: var(--text-3); margin-top: 2px; }
 .scheibe {
   position: absolute; left: 0; right: 0; bottom: 0; height: 42vh; pointer-events: none;
   background: linear-gradient(to top, rgba(255, 180, 84, .16), rgba(255, 180, 84, .05) 40%, rgba(255, 180, 84, 0));
@@ -73,7 +73,7 @@ ul { padding: 0; list-style: none; }
 .kartusche .unter { margin-top: 5px; color: var(--text-2); font-size: 13px; }
 .meta { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--gitter); font-size: 11px; }
 .meta div { display: contents; }
-.meta dt { color: var(--text-3); text-transform: uppercase; letter-spacing: .14em; font-size: 10px; align-self: baseline; }
+.meta dt { color: var(--text-3); text-transform: uppercase; letter-spacing: .14em; font-size: 11px; align-self: baseline; }
 .meta dd { font-family: var(--mono); font-weight: 400; color: var(--text-2); font-variant-numeric: tabular-nums; }
 .status { margin-top: 10px; font-size: 12px; color: var(--bernstein); min-height: 1em; }
 .status:empty { display: none; }
@@ -91,7 +91,7 @@ ul { padding: 0; list-style: none; }
   background: linear-gradient(90deg, transparent, var(--bernstein-dunkel), transparent);
 }
 .zeit-titel, .legende-titel, .werte dt {
-  display: block; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-3); margin-bottom: 6px;
+  display: block; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--text-3); margin-bottom: 6px;
 }
 .zeit-schalter { position: relative; display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; border: 1px solid var(--linie); }
 .zeit-schalter button {
@@ -122,7 +122,7 @@ ul { padding: 0; list-style: none; }
 /* ---------- Hinweis */
 .hinweis {
   position: fixed; z-index: 2; right: var(--rand); top: var(--rand); display: grid; gap: 2px; text-align: right;
-  font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--text-3);
+  font-size: 12px; letter-spacing: .04em; color: var(--text-3);
   transition: opacity .6s;
 }
 .hinweis.weg { opacity: 0; }
