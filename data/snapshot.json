@@ -1,0 +1,6130 @@
+{
+ "erstellt": "2026-10-31T20:15:19Z",
+ "quelle": "spotify+musicbrainz",
+ "zeitraeume": {
+  "4w": {
+   "kuenstler": [
+    "4WZGDpNwrC0vNQyl9QzF7d",
+    "6h1s4i4XKIYv4ErDelLDN0",
+    "4Yttlv9ndGjCDCVLqM7ACq",
+    "1aS5tqEs9ci5P9KD9tZWa6",
+    "6piO5Ac23WJnRQifD42dfv",
+    "34LetYSjEuG2fBb4Z8PwPg",
+    "1RIDuulMVv3vmkanZeYVq4",
+    "6iiirBwETShwklU7hG6tXn",
+    "4PvnP3yCzrT289cX3wCdOx",
+    "1qQLhymHXFPtP5U8KNKsm6",
+    "6hFz7qfv7dt2sgRuGBYnP1",
+    "0Dvx6p8JDyzeOPGmaCIH1L",
+    "5WLsGgfxV206tL7KD41Ft1",
+    "3TVkH7YFaAKAjU9s0HgZtl",
+    "4lDiJcOJ2GLCK6p9q5BgfK",
+    "5pVRwX5ZQR7hfJ18w8ZYkl",
+    "5INjqkS1o8h1imAzPqGZBb",
+    "3fMbdgg4jU18AjLCKBhRSm",
+    "1SUu1Bi7ev9HbOzyVC77qD",
+    "4q3ewBCX7sLwd24euuV69X",
+    "5yczwlOmRZG3wUEtvLiGBg",
+    "18ISxWwWjV6rPLoVCXf1dz",
+    "3drqpTL4sQOckmAfF9i1wg",
+    "711MCceyCBcFnzjGY4Q7Un",
+    "3c96G4d2lUOxhomM2mby5S",
+    "4rCSOIelSj4xsI1Zo5WM23",
+    "39KEQQAG9JhIt71g9NEVhh",
+    "1XKjtpH5P81gpOXDB91IEB",
+    "1Xyo4u8uXC1ZmMpatF05PJ",
+    "5hzJL6bebayheeXXnPmv1I",
+    "07SFzTMeYf5P8Rd32a9Zzw",
+    "7rBed6Ya7Hwa2fXbh5btJE",
+    "2jku7tDXc6XoB6MO2hFuqg",
+    "3CJKkU0XuElRT1z8rEtIYg",
+    "3scHMUcB85BflinC8FclbI",
+    "5p7mWeX4RlvqBCxylfiXdE",
+    "5sRQkVexJlax2iISuqL8cV",
+    "5y9wg9qkGBl0n9v9RzaPKu",
+    "5nWYvcpaqKtp08cYxjOfFr",
+    "6ynopZPMBXcIGBI9M02Un5",
+    "0LEDohWJbpNV65CY3acjUS",
+    "3pVfscwg2QxhdHtk966inb",
+    "3pjq2pDV9RR6VY55wBjVnp",
+    "4VuARVJiWGsH2msKTdsKdQ",
+    "58lQAzmAxDD6di02MvAWkv"
+   ],
+   "songs": [
+    {
+     "id": "10A5GltcAG4HGmhl6htjox",
+     "name": "winter 4ever - Sped Up",
+     "kuenstler": [
+      {
+       "id": "3scHMUcB85BflinC8FclbI",
+       "name": "Baby Jane"
+      }
+     ],
+     "album": "Winter Forever (Sped Up)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e023903fb87a9816de005abc9be",
+     "dauer_ms": 156448,
+     "erschienen": "2026-07-24",
+     "url": "https://open.spotify.com/track/10A5GltcAG4HGmhl6htjox"
+    },
+    {
+     "id": "7gkAHRs4s3TgPBnDQtb4Li",
+     "name": "СВЕТЛАНА!",
+     "kuenstler": [
+      {
+       "id": "0KaA8HctO3Rt7xjMSu3YUk",
+       "name": "NEXTIME"
+      }
+     ],
+     "album": "БРИЛЛИАНТОВЫЙ АЛЬБОМ",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02ebd66692e7ca930c1186aaa7",
+     "dauer_ms": 96000,
+     "erschienen": "2026-06-26",
+     "url": "https://open.spotify.com/track/7gkAHRs4s3TgPBnDQtb4Li"
+    },
+    {
+     "id": "7xTDT7gyIrv0xWpwwXExxU",
+     "name": "Celestial",
+     "kuenstler": [
+      {
+       "id": "6eUKZXaKkcviH0Ku9w2n3V",
+       "name": "Ed Sheeran"
+      }
+     ],
+     "album": "= (Tour Edition)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02452eab95b1147fd8376f2006",
+     "dauer_ms": 209026,
+     "erschienen": "2020",
+     "url": "https://open.spotify.com/track/7xTDT7gyIrv0xWpwwXExxU"
+    },
+    {
+     "id": "4WHxXLh62FcCgkyezi5oLi",
+     "name": "Eternal Embrace - Sped Up",
+     "kuenstler": [
+      {
+       "id": "3scHMUcB85BflinC8FclbI",
+       "name": "Baby Jane"
+      }
+     ],
+     "album": "A Grave Marked Strange (Sped Up)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02145b08fe181e3b3e05b26a01",
+     "dauer_ms": 135912,
+     "erschienen": "2025-07-10",
+     "url": "https://open.spotify.com/track/4WHxXLh62FcCgkyezi5oLi"
+    },
+    {
+     "id": "7medoAnENNaeVAHQbGcOMK",
+     "name": "ISSA",
+     "kuenstler": [
+      {
+       "id": "4Yttlv9ndGjCDCVLqM7ACq",
+       "name": "Sido"
+      }
+     ],
+     "album": "ISSA",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02fefef72e20ec3394911b3d55",
+     "dauer_ms": 144861,
+     "erschienen": "2026-08-20",
+     "url": "https://open.spotify.com/track/7medoAnENNaeVAHQbGcOMK"
+    },
+    {
+     "id": "7MCNurIGh8Hg9SYaCPP9vv",
+     "name": "Ich will nur dass du weißt - IIVEN Remix",
+     "kuenstler": [
+      {
+       "id": "1EfwyuCzDQpCslZc8C9gkG",
+       "name": "SDP"
+      },
+      {
+       "id": "0ydBtmgupeHnGowYxRo6tq",
+       "name": "IIVEN"
+      },
+      {
+       "id": "0860MVRZC3Llgf1mFvnd1R",
+       "name": "NESS"
+      }
+     ],
+     "album": "Ich will nur dass du weißt (IIVEN Remix)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02d0fb359d4ad44e17be5116a8",
+     "dauer_ms": 156387,
+     "erschienen": "2023-07-27",
+     "url": "https://open.spotify.com/track/7MCNurIGh8Hg9SYaCPP9vv"
+    },
+    {
+     "id": "6GEbjb4gBo13BZF7G2PuEZ",
+     "name": "GTA",
+     "kuenstler": [
+      {
+       "id": "2tHtwM1edk5g3zqMCPOfb6",
+       "name": "Standart Skill"
+      },
+      {
+       "id": "6SGVQ8bD0Hab6BItkqWVuJ",
+       "name": "JURI"
+      },
+      {
+       "id": "5SsiJy8NJMzYowqe2sN58e",
+       "name": "Mavie"
+      }
+     ],
+     "album": "GTA",
+     "cover": "https://i.scdn.co/image/ab67616d00001e022c0f5427f80032a9358f1f8b",
+     "dauer_ms": 195000,
+     "erschienen": "2020-01-09",
+     "url": "https://open.spotify.com/track/6GEbjb4gBo13BZF7G2PuEZ"
+    },
+    {
+     "id": "0AOmbw8AwDnwXhHC3OhdVB",
+     "name": "Courtesy Call",
+     "kuenstler": [
+      {
+       "id": "6GfiCQDFYANz5wUkSmb3Dr",
+       "name": "Thousand Foot Krutch"
+      }
+     ],
+     "album": "The End Is Where We Begin",
+     "cover": "https://i.scdn.co/image/ab67616d00001e021a2e4290b83a4c810d019fcd",
+     "dauer_ms": 236898,
+     "erschienen": "2012-04-17",
+     "url": "https://open.spotify.com/track/0AOmbw8AwDnwXhHC3OhdVB"
+    },
+    {
+     "id": "7DK22gpHTmpLocUUJgddzk",
+     "name": "Sarà Perché Ti Amo - Stereoact Remix",
+     "kuenstler": [
+      {
+       "id": "3YwK1Kk8VSAtowOX2lRO0c",
+       "name": "DJ Redblack"
+      },
+      {
+       "id": "6dXL3SnQlCGX9LCUAyin6a",
+       "name": "Stereoact"
+      }
+     ],
+     "album": "Sarà Perché Ti Amo (Stereoact Remix)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02b64218231bf699cbfa1b37ec",
+     "dauer_ms": 122585,
+     "erschienen": "2023-06-09",
+     "url": "https://open.spotify.com/track/7DK22gpHTmpLocUUJgddzk"
+    },
+    {
+     "id": "6QgjcU0zLnzq5OrUoSZ3OK",
+     "name": "Feel It Still",
+     "kuenstler": [
+      {
+       "id": "4kI8Ie27vjvonwaB2ePh8T",
+       "name": "Portugal. The Man"
+      }
+     ],
+     "album": "Woodstock",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02af52c228c9619ff6298b08cd",
+     "dauer_ms": 163253,
+     "erschienen": "2017-06-16",
+     "url": "https://open.spotify.com/track/6QgjcU0zLnzq5OrUoSZ3OK"
+    },
+    {
+     "id": "5AGQSF0ytihJyt96K5vW9d",
+     "name": "Heartbeat",
+     "kuenstler": [
+      {
+       "id": "73sIBHcqh3Z3NyqHKZ7FOL",
+       "name": "Childish Gambino"
+      }
+     ],
+     "album": "Camp",
+     "cover": "https://i.scdn.co/image/ab67616d00001e026182cfe2e2a090d125c81dc0",
+     "dauer_ms": 269840,
+     "erschienen": "2011-11-15",
+     "url": "https://open.spotify.com/track/5AGQSF0ytihJyt96K5vW9d"
+    },
+    {
+     "id": "0Dlcu2fgHklOnajVu2dUNU",
+     "name": "Tilidin",
+     "kuenstler": [
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      },
+      {
+       "id": "6h1s4i4XKIYv4ErDelLDN0",
+       "name": "Samra"
+      }
+     ],
+     "album": "Berlin lebt 2",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02e019b932c5c19eebf82d3d73",
+     "dauer_ms": 172035,
+     "erschienen": "2019-10-03",
+     "url": "https://open.spotify.com/track/0Dlcu2fgHklOnajVu2dUNU"
+    },
+    {
+     "id": "1leUYnaoQ2SXGlwHLIVoWl",
+     "name": "Mi Mi Mi",
+     "kuenstler": [
+      {
+       "id": "0gQDOj4OisQbTq7FUEziea",
+       "name": "New Beat Order"
+      },
+      {
+       "id": "58imfUscPVwuhuHt1MpBDA",
+       "name": "Robbe"
+      },
+      {
+       "id": "2XsKhGOiMsoOmHgckUMpZa",
+       "name": "KROMA"
+      }
+     ],
+     "album": "Mi Mi Mi (Versions)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e023b35a04d590e8665f033d328",
+     "dauer_ms": 128470,
+     "erschienen": "2026-07-08",
+     "url": "https://open.spotify.com/track/1leUYnaoQ2SXGlwHLIVoWl"
+    },
+    {
+     "id": "4oodd2Z1U6Xg5tWMiUb3DN",
+     "name": "Unendlichkeit (Remix)",
+     "kuenstler": [
+      {
+       "id": "6nJEMDVNcq7fduXgk7EdGG",
+       "name": "MilleniumKid"
+      },
+      {
+       "id": "6l8dHVPkuEFzpQjhCH4xXT",
+       "name": "JBS"
+      },
+      {
+       "id": "0EG0El2Ozcdnw0xJA77DyO",
+       "name": "The Boy The G"
+      }
+     ],
+     "album": "Unendlichkeit (Remix)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02dc8f49ee3f44961ec0cfd22d",
+     "dauer_ms": 172764,
+     "erschienen": "2023-09-22",
+     "url": "https://open.spotify.com/track/4oodd2Z1U6Xg5tWMiUb3DN"
+    },
+    {
+     "id": "0uwtoHwfX5MH2LqpQaG6Ht",
+     "name": "Monica Bellucci",
+     "kuenstler": [
+      {
+       "id": "18ISxWwWjV6rPLoVCXf1dz",
+       "name": "RIN"
+      }
+     ],
+     "album": "EROS (2018)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e026a9a1646460821d889a4435a",
+     "dauer_ms": 204055,
+     "erschienen": "2018-01-12",
+     "url": "https://open.spotify.com/track/0uwtoHwfX5MH2LqpQaG6Ht"
+    },
+    {
+     "id": "7AOJcugo17Kr1WUheSI6Oq",
+     "name": "Mädchen auf dem Pferd",
+     "kuenstler": [
+      {
+       "id": "6k9e4mFFVtEAAhGdvJBtqB",
+       "name": "Luca-Dante Spadafora"
+      },
+      {
+       "id": "1ZPGzmbFTn8GRjqTqnLiFE",
+       "name": "Niklas Dee"
+      },
+      {
+       "id": "0rKRcoCpKA2jLHuIXXn80i",
+       "name": "Octavian"
+      },
+      {
+       "id": "1UEipeDjRtS1qnuhmKgmXg",
+       "name": "Peter Plate"
+      },
+      {
+       "id": "4anaTI5qQtKKp5D6I5sgDp",
+       "name": "Ulf Leo Sommer"
+      }
+     ],
+     "album": "Mädchen auf dem Pferd",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0246718115b2b40fc67115657f",
+     "dauer_ms": 157058,
+     "erschienen": "2023-05-12",
+     "url": "https://open.spotify.com/track/7AOJcugo17Kr1WUheSI6Oq"
+    },
+    {
+     "id": "5T7ywazdGIydr6JCW6t02j",
+     "name": "Smooth Criminal - 2012 Remaster",
+     "kuenstler": [
+      {
+       "id": "3fMbdgg4jU18AjLCKBhRSm",
+       "name": "Michael Jackson"
+      }
+     ],
+     "album": "Bad (Remastered)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02eb2087dcd1eb61f833bdedff",
+     "dauer_ms": 257766,
+     "erschienen": "1987-08-31",
+     "url": "https://open.spotify.com/track/5T7ywazdGIydr6JCW6t02j"
+    },
+    {
+     "id": "6tDDoYIxWvMLTdKpjFkc1B",
+     "name": "telepatía",
+     "kuenstler": [
+      {
+       "id": "1U1el3k54VvEUzo3ybLPlM",
+       "name": "Kali Uchis"
+      }
+     ],
+     "album": "Sin Miedo (del Amor y Otros Demonios) ∞",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02044a5466dac00f7b3c570b99",
+     "dauer_ms": 160191,
+     "erschienen": "2020-12-04",
+     "url": "https://open.spotify.com/track/6tDDoYIxWvMLTdKpjFkc1B"
+    },
+    {
+     "id": "0ekFioHmdtwcITYOYXavl6",
+     "name": "Bianco",
+     "kuenstler": [
+      {
+       "id": "4PvnP3yCzrT289cX3wCdOx",
+       "name": "Yung Hurn"
+      },
+      {
+       "id": "18ISxWwWjV6rPLoVCXf1dz",
+       "name": "RIN"
+      }
+     ],
+     "album": "In Memory of Yung Hurn - Classic Compilation",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02b5c9a5b449a668d2d500351c",
+     "dauer_ms": 234171,
+     "erschienen": "2016-12-23",
+     "url": "https://open.spotify.com/track/0ekFioHmdtwcITYOYXavl6"
+    },
+    {
+     "id": "3M0lSi5WW79CXQamgSBIjx",
+     "name": "Swim",
+     "kuenstler": [
+      {
+       "id": "7cYEt1pqMgXJdq00hAwVpT",
+       "name": "Chase Atlantic"
+      }
+     ],
+     "album": "Chase Atlantic",
+     "cover": "https://i.scdn.co/image/ab67616d00001e025a0c2870f4f309e382d1fad6",
+     "dauer_ms": 228786,
+     "erschienen": "2017-10-04",
+     "url": "https://open.spotify.com/track/3M0lSi5WW79CXQamgSBIjx"
+    },
+    {
+     "id": "2rcUsgC2Op6lXRWJqXwUNL",
+     "name": "WOKE",
+     "kuenstler": [
+      {
+       "id": "4Yttlv9ndGjCDCVLqM7ACq",
+       "name": "Sido"
+      }
+     ],
+     "album": "WOKE",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02b0570ef3ba65805fb379c958",
+     "dauer_ms": 157720,
+     "erschienen": "2026-09-17",
+     "url": "https://open.spotify.com/track/2rcUsgC2Op6lXRWJqXwUNL"
+    },
+    {
+     "id": "6inVHhmG2qEhwFR2eiWXjH",
+     "name": "Around the World (La La La La La)",
+     "kuenstler": [
+      {
+       "id": "5wTdspmxzb8V4ZjvDodpBo",
+       "name": "A Touch Of Class"
+      },
+      {
+       "id": "0PEfbjTw85CAN5G0lz9n3p",
+       "name": "Pete Konemann"
+      }
+     ],
+     "album": "Planet Pop",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02c6d30521f524b4a1e50fecdc",
+     "dauer_ms": 215506,
+     "erschienen": "1990-01-01",
+     "url": "https://open.spotify.com/track/6inVHhmG2qEhwFR2eiWXjH"
+    },
+    {
+     "id": "2PYDBXtkzed3qnEXQlBNUu",
+     "name": "222",
+     "kuenstler": [
+      {
+       "id": "4Ck46WZxqzpKUInvcgVF1C",
+       "name": "YFG Pave"
+      }
+     ],
+     "album": "222",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02d5527ad0f0b87e1fa38097cc",
+     "dauer_ms": 150451,
+     "erschienen": "2023-11-03",
+     "url": "https://open.spotify.com/track/2PYDBXtkzed3qnEXQlBNUu"
+    },
+    {
+     "id": "5KMQGErDASymjKq0LDa0MN",
+     "name": "Камин",
+     "kuenstler": [
+      {
+       "id": "0sKY9AcBdiGx4FbFbQsXoX",
+       "name": "EMIN"
+      },
+      {
+       "id": "2ISiyx4DLCMAMBCvPesCoq",
+       "name": "JONY"
+      }
+     ],
+     "album": "44",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02a1a9f8cdf27a405a9fbca80f",
+     "dauer_ms": 187619,
+     "erschienen": "2023-12-08",
+     "url": "https://open.spotify.com/track/5KMQGErDASymjKq0LDa0MN"
+    },
+    {
+     "id": "4SeaNxK99KVpGfvNhi4F9S",
+     "name": "Одного",
+     "kuenstler": [
+      {
+       "id": "05MQiIv63Y3WL4AXG1Zo3E",
+       "name": "Татьяна Куртукова"
+      }
+     ],
+     "album": "Одного",
+     "cover": "https://i.scdn.co/image/ab67616d00001e028723845f9f4dcf2dc0b7e349",
+     "dauer_ms": 192513,
+     "erschienen": "2024-09-10",
+     "url": "https://open.spotify.com/track/4SeaNxK99KVpGfvNhi4F9S"
+    },
+    {
+     "id": "4xkOaSrkexMciUUogZKVTS",
+     "name": "Till I Collapse",
+     "kuenstler": [
+      {
+       "id": "7dGJo4pcD2V6oG8kP0tJRR",
+       "name": "Eminem"
+      },
+      {
+       "id": "1Oa0bMld0A3u5OTYfMzp5h",
+       "name": "Nate Dogg"
+      }
+     ],
+     "album": "The Eminem Show",
+     "cover": "https://i.scdn.co/image/ab67616d00001e026ca5c90113b30c3c43ffb8f4",
+     "dauer_ms": 297786,
+     "erschienen": "2002-05-26",
+     "url": "https://open.spotify.com/track/4xkOaSrkexMciUUogZKVTS"
+    },
+    {
+     "id": "50mQStZYV5QFgyGK9GOVZg",
+     "name": "Neymar",
+     "kuenstler": [
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      },
+      {
+       "id": "5pVRwX5ZQR7hfJ18w8ZYkl",
+       "name": "Ufo361"
+      }
+     ],
+     "album": "Berlin lebt",
+     "cover": "https://i.scdn.co/image/ab67616d00001e027e4a3d4692889a09ab37fcb2",
+     "dauer_ms": 263646,
+     "erschienen": "2018-07-06",
+     "url": "https://open.spotify.com/track/50mQStZYV5QFgyGK9GOVZg"
+    },
+    {
+     "id": "6wHRm1KR8pzVDPdmR6Qovj",
+     "name": "Palmen aus Plastik",
+     "kuenstler": [
+      {
+       "id": "1aS5tqEs9ci5P9KD9tZWa6",
+       "name": "Bonez MC"
+      },
+      {
+       "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+       "name": "RAF Camora"
+      }
+     ],
+     "album": "Palmen aus Plastik",
+     "cover": "https://i.scdn.co/image/ab67616d00001e029dfc1c19dc32802c78eb0211",
+     "dauer_ms": 184995,
+     "erschienen": "2016-09-09",
+     "url": "https://open.spotify.com/track/6wHRm1KR8pzVDPdmR6Qovj"
+    },
+    {
+     "id": "1qU3WTfgqtGU9EiwnTKALN",
+     "name": "Böse Jungs",
+     "kuenstler": [
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      },
+      {
+       "id": "6h1s4i4XKIYv4ErDelLDN0",
+       "name": "Samra"
+      },
+      {
+       "id": "7rBed6Ya7Hwa2fXbh5btJE",
+       "name": "LACAZETTE"
+      }
+     ],
+     "album": "Böse Jungs",
+     "cover": "https://i.scdn.co/image/ab67616d00001e021b7d75dd67c1f699b3345889",
+     "dauer_ms": 215872,
+     "erschienen": "2026-08-20",
+     "url": "https://open.spotify.com/track/1qU3WTfgqtGU9EiwnTKALN"
+    },
+    {
+     "id": "0Tq0EhQpVeQJwV3E3P5Jti",
+     "name": "Prinzessa",
+     "kuenstler": [
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      }
+     ],
+     "album": "CB6",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02bcb5b0852623a7024338152e",
+     "dauer_ms": 178000,
+     "erschienen": "2019-04-12",
+     "url": "https://open.spotify.com/track/0Tq0EhQpVeQJwV3E3P5Jti"
+    },
+    {
+     "id": "4j5WelE5mkf9A2jmts729h",
+     "name": "Cherry Lady",
+     "kuenstler": [
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      }
+     ],
+     "album": "Cherry Lady",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02ee8bb3cf91b1a2b5d25de0ae",
+     "dauer_ms": 135596,
+     "erschienen": "2019-03-22",
+     "url": "https://open.spotify.com/track/4j5WelE5mkf9A2jmts729h"
+    },
+    {
+     "id": "6AFIVhbJLR7YVvW9fLFMu1",
+     "name": "Huracan",
+     "kuenstler": [
+      {
+       "id": "6h1s4i4XKIYv4ErDelLDN0",
+       "name": "Samra"
+      },
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      }
+     ],
+     "album": "Huracan",
+     "cover": "https://i.scdn.co/image/ab67616d00001e023d06cbec2fa5e34c2fad9151",
+     "dauer_ms": 182238,
+     "erschienen": "2019-09-05",
+     "url": "https://open.spotify.com/track/6AFIVhbJLR7YVvW9fLFMu1"
+    },
+    {
+     "id": "42hrHYe1Dw92eiZwWQF0sr",
+     "name": "Cataleya",
+     "kuenstler": [
+      {
+       "id": "6h1s4i4XKIYv4ErDelLDN0",
+       "name": "Samra"
+      }
+     ],
+     "album": "Cataleya",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0278bea4ee45832e0399eb3986",
+     "dauer_ms": 171681,
+     "erschienen": "2018-11-09",
+     "url": "https://open.spotify.com/track/42hrHYe1Dw92eiZwWQF0sr"
+    },
+    {
+     "id": "05Mp2UJulSttxQ4E6hQPH3",
+     "name": "Ohne mein Team",
+     "kuenstler": [
+      {
+       "id": "1aS5tqEs9ci5P9KD9tZWa6",
+       "name": "Bonez MC"
+      },
+      {
+       "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+       "name": "RAF Camora"
+      },
+      {
+       "id": "0b62itBWBdLgiecXjXCqKC",
+       "name": "Maxwell"
+      }
+     ],
+     "album": "Palmen aus Plastik",
+     "cover": "https://i.scdn.co/image/ab67616d00001e029dfc1c19dc32802c78eb0211",
+     "dauer_ms": 188503,
+     "erschienen": "2016-09-09",
+     "url": "https://open.spotify.com/track/05Mp2UJulSttxQ4E6hQPH3"
+    },
+    {
+     "id": "20H6UOm0bffQNy9GhkkZxy",
+     "name": "Arbeitszeitbetrug",
+     "kuenstler": [
+      {
+       "id": "5kp4UMsrN5oZxPnsef59iQ",
+       "name": "Kai Baum"
+      }
+     ],
+     "album": "Arbeitszeitbetrug",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02a8b62dc05e1182d77dd3ac86",
+     "dauer_ms": 150013,
+     "erschienen": "2025-11-14",
+     "url": "https://open.spotify.com/track/20H6UOm0bffQNy9GhkkZxy"
+    },
+    {
+     "id": "4fUq2beS1zE53l058o8TXl",
+     "name": "Arbeiten bis zur Rente 2",
+     "kuenstler": [
+      {
+       "id": "3rJe1nJEEuzdmuGSPy8teM",
+       "name": "Chef FM"
+      }
+     ],
+     "album": "Arbeiten bis zur Rente 2",
+     "cover": "https://i.scdn.co/image/ab67616d00001e020ab2cd4c80594e7dfcdea629",
+     "dauer_ms": 169287,
+     "erschienen": "2026-01-30",
+     "url": "https://open.spotify.com/track/4fUq2beS1zE53l058o8TXl"
+    },
+    {
+     "id": "2pPrPTKKV8x8iQrETHU4EH",
+     "name": "ASSALAMUALEIKUM",
+     "kuenstler": [
+      {
+       "id": "6h1s4i4XKIYv4ErDelLDN0",
+       "name": "Samra"
+      },
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      }
+     ],
+     "album": "ASSALAMUALEIKUM",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02bc215e28fb26fbcd730a646e",
+     "dauer_ms": 155767,
+     "erschienen": "2026-10-22",
+     "url": "https://open.spotify.com/track/2pPrPTKKV8x8iQrETHU4EH"
+    },
+    {
+     "id": "2dwlWpSSPD1aUH2IZfTtIq",
+     "name": "Sprite - Remix",
+     "kuenstler": [
+      {
+       "id": "7pqZmXaLL4eqW60I0XgTTF",
+       "name": "TAB Coke Beats"
+      }
+     ],
+     "album": "Sprite (Remix)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e026371e0e6c69cbc86b73d69f1",
+     "dauer_ms": 172804,
+     "erschienen": "2026-06-04",
+     "url": "https://open.spotify.com/track/2dwlWpSSPD1aUH2IZfTtIq"
+    },
+    {
+     "id": "2H7jZg2HliuQhZjfBblLrZ",
+     "name": "Sommergewitter",
+     "kuenstler": [
+      {
+       "id": "34LetYSjEuG2fBb4Z8PwPg",
+       "name": "Pashanim"
+      }
+     ],
+     "album": "Sommergewitter",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02f4021229806dee1ed58835d2",
+     "dauer_ms": 138533,
+     "erschienen": "2021-06-24",
+     "url": "https://open.spotify.com/track/2H7jZg2HliuQhZjfBblLrZ"
+    },
+    {
+     "id": "4EllWVQ2sSOBMmAHIDXzWb",
+     "name": "Primo",
+     "kuenstler": [
+      {
+       "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+       "name": "RAF Camora"
+      }
+     ],
+     "album": "Anthrazit",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02204f3aa1f9c4bd2d36e29dc9",
+     "dauer_ms": 203104,
+     "erschienen": "2017-08-25",
+     "url": "https://open.spotify.com/track/4EllWVQ2sSOBMmAHIDXzWb"
+    },
+    {
+     "id": "3dPQuX8Gs42Y7b454ybpMR",
+     "name": "Seven Nation Army",
+     "kuenstler": [
+      {
+       "id": "4F84IBURUo98rz4r61KF70",
+       "name": "The White Stripes"
+      }
+     ],
+     "album": "Elephant",
+     "cover": "https://i.scdn.co/image/ab67616d00001e027028981d09d2e5833c9c78ad",
+     "dauer_ms": 232106,
+     "erschienen": "2003-04-01",
+     "url": "https://open.spotify.com/track/3dPQuX8Gs42Y7b454ybpMR"
+    },
+    {
+     "id": "4ZVRpCC9umZI81rrNgsGnZ",
+     "name": "Requiem",
+     "kuenstler": [
+      {
+       "id": "2JwyRtuXf2l6sTnSnGVIa1",
+       "name": "Farid Bang"
+      },
+      {
+       "id": "6gto7HVNhu4ARE3P3g8Y5Y",
+       "name": "Kollegah"
+      }
+     ],
+     "album": "So muss man gehen",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02ec5e892e50effb107a1eb9dd",
+     "dauer_ms": 252903,
+     "erschienen": "2026-05-29",
+     "url": "https://open.spotify.com/track/4ZVRpCC9umZI81rrNgsGnZ"
+    },
+    {
+     "id": "6a2dQM7ocTJoTVCXekPOHG",
+     "name": "Monet",
+     "kuenstler": [
+      {
+       "id": "0r0R5nIjDY04TfxRM10Bcb",
+       "name": "Alligatoah"
+      },
+      {
+       "id": "4Yttlv9ndGjCDCVLqM7ACq",
+       "name": "Sido"
+      }
+     ],
+     "album": "Monet",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02e64537a4672ae0eba0c815ea",
+     "dauer_ms": 186299,
+     "erschienen": "2020-10-16",
+     "url": "https://open.spotify.com/track/6a2dQM7ocTJoTVCXekPOHG"
+    },
+    {
+     "id": "6hw1Sy9wZ8UCxYGdpKrU6M",
+     "name": "Roller",
+     "kuenstler": [
+      {
+       "id": "1qQLhymHXFPtP5U8KNKsm6",
+       "name": "Apache 207"
+      }
+     ],
+     "album": "Platte",
+     "cover": "https://i.scdn.co/image/ab67616d00001e025ad6a8a3acb89efcdc51bde8",
+     "dauer_ms": 157700,
+     "erschienen": "2019-10-25",
+     "url": "https://open.spotify.com/track/6hw1Sy9wZ8UCxYGdpKrU6M"
+    },
+    {
+     "id": "5YqhT9Jiw4wz1qliKQksoZ",
+     "name": "Erlkönig",
+     "kuenstler": [
+      {
+       "id": "65WfmKecS1GdKkxURvvY1s",
+       "name": "Lūcadelic"
+      }
+     ],
+     "album": "Erlkönig",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0257a8bdc12377ecc9583d1bd9",
+     "dauer_ms": 156529,
+     "erschienen": "2025-11-03",
+     "url": "https://open.spotify.com/track/5YqhT9Jiw4wz1qliKQksoZ"
+    },
+    {
+     "id": "724X0Tdkai2En19Vi1HGUH",
+     "name": "Grand Theft Auto: San Andreas (Official Theme Song)",
+     "kuenstler": [
+      {
+       "id": "4J86DBDnC5acWsN0dpZe3j",
+       "name": "Michael Hunter"
+      }
+     ],
+     "album": "Grand Theft Auto: San Andreas (Official Theme Song)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02f8d9bdb33b7a4d6098a77446",
+     "dauer_ms": 88373,
+     "erschienen": "2004",
+     "url": "https://open.spotify.com/track/724X0Tdkai2En19Vi1HGUH"
+    },
+    {
+     "id": "0pQr5WsobmdZHnuObT0sc2",
+     "name": "Astronaut",
+     "kuenstler": [
+      {
+       "id": "4Yttlv9ndGjCDCVLqM7ACq",
+       "name": "Sido"
+      },
+      {
+       "id": "6quRLJ5SiWHgcVMoE9TEJj",
+       "name": "Andreas Bourani"
+      }
+     ],
+     "album": "VI (Deluxe)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e027ee9784308ce612bb01a88ab",
+     "dauer_ms": 238213,
+     "erschienen": "2015-09-04",
+     "url": "https://open.spotify.com/track/0pQr5WsobmdZHnuObT0sc2"
+    },
+    {
+     "id": "1JFQiNiWWgDRSHNJZmcN8c",
+     "name": "happiness around the world - Radio Edit",
+     "kuenstler": [
+      {
+       "id": "0OzU60O3MzXXLfoigoqB1N",
+       "name": "DJOCHEM BARKI"
+      }
+     ],
+     "album": "happiness around the world (Radio Edit)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02de4d598257da5b4c9e070596",
+     "dauer_ms": 101796,
+     "erschienen": "2024-10-16",
+     "url": "https://open.spotify.com/track/1JFQiNiWWgDRSHNJZmcN8c"
+    },
+    {
+     "id": "1rGZd7EVl4aOClpzDLNPwy",
+     "name": "Tausend Tattoos",
+     "kuenstler": [
+      {
+       "id": "4Yttlv9ndGjCDCVLqM7ACq",
+       "name": "Sido"
+      }
+     ],
+     "album": "Tausend Tattoos",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02987a7815cdd46045507ead26",
+     "dauer_ms": 204958,
+     "erschienen": "2018-10-26",
+     "url": "https://open.spotify.com/track/1rGZd7EVl4aOClpzDLNPwy"
+    },
+    {
+     "id": "3AzVdNe7tCYbjjRzQyVLbN",
+     "name": "Bilder im Kopf",
+     "kuenstler": [
+      {
+       "id": "4Yttlv9ndGjCDCVLqM7ACq",
+       "name": "Sido"
+      }
+     ],
+     "album": "#Beste",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02dfbcbe30c3cc0aab5d6e7c9a",
+     "dauer_ms": 238560,
+     "erschienen": "2012-01-01",
+     "url": "https://open.spotify.com/track/3AzVdNe7tCYbjjRzQyVLbN"
+    }
+   ]
+  },
+  "6m": {
+   "kuenstler": [
+    "34LetYSjEuG2fBb4Z8PwPg",
+    "4Yttlv9ndGjCDCVLqM7ACq",
+    "4WZGDpNwrC0vNQyl9QzF7d",
+    "6h1s4i4XKIYv4ErDelLDN0",
+    "1Xyo4u8uXC1ZmMpatF05PJ",
+    "0EmeFodog0BfCgMzAIvKQp",
+    "0Dvx6p8JDyzeOPGmaCIH1L",
+    "1aS5tqEs9ci5P9KD9tZWa6",
+    "3fMbdgg4jU18AjLCKBhRSm",
+    "1qQLhymHXFPtP5U8KNKsm6",
+    "4q3ewBCX7sLwd24euuV69X",
+    "18ISxWwWjV6rPLoVCXf1dz",
+    "39KEQQAG9JhIt71g9NEVhh",
+    "6ynopZPMBXcIGBI9M02Un5",
+    "5pVRwX5ZQR7hfJ18w8ZYkl",
+    "4lDiJcOJ2GLCK6p9q5BgfK",
+    "6piO5Ac23WJnRQifD42dfv",
+    "711MCceyCBcFnzjGY4Q7Un",
+    "1RIDuulMVv3vmkanZeYVq4",
+    "3drqpTL4sQOckmAfF9i1wg",
+    "1ul8iLt2WnFe2UIyovjg7q",
+    "6dBBpd1zW3iywDqNt0UVOk",
+    "6iiirBwETShwklU7hG6tXn",
+    "1E8mXBWN7AXZCOPYbOky4J",
+    "5gSXA0ofbOM1wGaqItyGg9",
+    "4PvnP3yCzrT289cX3wCdOx",
+    "7dGJo4pcD2V6oG8kP0tJRR",
+    "3pjq2pDV9RR6VY55wBjVnp",
+    "4gJT0OnBISFA5CPMNYBGIE",
+    "6tVxgFV9M1sqlTWUnQOhlu",
+    "1EfwyuCzDQpCslZc8C9gkG",
+    "1RyvyyTE3xzB2ZywiAwp0i",
+    "2XNo6k4LqlZlM5sj0wKReo",
+    "5q1SD3zx3GPnofIAPOIFrY",
+    "2Im8m4STDBosjfmb5hmP80",
+    "6gto7HVNhu4ARE3P3g8Y5Y",
+    "6hFz7qfv7dt2sgRuGBYnP1",
+    "77SW9BnxLY8rJ0RciFqkHh",
+    "5WLsGgfxV206tL7KD41Ft1",
+    "0Y5tJX1MQlPlqiwlOH1tJY",
+    "5SCDfg1YoEfI5gFtXqEWah",
+    "7rBed6Ya7Hwa2fXbh5btJE",
+    "3TVkH7YFaAKAjU9s0HgZtl",
+    "3DoYGi5spOR9sIqjdkf2R4",
+    "1dVKBw8iMPpS1almxwIVI3",
+    "7qG3b048QCHVRO5Pv1T5lw",
+    "28TqrmNSPiKo5w3WVb3A3N",
+    "7j6DKwmjbxvpQO8h914uEz",
+    "5INjqkS1o8h1imAzPqGZBb",
+    "5nWYvcpaqKtp08cYxjOfFr"
+   ],
+   "songs": [
+    {
+     "id": "1qfwmUz3Zj5WkLoAHXgskK",
+     "name": "Augenblick",
+     "kuenstler": [
+      {
+       "id": "34LetYSjEuG2fBb4Z8PwPg",
+       "name": "Pashanim"
+      }
+     ],
+     "album": "Lounge Musik",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02f3a40de140573a3d70b6eaf4",
+     "dauer_ms": 127071,
+     "erschienen": "2026-07-23",
+     "url": "https://open.spotify.com/track/1qfwmUz3Zj5WkLoAHXgskK"
+    },
+    {
+     "id": "2dw6tVaptSJwYvKK0hVrge",
+     "name": "Sonne über Berlin",
+     "kuenstler": [
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      },
+      {
+       "id": "6h1s4i4XKIYv4ErDelLDN0",
+       "name": "Samra"
+      }
+     ],
+     "album": "Sonne über Berlin",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0214cc00396d3311fc83726ccd",
+     "dauer_ms": 152459,
+     "erschienen": "2026-07-16",
+     "url": "https://open.spotify.com/track/2dw6tVaptSJwYvKK0hVrge"
+    },
+    {
+     "id": "6UmX6507xaem9KkRmaMs5S",
+     "name": "Ghetto Superstars",
+     "kuenstler": [
+      {
+       "id": "6h1s4i4XKIYv4ErDelLDN0",
+       "name": "Samra"
+      },
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      }
+     ],
+     "album": "Ghetto Superstars",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0222e5cb89c0c9cd4824bc43a9",
+     "dauer_ms": 185377,
+     "erschienen": "2026-07-02",
+     "url": "https://open.spotify.com/track/6UmX6507xaem9KkRmaMs5S"
+    },
+    {
+     "id": "2RaKlveGCllSaXloN8kmzV",
+     "name": "Alien",
+     "kuenstler": [
+      {
+       "id": "18ISxWwWjV6rPLoVCXf1dz",
+       "name": "RIN"
+      }
+     ],
+     "album": "Nimmerland",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0211c0f2c4db6be763a8abeafe",
+     "dauer_ms": 208946,
+     "erschienen": "2019-12-06",
+     "url": "https://open.spotify.com/track/2RaKlveGCllSaXloN8kmzV"
+    },
+    {
+     "id": "2dwlWpSSPD1aUH2IZfTtIq",
+     "name": "Sprite - Remix",
+     "kuenstler": [
+      {
+       "id": "7pqZmXaLL4eqW60I0XgTTF",
+       "name": "TAB Coke Beats"
+      }
+     ],
+     "album": "Sprite (Remix)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e026371e0e6c69cbc86b73d69f1",
+     "dauer_ms": 172804,
+     "erschienen": "2026-06-04",
+     "url": "https://open.spotify.com/track/2dwlWpSSPD1aUH2IZfTtIq"
+    },
+    {
+     "id": "10A5GltcAG4HGmhl6htjox",
+     "name": "winter 4ever - Sped Up",
+     "kuenstler": [
+      {
+       "id": "3scHMUcB85BflinC8FclbI",
+       "name": "Baby Jane"
+      }
+     ],
+     "album": "Winter Forever (Sped Up)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e023903fb87a9816de005abc9be",
+     "dauer_ms": 156448,
+     "erschienen": "2026-07-24",
+     "url": "https://open.spotify.com/track/10A5GltcAG4HGmhl6htjox"
+    },
+    {
+     "id": "2nljjiWhzVIugb5vgEMQQk",
+     "name": "My Love (2024)",
+     "kuenstler": [
+      {
+       "id": "6PTNNcLg90Kkl89JcEwKhT",
+       "name": "Alex Wann"
+      },
+      {
+       "id": "1dgdvbogmctybPrGEcnYf6",
+       "name": "Route 94"
+      },
+      {
+       "id": "4ScCswdRlyA23odg9thgIO",
+       "name": "Jess Glynne"
+      }
+     ],
+     "album": "My Love (2024)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02927c93e23ede299f18afc9c5",
+     "dauer_ms": 184949,
+     "erschienen": "2024-08-30",
+     "url": "https://open.spotify.com/track/2nljjiWhzVIugb5vgEMQQk"
+    },
+    {
+     "id": "7gkAHRs4s3TgPBnDQtb4Li",
+     "name": "СВЕТЛАНА!",
+     "kuenstler": [
+      {
+       "id": "0KaA8HctO3Rt7xjMSu3YUk",
+       "name": "NEXTIME"
+      }
+     ],
+     "album": "БРИЛЛИАНТОВЫЙ АЛЬБОМ",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02ebd66692e7ca930c1186aaa7",
+     "dauer_ms": 96000,
+     "erschienen": "2026-06-26",
+     "url": "https://open.spotify.com/track/7gkAHRs4s3TgPBnDQtb4Li"
+    },
+    {
+     "id": "08mG3Y1vljYA6bvDt4Wqkj",
+     "name": "Back In Black",
+     "kuenstler": [
+      {
+       "id": "711MCceyCBcFnzjGY4Q7Un",
+       "name": "AC/DC"
+      }
+     ],
+     "album": "Back In Black",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02ff191d7fbdb5a13eaf84132b",
+     "dauer_ms": 256000,
+     "erschienen": "1980-07-25",
+     "url": "https://open.spotify.com/track/08mG3Y1vljYA6bvDt4Wqkj"
+    },
+    {
+     "id": "50eBP4arxI9WZqSXAy8j9d",
+     "name": "Sixteen Tons",
+     "kuenstler": [
+      {
+       "id": "1TIQZBUSqWPrBZuh80x6Rz",
+       "name": "Geoff Castellucci"
+      }
+     ],
+     "album": "Sixteen Tons",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02ece7ebb2c1ada0b0aa3cd66e",
+     "dauer_ms": 170626,
+     "erschienen": "2021-01-30",
+     "url": "https://open.spotify.com/track/50eBP4arxI9WZqSXAy8j9d"
+    },
+    {
+     "id": "1P7QkiZYBny9UehIWNbXl2",
+     "name": "Blind",
+     "kuenstler": [
+      {
+       "id": "4gJT0OnBISFA5CPMNYBGIE",
+       "name": "OG Keemo"
+      }
+     ],
+     "album": "BERSERKER +",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02c4d29228c78241ffc342be4a",
+     "dauer_ms": 155914,
+     "erschienen": "2026-05-08",
+     "url": "https://open.spotify.com/track/1P7QkiZYBny9UehIWNbXl2"
+    },
+    {
+     "id": "5qqabIl2vWzo9ApSC317sa",
+     "name": "Wonderwall - Remastered",
+     "kuenstler": [
+      {
+       "id": "2DaxqgrOhkeH0fpeiQq2f4",
+       "name": "Oasis"
+      }
+     ],
+     "album": "(What's The Story) Morning Glory? [Remastered]",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0285e5dcc05cc216a10f141480",
+     "dauer_ms": 258773,
+     "erschienen": "1995-10-02",
+     "url": "https://open.spotify.com/track/5qqabIl2vWzo9ApSC317sa"
+    },
+    {
+     "id": "2knDuFWczh1Wv92eBAdPTa",
+     "name": "Liege wieder wach",
+     "kuenstler": [
+      {
+       "id": "4sVieJlKgpZ2k9ESNS5IdN",
+       "name": "Jamule"
+      }
+     ],
+     "album": "SOLD",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0271235033b6bd76ec113e57d7",
+     "dauer_ms": 176250,
+     "erschienen": "2021-04-29",
+     "url": "https://open.spotify.com/track/2knDuFWczh1Wv92eBAdPTa"
+    },
+    {
+     "id": "4ZVRpCC9umZI81rrNgsGnZ",
+     "name": "Requiem",
+     "kuenstler": [
+      {
+       "id": "2JwyRtuXf2l6sTnSnGVIa1",
+       "name": "Farid Bang"
+      },
+      {
+       "id": "6gto7HVNhu4ARE3P3g8Y5Y",
+       "name": "Kollegah"
+      }
+     ],
+     "album": "So muss man gehen",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02ec5e892e50effb107a1eb9dd",
+     "dauer_ms": 252903,
+     "erschienen": "2026-05-29",
+     "url": "https://open.spotify.com/track/4ZVRpCC9umZI81rrNgsGnZ"
+    },
+    {
+     "id": "3XWKL33NgAJfOmMP8xnu9U",
+     "name": "CASA CUBA",
+     "kuenstler": [
+      {
+       "id": "2LAMcjEMXfL8mWohcAkCF9",
+       "name": "Cave"
+      },
+      {
+       "id": "3F2BUPEkX9IDaRYAeJN0Gh",
+       "name": "Amo"
+      }
+     ],
+     "album": "CASA CUBA",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02d9b1ce9b5c4d60f4fad38431",
+     "dauer_ms": 161280,
+     "erschienen": "2026-05-08",
+     "url": "https://open.spotify.com/track/3XWKL33NgAJfOmMP8xnu9U"
+    },
+    {
+     "id": "4rcQuHo8PhGshmvEVJZ4T5",
+     "name": "KILLY MANJARO",
+     "kuenstler": [
+      {
+       "id": "3drqpTL4sQOckmAfF9i1wg",
+       "name": "Summer Cem"
+      },
+      {
+       "id": "72y6W9pGy97xTM44dwy3F6",
+       "name": "BILLA JOE"
+      }
+     ],
+     "album": "KILLY MANJARO",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02c5e3c29805829b4664754260",
+     "dauer_ms": 146133,
+     "erschienen": "2026-05-21",
+     "url": "https://open.spotify.com/track/4rcQuHo8PhGshmvEVJZ4T5"
+    },
+    {
+     "id": "7pCdzxcTnvSy9QDa6Ly9mI",
+     "name": "Du oder Ich",
+     "kuenstler": [
+      {
+       "id": "1aS5tqEs9ci5P9KD9tZWa6",
+       "name": "Bonez MC"
+      },
+      {
+       "id": "4TPAWIeZhHw6CnsoPe9vxY",
+       "name": "Lucry & Suena"
+      }
+     ],
+     "album": "Johnny's Tape",
+     "cover": "https://i.scdn.co/image/ab67616d00001e024fde2d6645aa125b8fb1bff5",
+     "dauer_ms": 171036,
+     "erschienen": "2026-07-02",
+     "url": "https://open.spotify.com/track/7pCdzxcTnvSy9QDa6Ly9mI"
+    },
+    {
+     "id": "79I7Z2VFUXVC27J8TlOoGJ",
+     "name": "Gengar",
+     "kuenstler": [
+      {
+       "id": "4Ck46WZxqzpKUInvcgVF1C",
+       "name": "YFG Pave"
+      }
+     ],
+     "album": "Aura aus Gold",
+     "cover": "https://i.scdn.co/image/ab67616d00001e021d4f9db8b52c18cea795d7f1",
+     "dauer_ms": 179076,
+     "erschienen": "2024-10-18",
+     "url": "https://open.spotify.com/track/79I7Z2VFUXVC27J8TlOoGJ"
+    },
+    {
+     "id": "2NfK91IXFY47FG5ixb9WRr",
+     "name": "Quadratherz",
+     "kuenstler": [
+      {
+       "id": "4GoCdmGGYtijLZlgTMyhwe",
+       "name": "Khrome"
+      }
+     ],
+     "album": "Quadratherz",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02431946936b6b76efb9cf21cf",
+     "dauer_ms": 158612,
+     "erschienen": "2026-05-08",
+     "url": "https://open.spotify.com/track/2NfK91IXFY47FG5ixb9WRr"
+    },
+    {
+     "id": "2CKgMg04Nfq0lUZhaD8yvs",
+     "name": "Oceans (Where Feet May Fail) - Live from Madison Square Garden",
+     "kuenstler": [
+      {
+       "id": "74cb3MG0x0BOnYNW1uXYnM",
+       "name": "Hillsong UNITED"
+      },
+      {
+       "id": "3D04fb59z3ANxVaeHBfxtW",
+       "name": "TAYA"
+      }
+     ],
+     "album": "The People Tour (Live from Madison Square Garden)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e027a6e57a0dc2f0246c39e8b78",
+     "dauer_ms": 443306,
+     "erschienen": "2021-01-29",
+     "url": "https://open.spotify.com/track/2CKgMg04Nfq0lUZhaD8yvs"
+    },
+    {
+     "id": "7medoAnENNaeVAHQbGcOMK",
+     "name": "ISSA",
+     "kuenstler": [
+      {
+       "id": "4Yttlv9ndGjCDCVLqM7ACq",
+       "name": "Sido"
+      }
+     ],
+     "album": "ISSA",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02fefef72e20ec3394911b3d55",
+     "dauer_ms": 144861,
+     "erschienen": "2026-08-20",
+     "url": "https://open.spotify.com/track/7medoAnENNaeVAHQbGcOMK"
+    },
+    {
+     "id": "5CqkgDH8QZjSqqI3HmYxDD",
+     "name": "Airwaves",
+     "kuenstler": [
+      {
+       "id": "34LetYSjEuG2fBb4Z8PwPg",
+       "name": "Pashanim"
+      }
+     ],
+     "album": "Airwaves",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02bef362b164cb7ebc1b1d8eb7",
+     "dauer_ms": 178932,
+     "erschienen": "2020-05-14",
+     "url": "https://open.spotify.com/track/5CqkgDH8QZjSqqI3HmYxDD"
+    },
+    {
+     "id": "2cZrrQMjB63c0iIugYH9zS",
+     "name": "Rain Over Me (feat. Marc Anthony)",
+     "kuenstler": [
+      {
+       "id": "0TnOYISbd1XYRBk9myaseg",
+       "name": "Pitbull"
+      },
+      {
+       "id": "4wLXwxDeWQ8mtUIRPxGiD6",
+       "name": "Marc Anthony"
+      }
+     ],
+     "album": "Planet Pit (Deluxe Version)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e021dc7483a9fcfce54822a2f19",
+     "dauer_ms": 231573,
+     "erschienen": "2011-06-17",
+     "url": "https://open.spotify.com/track/2cZrrQMjB63c0iIugYH9zS"
+    },
+    {
+     "id": "0zZnBbRW4Dt4cJKVtUQFwF",
+     "name": "Balada - Ao Vivo",
+     "kuenstler": [
+      {
+       "id": "7MiDcPa6UiV3In7lIM71IN",
+       "name": "Gusttavo Lima"
+      }
+     ],
+     "album": "Gusttavo Lima e Você (Ao Vivo)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e025840f88453448723ce907a53",
+     "dauer_ms": 201840,
+     "erschienen": "2011-09-20",
+     "url": "https://open.spotify.com/track/0zZnBbRW4Dt4cJKVtUQFwF"
+    },
+    {
+     "id": "4nV2TbyTbGljX58MKwPxvm",
+     "name": "LID",
+     "kuenstler": [
+      {
+       "id": "7rBed6Ya7Hwa2fXbh5btJE",
+       "name": "LACAZETTE"
+      }
+     ],
+     "album": "LID",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02af6346d263dbf3655e17fbc7",
+     "dauer_ms": 144516,
+     "erschienen": "2024-12-27",
+     "url": "https://open.spotify.com/track/4nV2TbyTbGljX58MKwPxvm"
+    },
+    {
+     "id": "3ilgxZl5g7MOQCUiky3VOG",
+     "name": "Ms. Jackson",
+     "kuenstler": [
+      {
+       "id": "34LetYSjEuG2fBb4Z8PwPg",
+       "name": "Pashanim"
+      }
+     ],
+     "album": "Ms. Jackson",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02fe4ea17c9ea3215eaf017d49",
+     "dauer_ms": 147586,
+     "erschienen": "2023-08-24",
+     "url": "https://open.spotify.com/track/3ilgxZl5g7MOQCUiky3VOG"
+    },
+    {
+     "id": "0kosUz0jePvjiz4ctmR6wL",
+     "name": "Dai Dai",
+     "kuenstler": [
+      {
+       "id": "0EmeFodog0BfCgMzAIvKQp",
+       "name": "Shakira"
+      },
+      {
+       "id": "3wcj11K77LjEY1PkEazffa",
+       "name": "Burna Boy"
+      }
+     ],
+     "album": "Dai Dai",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0203cadf1b3fe324c1dc710ed4",
+     "dauer_ms": 223448,
+     "erschienen": "2026-05-14",
+     "url": "https://open.spotify.com/track/0kosUz0jePvjiz4ctmR6wL"
+    },
+    {
+     "id": "4fUq2beS1zE53l058o8TXl",
+     "name": "Arbeiten bis zur Rente 2",
+     "kuenstler": [
+      {
+       "id": "3rJe1nJEEuzdmuGSPy8teM",
+       "name": "Chef FM"
+      }
+     ],
+     "album": "Arbeiten bis zur Rente 2",
+     "cover": "https://i.scdn.co/image/ab67616d00001e020ab2cd4c80594e7dfcdea629",
+     "dauer_ms": 169287,
+     "erschienen": "2026-01-30",
+     "url": "https://open.spotify.com/track/4fUq2beS1zE53l058o8TXl"
+    },
+    {
+     "id": "1qU3WTfgqtGU9EiwnTKALN",
+     "name": "Böse Jungs",
+     "kuenstler": [
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      },
+      {
+       "id": "6h1s4i4XKIYv4ErDelLDN0",
+       "name": "Samra"
+      },
+      {
+       "id": "7rBed6Ya7Hwa2fXbh5btJE",
+       "name": "LACAZETTE"
+      }
+     ],
+     "album": "Böse Jungs",
+     "cover": "https://i.scdn.co/image/ab67616d00001e021b7d75dd67c1f699b3345889",
+     "dauer_ms": 215872,
+     "erschienen": "2026-08-20",
+     "url": "https://open.spotify.com/track/1qU3WTfgqtGU9EiwnTKALN"
+    },
+    {
+     "id": "5gAdaRjOrlJzbgkCHIpBSw",
+     "name": "BLOCKKIDS",
+     "kuenstler": [
+      {
+       "id": "1dVKBw8iMPpS1almxwIVI3",
+       "name": "THIZZY52"
+      }
+     ],
+     "album": "BLOCKKIDS",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0288a7fc2129eb65adf391194b",
+     "dauer_ms": 147893,
+     "erschienen": "2026-10-08",
+     "url": "https://open.spotify.com/track/5gAdaRjOrlJzbgkCHIpBSw"
+    },
+    {
+     "id": "0Bf7Lc7d6gE3xUDCePUvV7",
+     "name": "erstersommerohnedich",
+     "kuenstler": [
+      {
+       "id": "34LetYSjEuG2fBb4Z8PwPg",
+       "name": "Pashanim"
+      }
+     ],
+     "album": "erstersommerohnedich",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0256592856276362df76923c0c",
+     "dauer_ms": 154741,
+     "erschienen": "2025-09-11",
+     "url": "https://open.spotify.com/track/0Bf7Lc7d6gE3xUDCePUvV7"
+    },
+    {
+     "id": "2fPuplSUALwas2hf3Uvm5I",
+     "name": "ARDA SAATÇI",
+     "kuenstler": [
+      {
+       "id": "1ul8iLt2WnFe2UIyovjg7q",
+       "name": "reezy"
+      }
+     ],
+     "album": "RAHEEM",
+     "cover": "https://i.scdn.co/image/ab67616d00001e020d5113c7e679485c0a77f87d",
+     "dauer_ms": 115488,
+     "erschienen": "2026-08-14",
+     "url": "https://open.spotify.com/track/2fPuplSUALwas2hf3Uvm5I"
+    },
+    {
+     "id": "29U7stRjqHU6rMiS8BfaI9",
+     "name": "What A Wonderful World",
+     "kuenstler": [
+      {
+       "id": "19eLuQmk9aCobbVDHc6eek",
+       "name": "Louis Armstrong"
+      }
+     ],
+     "album": "What A Wonderful World",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02845a5660b804e5f3e821fbed",
+     "dauer_ms": 139226,
+     "erschienen": "1968-01-01",
+     "url": "https://open.spotify.com/track/29U7stRjqHU6rMiS8BfaI9"
+    },
+    {
+     "id": "0D2Iy70f24BmWpzqFUe70F",
+     "name": "DNA (More Than A Game)",
+     "kuenstler": [
+      {
+       "id": "3EA9hVIzKfFiQI0Kikz2wo",
+       "name": "Andrea Bocelli"
+      },
+      {
+       "id": "1Cs0zKBU1kc0i8ypK3B9ai",
+       "name": "David Guetta"
+      },
+      {
+       "id": "0RMJOzHDhAKY1o2j0W0vxY",
+       "name": "EJAE"
+      },
+      {
+       "id": "181bsRPaVXVlUKXrxwZfHK",
+       "name": "Megan Thee Stallion"
+      }
+     ],
+     "album": "Season of Champions",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02d0a73913c3893a698c82d9e7",
+     "dauer_ms": 176855,
+     "erschienen": "2026-06-12",
+     "url": "https://open.spotify.com/track/0D2Iy70f24BmWpzqFUe70F"
+    },
+    {
+     "id": "40NjASTBlqkyCZ9bPVDcMK",
+     "name": "panzerknacker.wav",
+     "kuenstler": [
+      {
+       "id": "0WyJfrWjsny9mSxops8ksX",
+       "name": "LENNSKO"
+      }
+     ],
+     "album": "panzerknacker.wav",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02b86e54b3cafe66861cbd7f42",
+     "dauer_ms": 156363,
+     "erschienen": "2026-04-05",
+     "url": "https://open.spotify.com/track/40NjASTBlqkyCZ9bPVDcMK"
+    },
+    {
+     "id": "1dwXWQRPamEngGsLjbNWNi",
+     "name": "Criminal",
+     "kuenstler": [
+      {
+       "id": "26dSoYclwsYLMAKD3tpOr4",
+       "name": "Britney Spears"
+      }
+     ],
+     "album": "Femme Fatale (Deluxe Version)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02fb7404815115bbfa64af93cb",
+     "dauer_ms": 225080,
+     "erschienen": "2011-03-25",
+     "url": "https://open.spotify.com/track/1dwXWQRPamEngGsLjbNWNi"
+    },
+    {
+     "id": "6leQi7NakJQS1vHRtZsroe",
+     "name": "Mittelmeer",
+     "kuenstler": [
+      {
+       "id": "34LetYSjEuG2fBb4Z8PwPg",
+       "name": "Pashanim"
+      }
+     ],
+     "album": "2000",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0233ff34130a6eeecb47d24d26",
+     "dauer_ms": 179106,
+     "erschienen": "2024-06-13",
+     "url": "https://open.spotify.com/track/6leQi7NakJQS1vHRtZsroe"
+    },
+    {
+     "id": "131SfRMv57LKf8xtaSt39k",
+     "name": "Who Do You Want",
+     "kuenstler": [
+      {
+       "id": "0wRGuF39WWxHeftv2TBNQT",
+       "name": "Ex Habit"
+      }
+     ],
+     "album": "Who Do You Want",
+     "cover": "https://i.scdn.co/image/ab67616d00001e027a66e0e2c7091622f713c07a",
+     "dauer_ms": 140016,
+     "erschienen": "2022-03-28",
+     "url": "https://open.spotify.com/track/131SfRMv57LKf8xtaSt39k"
+    },
+    {
+     "id": "2epRW3O5YLwiqcxOdaI4Mm",
+     "name": "Major Tom (...völlig losgelöst)",
+     "kuenstler": [
+      {
+       "id": "7ip3CWlgPZbQHvgJpmcGSS",
+       "name": "Peter Schilling"
+      }
+     ],
+     "album": "Fehler Im System",
+     "cover": "https://i.scdn.co/image/ab67616d00001e028d8b304fd2d17f66272f3a37",
+     "dauer_ms": 299560,
+     "erschienen": "1982-12-03",
+     "url": "https://open.spotify.com/track/2epRW3O5YLwiqcxOdaI4Mm"
+    },
+    {
+     "id": "5PcZTsUAo5ZH9JcTmBNy5t",
+     "name": "Hin und Her",
+     "kuenstler": [
+      {
+       "id": "07SFzTMeYf5P8Rd32a9Zzw",
+       "name": "AK AUSSERKONTROLLE"
+      }
+     ],
+     "album": "Hin und Her",
+     "cover": "https://i.scdn.co/image/ab67616d00001e023553feb05f3c9b924b4e0fbf",
+     "dauer_ms": 158206,
+     "erschienen": "2026-06-11",
+     "url": "https://open.spotify.com/track/5PcZTsUAo5ZH9JcTmBNy5t"
+    },
+    {
+     "id": "2Q4zHSJgtlc9mWoWQXpSJX",
+     "name": "Sua Amiga Vou Pegar",
+     "kuenstler": [
+      {
+       "id": "14D0I0RYqvIorkPL2EWoQh",
+       "name": "MC WM"
+      },
+      {
+       "id": "4mb1xtQVGSK5dh8AbtwBiR",
+       "name": "MC Lan"
+      }
+     ],
+     "album": "Sua Amiga Vou Pegar",
+     "cover": "https://i.scdn.co/image/ab67616d00001e021124af439103157632472a65",
+     "dauer_ms": 156969,
+     "erschienen": "2017-04-12",
+     "url": "https://open.spotify.com/track/2Q4zHSJgtlc9mWoWQXpSJX"
+    },
+    {
+     "id": "2rcUsgC2Op6lXRWJqXwUNL",
+     "name": "WOKE",
+     "kuenstler": [
+      {
+       "id": "4Yttlv9ndGjCDCVLqM7ACq",
+       "name": "Sido"
+      }
+     ],
+     "album": "WOKE",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02b0570ef3ba65805fb379c958",
+     "dauer_ms": 157720,
+     "erschienen": "2026-09-17",
+     "url": "https://open.spotify.com/track/2rcUsgC2Op6lXRWJqXwUNL"
+    },
+    {
+     "id": "4YNAMAJpfTrrxiiwMFKqIo",
+     "name": "Leave Her Johnny",
+     "kuenstler": [
+      {
+       "id": "5JgxqXmh1TrVDZn7gAgqLw",
+       "name": "Sean Dagher"
+      },
+      {
+       "id": "42cM14lDAB0KzoBWQ86TWu",
+       "name": "Nils Brown"
+      },
+      {
+       "id": "2KgIhGBEJK4W6Uw5WVeoaV",
+       "name": "Michiel Schrey"
+      },
+      {
+       "id": "5ct8AlcDgWMp4O25vbcjpC",
+       "name": "Assassin's Creed"
+      }
+     ],
+     "album": "Assassin's Creed Black Flag: Resynced – Sea Shanties Ultimate Collection (Original Game Soundtrack)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02c93f62501425bf0bd1283c8f",
+     "dauer_ms": 132280,
+     "erschienen": "2026-06-26",
+     "url": "https://open.spotify.com/track/4YNAMAJpfTrrxiiwMFKqIo"
+    },
+    {
+     "id": "2a1o6ZejUi8U3wzzOtCOYw",
+     "name": "Danza Kuduro",
+     "kuenstler": [
+      {
+       "id": "33ScadVnbm2X8kkUqOkC6Z",
+       "name": "Don Omar"
+      },
+      {
+       "id": "5bv5RplEOwdCvhq0EILh9E",
+       "name": "Lucenzo"
+      }
+     ],
+     "album": "Meet The Orphans",
+     "cover": "https://i.scdn.co/image/ab67616d00001e024640a26eb27649006be29a94",
+     "dauer_ms": 198773,
+     "erschienen": "2010-01-01",
+     "url": "https://open.spotify.com/track/2a1o6ZejUi8U3wzzOtCOYw"
+    },
+    {
+     "id": "7zirvOKv5Yi0WsXuq8f7xi",
+     "name": "LOVE U ANYWAY",
+     "kuenstler": [
+      {
+       "id": "1EZIni3W4CmC2bTy75Q053",
+       "name": "benno!"
+      }
+     ],
+     "album": "LOVE U ANYWAY",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02e4a906ce3f58a38a63032ebd",
+     "dauer_ms": 154745,
+     "erschienen": "2026-01-23",
+     "url": "https://open.spotify.com/track/7zirvOKv5Yi0WsXuq8f7xi"
+    },
+    {
+     "id": "18buZltRhTFXlgUeeWuKkK",
+     "name": "BALOTELLI",
+     "kuenstler": [
+      {
+       "id": "1dVKBw8iMPpS1almxwIVI3",
+       "name": "THIZZY52"
+      }
+     ],
+     "album": "BLOCKKIDS",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0288a7fc2129eb65adf391194b",
+     "dauer_ms": 138440,
+     "erschienen": "2026-10-08",
+     "url": "https://open.spotify.com/track/18buZltRhTFXlgUeeWuKkK"
+    },
+    {
+     "id": "2H7jZg2HliuQhZjfBblLrZ",
+     "name": "Sommergewitter",
+     "kuenstler": [
+      {
+       "id": "34LetYSjEuG2fBb4Z8PwPg",
+       "name": "Pashanim"
+      }
+     ],
+     "album": "Sommergewitter",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02f4021229806dee1ed58835d2",
+     "dauer_ms": 138533,
+     "erschienen": "2021-06-24",
+     "url": "https://open.spotify.com/track/2H7jZg2HliuQhZjfBblLrZ"
+    },
+    {
+     "id": "0xerhx2OnMD9SIt4UXUM4P",
+     "name": "Überlebt",
+     "kuenstler": [
+      {
+       "id": "39KEQQAG9JhIt71g9NEVhh",
+       "name": "Azet"
+      }
+     ],
+     "album": "Fast Life",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0222901fca64c9ed50f9d17685",
+     "dauer_ms": 207840,
+     "erschienen": "2018-03-30",
+     "url": "https://open.spotify.com/track/0xerhx2OnMD9SIt4UXUM4P"
+    },
+    {
+     "id": "3CHbWJr7M1ybyF3wkHfi4z",
+     "name": "Es Tut Mir Doch so Leid",
+     "kuenstler": [
+      {
+       "id": "2ib5SfRdSqdCEO0serkHH1",
+       "name": "F-Raz"
+      }
+     ],
+     "album": "Es Tut Mir Doch so Leid",
+     "cover": "https://i.scdn.co/image/ab67616d00001e021907a24c990a4e2be5514493",
+     "dauer_ms": 190872,
+     "erschienen": "2025-07-26",
+     "url": "https://open.spotify.com/track/3CHbWJr7M1ybyF3wkHfi4z"
+    },
+    {
+     "id": "4hYinIaRxdaoEFSQni6K6I",
+     "name": "Nur ein Wort",
+     "kuenstler": [
+      {
+       "id": "3jiOHVFdVQjbSDVeC7RgY7",
+       "name": "Wir sind Helden"
+      }
+     ],
+     "album": "Von hier an blind",
+     "cover": "https://i.scdn.co/image/ab67616d00001e023110ac6b32c463f398a9e051",
+     "dauer_ms": 236200,
+     "erschienen": "2005-04-01",
+     "url": "https://open.spotify.com/track/4hYinIaRxdaoEFSQni6K6I"
+    }
+   ]
+  },
+  "1y": {
+   "kuenstler": [
+    "4WZGDpNwrC0vNQyl9QzF7d",
+    "0Dvx6p8JDyzeOPGmaCIH1L",
+    "4Yttlv9ndGjCDCVLqM7ACq",
+    "6h1s4i4XKIYv4ErDelLDN0",
+    "1Xyo4u8uXC1ZmMpatF05PJ",
+    "1aS5tqEs9ci5P9KD9tZWa6",
+    "34LetYSjEuG2fBb4Z8PwPg",
+    "6ynopZPMBXcIGBI9M02Un5",
+    "1ul8iLt2WnFe2UIyovjg7q",
+    "4q3ewBCX7sLwd24euuV69X",
+    "5yw4tA8D5uG7tT3NaDvq10",
+    "1qQLhymHXFPtP5U8KNKsm6",
+    "4lDiJcOJ2GLCK6p9q5BgfK",
+    "0GOx72r5AAEKRGQFn3xqXK",
+    "7dGJo4pcD2V6oG8kP0tJRR",
+    "00FQb4jTyendYWaN8pK0wa",
+    "3YQKmKGau1PzlVlkL1iodx",
+    "53XhwfbYqKCa1cC15pYq2q",
+    "77SW9BnxLY8rJ0RciFqkHh",
+    "1E8mXBWN7AXZCOPYbOky4J",
+    "5gSXA0ofbOM1wGaqItyGg9",
+    "0EmeFodog0BfCgMzAIvKQp",
+    "7qG3b048QCHVRO5Pv1T5lw",
+    "7GR9YDdr51tku5kjFgMLB1",
+    "28TqrmNSPiKo5w3WVb3A3N",
+    "2o5jDhtHVPhrJdv3cEQ99Z",
+    "7vk5e3vY1uw9plTHJAMwjN",
+    "18ISxWwWjV6rPLoVCXf1dz",
+    "1EfwyuCzDQpCslZc8C9gkG",
+    "0fTSzq9jAh4c36UVb4V7CB",
+    "39KEQQAG9JhIt71g9NEVhh",
+    "4hK7sEnm0se5bqoI3Yb5o1",
+    "711MCceyCBcFnzjGY4Q7Un",
+    "2ORiMtfuAyIgw5tk2WnERd",
+    "3fMbdgg4jU18AjLCKBhRSm",
+    "6fOMl44jA4Sp5b9PpYCkzz",
+    "41JIPLdFRH6JBZXb19vVuq",
+    "7cYEt1pqMgXJdq00hAwVpT",
+    "246dkjvS1zLTtiykXe5h60",
+    "5arKwJZEvT5uKq4o0JfqR4",
+    "1Cs0zKBU1kc0i8ypK3B9ai",
+    "5SCDfg1YoEfI5gFtXqEWah",
+    "5pVRwX5ZQR7hfJ18w8ZYkl",
+    "3Mqo6hd9UQljzHJTJETjsU",
+    "2DL1LxN8dHBG1tI3Q3TlK7",
+    "0LcJLqbBmaGUft1e9Mm8HV",
+    "3drqpTL4sQOckmAfF9i1wg",
+    "5pKCCKE2ajJHZ9KAiaK11H",
+    "4rrI3dKjmTOzRZvOwOWOlu",
+    "6r8QEHkxWjN4t2HemWAMyN"
+   ],
+   "songs": [
+    {
+     "id": "628h6njwRhD653gUi1Hxbb",
+     "name": "Augenblick",
+     "kuenstler": [
+      {
+       "id": "34LetYSjEuG2fBb4Z8PwPg",
+       "name": "Pashanim"
+      }
+     ],
+     "album": "Augenblick",
+     "cover": "https://i.scdn.co/image/ab67616d00001e022e2cbc10d1dba529ef41bf75",
+     "dauer_ms": 127071,
+     "erschienen": "2026-07-16",
+     "url": "https://open.spotify.com/track/628h6njwRhD653gUi1Hxbb"
+    },
+    {
+     "id": "0gyO8zq1Hw5GTQ33EXcc40",
+     "name": "Benzema",
+     "kuenstler": [
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      }
+     ],
+     "album": "CB6",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02bcb5b0852623a7024338152e",
+     "dauer_ms": 159152,
+     "erschienen": "2019-04-12",
+     "url": "https://open.spotify.com/track/0gyO8zq1Hw5GTQ33EXcc40"
+    },
+    {
+     "id": "2dw6tVaptSJwYvKK0hVrge",
+     "name": "Sonne über Berlin",
+     "kuenstler": [
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      },
+      {
+       "id": "6h1s4i4XKIYv4ErDelLDN0",
+       "name": "Samra"
+      }
+     ],
+     "album": "Sonne über Berlin",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0214cc00396d3311fc83726ccd",
+     "dauer_ms": 152459,
+     "erschienen": "2026-07-16",
+     "url": "https://open.spotify.com/track/2dw6tVaptSJwYvKK0hVrge"
+    },
+    {
+     "id": "6UmX6507xaem9KkRmaMs5S",
+     "name": "Ghetto Superstars",
+     "kuenstler": [
+      {
+       "id": "6h1s4i4XKIYv4ErDelLDN0",
+       "name": "Samra"
+      },
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      }
+     ],
+     "album": "Ghetto Superstars",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0222e5cb89c0c9cd4824bc43a9",
+     "dauer_ms": 185377,
+     "erschienen": "2026-07-02",
+     "url": "https://open.spotify.com/track/6UmX6507xaem9KkRmaMs5S"
+    },
+    {
+     "id": "3qhlB30KknSejmIvZZLjOD",
+     "name": "End of Beginning",
+     "kuenstler": [
+      {
+       "id": "5p9HO3XC5P3BLxJs5Mtrhm",
+       "name": "Djo"
+      }
+     ],
+     "album": "DECIDE",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02987466cc3363ea26094ca3c4",
+     "dauer_ms": 159245,
+     "erschienen": "2022-09-16",
+     "url": "https://open.spotify.com/track/3qhlB30KknSejmIvZZLjOD"
+    },
+    {
+     "id": "2RkZ5LkEzeHGRsmDqKwmaJ",
+     "name": "Ordinary",
+     "kuenstler": [
+      {
+       "id": "0fTSzq9jAh4c36UVb4V7CB",
+       "name": "Alex Warren"
+      }
+     ],
+     "album": "You'll Be Alright, Kid (Chapter 1)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e028d18d73bbfc8985d52865edf",
+     "dauer_ms": 186964,
+     "erschienen": "2024-09-26",
+     "url": "https://open.spotify.com/track/2RkZ5LkEzeHGRsmDqKwmaJ"
+    },
+    {
+     "id": "6GEbjb4gBo13BZF7G2PuEZ",
+     "name": "GTA",
+     "kuenstler": [
+      {
+       "id": "2tHtwM1edk5g3zqMCPOfb6",
+       "name": "Standart Skill"
+      },
+      {
+       "id": "6SGVQ8bD0Hab6BItkqWVuJ",
+       "name": "JURI"
+      },
+      {
+       "id": "5SsiJy8NJMzYowqe2sN58e",
+       "name": "Mavie"
+      }
+     ],
+     "album": "GTA",
+     "cover": "https://i.scdn.co/image/ab67616d00001e022c0f5427f80032a9358f1f8b",
+     "dauer_ms": 195000,
+     "erschienen": "2020-01-09",
+     "url": "https://open.spotify.com/track/6GEbjb4gBo13BZF7G2PuEZ"
+    },
+    {
+     "id": "3OBTxLYXzQalSQbDv4qpGC",
+     "name": "Da für dich",
+     "kuenstler": [
+      {
+       "id": "2Diqn1jFkehRd9MVDGKGdq",
+       "name": "Eddin"
+      }
+     ],
+     "album": "Da für dich",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0262b70bfeb4eca786cb1ce7f7",
+     "dauer_ms": 218016,
+     "erschienen": "2019-08-06",
+     "url": "https://open.spotify.com/track/3OBTxLYXzQalSQbDv4qpGC"
+    },
+    {
+     "id": "7llooRQ2Y8fc7bZYvXHqbC",
+     "name": "Contigo Siempre",
+     "kuenstler": [
+      {
+       "id": "5bePP411ITzZyWf1QZ2SX4",
+       "name": "Flame Runner"
+      }
+     ],
+     "album": "Contigo Siempre",
+     "cover": "https://i.scdn.co/image/ab67616d00001e022181611e7986316e97a90f87",
+     "dauer_ms": 66000,
+     "erschienen": "2025-04-11",
+     "url": "https://open.spotify.com/track/7llooRQ2Y8fc7bZYvXHqbC"
+    },
+    {
+     "id": "798N3AVTpnPSuYPh7KBCKA",
+     "name": "All Night",
+     "kuenstler": [
+      {
+       "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+       "name": "RAF Camora"
+      },
+      {
+       "id": "3CJKkU0XuElRT1z8rEtIYg",
+       "name": "Luciano"
+      }
+     ],
+     "album": "XV",
+     "cover": "https://i.scdn.co/image/ab67616d00001e029304996dc88e61729067babf",
+     "dauer_ms": 153669,
+     "erschienen": "2023-06-23",
+     "url": "https://open.spotify.com/track/798N3AVTpnPSuYPh7KBCKA"
+    },
+    {
+     "id": "5TvdhAd9HzrQ8h3I83jlto",
+     "name": "Gewinner",
+     "kuenstler": [
+      {
+       "id": "2P7AfQW941UU324qq2ggZf",
+       "name": "METRICKZ"
+      }
+     ],
+     "album": "Gewinner",
+     "cover": "https://i.scdn.co/image/ab67616d00001e026ac63b0e74c0626eeb1c2cab",
+     "dauer_ms": 143661,
+     "erschienen": "2025-05-23",
+     "url": "https://open.spotify.com/track/5TvdhAd9HzrQ8h3I83jlto"
+    },
+    {
+     "id": "2u8AXJyk8pICzj2wyPBL0b",
+     "name": "2002",
+     "kuenstler": [
+      {
+       "id": "4Yttlv9ndGjCDCVLqM7ACq",
+       "name": "Sido"
+      },
+      {
+       "id": "1qQLhymHXFPtP5U8KNKsm6",
+       "name": "Apache 207"
+      }
+     ],
+     "album": "Ich & keine Maske",
+     "cover": "https://i.scdn.co/image/ab67616d00001e029d8ec4df88e6b21929522c74",
+     "dauer_ms": 237157,
+     "erschienen": "2019-09-26",
+     "url": "https://open.spotify.com/track/2u8AXJyk8pICzj2wyPBL0b"
+    },
+    {
+     "id": "0AMoopn68aGAAaJ9qFXPnX",
+     "name": "Lighter",
+     "kuenstler": [
+      {
+       "id": "4KfEG606HYb1TLQhq7NbDl",
+       "name": "Kyle Alessandro"
+      }
+     ],
+     "album": "Lighter",
+     "cover": "https://i.scdn.co/image/ab67616d00001e026a4ab592d0662bc450ca7c4f",
+     "dauer_ms": 175853,
+     "erschienen": "2025-01-24",
+     "url": "https://open.spotify.com/track/0AMoopn68aGAAaJ9qFXPnX"
+    },
+    {
+     "id": "321yySUTzRXUbzkRTeTzDB",
+     "name": "Wasted Love",
+     "kuenstler": [
+      {
+       "id": "4W9cXg9c6w38cHSUfUWPcP",
+       "name": "JJ"
+      }
+     ],
+     "album": "Wasted Love",
+     "cover": "https://i.scdn.co/image/ab67616d00001e027de5fab535418ab314d8f2d7",
+     "dauer_ms": 164998,
+     "erschienen": "2025-03-06",
+     "url": "https://open.spotify.com/track/321yySUTzRXUbzkRTeTzDB"
+    },
+    {
+     "id": "7pT6WSg4PCt4mr5ZFyUfsF",
+     "name": "If We Have Each Other",
+     "kuenstler": [
+      {
+       "id": "5IH6FPUwQTxPSXurCrcIov",
+       "name": "Alec Benjamin"
+      }
+     ],
+     "album": "Narrated For You",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02459d675aa0b6f3b211357370",
+     "dauer_ms": 181522,
+     "erschienen": "2018-11-16",
+     "url": "https://open.spotify.com/track/7pT6WSg4PCt4mr5ZFyUfsF"
+    },
+    {
+     "id": "2RaKlveGCllSaXloN8kmzV",
+     "name": "Alien",
+     "kuenstler": [
+      {
+       "id": "18ISxWwWjV6rPLoVCXf1dz",
+       "name": "RIN"
+      }
+     ],
+     "album": "Nimmerland",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0211c0f2c4db6be763a8abeafe",
+     "dauer_ms": 208946,
+     "erschienen": "2019-12-06",
+     "url": "https://open.spotify.com/track/2RaKlveGCllSaXloN8kmzV"
+    },
+    {
+     "id": "2SvPUyAZGI1R3zWyVBGjti",
+     "name": "Everybody Wants To Rule The World - From “The Hunger Games: Catching Fire” Soundtrack",
+     "kuenstler": [
+      {
+       "id": "163tK9Wjr9P9DmM0AVK7lm",
+       "name": "Lorde"
+      }
+     ],
+     "album": "Die Tribute von Panem - Catching Fire (Deluxe Edition)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02ddc78bc17e02588cffc71b08",
+     "dauer_ms": 155586,
+     "erschienen": "2013-01-01",
+     "url": "https://open.spotify.com/track/2SvPUyAZGI1R3zWyVBGjti"
+    },
+    {
+     "id": "4oodd2Z1U6Xg5tWMiUb3DN",
+     "name": "Unendlichkeit (Remix)",
+     "kuenstler": [
+      {
+       "id": "6nJEMDVNcq7fduXgk7EdGG",
+       "name": "MilleniumKid"
+      },
+      {
+       "id": "6l8dHVPkuEFzpQjhCH4xXT",
+       "name": "JBS"
+      },
+      {
+       "id": "0EG0El2Ozcdnw0xJA77DyO",
+       "name": "The Boy The G"
+      }
+     ],
+     "album": "Unendlichkeit (Remix)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02dc8f49ee3f44961ec0cfd22d",
+     "dauer_ms": 172764,
+     "erschienen": "2023-09-22",
+     "url": "https://open.spotify.com/track/4oodd2Z1U6Xg5tWMiUb3DN"
+    },
+    {
+     "id": "53iuhJlwXhSER5J2IYYv1W",
+     "name": "The Fate of Ophelia",
+     "kuenstler": [
+      {
+       "id": "06HL4z0CvFAxyc27GXpf02",
+       "name": "Taylor Swift"
+      }
+     ],
+     "album": "The Life of a Showgirl",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02d7812467811a7da6e6a44902",
+     "dauer_ms": 226073,
+     "erschienen": "2025-10-03",
+     "url": "https://open.spotify.com/track/53iuhJlwXhSER5J2IYYv1W"
+    },
+    {
+     "id": "2ZoO0uLQRp2WhTlyIH8PJf",
+     "name": "Lieder",
+     "kuenstler": [
+      {
+       "id": "3rZBkgoRHG8M9jQL0QPNMi",
+       "name": "Adel Tawil"
+      }
+     ],
+     "album": "Lieder (Deluxe Version)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02882cfe426140c3af6848d7b0",
+     "dauer_ms": 227520,
+     "erschienen": "2013-11-08",
+     "url": "https://open.spotify.com/track/2ZoO0uLQRp2WhTlyIH8PJf"
+    },
+    {
+     "id": "7istTRCq9OK5cEC8sPAc50",
+     "name": "An ihnen vorbei",
+     "kuenstler": [
+      {
+       "id": "1aS5tqEs9ci5P9KD9tZWa6",
+       "name": "Bonez MC"
+      },
+      {
+       "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+       "name": "RAF Camora"
+      }
+     ],
+     "album": "Tannen aus Plastik",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0225670faa809006c041e9f418",
+     "dauer_ms": 200540,
+     "erschienen": "2016-12-16",
+     "url": "https://open.spotify.com/track/7istTRCq9OK5cEC8sPAc50"
+    },
+    {
+     "id": "58Ao5tbhdl95WW8rr1shF1",
+     "name": "Mr. Loba Loba",
+     "kuenstler": [
+      {
+       "id": "3fi2XZbBQ4Px2T9ar6Es0M",
+       "name": "Juice"
+      }
+     ],
+     "album": "Mr. Loba Loba",
+     "cover": "https://i.scdn.co/image/ab67616d00001e021879648c7db21555288a890a",
+     "dauer_ms": 137579,
+     "erschienen": "2025-08-21",
+     "url": "https://open.spotify.com/track/58Ao5tbhdl95WW8rr1shF1"
+    },
+    {
+     "id": "6swHFuEVd7a6dCIMHTG0VF",
+     "name": "Fall off",
+     "kuenstler": [
+      {
+       "id": "702XNgA79AG7pUGDxoYHql",
+       "name": "Miami Rize"
+      }
+     ],
+     "album": "Fall off",
+     "cover": "https://i.scdn.co/image/ab67616d00001e022a41a9377a8567e5b379021d",
+     "dauer_ms": 145454,
+     "erschienen": "2026-04-10",
+     "url": "https://open.spotify.com/track/6swHFuEVd7a6dCIMHTG0VF"
+    },
+    {
+     "id": "2U07Gukj3QGlLh0krokPdG",
+     "name": "Capri Sun",
+     "kuenstler": [
+      {
+       "id": "28TqrmNSPiKo5w3WVb3A3N",
+       "name": "Aymen"
+      },
+      {
+       "id": "3F2BUPEkX9IDaRYAeJN0Gh",
+       "name": "Amo"
+      }
+     ],
+     "album": "Capri Sun",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02d5279cacab221678f1b50391",
+     "dauer_ms": 119235,
+     "erschienen": "2025-05-30",
+     "url": "https://open.spotify.com/track/2U07Gukj3QGlLh0krokPdG"
+    },
+    {
+     "id": "5fpujciVjGBhnR2XFx06E7",
+     "name": "Ya Salam",
+     "kuenstler": [
+      {
+       "id": "1yIifIA91WgmfzBcjbQB8i",
+       "name": "Kurdo"
+      }
+     ],
+     "album": "Vision",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02f3f6ea969f47bd2295ec96ab",
+     "dauer_ms": 218600,
+     "erschienen": "2017-03-31",
+     "url": "https://open.spotify.com/track/5fpujciVjGBhnR2XFx06E7"
+    },
+    {
+     "id": "4HDvDaM3IhMl2oCwbKyzlV",
+     "name": "Clap Clap (Techno)",
+     "kuenstler": [
+      {
+       "id": "5dGsIOepO9ufQlXjW8KrPL",
+       "name": "Neptunica"
+      },
+      {
+       "id": "2eSp20wy0FQIPWJLCCfrqa",
+       "name": "JØA"
+      },
+      {
+       "id": "4JLjGlT5l6gtKKvP8qRb2g",
+       "name": "Jost"
+      }
+     ],
+     "album": "Clap Clap (Techno)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0235958f5a46aa6eb9a32e01e4",
+     "dauer_ms": 153857,
+     "erschienen": "2024-06-28",
+     "url": "https://open.spotify.com/track/4HDvDaM3IhMl2oCwbKyzlV"
+    },
+    {
+     "id": "7JM1dFLOa1kI5MqGnDufiY",
+     "name": "Ohne Dich (schlaf' ich heut Nacht nicht ein)",
+     "kuenstler": [
+      {
+       "id": "353KPo8gVAfcZfwF7BPZDy",
+       "name": "Münchener Freiheit"
+      }
+     ],
+     "album": "Von Anfang An",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02bd2851c86603f3036f506443",
+     "dauer_ms": 247493,
+     "erschienen": "1986-09-18",
+     "url": "https://open.spotify.com/track/7JM1dFLOa1kI5MqGnDufiY"
+    },
+    {
+     "id": "2dwlWpSSPD1aUH2IZfTtIq",
+     "name": "Sprite - Remix",
+     "kuenstler": [
+      {
+       "id": "7pqZmXaLL4eqW60I0XgTTF",
+       "name": "TAB Coke Beats"
+      }
+     ],
+     "album": "Sprite (Remix)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e026371e0e6c69cbc86b73d69f1",
+     "dauer_ms": 172804,
+     "erschienen": "2026-06-04",
+     "url": "https://open.spotify.com/track/2dwlWpSSPD1aUH2IZfTtIq"
+    },
+    {
+     "id": "6jC36NU3sSAFy5YjUkGGKd",
+     "name": "HEAVENLY JUMPSTYLE",
+     "kuenstler": [
+      {
+       "id": "1HcduAQRxX1Q9hOTAQ8bOI",
+       "name": "TWXNY"
+      },
+      {
+       "id": "6cUZdCbsiJJXae86kwiH5v",
+       "name": "Sxilwix"
+      },
+      {
+       "id": "3i5xWUEFpG6g9pcRo4C2yc",
+       "name": "INNXCENCE"
+      }
+     ],
+     "album": "HEAVENLY JUMPSTYLE",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02c054bc90882258df6bb865bb",
+     "dauer_ms": 114461,
+     "erschienen": "2025-11-28",
+     "url": "https://open.spotify.com/track/6jC36NU3sSAFy5YjUkGGKd"
+    },
+    {
+     "id": "6tAKikIvnoWfUeZrfkopLL",
+     "name": "Friesenjung",
+     "kuenstler": [
+      {
+       "id": "6CP5wWvO8oIxedESJNCN4H",
+       "name": "Ski Aggu"
+      },
+      {
+       "id": "6s5ubAp65wXoTZefE01RNR",
+       "name": "Joost"
+      },
+      {
+       "id": "1T6DQ853AlyL47W8a2jC0f",
+       "name": "Otto Waalkes"
+      }
+     ],
+     "album": "Friesenjung",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02df563bd4eb8c0b57a70b9928",
+     "dauer_ms": 146086,
+     "erschienen": "2023-05-25",
+     "url": "https://open.spotify.com/track/6tAKikIvnoWfUeZrfkopLL"
+    },
+    {
+     "id": "3cmfbLQkCBkyAxVNlApBsP",
+     "name": "BOTTEGA",
+     "kuenstler": [
+      {
+       "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+       "name": "RAF Camora"
+      }
+     ],
+     "album": "BOTTEGA",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02c6f319d2a98bb07eddb33af5",
+     "dauer_ms": 145023,
+     "erschienen": "2025-06-06",
+     "url": "https://open.spotify.com/track/3cmfbLQkCBkyAxVNlApBsP"
+    },
+    {
+     "id": "6utHjfvlsCAj0V6Wg6mXqx",
+     "name": "Esa Diva",
+     "kuenstler": [
+      {
+       "id": "3muH0fOWJZ2SaxK3agdOMD",
+       "name": "Melody"
+      }
+     ],
+     "album": "Esa Diva",
+     "cover": "https://i.scdn.co/image/ab67616d00001e028ef5b2c268bf91dfbc8ee069",
+     "dauer_ms": 178767,
+     "erschienen": "2025-03-14",
+     "url": "https://open.spotify.com/track/6utHjfvlsCAj0V6Wg6mXqx"
+    },
+    {
+     "id": "10A5GltcAG4HGmhl6htjox",
+     "name": "winter 4ever - Sped Up",
+     "kuenstler": [
+      {
+       "id": "3scHMUcB85BflinC8FclbI",
+       "name": "Baby Jane"
+      }
+     ],
+     "album": "Winter Forever (Sped Up)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e023903fb87a9816de005abc9be",
+     "dauer_ms": 156448,
+     "erschienen": "2026-07-24",
+     "url": "https://open.spotify.com/track/10A5GltcAG4HGmhl6htjox"
+    },
+    {
+     "id": "1Mp78QzFO1GrE5h1HvM0Rp",
+     "name": "Hobby Hobby",
+     "kuenstler": [
+      {
+       "id": "5wyWp867LWGjFmYZXVSFnZ",
+       "name": "MERO"
+      }
+     ],
+     "album": "YA HERO YA MERO",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0244dadba7dd1ca077cb63c79e",
+     "dauer_ms": 153560,
+     "erschienen": "2019-03-15",
+     "url": "https://open.spotify.com/track/1Mp78QzFO1GrE5h1HvM0Rp"
+    },
+    {
+     "id": "47EiUVwUp4C9fGccaPuUCS",
+     "name": "DÁKITI",
+     "kuenstler": [
+      {
+       "id": "4q3ewBCX7sLwd24euuV69X",
+       "name": "Bad Bunny"
+      },
+      {
+       "id": "6nVcHLIgY5pE2YCl8ubca1",
+       "name": "JHAYCO"
+      }
+     ],
+     "album": "DÁKITI",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0234c8199b0b3b3fb42b8a98a8",
+     "dauer_ms": 205090,
+     "erschienen": "2020-10-30",
+     "url": "https://open.spotify.com/track/47EiUVwUp4C9fGccaPuUCS"
+    },
+    {
+     "id": "0VOoFMLU692oDIDlMxSOH9",
+     "name": "1999 Pt. III",
+     "kuenstler": [
+      {
+       "id": "6ynopZPMBXcIGBI9M02Un5",
+       "name": "Haftbefehl"
+      }
+     ],
+     "album": "Russisch Roulette (Deluxe)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02a3d5d45924d9617980af3955",
+     "dauer_ms": 154746,
+     "erschienen": "2014-11-28",
+     "url": "https://open.spotify.com/track/0VOoFMLU692oDIDlMxSOH9"
+    },
+    {
+     "id": "2nljjiWhzVIugb5vgEMQQk",
+     "name": "My Love (2024)",
+     "kuenstler": [
+      {
+       "id": "6PTNNcLg90Kkl89JcEwKhT",
+       "name": "Alex Wann"
+      },
+      {
+       "id": "1dgdvbogmctybPrGEcnYf6",
+       "name": "Route 94"
+      },
+      {
+       "id": "4ScCswdRlyA23odg9thgIO",
+       "name": "Jess Glynne"
+      }
+     ],
+     "album": "My Love (2024)",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02927c93e23ede299f18afc9c5",
+     "dauer_ms": 184949,
+     "erschienen": "2024-08-30",
+     "url": "https://open.spotify.com/track/2nljjiWhzVIugb5vgEMQQk"
+    },
+    {
+     "id": "1JPd9BSiiN7xrKE64Qo30m",
+     "name": "Einsam an der Spitze",
+     "kuenstler": [
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      }
+     ],
+     "album": "CB7",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0252169849e32a2448fffb584a",
+     "dauer_ms": 171146,
+     "erschienen": "2020-09-17",
+     "url": "https://open.spotify.com/track/1JPd9BSiiN7xrKE64Qo30m"
+    },
+    {
+     "id": "7rhVer0f2bF0lkBIC2z1mx",
+     "name": "Nummer 1",
+     "kuenstler": [
+      {
+       "id": "2otUckChxWf2cp6UP2cD6e",
+       "name": "Zuna"
+      },
+      {
+       "id": "39KEQQAG9JhIt71g9NEVhh",
+       "name": "Azet"
+      },
+      {
+       "id": "2SabhGDiBSyaM6QSuBUVqB",
+       "name": "Noizy"
+      }
+     ],
+     "album": "Mele7",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0270fe948c556856178c53d9a9",
+     "dauer_ms": 211351,
+     "erschienen": "2017-04-14",
+     "url": "https://open.spotify.com/track/7rhVer0f2bF0lkBIC2z1mx"
+    },
+    {
+     "id": "2t7YPVqKUnmCaYr8qMlP0V",
+     "name": "BLEICHER HORIZONT",
+     "kuenstler": [
+      {
+       "id": "1G7TGDJ01So6i6XNirnVS7",
+       "name": "Takt32"
+      },
+      {
+       "id": "5IrNK8jRtmwCN4JLMJMSY5",
+       "name": "SIMONA"
+      }
+     ],
+     "album": "BLEICHER HORIZONT",
+     "cover": "https://i.scdn.co/image/ab67616d00001e022cb4a4933188940073c15307",
+     "dauer_ms": 200208,
+     "erschienen": "2025-05-09",
+     "url": "https://open.spotify.com/track/2t7YPVqKUnmCaYr8qMlP0V"
+    },
+    {
+     "id": "4YHB7lnoeFEHWtL0KtSklh",
+     "name": "Morgen",
+     "kuenstler": [
+      {
+       "id": "1qQLhymHXFPtP5U8KNKsm6",
+       "name": "Apache 207"
+      }
+     ],
+     "album": "Morgen",
+     "cover": "https://i.scdn.co/image/ab67616d00001e029153aed154a8db5cd8f085a2",
+     "dauer_ms": 190227,
+     "erschienen": "2025-05-23",
+     "url": "https://open.spotify.com/track/4YHB7lnoeFEHWtL0KtSklh"
+    },
+    {
+     "id": "0AGH6bznJoxLCRN9E2GiIT",
+     "name": "12 Millionen",
+     "kuenstler": [
+      {
+       "id": "2XNo6k4LqlZlM5sj0wKReo",
+       "name": "Dame"
+      }
+     ],
+     "album": "Herz gegen Fame",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02fe9ef29b1de0e446996416ae",
+     "dauer_ms": 232346,
+     "erschienen": "2012-03-30",
+     "url": "https://open.spotify.com/track/0AGH6bznJoxLCRN9E2GiIT"
+    },
+    {
+     "id": "6mw02h3qbWmuq2bJCRjRAe",
+     "name": "Millionär",
+     "kuenstler": [
+      {
+       "id": "2j2rh3oQh4QEUnNTDKYSJD",
+       "name": "187 Strassenbande"
+      },
+      {
+       "id": "1aS5tqEs9ci5P9KD9tZWa6",
+       "name": "Bonez MC"
+      },
+      {
+       "id": "5eioJDe26lOqkAMbuhzZYs",
+       "name": "Gzuz"
+      }
+     ],
+     "album": "Sampler 4",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0272826622b103a09074d8327b",
+     "dauer_ms": 159211,
+     "erschienen": "2017-07-18",
+     "url": "https://open.spotify.com/track/6mw02h3qbWmuq2bJCRjRAe"
+    },
+    {
+     "id": "05FYOgSV1kizlp4gH9CbTG",
+     "name": "925",
+     "kuenstler": [
+      {
+       "id": "0JP5ABLaBXOg8HFsxUoPzC",
+       "name": "Strob"
+      },
+      {
+       "id": "5k9dTPjhY8NrdWhPDD7C2H",
+       "name": "dæve"
+      }
+     ],
+     "album": "925",
+     "cover": "https://i.scdn.co/image/ab67616d00001e021a0352db8209a225d412dd5a",
+     "dauer_ms": 147562,
+     "erschienen": "2025-01-24",
+     "url": "https://open.spotify.com/track/05FYOgSV1kizlp4gH9CbTG"
+    },
+    {
+     "id": "1qPbGZqppFwLwcBC1JQ6Vr",
+     "name": "Wonderwall",
+     "kuenstler": [
+      {
+       "id": "2DaxqgrOhkeH0fpeiQq2f4",
+       "name": "Oasis"
+      }
+     ],
+     "album": "(What's The Story) Morning Glory?",
+     "cover": "https://i.scdn.co/image/ab67616d00001e022f2eeee9b405f4d00428d84c",
+     "dauer_ms": 258906,
+     "erschienen": "1995-10-02",
+     "url": "https://open.spotify.com/track/1qPbGZqppFwLwcBC1JQ6Vr"
+    },
+    {
+     "id": "6glptAOL1GSNQ1kZdWEVjj",
+     "name": "СВЕТЛАНА!",
+     "kuenstler": [
+      {
+       "id": "0KaA8HctO3Rt7xjMSu3YUk",
+       "name": "NEXTIME"
+      }
+     ],
+     "album": "СВЕТЛАНА!",
+     "cover": "https://i.scdn.co/image/ab67616d00001e022176546caf70870e526e2d65",
+     "dauer_ms": 96000,
+     "erschienen": "2025-11-21",
+     "url": "https://open.spotify.com/track/6glptAOL1GSNQ1kZdWEVjj"
+    },
+    {
+     "id": "1AKb5rNZnc7nwrFbvMjjZK",
+     "name": "Kid In A Suit",
+     "kuenstler": [
+      {
+       "id": "6r8QEHkxWjN4t2HemWAMyN",
+       "name": "James Bakian"
+      }
+     ],
+     "album": "Kid In A Suit",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0224b7bf980b41c1aa45362e6d",
+     "dauer_ms": 187118,
+     "erschienen": "2024-11-08",
+     "url": "https://open.spotify.com/track/1AKb5rNZnc7nwrFbvMjjZK"
+    },
+    {
+     "id": "2IeMkz2ienHzdse2MsvKYv",
+     "name": "Steh auf",
+     "kuenstler": [
+      {
+       "id": "4WZGDpNwrC0vNQyl9QzF7d",
+       "name": "Capital Bra"
+      }
+     ],
+     "album": "CB6",
+     "cover": "https://i.scdn.co/image/ab67616d00001e02bcb5b0852623a7024338152e",
+     "dauer_ms": 150784,
+     "erschienen": "2019-04-12",
+     "url": "https://open.spotify.com/track/2IeMkz2ienHzdse2MsvKYv"
+    },
+    {
+     "id": "2LW6ZSYpRDatz2MpgdWw4e",
+     "name": "City Gang",
+     "kuenstler": [
+      {
+       "id": "39KEQQAG9JhIt71g9NEVhh",
+       "name": "Azet"
+      }
+     ],
+     "album": "City Gang",
+     "cover": "https://i.scdn.co/image/ab67616d00001e024d772c8d3d11e4135f212842",
+     "dauer_ms": 146230,
+     "erschienen": "2025-08-21",
+     "url": "https://open.spotify.com/track/2LW6ZSYpRDatz2MpgdWw4e"
+    },
+    {
+     "id": "6bRR9tU3WUBsC4aywSgHEO",
+     "name": "WEISSER RAUCH",
+     "kuenstler": [
+      {
+       "id": "1SnSPHBs8l5iAvoWF0aO05",
+       "name": "FOURTY"
+      }
+     ],
+     "album": "LONDON DRY",
+     "cover": "https://i.scdn.co/image/ab67616d00001e0236e4d072e590fa20d7b5488e",
+     "dauer_ms": 182924,
+     "erschienen": "2020-06-04",
+     "url": "https://open.spotify.com/track/6bRR9tU3WUBsC4aywSgHEO"
+    }
+   ]
+  }
+ },
+ "kuenstler": {
+  "4WZGDpNwrC0vNQyl9QzF7d": {
+   "name": "Capital Bra",
+   "bild": "https://i.scdn.co/image/ab6761610000f178fc9cbf00210113b93a91efd1",
+   "url": "https://open.spotify.com/artist/4WZGDpNwrC0vNQyl9QzF7d",
+   "tags": [
+    "hip hop",
+    "rap",
+    "german",
+    "berlin",
+    "pop rap",
+    "trap"
+   ],
+   "land": "DE"
+  },
+  "6h1s4i4XKIYv4ErDelLDN0": {
+   "name": "Samra",
+   "bild": "https://i.scdn.co/image/ab6761610000f17819acb0fa77561658c79042c7",
+   "url": "https://open.spotify.com/artist/6h1s4i4XKIYv4ErDelLDN0",
+   "tags": [
+    "hip hop",
+    "pop rap",
+    "trap",
+    "rap",
+    "german"
+   ],
+   "land": "DE"
+  },
+  "4Yttlv9ndGjCDCVLqM7ACq": {
+   "name": "Sido",
+   "bild": "https://i.scdn.co/image/ab6761610000f17863efaf5ffb7ecc44e25a72cf",
+   "url": "https://open.spotify.com/artist/4Yttlv9ndGjCDCVLqM7ACq",
+   "tags": [
+    "german",
+    "hip hop",
+    "rap",
+    "pop rap",
+    "hardcore hip hop",
+    "bilder",
+    "sido"
+   ],
+   "land": "DE"
+  },
+  "1aS5tqEs9ci5P9KD9tZWa6": {
+   "name": "Bonez MC",
+   "bild": "https://i.scdn.co/image/ab6761610000f1788689ec0dec0267c9928a592e",
+   "url": "https://open.spotify.com/artist/1aS5tqEs9ci5P9KD9tZWa6",
+   "tags": [
+    "hip hop",
+    "rap",
+    "gangsta rap",
+    "german",
+    "pop rap",
+    "deutschrap",
+    "trap"
+   ],
+   "land": "DE"
+  },
+  "6piO5Ac23WJnRQifD42dfv": {
+   "name": "Peaceful Melody",
+   "bild": "https://i.scdn.co/image/ab6761610000f178d6c9bf371985333703171d55",
+   "url": "https://open.spotify.com/artist/6piO5Ac23WJnRQifD42dfv",
+   "tags": [
+    "lo-fi",
+    "ambient"
+   ],
+   "land": null
+  },
+  "34LetYSjEuG2fBb4Z8PwPg": {
+   "name": "Pashanim",
+   "bild": "https://i.scdn.co/image/ab6761610000f178ea7b3d69d7e0ff1a05ae204b",
+   "url": "https://open.spotify.com/artist/34LetYSjEuG2fBb4Z8PwPg",
+   "tags": [
+    "hip hop",
+    "rap",
+    "german",
+    "pop rap",
+    "trap"
+   ],
+   "land": "DE"
+  },
+  "1RIDuulMVv3vmkanZeYVq4": {
+   "name": "Lō-fÿkkø",
+   "bild": "https://i.scdn.co/image/ab6761610000f178c993f7c625d473bfbbfb3d2f",
+   "url": "https://open.spotify.com/artist/1RIDuulMVv3vmkanZeYVq4",
+   "tags": [
+    "lo-fi"
+   ],
+   "land": null
+  },
+  "6iiirBwETShwklU7hG6tXn": {
+   "name": "Røwspa",
+   "bild": "https://i.scdn.co/image/ab6761610000f1785b6c25e669eea3fad55df8c9",
+   "url": "https://open.spotify.com/artist/6iiirBwETShwklU7hG6tXn",
+   "tags": [
+    "lo-fi"
+   ],
+   "land": null
+  },
+  "4PvnP3yCzrT289cX3wCdOx": {
+   "name": "Yung Hurn",
+   "bild": "https://i.scdn.co/image/ab6761610000f178e66b189eeae2673e98337277",
+   "url": "https://open.spotify.com/artist/4PvnP3yCzrT289cX3wCdOx",
+   "tags": [
+    "hip hop"
+   ],
+   "land": "AT"
+  },
+  "1qQLhymHXFPtP5U8KNKsm6": {
+   "name": "Apache 207",
+   "bild": "https://i.scdn.co/image/ab6761610000f178d8b08d3199d2bd40f909e449",
+   "url": "https://open.spotify.com/artist/1qQLhymHXFPtP5U8KNKsm6",
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "6hFz7qfv7dt2sgRuGBYnP1": {
+   "name": "ILYAA",
+   "bild": "https://i.scdn.co/image/ab6761610000f1783c87064434ec2038672ba50b",
+   "url": "https://open.spotify.com/artist/6hFz7qfv7dt2sgRuGBYnP1",
+   "tags": [
+    "german",
+    "pop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "0Dvx6p8JDyzeOPGmaCIH1L": {
+   "name": "RAF Camora",
+   "bild": "https://i.scdn.co/image/ab6761610000f178dc802c9ca2de87af2d18fa5b",
+   "url": "https://open.spotify.com/artist/0Dvx6p8JDyzeOPGmaCIH1L",
+   "tags": [
+    "hip hop",
+    "pop rap",
+    "dancehall",
+    "deutschrap"
+   ],
+   "land": "AT"
+  },
+  "5WLsGgfxV206tL7KD41Ft1": {
+   "name": "Pacific",
+   "bild": "https://i.scdn.co/image/ab6761610000f17845b13a47d010b34d3fef166b",
+   "url": "https://open.spotify.com/artist/5WLsGgfxV206tL7KD41Ft1",
+   "tags": [
+    "drum and bass"
+   ],
+   "land": "CA"
+  },
+  "3TVkH7YFaAKAjU9s0HgZtl": {
+   "name": "Sunset Sundays",
+   "bild": "https://i.scdn.co/image/ab6761610000f178ff88f247c47aa70a4c05e15d",
+   "url": "https://open.spotify.com/artist/3TVkH7YFaAKAjU9s0HgZtl",
+   "tags": [
+    "lo-fi"
+   ],
+   "land": null
+  },
+  "4lDiJcOJ2GLCK6p9q5BgfK": {
+   "name": "Kontra K",
+   "bild": "https://i.scdn.co/image/ab6761610000f1787a396c70a9bcd73fb3562b53",
+   "url": "https://open.spotify.com/artist/4lDiJcOJ2GLCK6p9q5BgfK",
+   "tags": [
+    "hip hop",
+    "rap",
+    "german",
+    "pop rap"
+   ],
+   "land": null
+  },
+  "5pVRwX5ZQR7hfJ18w8ZYkl": {
+   "name": "Ufo361",
+   "bild": "https://i.scdn.co/image/ab6761610000f1781003766ec8921552395ebd32",
+   "url": "https://open.spotify.com/artist/5pVRwX5ZQR7hfJ18w8ZYkl",
+   "tags": [
+    "hip hop",
+    "trap",
+    "cloud rap"
+   ],
+   "land": "DE"
+  },
+  "5INjqkS1o8h1imAzPqGZBb": {
+   "name": "Tame Impala",
+   "bild": "https://i.scdn.co/image/ab6761610000f178e412a782245eb20d9626c601",
+   "url": "https://open.spotify.com/artist/5INjqkS1o8h1imAzPqGZBb",
+   "tags": [
+    "psychedelic rock",
+    "neo-psychedelia",
+    "psychedelic pop",
+    "alternative rock",
+    "indie rock",
+    "synth-pop",
+    "dream pop",
+    "australia"
+   ],
+   "land": "AU"
+  },
+  "3fMbdgg4jU18AjLCKBhRSm": {
+   "name": "Michael Jackson",
+   "bild": "https://i.scdn.co/image/ab6761610000f178997cc9a4aec335d46c9481fd",
+   "url": "https://open.spotify.com/artist/3fMbdgg4jU18AjLCKBhRSm",
+   "tags": [
+    "pop",
+    "dance-pop",
+    "disco",
+    "contemporary r&b",
+    "pop soul",
+    "soul",
+    "r&b",
+    "pop rock"
+   ],
+   "land": "US"
+  },
+  "1SUu1Bi7ev9HbOzyVC77qD": {
+   "name": "Kool Savas",
+   "bild": "https://i.scdn.co/image/ab6761610000f17890d71d4223ef59d6b84a9aed",
+   "url": "https://open.spotify.com/artist/1SUu1Bi7ev9HbOzyVC77qD",
+   "tags": [
+    "hip hop",
+    "rap",
+    "germany",
+    "german",
+    "german hip hop"
+   ],
+   "land": "DE"
+  },
+  "4q3ewBCX7sLwd24euuV69X": {
+   "name": "Bad Bunny",
+   "bild": "https://i.scdn.co/image/ab6761610000f17881f47f44084e0a09b5f0fa13",
+   "url": "https://open.spotify.com/artist/4q3ewBCX7sLwd24euuV69X",
+   "tags": [
+    "reggaeton",
+    "trap latino",
+    "latin",
+    "latin trap",
+    "hip hop",
+    "pop",
+    "spanish",
+    "english"
+   ],
+   "land": "PR"
+  },
+  "5yczwlOmRZG3wUEtvLiGBg": {
+   "name": "Braaheim",
+   "bild": "https://i.scdn.co/image/ab6761610000f1788f58774f4dd5f1881c80849f",
+   "url": "https://open.spotify.com/artist/5yczwlOmRZG3wUEtvLiGBg",
+   "tags": [
+    "lo-fi"
+   ],
+   "land": "NO"
+  },
+  "18ISxWwWjV6rPLoVCXf1dz": {
+   "name": "RIN",
+   "bild": "https://i.scdn.co/image/ab6761610000f1787d7ea33722d068e827b311ad",
+   "url": "https://open.spotify.com/artist/18ISxWwWjV6rPLoVCXf1dz",
+   "tags": [
+    "german",
+    "hip hop",
+    "rap",
+    "cloud rap"
+   ],
+   "land": "DE"
+  },
+  "3drqpTL4sQOckmAfF9i1wg": {
+   "name": "Summer Cem",
+   "bild": "https://i.scdn.co/image/ab6761610000f1788aba85c40eb3ab9a1fbe9c0c",
+   "url": "https://open.spotify.com/artist/3drqpTL4sQOckmAfF9i1wg",
+   "tags": [
+    "hip hop",
+    "rap",
+    "german"
+   ],
+   "land": "TR"
+  },
+  "711MCceyCBcFnzjGY4Q7Un": {
+   "name": "AC/DC",
+   "bild": "https://i.scdn.co/image/ab6761610000f178c4c77549095c86acb4e77b37",
+   "url": "https://open.spotify.com/artist/711MCceyCBcFnzjGY4Q7Un",
+   "tags": [
+    "hard rock",
+    "rock",
+    "blues rock",
+    "classic rock",
+    "rock and roll",
+    "heavy metal",
+    "hard & heavy",
+    "relaxed"
+   ],
+   "land": "AU"
+  },
+  "3c96G4d2lUOxhomM2mby5S": {
+   "name": "Bushido",
+   "bild": "https://i.scdn.co/image/ab6761610000f178a46cc9fa5570f8cb8737aa53",
+   "url": "https://open.spotify.com/artist/3c96G4d2lUOxhomM2mby5S",
+   "tags": [
+    "hip hop",
+    "rap",
+    "germany",
+    "german",
+    "bonn",
+    "berlin",
+    "deutschrap",
+    "aggro berlin"
+   ],
+   "land": "DE"
+  },
+  "4rCSOIelSj4xsI1Zo5WM23": {
+   "name": "THNDERZ",
+   "bild": "https://i.scdn.co/image/ab6761610000f1788d4dcdba08fe54ffcd121a9c",
+   "url": "https://open.spotify.com/artist/4rCSOIelSj4xsI1Zo5WM23",
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": null
+  },
+  "39KEQQAG9JhIt71g9NEVhh": {
+   "name": "Azet",
+   "bild": "https://i.scdn.co/image/ab6761610000f178917da51d399523078835eade",
+   "url": "https://open.spotify.com/artist/39KEQQAG9JhIt71g9NEVhh",
+   "tags": [
+    "hip hop",
+    "deutschrap",
+    "rap",
+    "german",
+    "pop rap"
+   ],
+   "land": "DE"
+  },
+  "1XKjtpH5P81gpOXDB91IEB": {
+   "name": "Miami Yacine",
+   "bild": "https://i.scdn.co/image/ab6761610000f178f46e09dee77752ce90ec71c1",
+   "url": "https://open.spotify.com/artist/1XKjtpH5P81gpOXDB91IEB",
+   "tags": [
+    "hip hop"
+   ],
+   "land": "DE"
+  },
+  "1Xyo4u8uXC1ZmMpatF05PJ": {
+   "name": "The Weeknd",
+   "bild": "https://i.scdn.co/image/ab6761610000f178c1719ac9e6a75c1c25835018",
+   "url": "https://open.spotify.com/artist/1Xyo4u8uXC1ZmMpatF05PJ",
+   "tags": [
+    "r&b",
+    "contemporary r&b",
+    "alternative r&b",
+    "dance-pop",
+    "synth-pop",
+    "pop",
+    "2010s",
+    "2020s"
+   ],
+   "land": "CA"
+  },
+  "5hzJL6bebayheeXXnPmv1I": {
+   "name": "Bobby Sayyar",
+   "bild": "https://i.scdn.co/image/ab6761610000f1788175f8b51f2b1bcde7635dd7",
+   "url": "https://open.spotify.com/artist/5hzJL6bebayheeXXnPmv1I",
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "07SFzTMeYf5P8Rd32a9Zzw": {
+   "name": "AK AUSSERKONTROLLE",
+   "bild": "https://i.scdn.co/image/ab6761610000f1782a234069b7b3af67b888b1d3",
+   "url": "https://open.spotify.com/artist/07SFzTMeYf5P8Rd32a9Zzw",
+   "tags": [
+    "hip hop",
+    "rap",
+    "german",
+    "gangsta rap",
+    "deutschrap"
+   ],
+   "land": "DE"
+  },
+  "7rBed6Ya7Hwa2fXbh5btJE": {
+   "name": "LACAZETTE",
+   "bild": "https://i.scdn.co/image/ab6761610000f1788a472663b7522f3ef26ee633",
+   "url": "https://open.spotify.com/artist/7rBed6Ya7Hwa2fXbh5btJE",
+   "tags": [
+    "hip hop"
+   ],
+   "land": "DE"
+  },
+  "2jku7tDXc6XoB6MO2hFuqg": {
+   "name": "Tory Lanez",
+   "bild": "https://i.scdn.co/image/ab6761610000f1780bb76de09defd5d14e735176",
+   "url": "https://open.spotify.com/artist/2jku7tDXc6XoB6MO2hFuqg",
+   "tags": [
+    "hip hop",
+    "r&b",
+    "dancehall",
+    "alternative hip hop",
+    "contemporary r&b",
+    "synth-pop",
+    "alternative r&b",
+    "trap"
+   ],
+   "land": "CA"
+  },
+  "3CJKkU0XuElRT1z8rEtIYg": {
+   "name": "Luciano",
+   "bild": "https://i.scdn.co/image/ab6761610000f1780c59540ecf9eb1ccc3377926",
+   "url": "https://open.spotify.com/artist/3CJKkU0XuElRT1z8rEtIYg",
+   "tags": [
+    "reggae",
+    "soul",
+    "roots reggae",
+    "soul and reggae"
+   ],
+   "land": "JM"
+  },
+  "3scHMUcB85BflinC8FclbI": {
+   "name": "Baby Jane",
+   "bild": "https://i.scdn.co/image/ab6761610000f17816a51c087b943bc4fc102011",
+   "url": "https://open.spotify.com/artist/3scHMUcB85BflinC8FclbI",
+   "tags": [
+    "sped up",
+    "pop"
+   ],
+   "land": null
+  },
+  "5p7mWeX4RlvqBCxylfiXdE": {
+   "name": "KC Rebell",
+   "bild": "https://i.scdn.co/image/ab6761610000f178c0535a95273f106c3c04ecf3",
+   "url": "https://open.spotify.com/artist/5p7mWeX4RlvqBCxylfiXdE",
+   "tags": [
+    "hip hop",
+    "rap",
+    "german",
+    "trap"
+   ],
+   "land": "DE"
+  },
+  "5sRQkVexJlax2iISuqL8cV": {
+   "name": "Kalazh44",
+   "bild": "https://i.scdn.co/image/ab6761610000f1783b727c22fcaad905f37af3cd",
+   "url": "https://open.spotify.com/artist/5sRQkVexJlax2iISuqL8cV",
+   "tags": [
+    "trap",
+    "rap",
+    "german",
+    "hip hop"
+   ],
+   "land": null
+  },
+  "5y9wg9qkGBl0n9v9RzaPKu": {
+   "name": "CAPO",
+   "bild": "https://i.scdn.co/image/ab6761610000f17838788f9e0baa8cd8dc33b43d",
+   "url": "https://open.spotify.com/artist/5y9wg9qkGBl0n9v9RzaPKu",
+   "tags": [
+    "hip hop",
+    "rap",
+    "germany",
+    "german"
+   ],
+   "land": "DE"
+  },
+  "5nWYvcpaqKtp08cYxjOfFr": {
+   "name": "Gibran Alcocer",
+   "bild": "https://i.scdn.co/image/ab6761610000f1783b8bdbbc4308ec6f7b3c6528",
+   "url": "https://open.spotify.com/artist/5nWYvcpaqKtp08cYxjOfFr",
+   "tags": [
+    "rock",
+    "modern classical"
+   ],
+   "land": "MX"
+  },
+  "6ynopZPMBXcIGBI9M02Un5": {
+   "name": "Haftbefehl",
+   "bild": "https://i.scdn.co/image/ab6761610000f1787562f7fa923ad0bd0aab2b0a",
+   "url": "https://open.spotify.com/artist/6ynopZPMBXcIGBI9M02Un5",
+   "tags": [
+    "hip hop",
+    "rap",
+    "german"
+   ],
+   "land": "DE"
+  },
+  "0LEDohWJbpNV65CY3acjUS": {
+   "name": "HYPRDRVE",
+   "bild": "https://i.scdn.co/image/ab6761610000f17857934bac5e9a60754a8f5ff6",
+   "url": "https://open.spotify.com/artist/0LEDohWJbpNV65CY3acjUS",
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": null
+  },
+  "3pVfscwg2QxhdHtk966inb": {
+   "name": "The Cratez",
+   "bild": "https://i.scdn.co/image/ab6761610000f1782fa81da9826881fcfc948746",
+   "url": "https://open.spotify.com/artist/3pVfscwg2QxhdHtk966inb",
+   "tags": [
+    "german",
+    "hip hop",
+    "producer"
+   ],
+   "land": "DE"
+  },
+  "3pjq2pDV9RR6VY55wBjVnp": {
+   "name": "Dardan",
+   "bild": "https://i.scdn.co/image/ab6761610000f1783cdd1c2887e6fc990d8bdaa9",
+   "url": "https://open.spotify.com/artist/3pjq2pDV9RR6VY55wBjVnp",
+   "tags": [
+    "rap",
+    "german",
+    "hip hop",
+    "pop rap"
+   ],
+   "land": "DE"
+  },
+  "4VuARVJiWGsH2msKTdsKdQ": {
+   "name": "Veysel",
+   "bild": "https://i.scdn.co/image/ab6761610000f178cf7b218496065a8e537edd73",
+   "url": "https://open.spotify.com/artist/4VuARVJiWGsH2msKTdsKdQ",
+   "tags": [
+    "hip hop",
+    "deutschrap"
+   ],
+   "land": "DE"
+  },
+  "58lQAzmAxDD6di02MvAWkv": {
+   "name": "Andy Morris",
+   "bild": "https://i.scdn.co/image/ab6761610000f17803b60194c4aa106d3d65fa84",
+   "url": "https://open.spotify.com/artist/58lQAzmAxDD6di02MvAWkv",
+   "tags": [
+    "pop"
+   ],
+   "land": "AU"
+  },
+  "0KaA8HctO3Rt7xjMSu3YUk": {
+   "name": "NEXTIME",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "sped up",
+    "pop"
+   ],
+   "land": null
+  },
+  "6eUKZXaKkcviH0Ku9w2n3V": {
+   "name": "Ed Sheeran",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "folk pop",
+    "singer-songwriter",
+    "folk",
+    "dance-pop",
+    "uk",
+    "guitarist",
+    "singer"
+   ],
+   "land": "GB"
+  },
+  "1EfwyuCzDQpCslZc8C9gkG": {
+   "name": "SDP",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "reggae",
+    "pop"
+   ],
+   "land": "DE"
+  },
+  "0ydBtmgupeHnGowYxRo6tq": {
+   "name": "IIVEN",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": null
+  },
+  "0860MVRZC3Llgf1mFvnd1R": {
+   "name": "NESS",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "2tHtwM1edk5g3zqMCPOfb6": {
+   "name": "Standart Skill",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "6SGVQ8bD0Hab6BItkqWVuJ": {
+   "name": "JURI",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "5SsiJy8NJMzYowqe2sN58e": {
+   "name": "Mavie",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "pop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "6GfiCQDFYANz5wUkSmb3Dr": {
+   "name": "Thousand Foot Krutch",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "alternative rock",
+    "nu metal",
+    "christian rock",
+    "heavy metal",
+    "hard rock",
+    "new metal",
+    "pop rock",
+    "rap metal"
+   ],
+   "land": "CA"
+  },
+  "3YwK1Kk8VSAtowOX2lRO0c": {
+   "name": "DJ Redblack",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "techno",
+    "hard techno",
+    "electronic"
+   ],
+   "land": "IT"
+  },
+  "6dXL3SnQlCGX9LCUAyin6a": {
+   "name": "Stereoact",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "electropop"
+   ],
+   "land": "DE"
+  },
+  "4kI8Ie27vjvonwaB2ePh8T": {
+   "name": "Portugal. The Man",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "indie rock",
+    "neo-psychedelia",
+    "pop",
+    "experimental",
+    "progressive",
+    "alternative",
+    "indie pop",
+    "indie electronic"
+   ],
+   "land": "US"
+  },
+  "73sIBHcqh3Z3NyqHKZ7FOL": {
+   "name": "Childish Gambino",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "funk",
+    "soul",
+    "neo soul",
+    "alternative hip hop",
+    "underground hip hop",
+    "r&b",
+    "contemporary r&b"
+   ],
+   "land": "US"
+  },
+  "0gQDOj4OisQbTq7FUEziea": {
+   "name": "New Beat Order",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "electronic",
+    "dance"
+   ],
+   "land": null
+  },
+  "58imfUscPVwuhuHt1MpBDA": {
+   "name": "Robbe",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "2XsKhGOiMsoOmHgckUMpZa": {
+   "name": "KROMA",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": "EE"
+  },
+  "6nJEMDVNcq7fduXgk7EdGG": {
+   "name": "MilleniumKid",
+   "bild": null,
+   "url": null,
+   "tags": [],
+   "land": "DE"
+  },
+  "6l8dHVPkuEFzpQjhCH4xXT": {
+   "name": "JBS",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop"
+   ],
+   "land": "DE"
+  },
+  "0EG0El2Ozcdnw0xJA77DyO": {
+   "name": "The Boy The G",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop"
+   ],
+   "land": null
+  },
+  "6k9e4mFFVtEAAhGdvJBtqB": {
+   "name": "Luca-Dante Spadafora",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "german"
+   ],
+   "land": "DE"
+  },
+  "1ZPGzmbFTn8GRjqTqnLiFE": {
+   "name": "Niklas Dee",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "electronic"
+   ],
+   "land": null
+  },
+  "0rKRcoCpKA2jLHuIXXn80i": {
+   "name": "Octavian",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "garage",
+    "grime"
+   ],
+   "land": null
+  },
+  "1UEipeDjRtS1qnuhmKgmXg": {
+   "name": "Peter Plate",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "pop",
+    "producer"
+   ],
+   "land": "DE"
+  },
+  "4anaTI5qQtKKp5D6I5sgDp": {
+   "name": "Ulf Leo Sommer",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "pop",
+    "producer"
+   ],
+   "land": "DE"
+  },
+  "1U1el3k54VvEUzo3ybLPlM": {
+   "name": "Kali Uchis",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "neo soul",
+    "latin pop",
+    "r&b",
+    "alternative r&b"
+   ],
+   "land": "US"
+  },
+  "7cYEt1pqMgXJdq00hAwVpT": {
+   "name": "Chase Atlantic",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop rap",
+    "electropop",
+    "alternative pop",
+    "alternative rnb",
+    "2010s",
+    "trap pop",
+    "2020s"
+   ],
+   "land": "AU"
+  },
+  "5wTdspmxzb8V4ZjvDodpBo": {
+   "name": "A Touch Of Class",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "eurodance",
+    "dance"
+   ],
+   "land": "DE"
+  },
+  "0PEfbjTw85CAN5G0lz9n3p": {
+   "name": "Pete Konemann",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "producer"
+   ],
+   "land": null
+  },
+  "4Ck46WZxqzpKUInvcgVF1C": {
+   "name": "YFG Pave",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "0sKY9AcBdiGx4FbFbQsXoX": {
+   "name": "EMIN",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop"
+   ],
+   "land": "AZ"
+  },
+  "2ISiyx4DLCMAMBCvPesCoq": {
+   "name": "JONY",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "russian"
+   ],
+   "land": "RU"
+  },
+  "05MQiIv63Y3WL4AXG1Zo3E": {
+   "name": "Татьяна Куртукова",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "folk",
+    "russian"
+   ],
+   "land": "RU"
+  },
+  "7dGJo4pcD2V6oG8kP0tJRR": {
+   "name": "Eminem",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "rap",
+    "detroit",
+    "pop rap",
+    "hardcore hip hop",
+    "midwest hip hop",
+    "detroit hip hop",
+    "hip-hop"
+   ],
+   "land": "US"
+  },
+  "1Oa0bMld0A3u5OTYfMzp5h": {
+   "name": "Nate Dogg",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "west coast hip hop",
+    "g-funk"
+   ],
+   "land": "US"
+  },
+  "0b62itBWBdLgiecXjXCqKC": {
+   "name": "Maxwell",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "neo-soul",
+    "neo soul",
+    "contemporary r&b",
+    "quiet storm",
+    "smooth soul"
+   ],
+   "land": "US"
+  },
+  "5kp4UMsrN5oZxPnsef59iQ": {
+   "name": "Kai Baum",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "3rJe1nJEEuzdmuGSPy8teM": {
+   "name": "Chef FM",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "7pqZmXaLL4eqW60I0XgTTF": {
+   "name": "TAB Coke Beats",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "producer"
+   ],
+   "land": null
+  },
+  "4F84IBURUo98rz4r61KF70": {
+   "name": "The White Stripes",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "alternative rock",
+    "indie rock",
+    "blues rock",
+    "garage rock revival",
+    "garage rock",
+    "american",
+    "rock",
+    "pop"
+   ],
+   "land": "US"
+  },
+  "2JwyRtuXf2l6sTnSnGVIa1": {
+   "name": "Farid Bang",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "gangsta rap",
+    "deutschrap",
+    "battle rap",
+    "rap",
+    "german"
+   ],
+   "land": null
+  },
+  "6gto7HVNhu4ARE3P3g8Y5Y": {
+   "name": "Kollegah",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "rap",
+    "german",
+    "gangsta rap",
+    "deutschrap",
+    "battle rap",
+    "rapping"
+   ],
+   "land": "DE"
+  },
+  "0r0R5nIjDY04TfxRM10Bcb": {
+   "name": "Alligatoah",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "rap",
+    "german",
+    "deutschrap",
+    "2000s",
+    "2010s",
+    "pop rap",
+    "rap rock"
+   ],
+   "land": "DE"
+  },
+  "65WfmKecS1GdKkxURvvY1s": {
+   "name": "Lūcadelic",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "lo-fi"
+   ],
+   "land": null
+  },
+  "4J86DBDnC5acWsN0dpZe3j": {
+   "name": "Michael Hunter",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "electronic"
+   ],
+   "land": null
+  },
+  "6quRLJ5SiWHgcVMoE9TEJj": {
+   "name": "Andreas Bourani",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "pop rock",
+    "deutschrock",
+    "europop",
+    "german-pop"
+   ],
+   "land": "DE"
+  },
+  "0OzU60O3MzXXLfoigoqB1N": {
+   "name": "DJOCHEM BARKI",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "techno",
+    "electronic"
+   ],
+   "land": null
+  },
+  "0EmeFodog0BfCgMzAIvKQp": {
+   "name": "Shakira",
+   "bild": "https://i.scdn.co/image/ab6761610000f17817f15f351cba70561ad8bcac",
+   "url": "https://open.spotify.com/artist/0EmeFodog0BfCgMzAIvKQp",
+   "tags": [
+    "pop",
+    "latin pop",
+    "pop rock",
+    "dance-pop",
+    "latin",
+    "rock",
+    "spanish",
+    "alternative"
+   ],
+   "land": "CO"
+  },
+  "1ul8iLt2WnFe2UIyovjg7q": {
+   "name": "reezy",
+   "bild": "https://i.scdn.co/image/ab6761610000f178aa1e98c722f75ed326ed23fb",
+   "url": "https://open.spotify.com/artist/1ul8iLt2WnFe2UIyovjg7q",
+   "tags": [
+    "hip hop",
+    "rap",
+    "german",
+    "producer"
+   ],
+   "land": "DE"
+  },
+  "6dBBpd1zW3iywDqNt0UVOk": {
+   "name": "Czech Symphony Orchestra",
+   "bild": "https://i.scdn.co/image/ab6761610000f178eec722d94eb271cb0e72b813",
+   "url": "https://open.spotify.com/artist/6dBBpd1zW3iywDqNt0UVOk",
+   "tags": [
+    "classical",
+    "orchestral"
+   ],
+   "land": "CZ"
+  },
+  "1E8mXBWN7AXZCOPYbOky4J": {
+   "name": "Jazeek",
+   "bild": "https://i.scdn.co/image/ab6761610000f17809831945e904110b6f28fa67",
+   "url": "https://open.spotify.com/artist/1E8mXBWN7AXZCOPYbOky4J",
+   "tags": [
+    "hip hop",
+    "pop rap"
+   ],
+   "land": "DE"
+  },
+  "5gSXA0ofbOM1wGaqItyGg9": {
+   "name": "BASSTON",
+   "bild": "https://i.scdn.co/image/ab6761610000f178533971ace815091629840670",
+   "url": "https://open.spotify.com/artist/5gSXA0ofbOM1wGaqItyGg9",
+   "tags": [
+    "techno",
+    "hardcore techno"
+   ],
+   "land": null
+  },
+  "4gJT0OnBISFA5CPMNYBGIE": {
+   "name": "OG Keemo",
+   "bild": "https://i.scdn.co/image/ab6761610000f178a809a315c8dc8a558317ec19",
+   "url": "https://open.spotify.com/artist/4gJT0OnBISFA5CPMNYBGIE",
+   "tags": [
+    "hip hop",
+    "trap"
+   ],
+   "land": "DE"
+  },
+  "6tVxgFV9M1sqlTWUnQOhlu": {
+   "name": "Maebi",
+   "bild": "https://i.scdn.co/image/ab6761610000f1784458df8245c21b083454d59b",
+   "url": "https://open.spotify.com/artist/6tVxgFV9M1sqlTWUnQOhlu",
+   "tags": [
+    "lo-fi",
+    "ambient"
+   ],
+   "land": "GB"
+  },
+  "1RyvyyTE3xzB2ZywiAwp0i": {
+   "name": "Future",
+   "bild": "https://i.scdn.co/image/ab6761610000f1782c472c891062acb4f3068583",
+   "url": "https://open.spotify.com/artist/1RyvyyTE3xzB2ZywiAwp0i",
+   "tags": [
+    "hip hop",
+    "trap",
+    "trap rap",
+    "southern hip hop",
+    "dirty south",
+    "english",
+    "2010s",
+    "2020s"
+   ],
+   "land": "US"
+  },
+  "2XNo6k4LqlZlM5sj0wKReo": {
+   "name": "Dame",
+   "bild": "https://i.scdn.co/image/ab6761610000f178de7438c523b6a532afd883a6",
+   "url": "https://open.spotify.com/artist/2XNo6k4LqlZlM5sj0wKReo",
+   "tags": [
+    "hip hop",
+    "nerdcore"
+   ],
+   "land": "AT"
+  },
+  "5q1SD3zx3GPnofIAPOIFrY": {
+   "name": "dnvn",
+   "bild": "https://i.scdn.co/image/ab6761610000f178de2c61f3baa48b2d84abe851",
+   "url": "https://open.spotify.com/artist/5q1SD3zx3GPnofIAPOIFrY",
+   "tags": [
+    "lo-fi"
+   ],
+   "land": "MX"
+  },
+  "2Im8m4STDBosjfmb5hmP80": {
+   "name": "Loredana",
+   "bild": "https://i.scdn.co/image/ab6761610000f178a2c2f581feaa5abb5bcf96e4",
+   "url": "https://open.spotify.com/artist/2Im8m4STDBosjfmb5hmP80",
+   "tags": [
+    "romanian",
+    "romanian singer"
+   ],
+   "land": "RO"
+  },
+  "77SW9BnxLY8rJ0RciFqkHh": {
+   "name": "The Neighbourhood",
+   "bild": "https://i.scdn.co/image/ab6761610000f178df0b5ac84376a0a4b2166816",
+   "url": "https://open.spotify.com/artist/77SW9BnxLY8rJ0RciFqkHh",
+   "tags": [
+    "indie pop",
+    "alternative rock",
+    "indie rock",
+    "rock",
+    "pop",
+    "tumblr"
+   ],
+   "land": "US"
+  },
+  "0Y5tJX1MQlPlqiwlOH1tJY": {
+   "name": "Travis Scott",
+   "bild": "https://i.scdn.co/image/ab6761610000f17819c2790744c792d05570bb71",
+   "url": "https://open.spotify.com/artist/0Y5tJX1MQlPlqiwlOH1tJY",
+   "tags": [
+    "hip hop",
+    "trap",
+    "rap",
+    "southern hip hop",
+    "pop rap",
+    "english",
+    "experimental hip hop",
+    "relic inn"
+   ],
+   "land": "US"
+  },
+  "5SCDfg1YoEfI5gFtXqEWah": {
+   "name": "ATLXS",
+   "bild": "https://i.scdn.co/image/ab6761610000f178f6e10f229ec5f67c687b3c71",
+   "url": "https://open.spotify.com/artist/5SCDfg1YoEfI5gFtXqEWah",
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": "IT"
+  },
+  "3DoYGi5spOR9sIqjdkf2R4": {
+   "name": "Coup",
+   "bild": "https://i.scdn.co/image/ab6761610000f17823fe0836ba70cb4777cf6405",
+   "url": "https://open.spotify.com/artist/3DoYGi5spOR9sIqjdkf2R4",
+   "tags": [
+    "techno",
+    "electronic"
+   ],
+   "land": "DE"
+  },
+  "1dVKBw8iMPpS1almxwIVI3": {
+   "name": "THIZZY52",
+   "bild": "https://i.scdn.co/image/ab6761610000f178eded76dc65dc9a69986b1f90",
+   "url": "https://open.spotify.com/artist/1dVKBw8iMPpS1almxwIVI3",
+   "tags": [
+    "hip hop",
+    "rap"
+   ],
+   "land": null
+  },
+  "7qG3b048QCHVRO5Pv1T5lw": {
+   "name": "Enrique Iglesias",
+   "bild": "https://i.scdn.co/image/ab6761610000f1784fa1405802a42c665b0f2dd1",
+   "url": "https://open.spotify.com/artist/7qG3b048QCHVRO5Pv1T5lw",
+   "tags": [
+    "pop",
+    "latin pop",
+    "electropop",
+    "latin",
+    "electro house",
+    "nepo baby",
+    "dance",
+    "spanish"
+   ],
+   "land": "ES"
+  },
+  "28TqrmNSPiKo5w3WVb3A3N": {
+   "name": "Aymen",
+   "bild": "https://i.scdn.co/image/ab6761610000f1782765454887fd49a52c1f44c4",
+   "url": "https://open.spotify.com/artist/28TqrmNSPiKo5w3WVb3A3N",
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "7j6DKwmjbxvpQO8h914uEz": {
+   "name": "Ryan Castro",
+   "bild": "https://i.scdn.co/image/ab6761610000f17866827e1ddada99d30007cb86",
+   "url": "https://open.spotify.com/artist/7j6DKwmjbxvpQO8h914uEz",
+   "tags": [
+    "latin",
+    "reggaeton"
+   ],
+   "land": "CO"
+  },
+  "6PTNNcLg90Kkl89JcEwKhT": {
+   "name": "Alex Wann",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "dance",
+    "house",
+    "electronica",
+    "edm",
+    "afro house",
+    "melodic techno",
+    "melodic house"
+   ],
+   "land": "FR"
+  },
+  "1dgdvbogmctybPrGEcnYf6": {
+   "name": "Route 94",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "deep house",
+    "tech house"
+   ],
+   "land": null
+  },
+  "4ScCswdRlyA23odg9thgIO": {
+   "name": "Jess Glynne",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "house",
+    "soul",
+    "dance-pop",
+    "r&b",
+    "contemporary r&b",
+    "club",
+    "uk funky"
+   ],
+   "land": "GB"
+  },
+  "1TIQZBUSqWPrBZuh80x6Rz": {
+   "name": "Geoff Castellucci",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "bass singer"
+   ],
+   "land": null
+  },
+  "2DaxqgrOhkeH0fpeiQq2f4": {
+   "name": "Oasis",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "britpop",
+    "alternative rock",
+    "rock",
+    "british",
+    "indie rock",
+    "neo-psychedelia",
+    "madchester",
+    "psychedelic rock"
+   ],
+   "land": "GB"
+  },
+  "4sVieJlKgpZ2k9ESNS5IdN": {
+   "name": "Jamule",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "rap",
+    "german",
+    "trap"
+   ],
+   "land": "DE"
+  },
+  "2LAMcjEMXfL8mWohcAkCF9": {
+   "name": "Cave",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "alternative rock",
+    "post-punk",
+    "punk blues",
+    "art rock",
+    "gothic rock",
+    "rock",
+    "singer-songwriter",
+    "indie rock"
+   ],
+   "land": "AU"
+  },
+  "3F2BUPEkX9IDaRYAeJN0Gh": {
+   "name": "Amo",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "rap"
+   ],
+   "land": "JP"
+  },
+  "72y6W9pGy97xTM44dwy3F6": {
+   "name": "BILLA JOE",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "4TPAWIeZhHw6CnsoPe9vxY": {
+   "name": "Lucry & Suena",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "hip hop",
+    "producer"
+   ],
+   "land": "DE"
+  },
+  "4GoCdmGGYtijLZlgTMyhwe": {
+   "name": "Khrome",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": null
+  },
+  "74cb3MG0x0BOnYNW1uXYnM": {
+   "name": "Hillsong UNITED",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "gospel",
+    "hillsong",
+    "contemporary gospel",
+    "praise & worship"
+   ],
+   "land": "AU"
+  },
+  "3D04fb59z3ANxVaeHBfxtW": {
+   "name": "TAYA",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop"
+   ],
+   "land": null
+  },
+  "0TnOYISbd1XYRBk9myaseg": {
+   "name": "Pitbull",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "dance-pop",
+    "electropop",
+    "dance",
+    "eurodance",
+    "electro house",
+    "hip hop",
+    "southern hip hop",
+    "pop rap"
+   ],
+   "land": "US"
+  },
+  "4wLXwxDeWQ8mtUIRPxGiD6": {
+   "name": "Marc Anthony",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "salsa",
+    "latin pop",
+    "latin",
+    "pop",
+    "ballad",
+    "rock",
+    "american"
+   ],
+   "land": "US"
+  },
+  "7MiDcPa6UiV3In7lIM71IN": {
+   "name": "Gusttavo Lima",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "sertanejo",
+    "latin",
+    "sertanejo universitário",
+    "singer-songwriter"
+   ],
+   "land": "BR"
+  },
+  "3wcj11K77LjEY1PkEazffa": {
+   "name": "Burna Boy",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "reggae",
+    "english",
+    "dancehall",
+    "afrobeats",
+    "afro fusion",
+    "afrobeat"
+   ],
+   "land": "NG"
+  },
+  "19eLuQmk9aCobbVDHc6eek": {
+   "name": "Louis Armstrong",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "jazz",
+    "dixieland",
+    "swing",
+    "vocal jazz",
+    "gospel",
+    "traditional pop",
+    "pop",
+    "blues"
+   ],
+   "land": "US"
+  },
+  "3EA9hVIzKfFiQI0Kikz2wo": {
+   "name": "Andrea Bocelli",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "classical",
+    "tenor",
+    "classical crossover",
+    "pop",
+    "italian",
+    "european",
+    "classical pop",
+    "italian pop"
+   ],
+   "land": "IT"
+  },
+  "1Cs0zKBU1kc0i8ypK3B9ai": {
+   "name": "David Guetta",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "house",
+    "dance-pop",
+    "dance",
+    "electro house",
+    "electronic",
+    "pop",
+    "electropop",
+    "club"
+   ],
+   "land": "FR"
+  },
+  "0RMJOzHDhAKY1o2j0W0vxY": {
+   "name": "EJAE",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "k-pop",
+    "pop"
+   ],
+   "land": "KR"
+  },
+  "181bsRPaVXVlUKXrxwZfHK": {
+   "name": "Megan Thee Stallion",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "southern hip hop",
+    "pop rap",
+    "rap",
+    "english",
+    "trap"
+   ],
+   "land": "US"
+  },
+  "0WyJfrWjsny9mSxops8ksX": {
+   "name": "LENNSKO",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "rap",
+    "german"
+   ],
+   "land": null
+  },
+  "26dSoYclwsYLMAKD3tpOr4": {
+   "name": "Britney Spears",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "teen pop",
+    "american",
+    "dance-pop",
+    "electropop",
+    "2000s",
+    "electro house",
+    "y2k"
+   ],
+   "land": "US"
+  },
+  "0wRGuF39WWxHeftv2TBNQT": {
+   "name": "Ex Habit",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "alternative r&b",
+    "pop"
+   ],
+   "land": null
+  },
+  "7ip3CWlgPZbQHvgJpmcGSS": {
+   "name": "Peter Schilling",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "neue deutsche welle",
+    "new wave",
+    "synth-pop",
+    "ndw",
+    "pop",
+    "happy hardcore",
+    "synthpop",
+    "german"
+   ],
+   "land": "DE"
+  },
+  "14D0I0RYqvIorkPL2EWoQh": {
+   "name": "MC WM",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "funk carioca",
+    "brazilian"
+   ],
+   "land": "BR"
+  },
+  "4mb1xtQVGSK5dh8AbtwBiR": {
+   "name": "MC Lan",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "funk ostentação",
+    "funk carioca"
+   ],
+   "land": "BR"
+  },
+  "5JgxqXmh1TrVDZn7gAgqLw": {
+   "name": "Sean Dagher",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "musique traditionnelle",
+    "musique de jeu vidéos",
+    "chant de marins"
+   ],
+   "land": null
+  },
+  "42cM14lDAB0KzoBWQ86TWu": {
+   "name": "Nils Brown",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "folk"
+   ],
+   "land": null
+  },
+  "2KgIhGBEJK4W6Uw5WVeoaV": {
+   "name": "Michiel Schrey",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "folk"
+   ],
+   "land": "CA"
+  },
+  "5ct8AlcDgWMp4O25vbcjpC": {
+   "name": "Assassin's Creed",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "software as artist",
+    "video game as artist"
+   ],
+   "land": null
+  },
+  "33ScadVnbm2X8kkUqOkC6Z": {
+   "name": "Don Omar",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "reggaeton",
+    "latin urban",
+    "latin",
+    "reggaetón"
+   ],
+   "land": "PR"
+  },
+  "5bv5RplEOwdCvhq0EILh9E": {
+   "name": "Lucenzo",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "kuduro",
+    "latin",
+    "dance"
+   ],
+   "land": "FR"
+  },
+  "1EZIni3W4CmC2bTy75Q053": {
+   "name": "benno!",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "pop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "2ib5SfRdSqdCEO0serkHH1": {
+   "name": "F-Raz",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "AT"
+  },
+  "3jiOHVFdVQjbSDVeC7RgY7": {
+   "name": "Wir sind Helden",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "pop",
+    "rock",
+    "indie rock",
+    "pop rock",
+    "deutschland",
+    "indie pop",
+    "hamburg"
+   ],
+   "land": "DE"
+  },
+  "5yw4tA8D5uG7tT3NaDvq10": {
+   "name": "Stellar",
+   "bild": "https://i.scdn.co/image/ab6761610000f178361d78f99f3f1022853335d1",
+   "url": "https://open.spotify.com/artist/5yw4tA8D5uG7tT3NaDvq10",
+   "tags": [
+    "k-pop",
+    "girl group"
+   ],
+   "land": "KR"
+  },
+  "0GOx72r5AAEKRGQFn3xqXK": {
+   "name": "GIMS",
+   "bild": "https://i.scdn.co/image/ab6761610000f17877144f838397a467e807df65",
+   "url": "https://open.spotify.com/artist/0GOx72r5AAEKRGQFn3xqXK",
+   "tags": [
+    "pop rap",
+    "french hip hop",
+    "pop",
+    "hardcore hip hop",
+    "sapés comme jamais"
+   ],
+   "land": "FR"
+  },
+  "00FQb4jTyendYWaN8pK0wa": {
+   "name": "Lana Del Rey",
+   "bild": "https://i.scdn.co/image/ab6761610000f178b99cacf8acd5378206767261",
+   "url": "https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa",
+   "tags": [
+    "indie pop",
+    "pop",
+    "dream pop",
+    "alternative",
+    "electronic",
+    "trip hop",
+    "singer-songwriter",
+    "chamber pop"
+   ],
+   "land": "US"
+  },
+  "3YQKmKGau1PzlVlkL1iodx": {
+   "name": "Twenty One Pilots",
+   "bild": "https://i.scdn.co/image/ab6761610000f17861a7ea26d33ded218cd1e59d",
+   "url": "https://open.spotify.com/artist/3YQKmKGau1PzlVlkL1iodx",
+   "tags": [
+    "alternative rock",
+    "indie pop",
+    "alternative rap",
+    "alternative hip hop",
+    "rap",
+    "electropop",
+    "pop rap",
+    "indietronica"
+   ],
+   "land": "US"
+  },
+  "53XhwfbYqKCa1cC15pYq2q": {
+   "name": "Imagine Dragons",
+   "bild": "https://i.scdn.co/image/ab6761610000f178ab47d8dae2b24f5afe7f9d38",
+   "url": "https://open.spotify.com/artist/53XhwfbYqKCa1cC15pYq2q",
+   "tags": [
+    "alternative rock",
+    "pop rock",
+    "indie pop",
+    "pop",
+    "alternative pop",
+    "rock",
+    "electropop",
+    "indietronica"
+   ],
+   "land": "US"
+  },
+  "7GR9YDdr51tku5kjFgMLB1": {
+   "name": "Richter",
+   "bild": "https://i.scdn.co/image/ab6761610000f178d3f2bb03e9abd4c56e8961fe",
+   "url": "https://open.spotify.com/artist/7GR9YDdr51tku5kjFgMLB1",
+   "tags": [
+    "pop"
+   ],
+   "land": null
+  },
+  "2o5jDhtHVPhrJdv3cEQ99Z": {
+   "name": "Tiësto",
+   "bild": "https://i.scdn.co/image/ab6761610000f178f4973f7346a2f35e56b63d57",
+   "url": "https://open.spotify.com/artist/2o5jDhtHVPhrJdv3cEQ99Z",
+   "tags": [
+    "trance",
+    "electronic",
+    "dance",
+    "house",
+    "electro house",
+    "dutch",
+    "progressive trance",
+    "techno"
+   ],
+   "land": "NL"
+  },
+  "7vk5e3vY1uw9plTHJAMwjN": {
+   "name": "Alan Walker",
+   "bild": "https://i.scdn.co/image/ab6761610000f178572a8eae56feae217f618078",
+   "url": "https://open.spotify.com/artist/7vk5e3vY1uw9plTHJAMwjN",
+   "tags": [
+    "electronic",
+    "electro house",
+    "edm",
+    "future bass",
+    "dance",
+    "progressive house",
+    "pop",
+    "electropop"
+   ],
+   "land": "NO"
+  },
+  "0fTSzq9jAh4c36UVb4V7CB": {
+   "name": "Alex Warren",
+   "bild": "https://i.scdn.co/image/ab6761610000f1780548e7c357122cda80128c8f",
+   "url": "https://open.spotify.com/artist/0fTSzq9jAh4c36UVb4V7CB",
+   "tags": [
+    "pop",
+    "indie pop",
+    "folk",
+    "singer-songwriter",
+    "indie folk",
+    "folk pop",
+    "2020s"
+   ],
+   "land": "US"
+  },
+  "4hK7sEnm0se5bqoI3Yb5o1": {
+   "name": "SANTOS",
+   "bild": "https://i.scdn.co/image/ab6761610000f17877faa9cb48ab141cc231c578",
+   "url": "https://open.spotify.com/artist/4hK7sEnm0se5bqoI3Yb5o1",
+   "tags": [
+    "latin",
+    "bachata"
+   ],
+   "land": "DO"
+  },
+  "2ORiMtfuAyIgw5tk2WnERd": {
+   "name": "Micah Palace",
+   "bild": "https://i.scdn.co/image/ab6761610000f178e0c079596bc4667e886b5343",
+   "url": "https://open.spotify.com/artist/2ORiMtfuAyIgw5tk2WnERd",
+   "tags": [
+    "pop",
+    "sped up"
+   ],
+   "land": null
+  },
+  "6fOMl44jA4Sp5b9PpYCkzz": {
+   "name": "NF",
+   "bild": "https://i.scdn.co/image/ab6761610000f1788fcc5c49d2116d7251ecbd65",
+   "url": "https://open.spotify.com/artist/6fOMl44jA4Sp5b9PpYCkzz",
+   "tags": [
+    "rap",
+    "hip hop",
+    "rapper",
+    "pop rap",
+    "trap"
+   ],
+   "land": "US"
+  },
+  "41JIPLdFRH6JBZXb19vVuq": {
+   "name": "ambient giants",
+   "bild": "https://i.scdn.co/image/ab6761610000f17869b8d791ae61259a01785710",
+   "url": "https://open.spotify.com/artist/41JIPLdFRH6JBZXb19vVuq",
+   "tags": [
+    "ambient",
+    "lo-fi"
+   ],
+   "land": null
+  },
+  "246dkjvS1zLTtiykXe5h60": {
+   "name": "Post Malone",
+   "bild": "https://i.scdn.co/image/ab6761610000f178e17c0aa1714a03d62b5ce4e0",
+   "url": "https://open.spotify.com/artist/246dkjvS1zLTtiykXe5h60",
+   "tags": [
+    "hip hop",
+    "pop rap",
+    "trap",
+    "country",
+    "cloud rap",
+    "pop",
+    "english",
+    "r&b"
+   ],
+   "land": "US"
+  },
+  "5arKwJZEvT5uKq4o0JfqR4": {
+   "name": "Isabel LaRosa",
+   "bild": "https://i.scdn.co/image/ab6761610000f1783795e4c14d6251601333c03c",
+   "url": "https://open.spotify.com/artist/5arKwJZEvT5uKq4o0JfqR4",
+   "tags": [
+    "alternative pop",
+    "2020s"
+   ],
+   "land": "US"
+  },
+  "3Mqo6hd9UQljzHJTJETjsU": {
+   "name": "Øutgrown",
+   "bild": "https://i.scdn.co/image/ab6761610000f178157b825ffc41f17ad7230bde",
+   "url": "https://open.spotify.com/artist/3Mqo6hd9UQljzHJTJETjsU",
+   "tags": [
+    "ambient",
+    "dark ambient"
+   ],
+   "land": "BE"
+  },
+  "2DL1LxN8dHBG1tI3Q3TlK7": {
+   "name": "Blocktane",
+   "bild": "https://i.scdn.co/image/ab6761610000f1787dfb1cbb026b2de8ca06d133",
+   "url": "https://open.spotify.com/artist/2DL1LxN8dHBG1tI3Q3TlK7",
+   "tags": [
+    "lo-fi hip hop",
+    "hip hop",
+    "chillwave",
+    "instrumental hip hop",
+    "lo-fi",
+    "boom bap",
+    "downtempo",
+    "instrumental"
+   ],
+   "land": null
+  },
+  "0LcJLqbBmaGUft1e9Mm8HV": {
+   "name": "ABBA",
+   "bild": "https://i.scdn.co/image/ab6761610000f178144d2bd5d672fcb0f38be00b",
+   "url": "https://open.spotify.com/artist/0LcJLqbBmaGUft1e9Mm8HV",
+   "tags": [
+    "pop",
+    "disco",
+    "europop",
+    "glam rock",
+    "pop rock",
+    "rock",
+    "dance",
+    "sweden"
+   ],
+   "land": "SE"
+  },
+  "5pKCCKE2ajJHZ9KAiaK11H": {
+   "name": "Rihanna",
+   "bild": "https://i.scdn.co/image/ab6761610000f178cb565a8e684e3be458d329ac",
+   "url": "https://open.spotify.com/artist/5pKCCKE2ajJHZ9KAiaK11H",
+   "tags": [
+    "pop",
+    "r&b",
+    "dance-pop",
+    "contemporary r&b",
+    "hip hop",
+    "dance",
+    "electropop",
+    "dancehall"
+   ],
+   "land": "US"
+  },
+  "4rrI3dKjmTOzRZvOwOWOlu": {
+   "name": "EMMY",
+   "bild": "https://i.scdn.co/image/ab6761610000f17809786bef7422cb44282c609a",
+   "url": "https://open.spotify.com/artist/4rrI3dKjmTOzRZvOwOWOlu",
+   "tags": [
+    "pop"
+   ],
+   "land": "NO"
+  },
+  "6r8QEHkxWjN4t2HemWAMyN": {
+   "name": "James Bakian",
+   "bild": "https://i.scdn.co/image/ab6761610000f178ef3a83171d9e1492b6a2e57f",
+   "url": "https://open.spotify.com/artist/6r8QEHkxWjN4t2HemWAMyN",
+   "tags": [
+    "electronic",
+    "dance"
+   ],
+   "land": null
+  },
+  "5p9HO3XC5P3BLxJs5Mtrhm": {
+   "name": "Djo",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "indie pop",
+    "indie rock",
+    "neo-psychedelia",
+    "bedroom pop"
+   ],
+   "land": "US"
+  },
+  "2Diqn1jFkehRd9MVDGKGdq": {
+   "name": "Eddin",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "hip hop",
+    "rap"
+   ],
+   "land": "DE"
+  },
+  "5bePP411ITzZyWf1QZ2SX4": {
+   "name": "Flame Runner",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": "DE"
+  },
+  "2P7AfQW941UU324qq2ggZf": {
+   "name": "METRICKZ",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop"
+   ],
+   "land": "DE"
+  },
+  "4KfEG606HYb1TLQhq7NbDl": {
+   "name": "Kyle Alessandro",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "eurovision",
+    "eurovision 2025"
+   ],
+   "land": "NO"
+  },
+  "4W9cXg9c6w38cHSUfUWPcP": {
+   "name": "JJ",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop"
+   ],
+   "land": null
+  },
+  "5IH6FPUwQTxPSXurCrcIov": {
+   "name": "Alec Benjamin",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "indie pop",
+    "alternative pop",
+    "emo pop",
+    "singer-songwriter",
+    "pop rock",
+    "acoustic pop",
+    "alternative rock"
+   ],
+   "land": "US"
+  },
+  "163tK9Wjr9P9DmM0AVK7lm": {
+   "name": "Lorde",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "synth-pop",
+    "indie pop",
+    "alternative pop",
+    "art pop",
+    "2010s",
+    "alternative rock",
+    "singer-songwriter"
+   ],
+   "land": "NZ"
+  },
+  "06HL4z0CvFAxyc27GXpf02": {
+   "name": "Taylor Swift",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "country",
+    "country pop",
+    "singer/songwriter",
+    "female vocals",
+    "singer-songwriter",
+    "icon",
+    "2010s"
+   ],
+   "land": "US"
+  },
+  "3rZBkgoRHG8M9jQL0QPNMi": {
+   "name": "Adel Tawil",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop",
+    "german"
+   ],
+   "land": "DE"
+  },
+  "3fi2XZbBQ4Px2T9ar6Es0M": {
+   "name": "Juice",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "j-pop",
+    "hello project",
+    "girl group",
+    "つんく♂プロデュース",
+    "ハロー！プロジェクト"
+   ],
+   "land": "JP"
+  },
+  "702XNgA79AG7pUGDxoYHql": {
+   "name": "Miami Rize",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": null
+  },
+  "1yIifIA91WgmfzBcjbQB8i": {
+   "name": "Kurdo",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "rap",
+    "hip hop"
+   ],
+   "land": "DE"
+  },
+  "5dGsIOepO9ufQlXjW8KrPL": {
+   "name": "Neptunica",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "edm"
+   ],
+   "land": "DE"
+  },
+  "2eSp20wy0FQIPWJLCCfrqa": {
+   "name": "JØA",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "melodic techno",
+    "melodic house"
+   ],
+   "land": null
+  },
+  "4JLjGlT5l6gtKKvP8qRb2g": {
+   "name": "Jost",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "downtempo",
+    "instrumental",
+    "hip hop",
+    "lo-fi",
+    "boom bap",
+    "chillwave",
+    "instrumental hip hop",
+    "lo-fi hip hop"
+   ],
+   "land": "DE"
+  },
+  "353KPo8gVAfcZfwF7BPZDy": {
+   "name": "Münchener Freiheit",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "pop",
+    "europop",
+    "neue deutsche welle",
+    "ndw",
+    "eurovision"
+   ],
+   "land": "DE"
+  },
+  "1HcduAQRxX1Q9hOTAQ8bOI": {
+   "name": "TWXNY",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": "KZ"
+  },
+  "6cUZdCbsiJJXae86kwiH5v": {
+   "name": "Sxilwix",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": null
+  },
+  "3i5xWUEFpG6g9pcRo4C2yc": {
+   "name": "INNXCENCE",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": null
+  },
+  "6CP5wWvO8oIxedESJNCN4H": {
+   "name": "Ski Aggu",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "pop rap"
+   ],
+   "land": "DE"
+  },
+  "6s5ubAp65wXoTZefE01RNR": {
+   "name": "Joost",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "rap",
+    "eurovision 2024 artists"
+   ],
+   "land": "NL"
+  },
+  "1T6DQ853AlyL47W8a2jC0f": {
+   "name": "Otto Waalkes",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "comedy",
+    "comedian"
+   ],
+   "land": "DE"
+  },
+  "3muH0fOWJZ2SaxK3agdOMD": {
+   "name": "Melody",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "pop"
+   ],
+   "land": "JP"
+  },
+  "5wyWp867LWGjFmYZXVSFnZ": {
+   "name": "MERO",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "trap",
+    "hip hop",
+    "rap",
+    "german"
+   ],
+   "land": "DE"
+  },
+  "6nVcHLIgY5pE2YCl8ubca1": {
+   "name": "JHAYCO",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "reggaeton",
+    "hip hop",
+    "trap latino",
+    "latin"
+   ],
+   "land": "PR"
+  },
+  "2otUckChxWf2cp6UP2cD6e": {
+   "name": "Zuna",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "deutschrap"
+   ],
+   "land": null
+  },
+  "2SabhGDiBSyaM6QSuBUVqB": {
+   "name": "Noizy",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "albanian",
+    "rap",
+    "german",
+    "english"
+   ],
+   "land": null
+  },
+  "1G7TGDJ01So6i6XNirnVS7": {
+   "name": "Takt32",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "rap",
+    "german"
+   ],
+   "land": "DE"
+  },
+  "5IrNK8jRtmwCN4JLMJMSY5": {
+   "name": "SIMONA",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "german",
+    "pop"
+   ],
+   "land": "DE"
+  },
+  "2j2rh3oQh4QEUnNTDKYSJD": {
+   "name": "187 Strassenbande",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "gangsta rap"
+   ],
+   "land": null
+  },
+  "5eioJDe26lOqkAMbuhzZYs": {
+   "name": "Gzuz",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "hip hop",
+    "rap",
+    "germany",
+    "german",
+    "hamburg"
+   ],
+   "land": null
+  },
+  "0JP5ABLaBXOg8HFsxUoPzC": {
+   "name": "Strob",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "phonk",
+    "electronic"
+   ],
+   "land": null
+  },
+  "5k9dTPjhY8NrdWhPDD7C2H": {
+   "name": "dæve",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "lo-fi"
+   ],
+   "land": null
+  },
+  "1SnSPHBs8l5iAvoWF0aO05": {
+   "name": "FOURTY",
+   "bild": null,
+   "url": null,
+   "tags": [
+    "trap",
+    "hip hop",
+    "german",
+    "rap"
+   ],
+   "land": null
+  }
+ },
+ "zuletzt": [
+  {
+   "song": {
+    "id": "6KD5ZksRojNTSHlRRLIpor",
+    "name": "Club My - KMN Street EP.2",
+    "kuenstler": [
+     {
+      "id": "1XKjtpH5P81gpOXDB91IEB",
+      "name": "Miami Yacine"
+     }
+    ],
+    "album": "Casia Deluxe",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02895d4d5b32e2275b4587d021",
+    "dauer_ms": 131840,
+    "erschienen": "2017-10-13",
+    "url": "https://open.spotify.com/track/6KD5ZksRojNTSHlRRLIpor"
+   },
+   "um": "2026-10-31T19:24:30.441Z"
+  },
+  {
+   "song": {
+    "id": "7etwHYuofD4c6XqBvT3V4R",
+    "name": "Vodka",
+    "kuenstler": [
+     {
+      "id": "1qQLhymHXFPtP5U8KNKsm6",
+      "name": "Apache 207"
+     }
+    ],
+    "album": "2sad2disco",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02baa8c6b3481df8562940481c",
+    "dauer_ms": 186666,
+    "erschienen": "2021-12-10",
+    "url": "https://open.spotify.com/track/7etwHYuofD4c6XqBvT3V4R"
+   },
+   "um": "2026-10-31T19:22:18.138Z"
+  },
+  {
+   "song": {
+    "id": "4JxvECbZ3Oes1eUrmhQNSH",
+    "name": "Prominent",
+    "kuenstler": [
+     {
+      "id": "1aS5tqEs9ci5P9KD9tZWa6",
+      "name": "Bonez MC"
+     },
+     {
+      "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+      "name": "RAF Camora"
+     }
+    ],
+    "album": "Palmen aus Plastik 2",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02ebd4538e6787f7d7950d663d",
+    "dauer_ms": 158554,
+    "erschienen": "2018-10-05",
+    "url": "https://open.spotify.com/track/4JxvECbZ3Oes1eUrmhQNSH"
+   },
+   "um": "2026-10-31T19:19:10.949Z"
+  },
+  {
+   "song": {
+    "id": "2jgz8ebzp6aY7fW7hWAXaO",
+    "name": "Für Euch alle",
+    "kuenstler": [
+     {
+      "id": "3c96G4d2lUOxhomM2mby5S",
+      "name": "Bushido"
+     },
+     {
+      "id": "6h1s4i4XKIYv4ErDelLDN0",
+      "name": "Samra"
+     },
+     {
+      "id": "4WZGDpNwrC0vNQyl9QzF7d",
+      "name": "Capital Bra"
+     }
+    ],
+    "album": "Mythos",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02a796e1406576043cdf6bacf2",
+    "dauer_ms": 258398,
+    "erschienen": "2018-09-28",
+    "url": "https://open.spotify.com/track/2jgz8ebzp6aY7fW7hWAXaO"
+   },
+   "um": "2026-10-31T19:16:31.931Z"
+  },
+  {
+   "song": {
+    "id": "0Qq3QFKepg7RJ5HvEACCdG",
+    "name": "Nummer",
+    "kuenstler": [
+     {
+      "id": "5pVRwX5ZQR7hfJ18w8ZYkl",
+      "name": "Ufo361"
+     },
+     {
+      "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+      "name": "RAF Camora"
+     }
+    ],
+    "album": "WAVE",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02f3a6ca947fe70a9a32e187e4",
+    "dauer_ms": 182213,
+    "erschienen": "2019-08-09",
+    "url": "https://open.spotify.com/track/0Qq3QFKepg7RJ5HvEACCdG"
+   },
+   "um": "2026-10-31T19:12:13.001Z"
+  },
+  {
+   "song": {
+    "id": "7n1YMa4F9k81ogyBSYP5AK",
+    "name": "Tropicana",
+    "kuenstler": [
+     {
+      "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+      "name": "RAF Camora"
+     },
+     {
+      "id": "1Wic7dyEeEpQXDBbDf6HKm",
+      "name": "HoodBlaq"
+     }
+    ],
+    "album": "XV RR Edition",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02485bb64f025af56e37618141",
+    "dauer_ms": 132546,
+    "erschienen": "2023-09-08",
+    "url": "https://open.spotify.com/track/7n1YMa4F9k81ogyBSYP5AK"
+   },
+   "um": "2026-10-31T19:09:10.244Z"
+  },
+  {
+   "song": {
+    "id": "4e6l3QGj4RZesjDLVqYk3H",
+    "name": "Marlboro Rot",
+    "kuenstler": [
+     {
+      "id": "6h1s4i4XKIYv4ErDelLDN0",
+      "name": "Samra"
+     }
+    ],
+    "album": "Marlboro Rot",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02cb0061eeb938f8ac7be1a2d9",
+    "dauer_ms": 191000,
+    "erschienen": "2019-05-24",
+    "url": "https://open.spotify.com/track/4e6l3QGj4RZesjDLVqYk3H"
+   },
+   "um": "2026-10-31T19:06:57.184Z"
+  },
+  {
+   "song": {
+    "id": "67w9hklDIBo7R27xFmQUAN",
+    "name": "Ich weiß nicht mal wie sie heißt",
+    "kuenstler": [
+     {
+      "id": "4WZGDpNwrC0vNQyl9QzF7d",
+      "name": "Capital Bra"
+     },
+     {
+      "id": "4WoSAKuoaPxrbwp3Y1PvKb",
+      "name": "Bozza"
+     }
+    ],
+    "album": "CB7",
+    "cover": "https://i.scdn.co/image/ab67616d00001e0252169849e32a2448fffb584a",
+    "dauer_ms": 168760,
+    "erschienen": "2020-09-17",
+    "url": "https://open.spotify.com/track/67w9hklDIBo7R27xFmQUAN"
+   },
+   "um": "2026-10-31T19:03:45.693Z"
+  },
+  {
+   "song": {
+    "id": "3Zigq1lfHmFRlyoRrh9k2s",
+    "name": "Kein Problem",
+    "kuenstler": [
+     {
+      "id": "1qQLhymHXFPtP5U8KNKsm6",
+      "name": "Apache 207"
+     }
+    ],
+    "album": "Kein Problem",
+    "cover": "https://i.scdn.co/image/ab67616d00001e0279f8768a7964d4a827b1bdb8",
+    "dauer_ms": 138581,
+    "erschienen": "2019-04-05",
+    "url": "https://open.spotify.com/track/3Zigq1lfHmFRlyoRrh9k2s"
+   },
+   "um": "2026-10-31T19:00:56.450Z"
+  },
+  {
+   "song": {
+    "id": "5En15pYA2WQ97CVlAZh2P1",
+    "name": "Inshallah",
+    "kuenstler": [
+     {
+      "id": "3c96G4d2lUOxhomM2mby5S",
+      "name": "Bushido"
+     },
+     {
+      "id": "4WZGDpNwrC0vNQyl9QzF7d",
+      "name": "Capital Bra"
+     }
+    ],
+    "album": "Mythos",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02a796e1406576043cdf6bacf2",
+    "dauer_ms": 173293,
+    "erschienen": "2018-09-28",
+    "url": "https://open.spotify.com/track/5En15pYA2WQ97CVlAZh2P1"
+   },
+   "um": "2026-10-31T18:58:37.353Z"
+  },
+  {
+   "song": {
+    "id": "1hrHUEYoVBC1hNCXkX7tIA",
+    "name": "Summer Cem (feat. Luciano)",
+    "kuenstler": [
+     {
+      "id": "3drqpTL4sQOckmAfF9i1wg",
+      "name": "Summer Cem"
+     },
+     {
+      "id": "3CJKkU0XuElRT1z8rEtIYg",
+      "name": "Luciano"
+     }
+    ],
+    "album": "Nur Noch Nice",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02a23840ad18355bd9295a1754",
+    "dauer_ms": 160546,
+    "erschienen": "2019-11-08",
+    "url": "https://open.spotify.com/track/1hrHUEYoVBC1hNCXkX7tIA"
+   },
+   "um": "2026-10-31T18:55:43.556Z"
+  },
+  {
+   "song": {
+    "id": "4DopXHwk5ySUzH8pIa3THQ",
+    "name": "Gotham City",
+    "kuenstler": [
+     {
+      "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+      "name": "RAF Camora"
+     }
+    ],
+    "album": "Anthrazit RR",
+    "cover": "https://i.scdn.co/image/ab67616d00001e020abd5ecec3747d258fc63836",
+    "dauer_ms": 147023,
+    "erschienen": "2017-12-16",
+    "url": "https://open.spotify.com/track/4DopXHwk5ySUzH8pIa3THQ"
+   },
+   "um": "2026-10-31T18:53:02.496Z"
+  },
+  {
+   "song": {
+    "id": "7FOQJQcTDqzXZJ72hZikCl",
+    "name": "Shoote ma Shoote",
+    "kuenstler": [
+     {
+      "id": "6h1s4i4XKIYv4ErDelLDN0",
+      "name": "Samra"
+     }
+    ],
+    "album": "Shoote ma Shoote",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02400908d3d5ab3d1d7884f32c",
+    "dauer_ms": 162551,
+    "erschienen": "2019-04-10",
+    "url": "https://open.spotify.com/track/7FOQJQcTDqzXZJ72hZikCl"
+   },
+   "um": "2026-10-31T18:50:34.994Z"
+  },
+  {
+   "song": {
+    "id": "5xX2LYdXyx0Boa61rZOjq5",
+    "name": "Beautiful Girl",
+    "kuenstler": [
+     {
+      "id": "3CJKkU0XuElRT1z8rEtIYg",
+      "name": "Luciano"
+     }
+    ],
+    "album": "Majestic",
+    "cover": "https://i.scdn.co/image/ab67616d00001e0248064ef6df8fad8a52219c32",
+    "dauer_ms": 178453,
+    "erschienen": "2022-09-29",
+    "url": "https://open.spotify.com/track/5xX2LYdXyx0Boa61rZOjq5"
+   },
+   "um": "2026-10-31T18:47:51.945Z"
+  },
+  {
+   "song": {
+    "id": "5ewhpp17f3pUSx9xCwC6b1",
+    "name": "Sport",
+    "kuenstler": [
+     {
+      "id": "1qQLhymHXFPtP5U8KNKsm6",
+      "name": "Apache 207"
+     }
+    ],
+    "album": "2sad2disco",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02baa8c6b3481df8562940481c",
+    "dauer_ms": 175630,
+    "erschienen": "2021-12-10",
+    "url": "https://open.spotify.com/track/5ewhpp17f3pUSx9xCwC6b1"
+   },
+   "um": "2026-10-31T18:44:53.042Z"
+  },
+  {
+   "song": {
+    "id": "369SOcTvxnm9DWYIzoNzal",
+    "name": "Skandale",
+    "kuenstler": [
+     {
+      "id": "1aS5tqEs9ci5P9KD9tZWa6",
+      "name": "Bonez MC"
+     },
+     {
+      "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+      "name": "RAF Camora"
+     }
+    ],
+    "album": "Tannen aus Plastik",
+    "cover": "https://i.scdn.co/image/ab67616d00001e0225670faa809006c041e9f418",
+    "dauer_ms": 194510,
+    "erschienen": "2016-12-16",
+    "url": "https://open.spotify.com/track/369SOcTvxnm9DWYIzoNzal"
+   },
+   "um": "2026-10-31T18:41:56.812Z"
+  },
+  {
+   "song": {
+    "id": "3TMW1GOB1lsmvf8er2dE8g",
+    "name": "Lambo Diablo GT (feat. Nimo & Juju) - Remix",
+    "kuenstler": [
+     {
+      "id": "5y9wg9qkGBl0n9v9RzaPKu",
+      "name": "CAPO"
+     },
+     {
+      "id": "3ZuBEj9ppJe8GSdKaMTfMN",
+      "name": "Nimo"
+     },
+     {
+      "id": "4sg4no0TXdsrM1s4SVUwNF",
+      "name": "Juju"
+     }
+    ],
+    "album": "Lambo Diablo GT (feat. Nimo & Juju) [Remix]",
+    "cover": "https://i.scdn.co/image/ab67616d00001e028e64a542cdc5a3bdad1ed8c5",
+    "dauer_ms": 317902,
+    "erschienen": "2019-01-04",
+    "url": "https://open.spotify.com/track/3TMW1GOB1lsmvf8er2dE8g"
+   },
+   "um": "2026-10-31T18:38:41.803Z"
+  },
+  {
+   "song": {
+    "id": "1087UErO9Zd3s6zvWu4FL0",
+    "name": "Adriana",
+    "kuenstler": [
+     {
+      "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+      "name": "RAF Camora"
+     }
+    ],
+    "album": "ZENIT",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02003c981623c2f9f190050e82",
+    "dauer_ms": 165129,
+    "erschienen": "2019-11-01",
+    "url": "https://open.spotify.com/track/1087UErO9Zd3s6zvWu4FL0"
+   },
+   "um": "2026-10-31T18:33:23.412Z"
+  },
+  {
+   "song": {
+    "id": "5xIODxqlpUnRVA9ewZUCug",
+    "name": "Harami",
+    "kuenstler": [
+     {
+      "id": "6h1s4i4XKIYv4ErDelLDN0",
+      "name": "Samra"
+     }
+    ],
+    "album": "Harami",
+    "cover": "https://i.scdn.co/image/ab67616d00001e0272b3a06454f1c199ba992ddb",
+    "dauer_ms": 182522,
+    "erschienen": "2019-04-05",
+    "url": "https://open.spotify.com/track/5xIODxqlpUnRVA9ewZUCug"
+   },
+   "um": "2026-10-31T18:30:37.778Z"
+  },
+  {
+   "song": {
+    "id": "0wedgCpvgK8SrNGCCgpMYc",
+    "name": "Bon Voyage",
+    "kuenstler": [
+     {
+      "id": "1XKjtpH5P81gpOXDB91IEB",
+      "name": "Miami Yacine"
+     }
+    ],
+    "album": "Casia Deluxe",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02895d4d5b32e2275b4587d021",
+    "dauer_ms": 150089,
+    "erschienen": "2017-10-13",
+    "url": "https://open.spotify.com/track/0wedgCpvgK8SrNGCCgpMYc"
+   },
+   "um": "2026-10-31T18:27:34.744Z"
+  },
+  {
+   "song": {
+    "id": "6dNB3XdAzx7kTf5wa8Rg89",
+    "name": "Wieso tust Du dir das an?",
+    "kuenstler": [
+     {
+      "id": "1qQLhymHXFPtP5U8KNKsm6",
+      "name": "Apache 207"
+     }
+    ],
+    "album": "Platte",
+    "cover": "https://i.scdn.co/image/ab67616d00001e025ad6a8a3acb89efcdc51bde8",
+    "dauer_ms": 175922,
+    "erschienen": "2019-10-25",
+    "url": "https://open.spotify.com/track/6dNB3XdAzx7kTf5wa8Rg89"
+   },
+   "um": "2026-10-31T18:25:04.151Z"
+  },
+  {
+   "song": {
+    "id": "4gjNaLNDi9QBGbdNKGyKqH",
+    "name": "Allein",
+    "kuenstler": [
+     {
+      "id": "4WZGDpNwrC0vNQyl9QzF7d",
+      "name": "Capital Bra"
+     }
+    ],
+    "album": "Allein",
+    "cover": "https://i.scdn.co/image/ab67616d00001e022e68634d5df3492f329591c5",
+    "dauer_ms": 222900,
+    "erschienen": "2018-11-02",
+    "url": "https://open.spotify.com/track/4gjNaLNDi9QBGbdNKGyKqH"
+   },
+   "um": "2026-10-31T18:22:07.753Z"
+  },
+  {
+   "song": {
+    "id": "2EriVX6pX9RcmMsgU8Hsir",
+    "name": "Taxi",
+    "kuenstler": [
+     {
+      "id": "1aS5tqEs9ci5P9KD9tZWa6",
+      "name": "Bonez MC"
+     },
+     {
+      "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+      "name": "RAF Camora"
+     },
+     {
+      "id": "5eioJDe26lOqkAMbuhzZYs",
+      "name": "Gzuz"
+     }
+    ],
+    "album": "Palmen aus Plastik 3",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02f22d9c9f03a3b3ecd0602ce4",
+    "dauer_ms": 172580,
+    "erschienen": "2022-09-08",
+    "url": "https://open.spotify.com/track/2EriVX6pX9RcmMsgU8Hsir"
+   },
+   "um": "2026-10-31T18:18:24.345Z"
+  },
+  {
+   "song": {
+    "id": "021RPNEyabxzhiSQ4qIpbk",
+    "name": "Andere Liga",
+    "kuenstler": [
+     {
+      "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+      "name": "RAF Camora"
+     }
+    ],
+    "album": "Anthrazit",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02204f3aa1f9c4bd2d36e29dc9",
+    "dauer_ms": 221965,
+    "erschienen": "2017-08-25",
+    "url": "https://open.spotify.com/track/021RPNEyabxzhiSQ4qIpbk"
+   },
+   "um": "2026-10-31T18:15:31.240Z"
+  },
+  {
+   "song": {
+    "id": "0y8lwLPXBsenbF5WAZhlbL",
+    "name": "Kleiner Prinz",
+    "kuenstler": [
+     {
+      "id": "34LetYSjEuG2fBb4Z8PwPg",
+      "name": "Pashanim"
+     }
+    ],
+    "album": "Kleiner Prinz",
+    "cover": "https://i.scdn.co/image/ab67616d00001e021a353f5fbac895bb0249e863",
+    "dauer_ms": 147560,
+    "erschienen": "2022-07-07",
+    "url": "https://open.spotify.com/track/0y8lwLPXBsenbF5WAZhlbL"
+   },
+   "um": "2026-10-31T18:11:48.795Z"
+  },
+  {
+   "song": {
+    "id": "0jB0RNZIfaihaDKNmdrI40",
+    "name": "Casanova",
+    "kuenstler": [
+     {
+      "id": "3drqpTL4sQOckmAfF9i1wg",
+      "name": "Summer Cem"
+     },
+     {
+      "id": "13bDjug9N0pyv3ZUINjkDV",
+      "name": "Bausa"
+     }
+    ],
+    "album": "Endstufe (Deluxe Edition)",
+    "cover": "https://i.scdn.co/image/ab67616d00001e027a42b9a84f064de19e7e1815",
+    "dauer_ms": 206813,
+    "erschienen": "2018-07-27",
+    "url": "https://open.spotify.com/track/0jB0RNZIfaihaDKNmdrI40"
+   },
+   "um": "2026-10-31T18:09:20.697Z"
+  },
+  {
+   "song": {
+    "id": "0QjjaCaXE45mvhCnV3C0TA",
+    "name": "Fame",
+    "kuenstler": [
+     {
+      "id": "1qQLhymHXFPtP5U8KNKsm6",
+      "name": "Apache 207"
+     }
+    ],
+    "album": "Treppenhaus",
+    "cover": "https://i.scdn.co/image/ab67616d00001e026be811aa94c18a198e8bc705",
+    "dauer_ms": 173859,
+    "erschienen": "2020-07-31",
+    "url": "https://open.spotify.com/track/0QjjaCaXE45mvhCnV3C0TA"
+   },
+   "um": "2026-10-31T18:05:53.385Z"
+  },
+  {
+   "song": {
+    "id": "65y7cNqgUzmmKJOQg1Idms",
+    "name": "Feuer",
+    "kuenstler": [
+     {
+      "id": "4WZGDpNwrC0vNQyl9QzF7d",
+      "name": "Capital Bra"
+     }
+    ],
+    "album": "Feuer",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02d9c2ec602d93e742db43299d",
+    "dauer_ms": 165717,
+    "erschienen": "2018-11-30",
+    "url": "https://open.spotify.com/track/65y7cNqgUzmmKJOQg1Idms"
+   },
+   "um": "2026-10-31T18:02:59.042Z"
+  },
+  {
+   "song": {
+    "id": "4HIv1dRF270YMyfvuxnF0d",
+    "name": "Risiko",
+    "kuenstler": [
+     {
+      "id": "1aS5tqEs9ci5P9KD9tZWa6",
+      "name": "Bonez MC"
+     },
+     {
+      "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+      "name": "RAF Camora"
+     }
+    ],
+    "album": "Palmen aus Plastik 2",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02ebd4538e6787f7d7950d663d",
+    "dauer_ms": 223381,
+    "erschienen": "2018-10-05",
+    "url": "https://open.spotify.com/track/4HIv1dRF270YMyfvuxnF0d"
+   },
+   "um": "2026-10-31T18:00:12.803Z"
+  },
+  {
+   "song": {
+    "id": "7GLip7qfO48hJPOefWncqO",
+    "name": "Puta Madre - Bonustrack",
+    "kuenstler": [
+     {
+      "id": "0Dvx6p8JDyzeOPGmaCIH1L",
+      "name": "RAF Camora"
+     }
+    ],
+    "album": "ZENIT",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02003c981623c2f9f190050e82",
+    "dauer_ms": 209032,
+    "erschienen": "2019-11-01",
+    "url": "https://open.spotify.com/track/7GLip7qfO48hJPOefWncqO"
+   },
+   "um": "2026-10-31T17:56:28.951Z"
+  },
+  {
+   "song": {
+    "id": "3aDYo34VzVf2i8aJyJk0ca",
+    "name": "Mit den Jungz",
+    "kuenstler": [
+     {
+      "id": "2j2rh3oQh4QEUnNTDKYSJD",
+      "name": "187 Strassenbande"
+     },
+     {
+      "id": "5eioJDe26lOqkAMbuhzZYs",
+      "name": "Gzuz"
+     },
+     {
+      "id": "1aS5tqEs9ci5P9KD9tZWa6",
+      "name": "Bonez MC"
+     },
+     {
+      "id": "10XY9PZCJKzUFzZOdtlQLU",
+      "name": "LX"
+     }
+    ],
+    "album": "Sampler 4",
+    "cover": "https://i.scdn.co/image/ab67616d00001e0272826622b103a09074d8327b",
+    "dauer_ms": 233220,
+    "erschienen": "2017-07-18",
+    "url": "https://open.spotify.com/track/3aDYo34VzVf2i8aJyJk0ca"
+   },
+   "um": "2026-10-31T17:52:59.396Z"
+  },
+  {
+   "song": {
+    "id": "6yeZM8gyykjaf8w0GqRfK4",
+    "name": "Wildberry Lillet",
+    "kuenstler": [
+     {
+      "id": "2kS9NyuATpYwjeB93h24H5",
+      "name": "Nina Chuba"
+     }
+    ],
+    "album": "Wildberry Lillet",
+    "cover": "https://i.scdn.co/image/ab67616d00001e028004c2c286811e13106fa7bc",
+    "dauer_ms": 132000,
+    "erschienen": "2022-08-12",
+    "url": "https://open.spotify.com/track/6yeZM8gyykjaf8w0GqRfK4"
+   },
+   "um": "2026-10-31T17:49:05.739Z"
+  },
+  {
+   "song": {
+    "id": "7pNTvZkyZPuesjbtefqq4h",
+    "name": "Dreh den Swag auf",
+    "kuenstler": [
+     {
+      "id": "1DxUdl4z0N2hLqU7U6yqwc",
+      "name": "Money Boy"
+     }
+    ],
+    "album": "Dreh den Swag auf",
+    "cover": "https://i.scdn.co/image/ab67616d00001e0267d8bad7909309382bcc74a7",
+    "dauer_ms": 200666,
+    "erschienen": "2011-02-04",
+    "url": "https://open.spotify.com/track/7pNTvZkyZPuesjbtefqq4h"
+   },
+   "um": "2026-10-31T17:46:53.241Z"
+  },
+  {
+   "song": {
+    "id": "4h6UIDvGWTYZvu4BLf2GpO",
+    "name": "Von Party zu Party",
+    "kuenstler": [
+     {
+      "id": "0tMFcqLXhtm1Gep20iuIR3",
+      "name": "SXTN"
+     }
+    ],
+    "album": "Leben am Limit",
+    "cover": "https://i.scdn.co/image/ab67616d00001e023339cc5ec85884a26e6ab9af",
+    "dauer_ms": 224186,
+    "erschienen": "2017-06-02",
+    "url": "https://open.spotify.com/track/4h6UIDvGWTYZvu4BLf2GpO"
+   },
+   "um": "2026-10-31T17:43:32.020Z"
+  },
+  {
+   "song": {
+    "id": "2sKsOXcFXYMMFaUkHZrODV",
+    "name": "SONNENBRILLE",
+    "kuenstler": [
+     {
+      "id": "2Im8m4STDBosjfmb5hmP80",
+      "name": "Loredana"
+     }
+    ],
+    "album": "SONNENBRILLE",
+    "cover": "https://i.scdn.co/image/ab67616d00001e025ab0390abe3d65cdf20640c2",
+    "dauer_ms": 161880,
+    "erschienen": "2018-06-15",
+    "url": "https://open.spotify.com/track/2sKsOXcFXYMMFaUkHZrODV"
+   },
+   "um": "2026-10-31T17:39:47.316Z"
+  },
+  {
+   "song": {
+    "id": "5AUNkb1jcqNn2JCSQzQ6rC",
+    "name": "Baller los",
+    "kuenstler": [
+     {
+      "id": "5wyWp867LWGjFmYZXVSFnZ",
+      "name": "MERO"
+     }
+    ],
+    "album": "Baller los",
+    "cover": "https://i.scdn.co/image/ab67616d00001e029cb96c40d34539797863f2b8",
+    "dauer_ms": 160357,
+    "erschienen": "2018-11-23",
+    "url": "https://open.spotify.com/track/5AUNkb1jcqNn2JCSQzQ6rC"
+   },
+   "um": "2026-10-31T17:37:04.919Z"
+  },
+  {
+   "song": {
+    "id": "3Dvyt7HBNmu88zq7bSRhuw",
+    "name": "DODI",
+    "kuenstler": [
+     {
+      "id": "5j21TGkrNEAJe3gG9VlS34",
+      "name": "Shindy"
+     }
+    ],
+    "album": "Drama",
+    "cover": "https://i.scdn.co/image/ab67616d00001e0235fd487ff7538e4bcb7ea915",
+    "dauer_ms": 182878,
+    "erschienen": "2019-07-12",
+    "url": "https://open.spotify.com/track/3Dvyt7HBNmu88zq7bSRhuw"
+   },
+   "um": "2026-10-31T17:34:24.046Z"
+  },
+  {
+   "song": {
+    "id": "5L0JMH1LRJrsjbjFhWXB3k",
+    "name": "Error",
+    "kuenstler": [
+     {
+      "id": "18ISxWwWjV6rPLoVCXf1dz",
+      "name": "RIN"
+     }
+    ],
+    "album": "Genesis EP",
+    "cover": "https://i.scdn.co/image/ab67616d00001e0261f30511929e7c3f48ea7506",
+    "dauer_ms": 242259,
+    "erschienen": "2016-03-04",
+    "url": "https://open.spotify.com/track/5L0JMH1LRJrsjbjFhWXB3k"
+   },
+   "um": "2026-10-31T17:31:20.686Z"
+  },
+  {
+   "song": {
+    "id": "7lnKSkUtzscxJkR6yiOcyK",
+    "name": "Mein Block",
+    "kuenstler": [
+     {
+      "id": "4Yttlv9ndGjCDCVLqM7ACq",
+      "name": "Sido"
+     }
+    ],
+    "album": "Maske X",
+    "cover": "https://i.scdn.co/image/ab67616d00001e025ba09264f6bd3e19ee91fbcb",
+    "dauer_ms": 248826,
+    "erschienen": "2005-11-25",
+    "url": "https://open.spotify.com/track/7lnKSkUtzscxJkR6yiOcyK"
+   },
+   "um": "2026-10-31T17:27:17.949Z"
+  },
+  {
+   "song": {
+    "id": "1SSzM044DUbVpYNNHWIhYJ",
+    "name": "Vermissen (feat. Henning May)",
+    "kuenstler": [
+     {
+      "id": "4sg4no0TXdsrM1s4SVUwNF",
+      "name": "Juju"
+     },
+     {
+      "id": "1cH0i2n6YLrWFDDemqztay",
+      "name": "Henning May"
+     }
+    ],
+    "album": "Vermissen (feat. Henning May)",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02425d5019ebe29f8663c39dac",
+    "dauer_ms": 161882,
+    "erschienen": "2019-05-03",
+    "url": "https://open.spotify.com/track/1SSzM044DUbVpYNNHWIhYJ"
+   },
+   "um": "2026-10-31T17:23:08.591Z"
+  },
+  {
+   "song": {
+    "id": "4hKWUzhQWsOkgT6LnDEASe",
+    "name": "Was du Liebe nennst",
+    "kuenstler": [
+     {
+      "id": "13bDjug9N0pyv3ZUINjkDV",
+      "name": "Bausa"
+     }
+    ],
+    "album": "Was Du Liebe nennst",
+    "cover": "https://i.scdn.co/image/ab67616d00001e024eab5afad0bdfd43418f727b",
+    "dauer_ms": 203630,
+    "erschienen": "2017-09-29",
+    "url": "https://open.spotify.com/track/4hKWUzhQWsOkgT6LnDEASe"
+   },
+   "um": "2026-10-31T17:20:26.217Z"
+  },
+  {
+   "song": {
+    "id": "3OnanI3Wcsp8bUyQAwGPkv",
+    "name": "Saudi Arabi Money Rich",
+    "kuenstler": [
+     {
+      "id": "6ynopZPMBXcIGBI9M02Un5",
+      "name": "Haftbefehl"
+     }
+    ],
+    "album": "Russisch Roulette (Deluxe)",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02a3d5d45924d9617980af3955",
+    "dauer_ms": 168733,
+    "erschienen": "2014-11-28",
+    "url": "https://open.spotify.com/track/3OnanI3Wcsp8bUyQAwGPkv"
+   },
+   "um": "2026-10-31T17:17:02.042Z"
+  },
+  {
+   "song": {
+    "id": "2t3rOgkNCqlbF5uvBeH9bX",
+    "name": "King of Rap - Remix",
+    "kuenstler": [
+     {
+      "id": "1SUu1Bi7ev9HbOzyVC77qD",
+      "name": "Kool Savas"
+     }
+    ],
+    "album": "KKS",
+    "cover": "https://i.scdn.co/image/ab67616d00001e020fd58561f282ef69f884071f",
+    "dauer_ms": 255544,
+    "erschienen": "2019-02-08",
+    "url": "https://open.spotify.com/track/2t3rOgkNCqlbF5uvBeH9bX"
+   },
+   "um": "2026-10-31T17:14:12.856Z"
+  },
+  {
+   "song": {
+    "id": "2QAsTQ1tydZ6mhYH2FyzfG",
+    "name": "Durstlöscher",
+    "kuenstler": [
+     {
+      "id": "3Z3aTg9PwJ37e8xeO0aUC9",
+      "name": "01099"
+     },
+     {
+      "id": "2WmxTCUVOyGsqn4GA7VxuC",
+      "name": "Gustav"
+     },
+     {
+      "id": "5RgzUZORebl59TcvCRZsD2",
+      "name": "Zachi"
+     }
+    ],
+    "album": "Durstlöscher",
+    "cover": "https://i.scdn.co/image/ab67616d00001e028598c2b6ac5bb8bc74c1a72c",
+    "dauer_ms": 161440,
+    "erschienen": "2021-05-14",
+    "url": "https://open.spotify.com/track/2QAsTQ1tydZ6mhYH2FyzfG"
+   },
+   "um": "2026-10-31T17:09:56.778Z"
+  },
+  {
+   "song": {
+    "id": "15B2XteO75pIkH2iBrowaA",
+    "name": "Knöcheltief",
+    "kuenstler": [
+     {
+      "id": "6QzzeKV0VcnT2vJMYDPuL4",
+      "name": "Trettmann"
+     },
+     {
+      "id": "5eioJDe26lOqkAMbuhzZYs",
+      "name": "Gzuz"
+     },
+     {
+      "id": "5tHiL8SKSaZGMBUPIiSmX4",
+      "name": "KITSCHKRIEG"
+     }
+    ],
+    "album": "#DIY",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02b7158e88221b99719a39973e",
+    "dauer_ms": 207519,
+    "erschienen": "2017-09-29",
+    "url": "https://open.spotify.com/track/15B2XteO75pIkH2iBrowaA"
+   },
+   "um": "2026-10-31T17:07:14.842Z"
+  },
+  {
+   "song": {
+    "id": "1RCPw74Y3vOdDqVlYGnhHP",
+    "name": "Grauer Beton",
+    "kuenstler": [
+     {
+      "id": "6QzzeKV0VcnT2vJMYDPuL4",
+      "name": "Trettmann"
+     },
+     {
+      "id": "5tHiL8SKSaZGMBUPIiSmX4",
+      "name": "KITSCHKRIEG"
+     }
+    ],
+    "album": "#DIY",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02b7158e88221b99719a39973e",
+    "dauer_ms": 237455,
+    "erschienen": "2017-09-29",
+    "url": "https://open.spotify.com/track/1RCPw74Y3vOdDqVlYGnhHP"
+   },
+   "um": "2026-10-31T17:03:46.802Z"
+  },
+  {
+   "song": {
+    "id": "0rTaDlcde6sL7GMOdsMQGA",
+    "name": "Vögel",
+    "kuenstler": [
+     {
+      "id": "4gJT0OnBISFA5CPMNYBGIE",
+      "name": "OG Keemo"
+     }
+    ],
+    "album": "Mann Beisst Hund",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02870a6e8255f51d3ba275496c",
+    "dauer_ms": 390293,
+    "erschienen": "2022-01-07",
+    "url": "https://open.spotify.com/track/0rTaDlcde6sL7GMOdsMQGA"
+   },
+   "um": "2026-10-31T16:59:48.852Z"
+  },
+  {
+   "song": {
+    "id": "1NAK0ylp10Hv9tICiV0kPB",
+    "name": "216",
+    "kuenstler": [
+     {
+      "id": "4gJT0OnBISFA5CPMNYBGIE",
+      "name": "OG Keemo"
+     }
+    ],
+    "album": "Geist",
+    "cover": "https://i.scdn.co/image/ab67616d00001e022a135808915566038569c13d",
+    "dauer_ms": 192946,
+    "erschienen": "2019-11-22",
+    "url": "https://open.spotify.com/track/1NAK0ylp10Hv9tICiV0kPB"
+   },
+   "um": "2026-10-31T16:53:18.042Z"
+  },
+  {
+   "song": {
+    "id": "1q9xFdFWkusdtAhQNAFq2J",
+    "name": "Eine Ode an Bibiza",
+    "kuenstler": [
+     {
+      "id": "4cohcn6lAkdQIAt3q5C4e2",
+      "name": "BIBIZA"
+     }
+    ],
+    "album": "Wiener Schickeria",
+    "cover": "https://i.scdn.co/image/ab67616d00001e0203de8104cf011785d3c1ca6e",
+    "dauer_ms": 39600,
+    "erschienen": "2023-06-02",
+    "url": "https://open.spotify.com/track/1q9xFdFWkusdtAhQNAFq2J"
+   },
+   "um": "2026-10-31T16:50:04.602Z"
+  },
+  {
+   "song": {
+    "id": "4hpiu5gL0eZxjynnGmrP0A",
+    "name": "Ponny",
+    "kuenstler": [
+     {
+      "id": "4PvnP3yCzrT289cX3wCdOx",
+      "name": "Yung Hurn"
+     }
+    ],
+    "album": "Y",
+    "cover": "https://i.scdn.co/image/ab67616d00001e02d90ad81aed72ce2579453adf",
+    "dauer_ms": 162600,
+    "erschienen": "2019-11-08",
+    "url": "https://open.spotify.com/track/4hpiu5gL0eZxjynnGmrP0A"
+   },
+   "um": "2026-10-31T16:49:24.548Z"
+  }
+ ]
+}
