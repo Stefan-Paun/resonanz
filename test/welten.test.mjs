@@ -71,3 +71,33 @@ test("Schnappschuss: Struktur stimmt und keine persönlichen Felder", () => {
   const streu = [...zu.values()].filter((w) => w === "streulicht").length;
   assert.ok(streu / zu.size < 0.25, `zu viele ohne Welt: ${streu}/${zu.size}`);
 });
+
+import { kapitelBauen } from "../public/kapitel.js";
+import { sterne as sterneAus } from "../public/daten.js";
+
+test("Kapitel: Namen mit HTML werden escaped, ohne Länder und Tags kein Absturz", () => {
+  const snap = {
+    erstellt: "2026-11-01T00:00:00Z",
+    kuenstler: { a: { name: "<img src=x onerror=alert(1)>", tags: [], land: null }, b: { name: "Zweiter & Co", tags: [], land: null } },
+    zeitraeume: {
+      "4w": { kuenstler: ["a", "b"], songs: [{ id: "s1", name: "<b>Song</b>", kuenstler: [{ id: "a", name: "<img src=x onerror=alert(1)>" }], album: "A", cover: null, dauer_ms: 1000, erschienen: "2024-01-01", url: null }] },
+      "6m": { kuenstler: ["b"], songs: [] },
+      "1y": { kuenstler: [], songs: [] },
+    },
+    zuletzt: [],
+  };
+  const main = { innerHTML: "" };
+  const liste = sterneAus(snap);
+  const kapitel = kapitelBauen(main, snap, liste, {});
+  assert.ok(kapitel.length >= 8);
+  assert.ok(!main.innerHTML.includes("<img src=x"), "rohes HTML im Kapiteltext");
+  assert.ok(main.innerHTML.includes("&lt;img src=x"), "Name sollte escaped erscheinen");
+  assert.ok(main.innerHTML.includes("Zu keinem der 2 Sterne ist eine Herkunft bekannt"));
+});
+
+test("Kapitel: leerer Schnappschuss stürzt nicht ab", () => {
+  const snap = { erstellt: "2026-11-01T00:00:00Z", kuenstler: {}, zeitraeume: { "4w": { kuenstler: [], songs: [] }, "6m": { kuenstler: [], songs: [] }, "1y": { kuenstler: [], songs: [] } }, zuletzt: [] };
+  const main = { innerHTML: "" };
+  kapitelBauen(main, snap, sterneAus(snap), {});
+  assert.ok(main.innerHTML.includes("Acht Welten"));
+});

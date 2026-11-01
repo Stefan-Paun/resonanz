@@ -50,4 +50,6 @@ The demo shows my artists, songs and listening weights. It never contains a disp
 
 Metadata and cover art belong to Spotify and the rights holders; this is a private project not affiliated with Spotify. Genres and countries from [MusicBrainz](https://musicbrainz.org). Previews from [Deezer](https://developers.deezer.com). three.js (MIT). Fonts: Bricolage Grotesque and Azeret Mono (SIL OFL), self-hosted.
 
+three.js is vendored in `public/vendor/` (no CDN at runtime). Genre tags from MusicBrainz are CC BY-NC-SA 3.0; this project is non-commercial. A strict Content-Security-Policy limits the page to its own files plus Spotify (login, API, covers), MusicBrainz and Deezer.
+
 MIT License. Built by Stefan Paun, 17, Vienna, with Claude Code.

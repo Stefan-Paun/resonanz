@@ -4,6 +4,12 @@ import { ZEITRAEUME, dauerText, LANDNAMEN } from "./daten.js";
 
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const ZEIT_NAME = { "4w": "4 W", "6m": "6 M", "1y": "1 J" };
+/** Nur https-Links auf erlaubte Hosts (Spotify, Spotify-CDN); alles andere wird verworfen. */
+function sichereUrl(u, hosts) {
+  try { const x = new URL(u); return x.protocol === "https:" && hosts.some((h) => x.hostname === h || x.hostname.endsWith("." + h)) ? x.href : null; } catch { return null; }
+}
+const spotifyUrl = (u) => sichereUrl(u, ["open.spotify.com", "spotify.com"]);
+const coverUrl = (u) => sichereUrl(u, ["i.scdn.co", "scdn.co"]);
 
 let el, audio, aktuellerSong = null, zuletztFokus = null, beimSchliessen = null;
 
@@ -19,7 +25,7 @@ function anlegen() {
   audio.addEventListener("ended", () => vorschauStopp());
   audio.addEventListener("timeupdate", () => {
     if (!aktuellerSong) return;
-    const b = el.querySelector(`[data-song="${aktuellerSong}"] .lauf i`);
+    const b = el.querySelector(`[data-song="${CSS.escape(aktuellerSong)}"] .lauf i`);
     if (b && audio.duration) b.style.transform = `scaleX(${audio.currentTime / audio.duration})`;
   });
   el.addEventListener("click", (e) => {
@@ -47,12 +53,12 @@ export function karteOeffnen(stern, { rang, beimSchliessen: cb } = {}) {
     <dl class="plaetze">${plaetze.map(([n, p]) => `<div><dt>${n}</dt><dd>${p ? `<span class="nr">${p}</span>` : "<span class='leer'>–</span>"}</dd></div>`).join("")}</dl>
     ${songs.length ? `<ol class="songs">${songs.map((s) => `
       <li data-song="${esc(s.id)}">
-        ${s.cover ? `<img src="${esc(s.cover)}" alt="" width="40" height="40" loading="lazy" decoding="async">` : `<span class="kein-cover" aria-hidden="true"></span>`}
-        <span class="song-t"><b>${esc(s.name)}</b><small>${esc(s.album)}${s.erschienen ? ` · ${s.erschienen.slice(0, 4)}` : ""}</small><span class="lauf" aria-hidden="true"><i></i></span></span>
+        ${coverUrl(s.cover) ? `<img src="${esc(coverUrl(s.cover))}" alt="" width="40" height="40" loading="lazy" decoding="async">` : `<span class="kein-cover" aria-hidden="true"></span>`}
+        <span class="song-t"><b>${esc(s.name)}</b><small>${esc(s.album)}${s.erschienen ? ` · ${esc(String(s.erschienen).slice(0, 4))}` : ""}</small><span class="lauf" aria-hidden="true"><i></i></span></span>
         <span class="song-d">${dauerText(s.dauer_ms)}</span>
         <button type="button" class="play" data-vorschau data-titel="${esc(s.name)}" data-kuenstler="${esc(s.kuenstler[0]?.name || stern.name)}" aria-label="30 Sekunden Vorschau von ${esc(s.name)} abspielen (lädt sie von Deezer)"><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path class="p" d="M2.5 1.5v9l8-4.5z" fill="currentColor"/><path class="s" d="M2 2h3v8H2zM7 2h3v8H7z" fill="currentColor"/></svg></button>
       </li>`).join("")}</ol>` : `<p class="tags">Keine Top-Songs im Schnappschuss, nur als Künstler gehört.</p>`}
-    <p class="fuss">${stern.url ? `<a href="${esc(stern.url)}" target="_blank" rel="noopener">Auf Spotify öffnen</a>` : ""}<span>Vorschau: 30 s von Deezer, erst beim Antippen geladen.</span></p>`;
+    <p class="fuss">${spotifyUrl(stern.url) ? `<a href="${esc(spotifyUrl(stern.url))}" target="_blank" rel="noopener">Auf Spotify öffnen</a>` : ""}<span>Vorschau: 30 s von Deezer, erst beim Antippen geladen.</span></p>`;
   el.setAttribute("aria-labelledby", "stern-h");
   el.hidden = false;
   el.tabIndex = -1;
@@ -97,6 +103,7 @@ function deezerSuche(titel, kuenstler) {
     document.head.appendChild(s);
   });
   deezerCache.set(key, p);
+  p.then((d) => { if (!d) deezerCache.delete(key); }); // Fehlschläge nicht merken, beim nächsten Klick neu versuchen
   return p;
 }
 
@@ -118,7 +125,7 @@ function vorschauStopp() {
   if (!audio) return;
   audio.pause();
   if (aktuellerSong && el) {
-    const li = el.querySelector(`[data-song="${aktuellerSong}"]`);
+    const li = el.querySelector(`[data-song="${CSS.escape(aktuellerSong)}"]`);
     if (li) { li.classList.remove("spielt"); const b = li.querySelector(".lauf i"); if (b) b.style.transform = "scaleX(0)"; }
   }
   aktuellerSong = null;

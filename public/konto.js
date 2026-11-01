@@ -39,6 +39,7 @@ export async function rueckkehrVerarbeiten() {
   if (!r.ok) throw new Error("Token-Tausch fehlgeschlagen (" + r.status + "). Stimmt die Redirect-URI in deiner Spotify-App?");
   const tok = await r.json();
   tok.expires_at = Date.now() + tok.expires_in * 1000 - 60000;
+  delete tok.refresh_token; // wird nie gebraucht, also auch nicht aufgehoben
   sessionStorage.setItem("resonanz.token", JSON.stringify(tok));
   return tok;
 }

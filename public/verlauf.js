@@ -4,7 +4,9 @@
 const TEXT = new TextDecoder("utf-8");
 
 /** Liest ein ZIP (ArrayBuffer) und gibt {name, bytes} für jede Datei zurück, für die `filter(name)` wahr ist. */
+const MAX_ZIP = 600 * 1024 * 1024, MAX_DATEI = 400 * 1024 * 1024;
 export async function zipLesen(buffer, filter = () => true) {
+  if (buffer.byteLength > MAX_ZIP) throw new Error("Das ZIP ist größer als 600 MB, das ist kein Streaming-Verlauf.");
   const dv = new DataView(buffer), u8 = new Uint8Array(buffer);
   // End of central directory: von hinten suchen (Signatur 0x06054b50)
   let eocd = -1;
@@ -19,8 +21,10 @@ export async function zipLesen(buffer, filter = () => true) {
     if (dv.getUint32(p, true) !== 0x02014b50) break;
     const methode = dv.getUint16(p + 10, true), groesseKomp = dv.getUint32(p + 20, true), groesseRoh = dv.getUint32(p + 24, true);
     const nameLen = dv.getUint16(p + 28, true), extraLen = dv.getUint16(p + 30, true), kommLen = dv.getUint16(p + 32, true);
-    const lokal = dv.getUint32(p + 42, true);
+    const lokal = dv.getUint32(p + 42, true), flags = dv.getUint16(p + 8, true);
     const name = TEXT.decode(u8.subarray(p + 46, p + 46 + nameLen));
+    if (flags & 1) throw new Error("Das ZIP ist verschlüsselt: " + name);
+    if (groesseRoh > MAX_DATEI || lokal + 30 > u8.length) throw new Error("ZIP-Eintrag unbrauchbar: " + name);
     p += 46 + nameLen + extraLen + kommLen;
     if (!filter(name) || name.endsWith("/")) continue;
     const lNameLen = dv.getUint16(lokal + 26, true), lExtraLen = dv.getUint16(lokal + 28, true);
@@ -50,11 +54,11 @@ export function streamsNormalisieren(eintraege) {
   for (const e of eintraege) {
     if (!e) continue;
     let t, ms, kuenstler, titel, skip = null, uri = null;
-    if (e.ts !== undefined) {
+    if (typeof e.ts === "string") {
       t = Date.parse(e.ts); ms = e.ms_played || 0;
       kuenstler = e.master_metadata_album_artist_name; titel = e.master_metadata_track_name;
       skip = typeof e.skipped === "boolean" ? e.skipped : null; uri = e.spotify_track_uri || null;
-    } else if (e.endTime !== undefined) {
+    } else if (typeof e.endTime === "string") {
       t = Date.parse(e.endTime.replace(" ", "T") + ":00Z"); ms = e.msPlayed || 0;
       kuenstler = e.artistName; titel = e.trackName;
     } else continue;

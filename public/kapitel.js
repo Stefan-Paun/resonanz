@@ -20,8 +20,8 @@ export function kapitelBauen(main, snapshot, sterne, { verlauf = null, eigener =
   const aufWelten = [...new Set(auf.map((a) => weltVon(a.id)))].filter(Boolean);
   const aufWeltName = aufWelten.length === 1 ? welt(aufWelten[0]).name : null;
   const maxJahr = Math.max(...jg.jahre.map((j) => j.anzahl), 1);
-  const groesste = [...zaehlung].sort((a, b) => b.anzahl - a.anzahl)[0];
-  const anteil = Math.round(groesste.anzahl / sterne.length * 100);
+  const groesste = [...zaehlung].sort((a, b) => b.anzahl - a.anzahl)[0] || { name: "Streulicht", anzahl: 0 };
+  const anteil = sterne.length ? Math.round(groesste.anzahl / sterne.length * 100) : 0;
 
   const kapitel = [
     {
@@ -60,7 +60,9 @@ export function kapitelBauen(main, snapshot, sterne, { verlauf = null, eigener =
     },
     {
       id: "herkunft", titel: "Woher der Klang kommt.",
-      text: `${la.gesamt} Sterne haben eine bekannte Herkunft. ${LANDNAMEN[la.liste[0].code] || la.liste[0].code} stellt ${la.liste[0].anzahl}, ${LANDNAMEN[la.liste[1]?.code] || la.liste[1]?.code} ${la.liste[1]?.anzahl}.${la.liste.find((l) => l.code === "AT") ? ` Aus Österreich: ${la.liste.find((l) => l.code === "AT").anzahl}.` : ""} Bei ${la.unbekannt} weiß MusicBrainz es nicht.`,
+      text: la.liste.length
+        ? `${la.gesamt} Sterne haben eine bekannte Herkunft. ${LANDNAMEN[la.liste[0].code] || la.liste[0].code} stellt ${la.liste[0].anzahl}${la.liste[1] ? `, ${LANDNAMEN[la.liste[1].code] || la.liste[1].code} ${la.liste[1].anzahl}` : ""}.${la.liste.find((l) => l.code === "AT") ? ` Aus Österreich: ${la.liste.find((l) => l.code === "AT").anzahl}.` : ""} Bei ${la.unbekannt} weiß MusicBrainz es nicht.`
+        : `Zu keinem der ${sterne.length} Sterne ist eine Herkunft bekannt. Das passiert, wenn die Genres übersprungen wurden oder MusicBrainz nicht erreichbar war.`,
       tabelle: la.liste.map((l) => [esc(LANDNAMEN[l.code] || l.code), l.anzahl]),
       spalten: ["Land", "Sterne"],
       steuer: { zeitraum: "1y", welt: null, fokus: null, blick: null, pan: true },
@@ -68,7 +70,7 @@ export function kapitelBauen(main, snapshot, sterne, { verlauf = null, eigener =
     {
       id: "jahrgaenge", titel: "Jahrgänge.",
       text: jg.gesamt
-        ? `Von den ${jg.gesamt} Top-Songs des Jahres sind ${jg.jahre.filter((j) => j.jahr >= new Date().getFullYear() - 1).reduce((a, j) => a + j.anzahl, 0)} aus den letzten zwei Jahren. Der älteste: „${esc(jg.aeltester.name)}“ von ${esc(jg.aeltester.kuenstler[0].name)}, ${jg.aeltester.erschienen.slice(0, 4)}. Der neueste: „${esc(jg.neuester.name)}“, ${jg.neuester.erschienen.slice(0, 4)}.`
+        ? `Von den ${jg.gesamt} Top-Songs des Jahres sind ${jg.jahre.filter((j) => j.jahr >= new Date().getFullYear() - 1).reduce((a, j) => a + j.anzahl, 0)} aus den letzten zwei Jahren. Der älteste: „${jg.aeltester.name}“ von ${jg.aeltester.kuenstler[0]?.name || "?"}, ${jg.aeltester.erschienen.slice(0, 4)}. Der neueste: „${jg.neuester.name}“, ${jg.neuester.erschienen.slice(0, 4)}.`
         : "Keine Erscheinungsdaten im Schnappschuss.",
       striche: jg.jahre.map((j) => ({ jahr: j.jahr, anzahl: j.anzahl, h: j.anzahl / maxJahr })),
       steuer: { zeitraum: "1y", welt: null, fokus: null, blick: "rock" },
@@ -104,7 +106,7 @@ export function kapitelBauen(main, snapshot, sterne, { verlauf = null, eigener =
     <section class="kapitel" id="k-${k.id}" data-i="${i}" aria-labelledby="k-${k.id}-h">
       <div class="tafel">
         <h2 id="k-${k.id}-h">${k.titel}</h2>
-        <p>${k.text}</p>
+        <p>${esc(k.text)}</p>
         ${k.tabelle ? tabelle(k.spalten, k.tabelle) : ""}
         ${k.striche ? striche(k.striche) : ""}
         ${k.links ? `<p class="links">${k.links.map(([h, t, attr]) => attr ? `<a href="${h}" ${attr}>${t}</a>` : `<a href="${h}" target="_blank" rel="noopener">${t}</a>`).join("")}</p>` : ""}
@@ -127,6 +129,7 @@ function tabelle(spalten, zeilen) {
 
 function striche(jahre) {
   // Strichliste wie auf einer Karte: ein Balken pro Jahr, Höhe = Anzahl
+  if (!jahre.length) return "";
   const von = jahre[0].jahr, bis = jahre[jahre.length - 1].jahr;
   const alle = [];
   const map = new Map(jahre.map((j) => [j.jahr, j]));
@@ -168,7 +171,7 @@ function verlaufKapitel(v) {
     },
     {
       id: "hoerzeit", titel: "Hörzeit.",
-      text: `Nach Stunden gezählt, nicht nach Rang: ${v.topKuenstler[0] ? `${esc(v.topKuenstler[0].name)} führt mit ${Math.round(v.topKuenstler[0].stunden)} Stunden` : "niemand führt"}.${v.skipQuote !== null ? ` ${prozent(v.skipQuote)} Prozent aller Streams hast du übersprungen.` : ""} Meistgespielt: ${v.topSongs[0] ? `„${esc(v.topSongs[0].name)}“, ${v.topSongs[0].n}\u2011mal` : "–"}.`,
+      text: `Nach Stunden gezählt, nicht nach Rang: ${v.topKuenstler[0] ? `${v.topKuenstler[0].name} führt mit ${Math.round(v.topKuenstler[0].stunden)} Stunden` : "niemand führt"}.${v.skipQuote !== null ? ` ${prozent(v.skipQuote)} Prozent aller Streams hast du übersprungen.` : ""} Meistgespielt: ${v.topSongs[0] ? `„${v.topSongs[0].name}“, ${v.topSongs[0].n}\u2011mal` : "–"}.`,
       tabelle: v.topKuenstler.slice(0, 8).map((k) => [esc(k.name), Math.round(k.stunden) + " h"]),
       spalten: ["Künstler", "Stunden"],
       steuer: { zeitraum: "1y", welt: null, fokus: null, blick: "deutschrap" },

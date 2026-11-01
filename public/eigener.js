@@ -21,7 +21,10 @@ export async function start(a) {
     if (tok) { await kontoLaden(tok); return true; }
   } catch (e) { api.statusMelden(e.message, true); }
   const gespeichert = lies(SNAP_KEY);
-  if (gespeichert) { aufbauen(gespeichert, "eigenes Konto"); return true; }
+  if (gespeichert) {
+    try { aufbauen(gespeichert, "eigenes Konto"); return true; }
+    catch (e) { console.warn("Gespeicherter Himmel kaputt, wird verworfen:", e); schreib(SNAP_KEY, null); eigenerAktiv = false; api.statusMelden("Der gespeicherte Himmel ließ sich nicht laden und wurde verworfen."); }
+  }
   if (verlaufAktiv) return false; // Stefans Himmel plus eigener Verlauf: app.js baut, wir hängen den Verlauf an
   return false;
 }
@@ -43,8 +46,8 @@ async function kontoLaden(tok) {
     dlg.querySelector("#eg-abbruch").onclick = () => { abbruch.wert = true; };
     await genresErgaenzen(snap, melde, { abbruch });
     dlg.querySelector("#eg-abbruch").hidden = true;
-    schreib(SNAP_KEY, snap);
     aufbauen(snap, "eigenes Konto");
+    schreib(SNAP_KEY, snap);
     fortschritt("Fertig. Dein Himmel steht; er liegt nur in diesem Browser.");
     zustandZeigen();
   } catch (e) {
@@ -147,9 +150,9 @@ async function dateiLaden(datei) {
   try {
     if (/\.json$/i.test(datei.name)) {
       const snap = JSON.parse(await datei.text());
-      if (!snap.zeitraeume || !snap.kuenstler) throw new Error("Das ist kein gespeicherter Resonanz-Himmel.");
-      schreib(SNAP_KEY, snap);
+      if (!snap.zeitraeume || !snap.kuenstler || !Object.values(snap.zeitraeume).every((z) => Array.isArray(z.kuenstler) && Array.isArray(z.songs))) throw new Error("Das ist kein gespeicherter Resonanz-Himmel.");
       aufbauen(snap, "Datei");
+      schreib(SNAP_KEY, snap);
       fortschritt(`Himmel aus „${datei.name}“ geladen.`);
     } else {
       fortschritt(`Lese ${datei.name} (${(datei.size / 1048576).toFixed(1)} MB) …`);

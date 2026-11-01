@@ -114,9 +114,8 @@ def login() -> None:
 
 def _token_speichern(tok: dict) -> None:
     tmp = TOKEN_DATEI + ".tmp"
-    with open(tmp, "w") as f:
+    with os.fdopen(os.open(tmp, os.O_WRONLY | os.O_CREAT | os.O_TRUNC, 0o600), "w") as f:
         json.dump(tok, f)
-    os.chmod(tmp, 0o600)
     os.replace(tmp, TOKEN_DATEI)
 
 

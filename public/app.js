@@ -473,13 +473,13 @@ function weltWaehlen(id) {
 
 // ---------------------------------------------------------------- Schleife
 const uhr = new THREE.Clock();
-let laeuft = true, letzteAnzeige = -1;
-document.addEventListener("visibilitychange", () => { laeuft = !document.hidden; if (laeuft) { uhr.getDelta(); tick(); } });
+let laeuft = true, letzteAnzeige = -1, rafId = 0;
+document.addEventListener("visibilitychange", () => { laeuft = !document.hidden; if (laeuft) { uhr.getDelta(); cancelAnimationFrame(rafId); tick(); } });
 const blickEl = $("#m-blick");
 
 function tick() {
   if (!laeuft) return;
-  requestAnimationFrame(tick);
+  rafId = requestAnimationFrame(tick);
   const dt = Math.min(uhr.getDelta(), 0.05);
   const t = uhr.elapsedTime;
   if ((zustand.drift || zustand.pan) && !ruhig.matches) { zustand.zielYaw -= dt * (zustand.pan ? 0.05 : 0.012); }
@@ -530,7 +530,8 @@ function sternWaehlen(i) {
 function sternPerId(id) { const i = zustand.sterne.findIndex((s) => s.id === id); if (i >= 0) { sternWaehlen(i); scrollTo({ top: 0, behavior: ruhig.matches ? "auto" : "smooth" }); } }
 
 // ---------------------------------------------------------------- Kapitel (Scroll steuert den Himmel)
-let kapitelIO = null;
+let kapitelIO = null, scrollHinweis = null;
+addEventListener("scroll", () => { if (scrollHinweis) scrollHinweis(); }, { passive: true });
 function blickAuf(weltId) {
   const r = galaxieRichtung(weltId);
   if (!r) return;
@@ -585,7 +586,7 @@ function kapitelVerdrahten(kapitel) {
     setzen(best);
   }, { threshold: [0, .25, .5, .75, 1] });
   abschnitte.forEach((a) => io.observe(a));
-  addEventListener("scroll", () => { weiter.classList.toggle("weg", scrollY > 40 || aktiv >= 0); }, { passive: true });
+  scrollHinweis = () => { weiter.classList.toggle("weg", scrollY > 40 || aktiv >= 0); };
 }
 
 // ---------------------------------------------------------------- Aufbau und Abbau
@@ -593,7 +594,7 @@ let gebaut = false;
 function himmelAbbauen() {
   if (!gebaut) return;
   karteSchliessen();
-  for (const o of [sternPunkte, sternbildLinien, ...haze]) { if (!o) continue; szene.remove(o); o.geometry?.dispose?.(); o.material?.dispose?.(); }
+  for (const o of [sternPunkte, sternbildLinien, ...haze]) { if (!o) continue; szene.remove(o); o.geometry?.dispose?.(); o.material?.map?.dispose?.(); o.material?.dispose?.(); }
   sternPunkte = sternbildLinien = sternGeo = sternMat = null; haze = [];
   labelsEl.innerHTML = ""; labelEls.clear(); galaxieEls.clear(); richtungEls.length = 0; sichtbar2D.length = 0;
   $("#legende").innerHTML = ""; zaehler.clear();
