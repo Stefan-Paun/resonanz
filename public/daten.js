@@ -189,8 +189,8 @@ export function jahrgaenge(snapshot, zeitraum = "1y") {
 export function zuletzt(snapshot) {
   const l = snapshot.zuletzt || [];
   if (!l.length) return { anzahl: 0, von: null, bis: null, songs: [] };
-  const zeiten = l.map((e) => e.um).sort();
-  return { anzahl: l.length, von: zeiten[0], bis: zeiten[zeiten.length - 1], songs: l.slice(0, 5).map((e) => e.song) };
+  const zeiten = l.map((e) => e.um).filter(Boolean).sort();
+  return { anzahl: l.length, von: zeiten[0] || null, bis: zeiten[zeiten.length - 1] || null, songs: l.slice(0, 5).map((e) => e.song) };
 }
 
 export const LANDNAMEN = {

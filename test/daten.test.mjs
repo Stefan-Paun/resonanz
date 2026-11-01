@@ -134,10 +134,13 @@ test("Jahrgänge: sortiert, ältester vor neuestem, Summe = Songs mit Datum", ()
   assert.equal(jahrgaenge({ zeitraeume: {} }, "1y").gesamt, 0);
 });
 
-test("Zuletzt: Zeitspanne und fünf Songs", () => {
+test("Zuletzt: fünf Songs; im öffentlichen Schnappschuss ohne Uhrzeiten", () => {
   const z = zuletzt(snap);
   assert.equal(z.anzahl, 50);
-  assert.ok(z.von <= z.bis);
+  assert.equal(z.von, null, "öffentlicher Schnappschuss darf keine Hörzeiten tragen");
   assert.equal(z.songs.length, 5);
+  assert.ok(snap.zuletzt.every((e) => !e.um));
+  const mit = zuletzt({ zuletzt: [{ song: { id: "a" }, um: "2026-10-31T19:00:00Z" }, { song: { id: "b" }, um: "2026-10-31T17:00:00Z" }] });
+  assert.equal(mit.von, "2026-10-31T17:00:00Z"); assert.equal(mit.bis, "2026-10-31T19:00:00Z");
   assert.deepEqual(zuletzt({ zuletzt: [] }), { anzahl: 0, von: null, bis: null, songs: [] });
 });

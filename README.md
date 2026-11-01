@@ -45,7 +45,7 @@ The collector is standard-library Python. MusicBrainz is queried at one request 
 
 ## Privacy
 
-The demo shows my artists, songs and listening weights. It never contains a display name, playlists or an email. Your own data, when you load it, is processed in your browser only; the only third-party calls are MusicBrainz (genres, when you sign in) and Deezer (previews, when you press play).
+The demo shows my artists, songs and listening weights, roughly what a public Spotify Wrapped shows. It never contains a display name, playlists, an email or **timestamps**: the collector drops the play times of "recently played" by default (`--mit-zeiten` keeps them for a private run), so the public sky says what I listen to, not when. The full daily rhythm (heatmap, months, streaks) only ever runs locally from your own export. Your own data, when you load it, is processed in your browser only; the only third-party calls are MusicBrainz (genres, when you sign in) and Deezer (previews, when you press play).
 
 ## Credits
 

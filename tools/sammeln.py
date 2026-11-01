@@ -4,6 +4,7 @@ schreibt data/snapshot.json (anonym: kein Anzeigename, keine Playlists, keine E-
     python3 tools/sammeln.py login     Browser-Login per PKCE, Token in tools/token.json (gitignored)
     python3 tools/sammeln.py           Schnappschuss ziehen (nutzt den gespeicherten Token)
     python3 tools/sammeln.py --ohne-mb Schnappschuss ohne MusicBrainz (schneller, keine Genres)
+    python3 tools/sammeln.py --mit-zeiten  Uhrzeiten der zuletzt gehörten Songs behalten (Standard: weg, öffentlich zu privat)
     python3 tools/sammeln.py --nur-ueberschreiben  data/ueberschreibungen.json neu anwenden, ohne Netz
 
 Client-ID: Umgebungsvariable SPOTIFY_CLIENT_ID. Die ID gehört nie ins Repo.
@@ -157,7 +158,7 @@ def _track(t: dict) -> dict:
     }
 
 
-def sammeln(mit_mb: bool = True) -> dict:
+def sammeln(mit_mb: bool = True, mit_zeiten: bool = False) -> dict:
     out: dict = {"erstellt": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "quelle": "spotify+musicbrainz",
                  "zeitraeume": {}, "kuenstler": {}, "zuletzt": []}
     for rng, kurz in ZEITRAEUME.items():
@@ -175,7 +176,8 @@ def sammeln(mit_mb: bool = True) -> dict:
                 out["kuenstler"].setdefault(k["id"], {"name": k["name"], "bild": None, "url": None})
         print(f"  {kurz}: {len(a)} Künstler, {len(t)} Songs")
     rp = spotify("/me/player/recently-played", limit=50)["items"]
-    out["zuletzt"] = [{"song": _track(x["track"]), "um": x["played_at"]} for x in rp]
+    # Uhrzeiten verraten den Tagesrhythmus; öffentlich bleibt nur die Songliste.
+    out["zuletzt"] = [{"song": _track(x["track"]), "um": x["played_at"] if mit_zeiten else None} for x in rp]
     print(f"  zuletzt gehört: {len(rp)}")
     if mit_mb:
         musicbrainz_ergaenzen(out["kuenstler"])
@@ -256,7 +258,7 @@ def main(argv: list[str]) -> None:
         ueberschreibungen_anwenden(daten["kuenstler"])
     else:
         print("Sammle …")
-        daten = sammeln(mit_mb="--ohne-mb" not in argv)
+        daten = sammeln(mit_mb="--ohne-mb" not in argv, mit_zeiten="--mit-zeiten" in argv)
     os.makedirs(os.path.dirname(SNAPSHOT), exist_ok=True)
     tmp = SNAPSHOT + ".tmp"
     with open(tmp, "w", encoding="utf-8") as f:

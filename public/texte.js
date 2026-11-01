@@ -66,7 +66,9 @@ const DE = {
       text: (jg, neu) => `Von den ${jg.gesamt} Top-Songs des Jahres sind ${neu} aus den letzten zwei Jahren. Der älteste: „${jg.aeltester.name}“ von ${jg.aeltester.kuenstler[0]?.name || "?"}, ${jg.aeltester.erschienen.slice(0, 4)}. Der neueste: „${jg.neuester.name}“, ${jg.neuester.erschienen.slice(0, 4)}.`,
       aria: "Erscheinungsjahre" },
     zuletzt: { titel: "Zuletzt.", spalten: ["Song", "Dauer"], leer: "Keine zuletzt gehörten Songs im Schnappschuss.",
-      text: (zl) => `Spotify gibt nur die letzten ${zl.anzahl} Songs her. Die liefen am ${tag(zl.von)} zwischen ${uhr(zl.von)} und ${uhr(zl.bis)} Uhr. Ein echter Tagesrhythmus kommt erst mit dem exportierten Streaming-Verlauf.` },
+      text: (zl) => zl.von
+        ? `Spotify gibt nur die letzten ${zl.anzahl} Songs her. Die liefen am ${tag(zl.von)} zwischen ${uhr(zl.von)} und ${uhr(zl.bis)} Uhr. Ein echter Tagesrhythmus kommt erst mit dem exportierten Streaming-Verlauf.`
+        : `Spotify gibt nur die letzten ${zl.anzahl} Songs her, und die Uhrzeiten dazu bleiben hier bewusst weg: Wann ich höre, geht nur mich etwas an. Ein echter Tagesrhythmus kommt erst mit dem exportierten Streaming-Verlauf, lokal im Browser.` },
     schluss: { titel: "Der Rest steht in den Sternen.",
       text: "Alles hier ist im Browser gerechnet: Top-Listen aus der Spotify-API, Genres und Herkunft aus MusicBrainz. Nichts wird hochgeladen. Der Himmel ist ein Schnappschuss, kein Live-Bild.",
       textEigen: "Dieser Himmel ist deiner: gerechnet in deinem Browser aus deinem Spotify-Konto oder deiner Datei, Genres und Herkunft von MusicBrainz. Nichts wurde hochgeladen; er liegt nur in diesem Browser.",
@@ -149,7 +151,9 @@ const EN = {
       text: (jg, neu) => `Of the ${jg.gesamt} top songs of the year, ${neu} are from the last two years. The oldest: “${jg.aeltester.name}” by ${jg.aeltester.kuenstler[0]?.name || "?"}, ${jg.aeltester.erschienen.slice(0, 4)}. The newest: “${jg.neuester.name}”, ${jg.neuester.erschienen.slice(0, 4)}.`,
       aria: "Release years" },
     zuletzt: { titel: "Lately.", spalten: ["Song", "Length"], leer: "No recently played songs in the snapshot.",
-      text: (zl) => `Spotify only hands over the last ${zl.anzahl} songs. They played on ${tag(zl.von)} between ${uhr(zl.von)} and ${uhr(zl.bis)}. A real daily rhythm only comes with the exported streaming history.` },
+      text: (zl) => zl.von
+        ? `Spotify only hands over the last ${zl.anzahl} songs. They played on ${tag(zl.von)} between ${uhr(zl.von)} and ${uhr(zl.bis)}. A real daily rhythm only comes with the exported streaming history.`
+        : `Spotify only hands over the last ${zl.anzahl} songs, and their timestamps are deliberately left out here: when I listen is my business. A real daily rhythm only comes with the exported streaming history, locally in the browser.` },
     schluss: { titel: "The rest is written in the stars.",
       text: "Everything here is computed in the browser: top lists from the Spotify API, genres and origin from MusicBrainz. Nothing is uploaded. The sky is a snapshot, not a live view.",
       textEigen: "This sky is yours: computed in your browser from your Spotify account or your file, genres and origin from MusicBrainz. Nothing was uploaded; it lives only in this browser.",

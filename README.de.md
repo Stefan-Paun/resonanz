@@ -45,7 +45,7 @@ Der Sammler ist reines Python ohne Pakete. MusicBrainz wird mit einer Anfrage pr
 
 ## Datenschutz
 
-Die Demo zeigt meine Künstler, Songs und Hörgewichte. Nie dabei: Anzeigename, Playlists, E-Mail. Eigene Daten werden nur im Browser verarbeitet; die einzigen Aufrufe an Dritte sind MusicBrainz (Genres, beim Anmelden) und Deezer (Vorschau, beim Drücken auf Play).
+Die Demo zeigt meine Künstler, Songs und Hörgewichte, ungefähr das, was ein öffentliches Spotify Wrapped zeigt. Nie dabei: Anzeigename, Playlists, E-Mail und **Uhrzeiten**: Der Sammler lässt die Abspielzeiten von „zuletzt gehört“ standardmäßig weg (`--mit-zeiten` behält sie für einen privaten Lauf). Der öffentliche Himmel sagt also, was ich höre, nicht wann. Der volle Tagesrhythmus (Heatmap, Monate, Serien) läuft immer nur lokal aus dem eigenen Export. Eigene Daten werden nur im Browser verarbeitet; die einzigen Aufrufe an Dritte sind MusicBrainz (Genres, beim Anmelden) und Deezer (Vorschau, beim Drücken auf Play).
 
 ## Dank
 
