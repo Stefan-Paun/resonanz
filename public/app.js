@@ -253,9 +253,13 @@ function inSperrzone(x, y) {
   return false;
 }
 
+// Sperrzonen nur neu messen, wenn sich etwas bewegt hat (sonst erzwingt jeder Frame ein Layout)
+let sperrzonenAlt = true;
+for (const ev of ["scroll", "resize"]) addEventListener(ev, () => { sperrzonenAlt = true; }, { passive: true });
+new MutationObserver(() => { sperrzonenAlt = true; }).observe(document.body, { attributes: true, attributeFilter: ["class", "hidden"], subtree: true });
 function labelsZeichnen() {
   const w = innerWidth, h = innerHeight;
-  sperrzonenLesen();
+  if (sperrzonenAlt) { sperrzonenLesen(); sperrzonenAlt = false; }
   const liste = zustand.sterne;
   const alle = ruhig.matches;
   const zeigbar = alle ? 60 : (w < 760 ? 14 : 28);
@@ -273,14 +277,18 @@ function labelsZeichnen() {
     const sichtbar = p && p[0] > 10 && p[0] < w - 24 - 7.2 * liste[i].name.length && p[1] > 20 && p[1] < h - 110 && !inSperrzone(p[0], p[1]) && !inSperrzone(p[0] + 90, p[1]);
     const imFokus = zustand.fokus ? zustand.fokus.has(liste[i].id) : false;
     let zeigen = sichtbar && (istHover || imFokus || (gezeigt < zeigbar && zustand.groesse[i] > 0.05 && zustand.hellZiel[i] > 0.5));
+    let ly = p ? p[1] : 0;
     if (zeigen && !istHover && !imFokus) {
       for (const b of belegt) if (Math.abs(b[1] - p[1]) < 17 && Math.abs(b[0] - p[0]) < 130) { zeigen = false; break; }
+    } else if (zeigen && imFokus) {
+      // Fokus-Namen bleiben sichtbar, weichen aber nach unten aus, wenn ein Name schon dort steht
+      for (let v = 0; v < 4; v++) { if (!belegt.some((b) => Math.abs(b[1] - ly) < 17 && Math.abs(b[0] - p[0]) < 130)) break; ly += 17; }
     }
     if (zeigen) {
       gezeigt++;
-      belegt.push([p[0], p[1]]);
+      belegt.push([p[0], ly]);
       const px = 3 + 13 * zustand.groesse[i];
-      el.style.transform = `translate(${(p[0] + px * .5 + 4).toFixed(1)}px, ${p[1].toFixed(1)}px) translateY(-50%)`;
+      el.style.transform = `translate(${(p[0] + px * .5 + 4).toFixed(1)}px, ${ly.toFixed(1)}px) translateY(-50%)`;
       el.style.opacity = istHover || imFokus ? 1 : (0.55 + 0.45 * zustand.groesse[i]);
       el.classList.toggle("aktiv", istHover || imFokus);
       el.classList.toggle("gewaehlt", i === zustand.gewaehlt);
@@ -522,13 +530,12 @@ function kapitelAnwenden(k) {
   zustand.pan = !!st.pan;
   zeitraumWaehlen(st.zeitraum);
   weltWaehlen(st.welt || null);
-  if (st.blick) blickAuf(st.blick);
-  else if (st.fokus && st.fokus.length) {
+  if (st.fokus && st.fokus.length) {
     const m = [0, 0, 0];
     for (const id of st.fokus) { const i = zustand.sterne.findIndex((s) => s.id === id); if (i >= 0) { m[0] += zustand.pos[i][0]; m[1] += zustand.pos[i][1]; m[2] += zustand.pos[i][2]; } }
     const l = Math.hypot(...m);
     if (l > 0.01) { zustand.zielYaw = -Math.atan2(m[0] / l, -m[2] / l); zustand.zielPitch = Math.asin(m[1] / l) - 0.02; zustand.drift = false; }
-  }
+  } else if (st.blick) blickAuf(st.blick);
   zieleSetzen();
 }
 function kapitelVerdrahten(kapitel) {
