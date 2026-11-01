@@ -284,9 +284,9 @@ function labelsZeichnen() {
     }
     const lb = p ? labelBreite(liste[i].name) : 0;
     const links = p && p[0] + 12 + lb > w - 8; // am rechten Rand steht der Name links vom Stern
-    const sichtbar = p && p[1] > 20 && p[1] < h - 110 && (links ? p[0] - 12 - lb > 8 : p[0] > 10) && !inSperrzone(p[0], p[1]) && !inSperrzone(links ? p[0] - lb : p[0] + lb, p[1]);
+    const sichtbar = p && p[1] > 20 && p[1] < h - 110 && p[0] > 6 && p[0] < w - 6 && (links ? p[0] - 12 - lb > 8 : true) && !inSperrzone(p[0], p[1]) && !inSperrzone(links ? p[0] - lb : p[0] + lb, p[1]);
     const imFokus = zustand.fokus ? zustand.fokus.has(liste[i].id) : false;
-    let zeigen = sichtbar && (istHover || imFokus || (gezeigt < zeigbar && zustand.groesse[i] > 0.05 && zustand.hellZiel[i] > 0.5));
+    let zeigen = sichtbar && (istHover || imFokus || (gezeigt < zeigbar && zustand.groesse[i] > 0.12 && zustand.hellZiel[i] > 0.5));
     let ly = p ? p[1] : 0;
     if (zeigen && !istHover && !imFokus) {
       for (const b of belegt) if (Math.abs(b[1] - p[1]) < 17 && Math.abs(b[0] - p[0]) < 130) { zeigen = false; break; }
@@ -297,7 +297,7 @@ function labelsZeichnen() {
     if (zeigen) {
       gezeigt++;
       belegt.push([p[0], ly, el]);
-      const px = 3 + 13 * zustand.groesse[i];
+      const px = 5 + 22 * zustand.groesse[i]; // sichtbarer Sterndurchmesser inkl. Halo
       el.classList.toggle("links", links);
       el.style.transform = links
         ? `translate(${(p[0] - px * .5 - 4 - lb).toFixed(1)}px, ${ly.toFixed(1)}px) translateY(-50%)`

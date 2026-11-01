@@ -131,8 +131,10 @@ function striche(jahre) {
   const alle = [];
   const map = new Map(jahre.map((j) => [j.jahr, j]));
   for (let j = von; j <= bis; j++) alle.push(map.get(j) || { jahr: j, anzahl: 0, h: 0 });
+  // Wertlabel nur auf lokalen Gipfeln (und dem ersten Jahr), sonst stoßen die Zahlen an den Nachbarbalken
+  const gipfel = (k) => alle[k].anzahl && (alle[k].jahr === von || (alle[k].h >= .34 && (k === 0 || alle[k - 1].h <= alle[k].h) && (k === alle.length - 1 || alle[k + 1].h < alle[k].h)));
   return `<div class="jahre" role="img" aria-label="Erscheinungsjahre: ${jahre.map((j) => `${j.jahr} ${j.anzahl}`).join(", ")}">
-    ${alle.map((j) => `<span class="jahr" style="--h:${j.h.toFixed(3)}" title="${j.jahr}: ${j.anzahl}"><b>${j.anzahl && (j.h >= .34 || j.jahr === von) ? j.anzahl : ""}</b><i></i><small class="${j.jahr === von || j.jahr === bis ? "" : "zehner"}">${j.jahr % 10 === 0 || j.jahr === von || j.jahr === bis ? j.jahr : ""}</small></span>`).join("")}
+    ${alle.map((j, k) => `<span class="jahr" style="--h:${j.h.toFixed(3)}" title="${j.jahr}: ${j.anzahl}"><b>${gipfel(k) ? j.anzahl : ""}</b><i></i><small class="${j.jahr === von || j.jahr === bis ? "" : "zehner"}">${j.jahr % 10 === 0 || j.jahr === von || j.jahr === bis ? j.jahr : ""}</small></span>`).join("")}
   </div>`;
 }
 
