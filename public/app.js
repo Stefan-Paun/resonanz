@@ -296,7 +296,7 @@ function labelsZeichnen() {
     }
     if (zeigen) {
       gezeigt++;
-      belegt.push([p[0], ly]);
+      belegt.push([p[0], ly, el]);
       const px = 3 + 13 * zustand.groesse[i];
       el.classList.toggle("links", links);
       el.style.transform = links
@@ -325,6 +325,8 @@ function labelsZeichnen() {
     if (!ok) { el.style.opacity = 0; continue; }
     el.style.opacity = .9;
     el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -100%)`;
+    // Sternnamen, die unter der Galaxie-Beschriftung liegen, treten zurück
+    for (const b of belegt) if (b[2] && Math.abs(b[1] - (y - 16)) < 22 && Math.abs(b[0] - x) < 110) { b[2].style.opacity = 0; b[2].classList.add("aus"); }
   }
 }
 
