@@ -288,16 +288,19 @@ function labelsZeichnen() {
     const imFokus = zustand.fokus ? zustand.fokus.has(liste[i].id) : false;
     let zeigen = sichtbar && (istHover || imFokus || (gezeigt < zeigbar && zustand.groesse[i] > 0.12 && zustand.hellZiel[i] > 0.5));
     let ly = p ? p[1] : 0;
+    const px = p ? 5 + 22 * zustand.groesse[i] : 0; // sichtbarer Sterndurchmesser inkl. Halo
+    // Textkasten des Labels: rechts vom Stern oder (am Rand) links davon
+    const x0 = p ? (links ? p[0] - px * .5 - 4 - lb : p[0] + px * .5 + 4) : 0, x1 = x0 + lb;
+    const kollidiert = (y) => belegt.some((b) => Math.abs(b[2] - y) < 17 && x0 < b[1] + 8 && x1 > b[0] - 8);
     if (zeigen && !istHover && !imFokus) {
-      for (const b of belegt) if (Math.abs(b[1] - p[1]) < 17 && Math.abs(b[0] - p[0]) < 130) { zeigen = false; break; }
+      if (kollidiert(ly)) zeigen = false;
     } else if (zeigen && imFokus) {
       // Fokus-Namen bleiben sichtbar, weichen aber nach unten aus, wenn ein Name schon dort steht
-      for (let v = 0; v < 4; v++) { if (!belegt.some((b) => Math.abs(b[1] - ly) < 17 && Math.abs(b[0] - p[0]) < 130)) break; ly += 17; }
+      for (let v = 0; v < 4 && kollidiert(ly); v++) ly += 17;
     }
     if (zeigen) {
       gezeigt++;
-      belegt.push([p[0], ly, el]);
-      const px = 5 + 22 * zustand.groesse[i]; // sichtbarer Sterndurchmesser inkl. Halo
+      belegt.push([x0, x1, ly, el]);
       el.classList.toggle("links", links);
       el.style.transform = links
         ? `translate(${(p[0] - px * .5 - 4 - lb).toFixed(1)}px, ${ly.toFixed(1)}px) translateY(-50%)`
@@ -326,7 +329,7 @@ function labelsZeichnen() {
     el.style.opacity = .9;
     el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -100%)`;
     // Sternnamen, die unter der Galaxie-Beschriftung liegen, treten zurück
-    for (const b of belegt) if (b[2] && Math.abs(b[1] - (y - 16)) < 22 && Math.abs(b[0] - x) < 110) { b[2].style.opacity = 0; b[2].classList.add("aus"); }
+    for (const b of belegt) if (b[3] && Math.abs(b[2] - (y - 16)) < 22 && b[0] < x + 70 && b[1] > x - 70) { b[3].style.opacity = 0; b[3].classList.add("aus"); }
   }
 }
 
