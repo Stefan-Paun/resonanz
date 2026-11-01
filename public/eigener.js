@@ -1,6 +1,8 @@
 // „Dein eigener Himmel“: Verlauf-ZIP ablegen, mit eigenem Spotify-Konto anmelden, gespeicherten Himmel laden.
 import { loginStarten, rueckkehrVerarbeiten, tokenLesen, snapshotHolen, genresErgaenzen, redirectUri } from "./konto.js";
 import { verlaufAusZip } from "./verlauf.js";
+import { tx } from "./texte.js";
+const TE = () => tx().eigener, TUI = () => tx().ui;
 
 const SNAP_KEY = "resonanz.snapshot", VERLAUF_KEY = "resonanz.verlauf", CID_KEY = "resonanz.clientId";
 let api, dlg, eigenerAktiv = false, verlaufAktiv = null;
@@ -22,8 +24,8 @@ export async function start(a) {
   } catch (e) { api.statusMelden(e.message, true); }
   const gespeichert = lies(SNAP_KEY);
   if (gespeichert) {
-    try { aufbauen(gespeichert, "eigenes Konto"); return true; }
-    catch (e) { console.warn("Gespeicherter Himmel kaputt, wird verworfen:", e); schreib(SNAP_KEY, null); eigenerAktiv = false; api.statusMelden("Der gespeicherte Himmel ließ sich nicht laden und wurde verworfen."); }
+    try { aufbauen(gespeichert, TUI().quelleKonto); return true; }
+    catch (e) { console.warn("Gespeicherter Himmel kaputt, wird verworfen:", e); schreib(SNAP_KEY, null); eigenerAktiv = false; api.statusMelden(TE().kaputt); }
   }
   if (verlaufAktiv) return false; // Stefans Himmel plus eigener Verlauf: app.js baut, wir hängen den Verlauf an
   return false;
@@ -33,7 +35,7 @@ export function aktuellerVerlauf() { return verlaufAktiv; }
 
 function aufbauen(snap, quelle) {
   eigenerAktiv = true;
-  api.himmelAufbauen(snap, { verlauf: verlaufAktiv, quelle: quelle + (verlaufAktiv ? " + Verlauf" : ""), eigener: true });
+  api.himmelAufbauen(snap, { verlauf: verlaufAktiv, quelle: quelle + (verlaufAktiv ? TUI().plusVerlauf : ""), eigener: true });
 }
 
 async function kontoLaden(tok) {
@@ -46,12 +48,12 @@ async function kontoLaden(tok) {
     dlg.querySelector("#eg-abbruch").onclick = () => { abbruch.wert = true; };
     await genresErgaenzen(snap, melde, { abbruch });
     dlg.querySelector("#eg-abbruch").hidden = true;
-    aufbauen(snap, "eigenes Konto");
+    aufbauen(snap, TUI().quelleKonto);
     schreib(SNAP_KEY, snap);
-    fortschritt("Fertig. Dein Himmel steht; er liegt nur in diesem Browser.");
+    fortschritt(TE().fertig);
     zustandZeigen();
   } catch (e) {
-    fortschritt("Fehler: " + e.message, true);
+    fortschritt(TE().fehler(e.message), true);
     api.statusMelden("");
   }
   return dialog;
@@ -76,44 +78,45 @@ function zustandZeigen() {
   dlg.querySelector("#eg-redirect").textContent = redirectUri();
   const cid = dlg.querySelector("#eg-cid"); if (!cid.value) cid.value = lies(CID_KEY) || "";
   const v = dlg.querySelector("#eg-verlauf-stand");
-  v.textContent = verlaufAktiv ? `Verlauf geladen: ${verlaufAktiv.streams.toLocaleString("de-AT")} Streams, ${Math.round(verlaufAktiv.stunden)} Stunden.` : "";
+  v.textContent = verlaufAktiv ? TE().verlaufStand(verlaufAktiv) : "";
 }
 
 function anlegen() {
   dlg = document.createElement("dialog");
   dlg.className = "eigener";
+  const T = TE();
   dlg.innerHTML = `
-    <form method="dialog" class="eg-kopf"><h2>Dein eigener Himmel</h2><button class="zu" aria-label="Schließen"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12" stroke="currentColor" stroke-width="1.3" fill="none"/></svg></button></form>
-    <p class="eg-lede">Alles bleibt in deinem Browser: nichts wird hochgeladen, es gibt keinen Server. Drei Wege, keiner braucht den anderen.</p>
+    <form method="dialog" class="eg-kopf"><h2>${T.titel}</h2><button class="zu" aria-label="${T.schliessen}"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12" stroke="currentColor" stroke-width="1.3" fill="none"/></svg></button></form>
+    <p class="eg-lede">${T.lede}</p>
 
     <section class="eg-teil">
-      <h3>Streaming-Verlauf ablegen</h3>
-      <p>Bei Spotify unter <em>Konto → Datenschutz</em> den <em>erweiterten Streaming-Verlauf</em> anfordern (dauert Tage bis Wochen). Das ZIP dann hier ablegen: Heatmap nach Uhrzeit und Wochentag, Monate, Nachtanteil, Serien.</p>
-      <label class="ablage" id="eg-ablage"><input type="file" id="eg-datei" accept=".zip,.json,application/zip,application/json" hidden><span>ZIP oder gespeicherten Himmel (JSON) hierher ziehen oder <u>auswählen</u></span></label>
+      <h3>${T.h1}</h3>
+      <p>${T.p1}</p>
+      <label class="ablage" id="eg-ablage"><input type="file" id="eg-datei" accept=".zip,.json,application/zip,application/json" hidden><span>${T.ablage}</span></label>
       <p class="eg-klein" id="eg-verlauf-stand"></p>
     </section>
 
     <section class="eg-teil">
-      <h3>Mit deinem Spotify-Konto</h3>
-      <p>Seit Februar 2026 braucht jede Spotify-App einen Besitzer mit Premium und erlaubt höchstens fünf Nutzer. Deshalb: eigene App unter <a href="https://developer.spotify.com/dashboard" target="_blank" rel="noopener">developer.spotify.com/dashboard</a> anlegen, dort als Redirect-URI genau diese Adresse eintragen und die Client-ID hier einsetzen. Die ID ist kein Geheimnis, sie bleibt in deinem Browser.</p>
-      <p class="eg-code"><code id="eg-redirect"></code><button type="button" id="eg-kopieren">Kopieren</button></p>
-      <p class="eg-zeile"><input id="eg-cid" inputmode="latin" autocomplete="off" spellcheck="false" placeholder="Client-ID (32 Zeichen)" aria-label="Client-ID"><button type="button" class="eg-haupt" id="eg-login">Bei Spotify anmelden</button></p>
-      <p class="eg-klein">Rechte: nur <code>user-top-read</code> und <code>user-read-recently-played</code>. Genres kommen danach von MusicBrainz, eine Anfrage pro Sekunde, also ein bis zwei Minuten Geduld. <button type="button" id="eg-abbruch" hidden>Genres überspringen</button></p>
+      <h3>${T.h2}</h3>
+      <p>${T.p2}</p>
+      <p class="eg-code"><code id="eg-redirect"></code><button type="button" id="eg-kopieren">${T.kopieren}</button></p>
+      <p class="eg-zeile"><input id="eg-cid" inputmode="latin" autocomplete="off" spellcheck="false" placeholder="${T.cidPlatzhalter}" aria-label="${T.cid}"><button type="button" class="eg-haupt" id="eg-login">${T.login}</button></p>
+      <p class="eg-klein">${T.rechte} <button type="button" id="eg-abbruch" hidden>${T.abbruch}</button></p>
     </section>
 
     <section class="eg-teil">
-      <h3>Zurück oder behalten</h3>
-      <p class="eg-zeile"><button type="button" id="eg-speichern" hidden>Himmel als Datei speichern</button><button type="button" id="eg-zurueck" hidden>Zurück zu Stefans Himmel</button></p>
-      <p class="eg-klein">Der eigene Himmel liegt in <code>localStorage</code> dieses Browsers. „Zurück“ löscht ihn dort wieder.</p>
+      <h3>${T.h3}</h3>
+      <p class="eg-zeile"><button type="button" id="eg-speichern" hidden>${T.speichern}</button><button type="button" id="eg-zurueck" hidden>${T.zurueck}</button></p>
+      <p class="eg-klein">${T.p3}</p>
     </section>
     <p class="status" id="eg-status" role="status"></p>`;
   document.body.appendChild(dlg);
-  dlg.querySelector("#eg-kopieren").addEventListener("click", async (e) => { try { await navigator.clipboard.writeText(redirectUri()); e.target.textContent = "Kopiert"; setTimeout(() => (e.target.textContent = "Kopieren"), 1500); } catch { /* kein Clipboard */ } });
+  dlg.querySelector("#eg-kopieren").addEventListener("click", async (e) => { try { await navigator.clipboard.writeText(redirectUri()); e.target.textContent = T.kopiert; setTimeout(() => (e.target.textContent = T.kopieren), 1500); } catch { /* kein Clipboard */ } });
   dlg.querySelector("#eg-login").addEventListener("click", () => {
     const cid = dlg.querySelector("#eg-cid").value.trim();
-    if (!/^[a-f0-9]{32}$/i.test(cid)) { fortschritt("Die Client-ID hat 32 Zeichen aus 0–9 und a–f. So sieht das hier nicht aus.", true); return; }
+    if (!/^[a-f0-9]{32}$/i.test(cid)) { fortschritt(T.cidFalsch, true); return; }
     schreib(CID_KEY, cid);
-    fortschritt("Weiter zu Spotify …");
+    fortschritt(T.weiterZuSpotify);
     loginStarten(cid);
   });
   dlg.querySelector("#eg-zurueck").addEventListener("click", async () => {
@@ -135,7 +138,7 @@ function anlegen() {
   ablage.addEventListener("dragover", (e) => { e.preventDefault(); ablage.classList.add("drueber"); });
   ablage.addEventListener("dragleave", () => ablage.classList.remove("drueber"));
   ablage.addEventListener("drop", (e) => { e.preventDefault(); ablage.classList.remove("drueber"); if (e.dataTransfer.files[0]) dateiLaden(e.dataTransfer.files[0]); });
-  if (tokenLesen()) dlg.querySelector("#eg-login").textContent = "Noch einmal laden";
+  if (tokenLesen()) dlg.querySelector("#eg-login").textContent = T.nochmal;
 }
 
 // Ganze Seite nimmt Dateien an, nicht nur das Feld
@@ -150,22 +153,22 @@ async function dateiLaden(datei) {
   try {
     if (/\.json$/i.test(datei.name)) {
       const snap = JSON.parse(await datei.text());
-      if (!snap.zeitraeume || !snap.kuenstler || !Object.values(snap.zeitraeume).every((z) => Array.isArray(z.kuenstler) && Array.isArray(z.songs))) throw new Error("Das ist kein gespeicherter Resonanz-Himmel.");
-      aufbauen(snap, "Datei");
+      if (!snap.zeitraeume || !snap.kuenstler || !Object.values(snap.zeitraeume).every((z) => Array.isArray(z.kuenstler) && Array.isArray(z.songs))) throw new Error(TE().keinHimmel);
+      aufbauen(snap, TUI().quelleDatei);
       schreib(SNAP_KEY, snap);
-      fortschritt(`Himmel aus „${datei.name}“ geladen.`);
+      fortschritt(TE().geladen(datei.name));
     } else {
-      fortschritt(`Lese ${datei.name} (${(datei.size / 1048576).toFixed(1)} MB) …`);
+      fortschritt(TE().lese(datei.name, (datei.size / 1048576).toFixed(1)));
       const a = await verlaufAusZip(await datei.arrayBuffer());
       verlaufAktiv = a; schreib(VERLAUF_KEY, a);
       const snap = lies(SNAP_KEY) || (await (await fetch("data/snapshot.json", { cache: "no-cache" })).json());
-      api.himmelAufbauen(snap, { verlauf: a, quelle: (lies(SNAP_KEY) ? "eigenes Konto" : "Spotify · MusicBrainz") + " + Verlauf", eigener: !!lies(SNAP_KEY) });
+      api.himmelAufbauen(snap, { verlauf: a, quelle: (lies(SNAP_KEY) ? TUI().quelleKonto : TUI().quelleStandard) + TUI().plusVerlauf, eigener: !!lies(SNAP_KEY) });
       eigenerAktiv = eigenerAktiv || false;
-      fortschritt(`${a.streams.toLocaleString("de-AT")} Streams gelesen, ${Math.round(a.stunden)} Stunden Musik. Die Verlaufs-Kapitel stehen jetzt im Rückblick.`);
+      fortschritt(TE().zipFertig(a));
       dlg.close();
     }
     zustandZeigen();
   } catch (e) {
-    fortschritt("Das ging nicht: " + e.message, true);
+    fortschritt(TE().gingNicht(e.message), true);
   }
 }

@@ -8,6 +8,8 @@
 <meta name="theme-color" content="#070914">
 <meta name="color-scheme" content="dark">
 <link rel="canonical" href="https://stefanpaun.page/resonanz/">
+<link rel="alternate" hreflang="de" href="https://stefanpaun.page/resonanz/?lang=de">
+<link rel="alternate" hreflang="en" href="https://stefanpaun.page/resonanz/?lang=en">
 <meta property="og:url" content="https://stefanpaun.page/resonanz/">
 <meta property="og:image" content="https://stefanpaun.page/resonanz/og.webp">
 <meta property="og:image:width" content="1440">
@@ -25,49 +27,49 @@
 </head>
 <body>
 <div class="himmel" id="himmel">
-  <canvas id="cv" aria-label="Sternenhimmel: ein Stern pro Künstler, farbig nach Hörwelt. Ziehen dreht den Blick." role="img" tabindex="0"></canvas>
+  <canvas id="cv" data-t-aria="canvas" aria-label="Sternenhimmel: ein Stern pro Künstler, farbig nach Hörwelt. Ziehen dreht den Blick." role="img" tabindex="0"></canvas>
   <div class="labels" id="labels" aria-hidden="true"></div>
   <div class="scheibe" aria-hidden="true"></div>
 </div>
 
 <header class="kartusche" id="kartusche">
   <h1>Resonanz</h1>
-  <p class="unter">Himmelsatlas meiner Musik</p>
+  <p class="unter" data-t="unter">Himmelsatlas meiner Musik</p>
   <dl class="meta">
-    <div><dt>Stand</dt><dd id="m-stand">…</dd></div>
-    <div><dt>Quelle</dt><dd id="m-quelle">Spotify · MusicBrainz</dd></div>
-    <div><dt>Blick</dt><dd id="m-blick">Az 0° · Hö 20°</dd></div>
+    <div><dt data-t="stand">Stand</dt><dd id="m-stand">…</dd></div>
+    <div><dt data-t="quelle">Quelle</dt><dd id="m-quelle">Spotify · MusicBrainz</dd></div>
+    <div><dt data-t="blick">Blick</dt><dd id="m-blick">Az 0° · Hö 20°</dd></div>
   </dl>
-  <p class="status" id="status" role="status">Lade den Himmel …</p>
-  <button type="button" class="eigen-knopf" id="eigen-knopf">Dein eigener Himmel<svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button>
+  <p class="status" id="status" role="status" data-t="laden">Lade den Himmel …</p>
+  <p class="kart-zeile"><button type="button" class="eigen-knopf" id="eigen-knopf"><span data-t="eigenKnopf">Dein eigener Himmel</span><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6h8M6.5 2.5 10 6l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></button><button type="button" class="sprache" id="sprache" lang="en" title="Switch to English">EN</button></p>
 </header>
 
-<section class="brett" id="brett" aria-label="Armaturenbrett">
-  <div class="zeit" role="group" aria-label="Zeitraum">
-    <span class="zeit-titel">Zeitraum</span>
+<section class="brett" id="brett" aria-label="Armaturenbrett" data-t-aria="brett">
+  <div class="zeit" role="group" aria-label="Zeitraum" data-t-aria="zeitraum">
+    <span class="zeit-titel" data-t="zeitraum">Zeitraum</span>
     <div class="zeit-schalter" id="zeit">
-      <button type="button" data-z="4w">4 W</button>
-      <button type="button" data-z="6m">6 M</button>
-      <button type="button" data-z="1y" aria-pressed="true">1 J</button>
+      <button type="button" data-z="4w" data-t="z4w">4 W</button>
+      <button type="button" data-z="6m" data-t="z6m">6 M</button>
+      <button type="button" data-z="1y" aria-pressed="true" data-t="z1y">1 J</button>
       <i class="cursor" aria-hidden="true"></i>
     </div>
   </div>
-  <ul class="legende" id="legende" aria-label="Hörwelten"></ul>
+  <ul class="legende" id="legende" aria-label="Hörwelten" data-t-aria="hoerwelten"></ul>
   <dl class="werte" id="werte">
-    <div><dt>Sterne</dt><dd id="w-sterne">—</dd></div>
-    <div><dt>Welten</dt><dd id="w-welten">—</dd></div>
-    <div><dt>Sternbilder</dt><dd id="w-songs">—</dd></div>
+    <div><dt data-t="sterne">Sterne</dt><dd id="w-sterne">—</dd></div>
+    <div><dt data-t="welten">Welten</dt><dd id="w-welten">—</dd></div>
+    <div><dt><span class="lang" data-t="sternbilder">Sternbilder</span><span class="kurz" data-t="sternbilderKurz">Sternbilder</span></dt><dd id="w-songs">—</dd></div>
   </dl>
 </section>
 
-<p class="hinweis" id="hinweis"><span>Ziehen dreht den Blick</span><span class="nur-tastatur">Pfeiltasten drehen, Tab springt zu den Welten</span></p>
+<p class="hinweis" id="hinweis"><span data-t="ziehen">Ziehen dreht den Blick</span><span class="nur-tastatur" data-t="tasten">Pfeiltasten drehen, Tab springt zu den Welten</span></p>
 
 <div class="buehne" id="buehne" aria-hidden="true"></div>
 <main class="rueckblick" id="rueckblick"></main>
-<a class="weiter" id="weiter" href="#k-welten">Scrollen für den Rückblick<svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><path d="M6 1v11M1.5 8.5 6 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
-<nav class="fluss" id="fluss" aria-label="Kapitel"></nav>
+<a class="weiter" id="weiter" href="#k-welten"><span data-t="weiter">Scrollen für den Rückblick</span><svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><path d="M6 1v11M1.5 8.5 6 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.2"/></svg></a>
+<nav class="fluss" id="fluss" aria-label="Kapitel" data-t-aria="kapitelNav"></nav>
 
-<noscript><p class="noscript">Resonanz braucht JavaScript: der Himmel wird im Browser aus einer JSON-Datei gerechnet.</p></noscript>
+<noscript><p class="noscript">Resonanz braucht JavaScript: der Himmel wird im Browser aus einer JSON-Datei gerechnet. / Resonanz needs JavaScript: the sky is computed in the browser from a JSON file.</p></noscript>
 <script type="module" src="app.js"></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 // Eigenes Spotify-Konto im Browser: PKCE-Login, Schnappschuss ziehen, Genres von MusicBrainz.
 // Nichts davon verlässt den Browser; der Token liegt nur in sessionStorage.
 
+import { tx } from "./texte.js";
+const TK = () => tx().konto;
 export const SCOPES = "user-top-read user-read-recently-played";
 const API = "https://api.spotify.com/v1";
 const ZEITRAEUME = { short_term: "4w", medium_term: "6m", long_term: "1y" };
@@ -30,13 +32,13 @@ export async function rueckkehrVerarbeiten() {
   const merk = JSON.parse(sessionStorage.getItem("resonanz.pkce") || "null");
   history.replaceState(null, "", redirectUri()); // Code aus der Adresszeile, bevor irgendwer ihn sieht
   sessionStorage.removeItem("resonanz.pkce");
-  if (q.get("error")) throw new Error("Spotify hat abgelehnt: " + q.get("error"));
-  if (!merk || merk.state !== q.get("state")) throw new Error("Der Login passt nicht zu dieser Sitzung (state). Bitte noch einmal.");
+  if (q.get("error")) throw new Error(TK().abgelehnt(q.get("error")));
+  if (!merk || merk.state !== q.get("state")) throw new Error(TK().state);
   const r = await fetch("https://accounts.spotify.com/api/token", {
     method: "POST", headers: { "Content-Type": "application/x-www-form-urlencoded" },
     body: new URLSearchParams({ grant_type: "authorization_code", code: q.get("code"), redirect_uri: redirectUri(), client_id: merk.clientId, code_verifier: merk.verifier }),
   });
-  if (!r.ok) throw new Error("Token-Tausch fehlgeschlagen (" + r.status + "). Stimmt die Redirect-URI in deiner Spotify-App?");
+  if (!r.ok) throw new Error(TK().tausch(r.status));
   const tok = await r.json();
   tok.expires_at = Date.now() + tok.expires_in * 1000 - 60000;
   delete tok.refresh_token; // wird nie gebraucht, also auch nicht aufgehoben
@@ -52,8 +54,8 @@ export function tokenLesen() {
 async function spotify(tok, pfad, params) {
   const r = await fetch(API + pfad + "?" + new URLSearchParams(params), { headers: { Authorization: "Bearer " + tok.access_token } });
   if (r.status === 429) { await new Promise((x) => setTimeout(x, (+r.headers.get("Retry-After") || 2) * 1000 + 500)); return spotify(tok, pfad, params); }
-  if (r.status === 403) throw new Error("Spotify sagt 403: Dein Konto ist in der App nicht als Nutzer eingetragen (Development Mode, bis zu 5 Nutzer).");
-  if (!r.ok) throw new Error("Spotify " + r.status + " bei " + pfad);
+  if (r.status === 403) throw new Error(TK().verboten);
+  if (!r.ok) throw new Error(TK().fehler(r.status, pfad));
   return r.json();
 }
 
@@ -64,13 +66,13 @@ const track = (t) => ({ id: t.id, name: t.name, kuenstler: t.artists.map((a) => 
 export async function snapshotHolen(tok, fortschritt = () => {}) {
   const out = { erstellt: new Date().toISOString().replace(/\.\d+Z$/, "Z"), quelle: "spotify (eigenes Konto)", zeitraeume: {}, kuenstler: {}, zuletzt: [] };
   for (const [rng, kurz] of Object.entries(ZEITRAEUME)) {
-    fortschritt(`Spotify: Top-Listen ${kurz} …`);
+    fortschritt(TK().top(kurz));
     const [a, t] = await Promise.all([spotify(tok, "/me/top/artists", { limit: 50, time_range: rng }), spotify(tok, "/me/top/tracks", { limit: 50, time_range: rng })]);
     out.zeitraeume[kurz] = { kuenstler: a.items.map((x) => x.id), songs: t.items.map(track) };
     for (const x of a.items) out.kuenstler[x.id] ??= { name: x.name, bild: bild(x.images), url: x.external_urls?.spotify || null, tags: [], land: null };
     for (const x of t.items) for (const k of x.artists) out.kuenstler[k.id] ??= { name: k.name, bild: null, url: null, tags: [], land: null };
   }
-  fortschritt("Spotify: zuletzt gehört …");
+  fortschritt(TK().zuletzt);
   const rp = await spotify(tok, "/me/player/recently-played", { limit: 50 });
   out.zuletzt = rp.items.map((x) => ({ song: track(x.track), um: x.played_at }));
   return out;
@@ -91,7 +93,7 @@ export async function genresErgaenzen(snapshot, fortschritt = () => {}, { max = 
   for (const id of offen) {
     if (abbruch.wert) break;
     const k = snapshot.kuenstler[id];
-    fortschritt(`Genres von MusicBrainz: ${++i} von ${offen.length} (eine Anfrage pro Sekunde)`);
+    fortschritt(TK().genres(++i, offen.length));
     try {
       const name = k.name.replace(/["\\]/g, " ");
       const r = await fetch("https://musicbrainz.org/ws/2/artist?" + new URLSearchParams({ query: `artist:"${name}"`, fmt: "json", limit: 3 }), { headers: { Accept: "application/json" } });

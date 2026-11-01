@@ -125,6 +125,7 @@ ul, ol { padding: 0; list-style: none; }
 .legende.gefiltert button:not([aria-pressed="true"]) { opacity: .45; }
 .werte { display: grid; grid-auto-flow: column; gap: 22px; text-align: right; }
 .werte dt { margin-bottom: 2px; }
+.werte dt .kurz { display: none; }
 .werte dd { font-family: var(--mono); font-size: 20px; font-weight: 500; color: var(--rot); font-variant-numeric: tabular-nums; letter-spacing: -.01em; line-height: 1; text-shadow: 0 0 14px rgba(255, 90, 60, .35); }
 
 /* ---------- Hinweis */
@@ -245,7 +246,10 @@ body.tastatur .nur-tastatur { display: block; }
 .label.gewaehlt { color: var(--bernstein); font-weight: 600; }
 
 /* ---------- Eigener Himmel (Dialog) */
-.eigen-knopf { margin-top: 10px; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--bernstein); border-bottom: 1px solid var(--bernstein-dunkel); padding-bottom: 1px; }
+.kart-zeile { margin-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.eigen-knopf { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--bernstein); border-bottom: 1px solid var(--bernstein-dunkel); padding-bottom: 1px; }
+.sprache { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; color: var(--text-3); border: 1px solid var(--gitter); padding: 3px 7px; }
+.sprache:hover { color: var(--text); border-color: var(--linie); }
 .eigen-knopf:hover { border-bottom-color: var(--bernstein); }
 dialog.eigener { border: 1px solid var(--linie); background: var(--grund); color: var(--text); padding: 22px 24px 18px; width: min(560px, calc(100vw - 2 * var(--rand))); max-height: calc(100vh - 2 * var(--rand)); overflow: auto; margin: auto; }
 dialog.eigener::backdrop { background: rgba(2, 3, 8, .7); }
@@ -275,10 +279,9 @@ dialog.eigener::backdrop { background: rgba(2, 3, 8, .7); }
 .ablage { display: grid; place-items: center; min-height: 86px; margin-top: 10px; border: 1px dashed var(--linie); color: var(--text-2); font-size: 14px; text-align: center; padding: 14px; cursor: pointer; transition: border-color .2s, background .2s; }
 .ablage:hover, .ablage.drueber { border-color: var(--bernstein); background: rgba(255, 180, 84, .05); }
 .ablage u { color: var(--bernstein); text-decoration: none; border-bottom: 1px solid var(--bernstein-dunkel); }
-body.ablage-aktiv::after { content: "Datei loslassen: ZIP mit Streaming-Verlauf oder gespeicherter Himmel"; position: fixed; inset: 12px; z-index: 9; border: 1px dashed var(--bernstein); display: grid; place-items: center; color: var(--bernstein); background: rgba(7, 9, 20, .6); font-size: 16px; pointer-events: none; }
+body.ablage-aktiv::after { content: attr(data-ablage); position: fixed; inset: 12px; z-index: 9; border: 1px dashed var(--bernstein); display: grid; place-items: center; color: var(--bernstein); background: rgba(7, 9, 20, .6); font-size: 16px; pointer-events: none; }
 dialog.eigener .status { margin-top: 14px; }
-body.eigener .kartusche .unter::after { content: " · dein Himmel"; color: var(--bernstein); }
-body.verlauf:not(.eigener) .kartusche .unter::after { content: " · dein Verlauf"; color: var(--bernstein); }
+.kartusche .unter[data-marke]::after { content: attr(data-marke); color: var(--bernstein); }
 #m-quelle { white-space: nowrap; }
 
 /* Heatmap: Wochentag × Stunde, Zellen in Bernstein */
@@ -307,6 +310,8 @@ body.verlauf:not(.eigener) .kartusche .unter::after { content: " · dein Verlauf
   .legende::-webkit-scrollbar { display: none; }
   .legende button { white-space: nowrap; }
   .werte { gap: 14px; }
+  .werte dt .lang { display: none; }
+  .werte dt .kurz { display: inline; }
   .werte dd { font-size: 16px; }
   .zeit-schalter button { padding: 6px 11px; font-size: 12px; }
   .jahr small.zehner { display: none; }

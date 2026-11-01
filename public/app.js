@@ -5,6 +5,8 @@ import { WELTEN, welt } from "./welten.js";
 import { sterne, sternbilder, positionen, weltenZaehlung, galaxieRichtung, hash01, ZEITRAEUME } from "./daten.js";
 import { kapitelBauen } from "./kapitel.js";
 import { karteOeffnen, karteSchliessen, karteOffen, karteElement } from "./karte.js";
+import { tx, sprache_, weltName } from "./texte.js";
+const TU = tx().ui;
 
 const RADIUS = 100;
 const ruhig = matchMedia("(prefers-reduced-motion: reduce)");
@@ -217,7 +219,7 @@ function labelBreite(name) {
 const galaxieEls = new Map();
 const v3 = new THREE.Vector3();
 
-const HIMMELSRICHTUNGEN = [["N", 0], ["O", 90], ["S", 180], ["W", 270]];
+const HIMMELSRICHTUNGEN = TU.richtungen.map((n, i) => [n, i * 90]);
 const richtungEls = [];
 document.fonts?.ready?.then(() => breiten.clear());
 function labelsAnlegen(liste) {
@@ -238,7 +240,7 @@ function labelsAnlegen(liste) {
     if (!galaxieRichtung(w.id) || !w.anzahl) continue;
     const el = document.createElement("span");
     el.className = "label galaxie"; el.style.setProperty("--w", w.farbe);
-    el.innerHTML = `${w.name}<small>${w.anzahl} Sterne</small>`;
+    el.innerHTML = `${weltName(w)}<small>${w.anzahl} ${TU.sterneKlein}</small>`;
     labelsEl.appendChild(el); galaxieEls.set(w.id, el);
   }
 }
@@ -402,7 +404,7 @@ function brettBauen(liste) {
     const li = document.createElement("li");
     const b = document.createElement("button");
     b.type = "button"; b.setAttribute("aria-pressed", "false"); b.dataset.welt = w.id; b.style.setProperty("--w", w.farbe);
-    b.innerHTML = `<i aria-hidden="true"></i>${w.name} <b>${w.anzahl}</b>`;
+    b.innerHTML = `<i aria-hidden="true"></i>${weltName(w)} <b>${w.anzahl}</b>`;
     b.addEventListener("click", () => weltWaehlen(zustand.welt === w.id ? null : w.id));
     li.appendChild(b); leg.appendChild(li);
   }
@@ -443,7 +445,7 @@ function werteZeigen() {
   }
   for (const [id, el] of galaxieEls) {
     const n = jeWelt.get(id) || 0, klein = el.querySelector("small");
-    if (klein) klein.textContent = `${n} ${n === 1 ? "Stern" : "Sterne"}`;
+    if (klein) klein.textContent = `${n} ${n === 1 ? TU.stern : TU.sterneKlein}`;
   }
 }
 function cursorSetzen() {
@@ -513,7 +515,7 @@ function tick() {
   if (t - letzteAnzeige > 0.15) {
     letzteAnzeige = t;
     const az = Math.round(((-zustand.yaw * 180 / Math.PI) % 360 + 360) % 360), ho = Math.round(zustand.pitch * 180 / Math.PI);
-    blickEl.textContent = `Az ${az}° · Hö ${ho}°`;
+    blickEl.textContent = `${TU.az} ${az}° · ${TU.hoehe} ${ho}°`;
   }
 }
 
@@ -605,7 +607,7 @@ function himmelAbbauen() {
 }
 
 /** Baut den ganzen Himmel aus einem Schnappschuss (und optional einer Verlaufs-Auswertung) auf. */
-export function himmelAufbauen(snap, { verlauf = null, quelle = "Spotify · MusicBrainz", eigener = false } = {}) {
+export function himmelAufbauen(snap, { verlauf = null, quelle = TU.quelleStandard, eigener = false } = {}) {
   himmelAbbauen();
   const liste = sterne(snap), pos = positionen(liste), paare = sternbilder(snap);
   zustand.sterne = liste; zustand.pos = pos; zustand.paare = paare; zustand.snapshot = snap; zustand.eigener = eigener;
@@ -613,10 +615,12 @@ export function himmelAufbauen(snap, { verlauf = null, quelle = "Spotify · Musi
   labelsAnlegen(liste);
   brettBauen(liste);
   zieleSetzen();
-  $("#m-stand").textContent = new Date(snap.erstellt).toLocaleDateString("de-AT", { day: "numeric", month: "short", year: "numeric" });
+  $("#m-stand").textContent = new Date(snap.erstellt).toLocaleDateString(sprache_() === "de" ? "de-AT" : "en-GB", { day: "numeric", month: "short", year: "numeric" });
   $("#m-quelle").textContent = quelle;
   document.body.classList.toggle("eigener", eigener);
   document.body.classList.toggle("verlauf", !!verlauf);
+  const unter = $(".kartusche .unter");
+  if (eigener) unter.dataset.marke = TU.markeEigen; else if (verlauf) unter.dataset.marke = TU.markeVerlauf; else delete unter.dataset.marke;
   status.textContent = "";
   const r = galaxieRichtung("deutschrap");
   zustand.yaw = zustand.zielYaw = -Math.atan2(r[0], -r[2]); zustand.pitch = zustand.zielPitch = Math.asin(r[1]) + 0.07; zustand.drift = true;
@@ -633,6 +637,25 @@ export function statusMelden(text, fehler = false) {
   status.classList.toggle("fehler", !!fehler);
 }
 
+// ---------------------------------------------------------------- Sprache: statische Texte, Schalter
+function sprachePruefen() {
+  const de = sprache_() === "de";
+  document.documentElement.lang = de ? "de" : "en";
+  document.title = TU.titel;
+  document.querySelector('meta[name="description"]')?.setAttribute("content", TU.beschreibung);
+  for (const el of document.querySelectorAll("[data-t]")) el.textContent = TU[el.dataset.t] ?? el.textContent;
+  for (const el of document.querySelectorAll("[data-t-aria]")) el.setAttribute("aria-label", TU[el.dataset.tAria] ?? el.getAttribute("aria-label"));
+  document.body.dataset.ablage = tx().eigener.ablageGanz;
+  const sw = $("#sprache");
+  if (sw) {
+    sw.textContent = TU.andereSprache; sw.title = TU.andereSpracheTitel; sw.lang = de ? "en" : "de";
+    sw.addEventListener("click", () => {
+      const u = new URL(location.href); u.searchParams.set("lang", de ? "en" : "de"); u.hash = ""; location.assign(u.toString());
+    });
+  }
+}
+sprachePruefen();
+
 // ---------------------------------------------------------------- Start
 async function start() {
   // Eigener Himmel (aus Konto oder Datei) hat Vorrang, sonst Stefans Schnappschuss
@@ -644,7 +667,7 @@ async function start() {
     if (!r.ok) throw new Error("HTTP " + r.status);
     snap = await r.json();
   } catch (e) {
-    statusMelden("Der Schnappschuss ließ sich nicht laden (" + (e.message || e) + "). Seite neu laden hilft meistens.", true);
+    statusMelden(TU.ladefehler(e.message || e), true);
     return;
   }
   himmelAufbauen(snap);

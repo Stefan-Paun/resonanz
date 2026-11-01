@@ -101,3 +101,21 @@ test("Kapitel: leerer Schnappschuss stürzt nicht ab", () => {
   kapitelBauen(main, snap, sterneAus(snap), {});
   assert.ok(main.innerHTML.includes("Acht Welten"));
 });
+
+import { spracheSetzen, tx, landName } from "../public/texte.js";
+
+test("Englische Kapitel: Titel und Texte übersetzt, Länder per Intl", () => {
+  const snap = JSON.parse(readFileSync(new URL("../data/snapshot.json", import.meta.url), "utf8"));
+  spracheSetzen("en");
+  try {
+    const main = { innerHTML: "" };
+    kapitelBauen(main, snap, sterneAus(snap), {});
+    assert.ok(main.innerHTML.includes("Eight worlds, one sky."));
+    assert.ok(main.innerHTML.includes("German rap"));
+    assert.ok(main.innerHTML.includes("Germany"));
+    assert.ok(!main.innerHTML.includes("Sterne stehen"));
+    assert.equal(landName("AT"), "Austria");
+    assert.equal(tx().ui.z4w, "4 wk");
+  } finally { spracheSetzen("de"); }
+  assert.equal(landName("AT"), "Österreich");
+});

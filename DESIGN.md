@@ -22,6 +22,9 @@ colors:
   welt-pop: "#7fe0a8"
   welt-fokus: "#b9d8ff"
   welt-streulicht: "#8e8aa3"
+  weiss: "#ffffff"
+  schwarz: "#000000"
+  schleier: "rgba(2, 3, 8, 0.7)"
 typography:
   display:
     fontFamily: "Bricolage Grotesque, Helvetica Neue, Arial, sans-serif"
@@ -55,6 +58,51 @@ typography:
     lineHeight: 1
     letterSpacing: "-0.01em"
     fontFeature: "tabular-nums"
+  titel-dialog:
+    fontFamily: "Bricolage Grotesque, Helvetica Neue, Arial, sans-serif"
+    fontSize: "26px"
+    fontWeight: 700
+    letterSpacing: "-0.02em"
+  titel-klein:
+    fontFamily: "Bricolage Grotesque, Helvetica Neue, Arial, sans-serif"
+    fontSize: "24px"
+    fontWeight: 700
+  ui:
+    fontFamily: "Bricolage Grotesque, Helvetica Neue, Arial, sans-serif"
+    fontSize: "14px"
+    fontWeight: 400
+    lineHeight: 1.5
+  ui-kompakt:
+    fontFamily: "Bricolage Grotesque, Helvetica Neue, Arial, sans-serif"
+    fontSize: "13px"
+    fontWeight: 500
+  ui-klein:
+    fontFamily: "Bricolage Grotesque, Helvetica Neue, Arial, sans-serif"
+    fontSize: "12px"
+    fontWeight: 400
+  zahl-gross:
+    fontFamily: "Azeret Mono, ui-monospace, SF Mono, Menlo, monospace"
+    fontSize: "18px"
+    fontWeight: 500
+    fontFeature: "tabular-nums"
+  zahl:
+    fontFamily: "Azeret Mono, ui-monospace, SF Mono, Menlo, monospace"
+    fontSize: "13px"
+    fontWeight: 400
+    fontFeature: "tabular-nums"
+  zahl-klein:
+    fontFamily: "Azeret Mono, ui-monospace, SF Mono, Menlo, monospace"
+    fontSize: "12px"
+    fontWeight: 400
+    fontFeature: "tabular-nums"
+  balkenwert:
+    fontFamily: "Azeret Mono, ui-monospace, SF Mono, Menlo, monospace"
+    fontSize: "10px"
+    fontWeight: 400
+  einstieg:
+    fontFamily: "Bricolage Grotesque, Helvetica Neue, Arial, sans-serif"
+    fontSize: "16px"
+    fontWeight: 400
 rounded:
   eckig: "0px"
   punkt: "50%"

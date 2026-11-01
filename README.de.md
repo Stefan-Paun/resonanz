@@ -13,6 +13,7 @@
 - **Das Armaturenbrett.** Zeitraum-Schalter (4 Wochen · 6 Monate · 1 Jahr) mit Bernstein-Cursor, eine Legende, die den Himmel filtert, Messwerte in Rotlicht, die dem Zeitraum folgen.
 - **Der Rückblick.** Scroll-Kapitel: deine Welten, was gerade läuft, Dauerbrenner, Verblasstes, Herkunft, Jahrgänge, zuletzt gehört. Jeder Text entsteht aus den Daten.
 - **Sternkarten.** Stern oder Namen antippen: Plätze, Songs mit Cover und Dauer, Spotify-Link und eine 30-Sekunden-Vorschau, die erst beim Drücken von Deezer kommt.
+- **Deutsch und Englisch.** Die Oberfläche folgt der Browsersprache; der Schalter `EN`/`DE` in der Kartusche (oder `?lang=en`) übersteuert sie.
 - **Dein eigener Himmel.** Das ZIP des *erweiterten Streaming-Verlaufs* ablegen: Heatmap Wochentag × Stunde, Monate, Nachtanteil, Serien. Oder mit eigener Spotify-App anmelden (PKCE, im Browser). Alles bleibt im `localStorage`.
 
 ## Starten
@@ -21,7 +22,7 @@
 git clone https://github.com/Stefan-Paun/resonanz
 cd resonanz
 npm start          # python3 -m http.server 8742 --directory public
-npm test           # node --test, 28 Tests, keine Abhängigkeiten
+npm test           # node --test, 31 Tests, keine Abhängigkeiten
 ```
 
 Dann `http://127.0.0.1:8742/` öffnen. Die Demo nutzt den eingefrorenen Schnappschuss in `data/snapshot.json` (meiner, vom 31.10.2026).

@@ -47,4 +47,6 @@ Datenflächen. Schrift: Bricolage Grotesque und Azeret Mono, selbst gehostet. De
 - Tests: 28 grün (`npm test`), ohne Abhängigkeiten.
 - Impeccable: zwei Finish-Reviews (Himmel, dann Gesamt), alle Funde eingearbeitet; DESIGN.md und `.impeccable/design.json` vom Documenter.
 - Lighthouse lokal mit Software-WebGL (SwiftShader, 4× CPU-Drossel): Accessibility 100, Best Practices 100, SEO 100, Performance 50 mobil / 56 Desktop. Der Hauptposten ist die Shader-Kompilierung in Software; mit echter GPU liegt die Seite deutlich höher. Echte Messung nach der Veröffentlichung nachholen.
-- Offen für später: Streaming-Verlauf von Spotify anfordern und mit echten Daten durchspielen; englische Oberfläche; Spotify-Richtlinien-Check vor einer breiteren Verbreitung.
+- Live-Lighthouse (echte GPU, 1.11.): Desktop 100/100/100/100, Handy 61/100/100/100 (TBT durch Szenenaufbau bei 4× CPU-Drossel).
+- Englische Oberfläche seit 1.11. (`public/texte.js`, Schalter in der Kartusche, `?lang=`).
+- Offen für später: Streaming-Verlauf mit echten Daten durchspielen, sobald das ZIP da ist; Spotify-Richtlinien-Check vor einer breiteren Verbreitung.
