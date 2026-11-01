@@ -228,14 +228,7 @@ function labelsAnlegen(liste) {
     el.className = "label richtung"; el.textContent = n; el.dataset.az = az;
     labelsEl.appendChild(el); richtungEls.push(el);
   }
-  liste.forEach((s, i) => {
-    const el = document.createElement("span");
-    el.className = "label klick" + (i < 8 ? " hell" : "");
-    el.textContent = s.name;
-    el.dataset.i = i;
-    el.addEventListener("click", () => sternWaehlen(i));
-    labelsEl.appendChild(el); labelEls.set(i, el);
-  });
+  // Sternnamen entstehen erst, wenn sie gebraucht werden (meist 30 statt 200 Elemente)
   for (const w of weltenZaehlung(liste)) {
     if (!galaxieRichtung(w.id) || !w.anzahl) continue;
     const el = document.createElement("span");
@@ -267,6 +260,19 @@ function inSperrzone(x, y) {
 let sperrzonenAlt = true;
 for (const ev of ["scroll", "resize"]) addEventListener(ev, () => { sperrzonenAlt = true; }, { passive: true });
 new MutationObserver(() => { sperrzonenAlt = true; }).observe(document.body, { attributes: true, attributeFilter: ["class", "hidden"], subtree: true });
+function labelFuer(i) {
+  let el = labelEls.get(i);
+  if (!el) {
+    const s = zustand.sterne[i];
+    el = document.createElement("span");
+    el.className = "label klick aus" + (i < 8 ? " hell" : "");
+    el.textContent = s.name; el.dataset.i = i; el.style.opacity = "0";
+    el.addEventListener("click", () => sternWaehlen(i));
+    labelsEl.appendChild(el); labelEls.set(i, el);
+  }
+  return el;
+}
+
 function labelsZeichnen() {
   const w = innerWidth, h = innerHeight;
   if (sperrzonenAlt) { sperrzonenLesen(); sperrzonenAlt = false; }
@@ -277,7 +283,6 @@ function labelsZeichnen() {
   const belegt = [];
   const haufen = new Map(); // welt → {minY, sumX, n}
   for (let i = 0; i < liste.length; i++) {
-    const el = labelEls.get(i);
     const p = sichtbar2D[i];
     const istHover = i === zustand.hover || i === zustand.gewaehlt;
     if (p && zustand.hellZiel[i] > 0.5 && zustand.groesse[i] > 0.05 && p[1] > 0 && p[1] < h && p[0] > 0 && p[0] < w) {
@@ -300,6 +305,8 @@ function labelsZeichnen() {
       // Fokus-Namen bleiben sichtbar, weichen aber nach unten aus, wenn ein Name schon dort steht
       for (let v = 0; v < 4 && kollidiert(ly); v++) ly += 17;
     }
+    const el = zeigen ? labelFuer(i) : labelEls.get(i);
+    if (!el) continue;
     if (zeigen) {
       gezeigt++;
       belegt.push([x0, x1, ly, el]);
