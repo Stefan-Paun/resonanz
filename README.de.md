@@ -1,0 +1,53 @@
+# Resonanz
+
+**Deine Musik als begehbarer Sternenhimmel.** Jeder Künstler ein Stern, jede Hörwelt eine Galaxie, beim Scrollen ein eigener Rückblick. Gebaut aus der Spotify-Web-API und MusicBrainz, gezeichnet im Browser mit three.js. Kein Build, kein Server, nichts wird hochgeladen.
+
+[English version](README.md) · Live: `https://stefan-paun.github.io/resonanz/` (nach der ersten Veröffentlichung)
+
+![Der Himmel: pinke Deutschrap-Galaxie in der Mitte, violettes Nacht & R&B rechts, Armaturenbrett in Bernstein unten](docs/himmel.png)
+
+## Was man sieht
+
+- **Der Himmel.** Rund 200 Sterne, Größe nach Hörgewicht, Halo in der Farbe ihrer Welt. Künstler mit gemeinsamen Songs sind durch Sternbildlinien verbunden. Ziehen dreht den Blick, Pfeiltasten gehen auch, `Enter` öffnet den Stern in der Bildmitte.
+- **Acht Welten.** Deutschrap, Rap & Hip-Hop, Nacht & R&B, Phonk & Tekkno, Latino, Rock & Klassiker, Pop, Fokus & Lo-fi (plus „Streulicht“ für Unzuordenbares). Die Zuordnung aus MusicBrainz-Tags steht in [`public/welten.js`](public/welten.js) und ist getestet.
+- **Das Armaturenbrett.** Zeitraum-Schalter (4 Wochen · 6 Monate · 1 Jahr) mit Bernstein-Cursor, eine Legende, die den Himmel filtert, Messwerte in Rotlicht, die dem Zeitraum folgen.
+- **Der Rückblick.** Scroll-Kapitel: deine Welten, was gerade läuft, Dauerbrenner, Verblasstes, Herkunft, Jahrgänge, zuletzt gehört. Jeder Text entsteht aus den Daten.
+- **Sternkarten.** Stern oder Namen antippen: Plätze, Songs mit Cover und Dauer, Spotify-Link und eine 30-Sekunden-Vorschau, die erst beim Drücken von Deezer kommt.
+- **Dein eigener Himmel.** Das ZIP des *erweiterten Streaming-Verlaufs* ablegen: Heatmap Wochentag × Stunde, Monate, Nachtanteil, Serien. Oder mit eigener Spotify-App anmelden (PKCE, im Browser). Alles bleibt im `localStorage`.
+
+## Starten
+
+```bash
+git clone https://github.com/Stefan-Paun/resonanz
+cd resonanz
+npm start          # python3 -m http.server 8742 --directory public
+npm test           # node --test, 28 Tests, keine Abhängigkeiten
+```
+
+Dann `http://127.0.0.1:8742/` öffnen. Die Demo nutzt den eingefrorenen Schnappschuss in `data/snapshot.json` (meiner, vom 31.10.2026).
+
+## Schnappschuss erneuern (Besitzer)
+
+```bash
+export SPOTIFY_CLIENT_ID=...          # von developer.spotify.com, nie ins Repo
+python3 tools/sammeln.py login        # PKCE-Login im Browser, Token bleibt in tools/token.json (gitignored)
+python3 tools/sammeln.py              # Spotify-Top-Listen + MusicBrainz-Tags → data/snapshot.json
+```
+
+Der Sammler ist reines Python ohne Pakete. MusicBrainz wird mit einer Anfrage pro Sekunde und lokalem Cache befragt; Künstler, die es nicht kennt, bekommen ihre Tags aus `data/ueberschreibungen.json`.
+
+## Ehrliche Grenzen
+
+- Seit Februar 2026 liefert die Spotify-Web-API im Development Mode **keine Genres, keine Popularität und keine Vorschauen** mehr, der App-Besitzer braucht Premium, und höchstens fünf Nutzer dürfen eingetragen sein. Deshalb kommen Genres von MusicBrainz und Vorschauen von Deezer, und deshalb braucht „mit eigenem Konto“ eine eigene Client-ID.
+- „Zuletzt gehört“ sind die letzten 50 Songs. Ein echter Tagesrhythmus braucht den exportierten Streaming-Verlauf.
+- Der Himmel ist ein Schnappschuss, kein Live-Bild.
+
+## Datenschutz
+
+Die Demo zeigt meine Künstler, Songs und Hörgewichte. Nie dabei: Anzeigename, Playlists, E-Mail. Eigene Daten werden nur im Browser verarbeitet; die einzigen Aufrufe an Dritte sind MusicBrainz (Genres, beim Anmelden) und Deezer (Vorschau, beim Drücken auf Play).
+
+## Dank
+
+Metadaten und Cover gehören Spotify und den Rechteinhabern; das hier ist ein privates Projekt ohne Verbindung zu Spotify. Genres und Länder von [MusicBrainz](https://musicbrainz.org). Vorschauen von [Deezer](https://developers.deezer.com). three.js (MIT). Schriften: Bricolage Grotesque und Azeret Mono (SIL OFL), selbst gehostet.
+
+MIT-Lizenz. Gebaut von Stefan Paun, 17, Wien, mit Claude Code.
