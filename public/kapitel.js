@@ -172,5 +172,7 @@ function heatmap(v, T) {
 
 function monate({ liste, max }, T) {
   if (!liste.length) return "";
-  return `<div class="jahre monate" role="img" aria-label="${T.monate.aria}">${liste.map((m) => `<span class="jahr" style="--h:${(max ? m.stunden / max : 0).toFixed(3)}" title="${T.monatsnamen[m.monat]} ${m.jahr}: ${Math.round(m.stunden)} h"><b>${m.stunden >= max * .6 ? Math.round(m.stunden) : ""}</b><i></i><small>${m.monat === 0 || liste.length <= 14 ? (liste.length <= 14 ? T.monatsnamen[m.monat] : m.jahr) : ""}</small></span>`).join("")}</div>`;
+  // Wertlabel nur auf lokalen Gipfeln ab 60 % des Maximums, sonst stoßen die Zahlen bei vielen Monaten zusammen
+  const gipfel = (k) => max && liste[k].stunden >= max * .6 && (k === 0 || liste[k - 1].stunden <= liste[k].stunden) && (k === liste.length - 1 || liste[k + 1].stunden < liste[k].stunden);
+  return `<div class="jahre monate" role="img" aria-label="${T.monate.aria}">${liste.map((m, k) => `<span class="jahr" style="--h:${(max ? m.stunden / max : 0).toFixed(3)}" title="${T.monatsnamen[m.monat]} ${m.jahr}: ${Math.round(m.stunden)} h"><b>${gipfel(k) ? Math.round(m.stunden) : ""}</b><i></i><small>${m.monat === 0 || liste.length <= 14 ? (liste.length <= 14 ? T.monatsnamen[m.monat] : m.jahr) : ""}</small></span>`).join("")}</div>`;
 }
