@@ -30,7 +30,7 @@ export function aktuellerVerlauf() { return verlaufAktiv; }
 
 function aufbauen(snap, quelle) {
   eigenerAktiv = true;
-  api.himmelAufbauen(snap, { verlauf: verlaufAktiv, quelle: quelle + (verlaufAktiv ? " · Verlauf" : ""), eigener: true });
+  api.himmelAufbauen(snap, { verlauf: verlaufAktiv, quelle: quelle + (verlaufAktiv ? " + Verlauf" : ""), eigener: true });
 }
 
 async function kontoLaden(tok) {
@@ -84,14 +84,14 @@ function anlegen() {
     <p class="eg-lede">Alles bleibt in deinem Browser: nichts wird hochgeladen, es gibt keinen Server. Drei Wege, keiner braucht den anderen.</p>
 
     <section class="eg-teil">
-      <h3>1 · Streaming-Verlauf ablegen</h3>
+      <h3>Streaming-Verlauf ablegen</h3>
       <p>Bei Spotify unter <em>Konto → Datenschutz</em> den <em>erweiterten Streaming-Verlauf</em> anfordern (dauert Tage bis Wochen). Das ZIP dann hier ablegen: Heatmap nach Uhrzeit und Wochentag, Monate, Nachtanteil, Serien.</p>
       <label class="ablage" id="eg-ablage"><input type="file" id="eg-datei" accept=".zip,.json,application/zip,application/json" hidden><span>ZIP oder gespeicherten Himmel (JSON) hierher ziehen oder <u>auswählen</u></span></label>
       <p class="eg-klein" id="eg-verlauf-stand"></p>
     </section>
 
     <section class="eg-teil">
-      <h3>2 · Mit deinem Spotify-Konto</h3>
+      <h3>Mit deinem Spotify-Konto</h3>
       <p>Seit Februar 2026 braucht jede Spotify-App einen Besitzer mit Premium und erlaubt höchstens fünf Nutzer. Deshalb: eigene App unter <a href="https://developer.spotify.com/dashboard" target="_blank" rel="noopener">developer.spotify.com/dashboard</a> anlegen, dort als Redirect-URI genau diese Adresse eintragen und die Client-ID hier einsetzen. Die ID ist kein Geheimnis, sie bleibt in deinem Browser.</p>
       <p class="eg-code"><code id="eg-redirect"></code><button type="button" id="eg-kopieren">Kopieren</button></p>
       <p class="eg-zeile"><input id="eg-cid" inputmode="latin" autocomplete="off" spellcheck="false" placeholder="Client-ID (32 Zeichen)" aria-label="Client-ID"><button type="button" class="eg-haupt" id="eg-login">Bei Spotify anmelden</button></p>
@@ -99,7 +99,7 @@ function anlegen() {
     </section>
 
     <section class="eg-teil">
-      <h3>3 · Zurück oder behalten</h3>
+      <h3>Zurück oder behalten</h3>
       <p class="eg-zeile"><button type="button" id="eg-speichern" hidden>Himmel als Datei speichern</button><button type="button" id="eg-zurueck" hidden>Zurück zu Stefans Himmel</button></p>
       <p class="eg-klein">Der eigene Himmel liegt in <code>localStorage</code> dieses Browsers. „Zurück“ löscht ihn dort wieder.</p>
     </section>
@@ -156,7 +156,7 @@ async function dateiLaden(datei) {
       const a = await verlaufAusZip(await datei.arrayBuffer());
       verlaufAktiv = a; schreib(VERLAUF_KEY, a);
       const snap = lies(SNAP_KEY) || (await (await fetch("data/snapshot.json", { cache: "no-cache" })).json());
-      api.himmelAufbauen(snap, { verlauf: a, quelle: (lies(SNAP_KEY) ? "eigenes Konto" : "Spotify · MusicBrainz") + " · Verlauf", eigener: !!lies(SNAP_KEY) || true });
+      api.himmelAufbauen(snap, { verlauf: a, quelle: (lies(SNAP_KEY) ? "eigenes Konto" : "Spotify · MusicBrainz") + " + Verlauf", eigener: !!lies(SNAP_KEY) });
       eigenerAktiv = eigenerAktiv || false;
       fortschritt(`${a.streams.toLocaleString("de-AT")} Streams gelesen, ${Math.round(a.stunden)} Stunden Musik. Die Verlaufs-Kapitel stehen jetzt im Rückblick.`);
       dlg.close();

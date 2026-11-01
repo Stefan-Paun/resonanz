@@ -1,0 +1,480 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-01T09:28:50+00:00",
+  "title": "Design System: Resonanz",
+  "extensions": {
+    "colorMeta": {
+      "grund": {
+        "role": "neutral",
+        "displayName": "Tiefindigo",
+        "canonical": "#070914",
+        "tonalRamp": [
+          "#141a39",
+          "#232d64",
+          "#32408f",
+          "#4154ba",
+          "#6b79cb",
+          "#96a0da",
+          "#c1c7e9",
+          "#eceef8"
+        ]
+      },
+      "grund-2": {
+        "role": "neutral",
+        "displayName": "Instrumentenindigo",
+        "canonical": "#0b0f1f",
+        "tonalRamp": [
+          "#141b38",
+          "#233063",
+          "#33458f",
+          "#425aba",
+          "#6b7ecb",
+          "#96a4da",
+          "#c1c9e9",
+          "#eceff8"
+        ]
+      },
+      "gitter": {
+        "role": "neutral",
+        "displayName": "Gitterblau",
+        "canonical": "#1a2140",
+        "tonalRamp": [
+          "#161c36",
+          "#273160",
+          "#384789",
+          "#495cb3",
+          "#7180c5",
+          "#9aa5d6",
+          "#c3cae7",
+          "#edeff8"
+        ]
+      },
+      "linie": {
+        "role": "neutral",
+        "displayName": "Rahmenblau",
+        "canonical": "#26305a",
+        "tonalRamp": [
+          "#171d36",
+          "#28335f",
+          "#394888",
+          "#4b5eb1",
+          "#7282c4",
+          "#9ba6d5",
+          "#c4cbe6",
+          "#edeff7"
+        ]
+      },
+      "text": {
+        "role": "neutral",
+        "displayName": "Sternenweiß",
+        "canonical": "#e8e6f0",
+        "tonalRamp": [
+          "#211d30",
+          "#393354",
+          "#524879",
+          "#6b5e9d",
+          "#8c82b4",
+          "#ada6ca",
+          "#cfcbe0",
+          "#f0eff5"
+        ]
+      },
+      "text-2": {
+        "role": "neutral",
+        "displayName": "Dämmerlavendel",
+        "canonical": "#a9a7c2",
+        "tonalRamp": [
+          "#201f2d",
+          "#393750",
+          "#524f72",
+          "#6a6794",
+          "#8b89ad",
+          "#adabc5",
+          "#cfcedd",
+          "#f0f0f5"
+        ]
+      },
+      "text-3": {
+        "role": "neutral",
+        "displayName": "Nebelviolett",
+        "canonical": "#7d7b9c",
+        "tonalRamp": [
+          "#21212c",
+          "#3b3a4d",
+          "#54536e",
+          "#6e6c90",
+          "#8e8da9",
+          "#afaec2",
+          "#d0cfdb",
+          "#f1f0f4"
+        ]
+      },
+      "bernstein": {
+        "role": "primary",
+        "displayName": "Armaturen-Bernstein",
+        "canonical": "#ffb454",
+        "tonalRamp": [
+          "#4c2b00",
+          "#874c00",
+          "#c16c00",
+          "#fb8d00",
+          "#ffa737",
+          "#ffc171",
+          "#ffdaab",
+          "#fff4e5"
+        ]
+      },
+      "bernstein-dunkel": {
+        "role": "primary",
+        "displayName": "Gedimmter Bernstein",
+        "canonical": "#8a5a1a",
+        "tonalRamp": [
+          "#402a0c",
+          "#714a15",
+          "#a26a1f",
+          "#d48a28",
+          "#dfa556",
+          "#e8bf87",
+          "#f2d9b8",
+          "#fbf3ea"
+        ]
+      },
+      "rot": {
+        "role": "secondary",
+        "displayName": "Rotlicht",
+        "canonical": "#ff5a3c",
+        "tonalRamp": [
+          "#4c0c00",
+          "#871500",
+          "#c11e00",
+          "#fb2700",
+          "#ff5537",
+          "#ff8771",
+          "#ffb8ab",
+          "#ffe9e5"
+        ]
+      },
+      "welt-deutschrap": {
+        "role": "welt",
+        "displayName": "Weltfarbe deutschrap",
+        "canonical": "#ff4fa3",
+        "tonalRamp": [
+          "#4c0025",
+          "#870040",
+          "#c1005c",
+          "#fb0078",
+          "#ff3796",
+          "#ff71b5",
+          "#ffabd3",
+          "#ffe5f2"
+        ]
+      },
+      "welt-rap": {
+        "role": "welt",
+        "displayName": "Weltfarbe rap",
+        "canonical": "#ff8a5b",
+        "tonalRamp": [
+          "#4c1600",
+          "#872700",
+          "#c13700",
+          "#fb4800",
+          "#ff7037",
+          "#ff9a71",
+          "#ffc3ab",
+          "#ffede5"
+        ]
+      },
+      "welt-nacht": {
+        "role": "welt",
+        "displayName": "Weltfarbe nacht",
+        "canonical": "#9b7bff",
+        "tonalRamp": [
+          "#13004c",
+          "#210087",
+          "#2f00c1",
+          "#3d00fb",
+          "#6737ff",
+          "#9371ff",
+          "#c0abff",
+          "#ece5ff"
+        ]
+      },
+      "welt-elektro": {
+        "role": "welt",
+        "displayName": "Weltfarbe elektro",
+        "canonical": "#38e8ff",
+        "tonalRamp": [
+          "#00444c",
+          "#007787",
+          "#00abc1",
+          "#00defb",
+          "#37e8ff",
+          "#71efff",
+          "#abf5ff",
+          "#e5fcff"
+        ]
+      },
+      "welt-latino": {
+        "role": "welt",
+        "displayName": "Weltfarbe latino",
+        "canonical": "#ffc24b",
+        "tonalRamp": [
+          "#4c3300",
+          "#875900",
+          "#c18000",
+          "#fba600",
+          "#ffbb37",
+          "#ffcf71",
+          "#ffe3ab",
+          "#fff6e5"
+        ]
+      },
+      "welt-rock": {
+        "role": "welt",
+        "displayName": "Weltfarbe rock",
+        "canonical": "#ff6b6b",
+        "tonalRamp": [
+          "#4c0000",
+          "#870000",
+          "#c10000",
+          "#fb0000",
+          "#ff3737",
+          "#ff7171",
+          "#ffabab",
+          "#ffe5e5"
+        ]
+      },
+      "welt-pop": {
+        "role": "welt",
+        "displayName": "Weltfarbe pop",
+        "canonical": "#7fe0a8",
+        "tonalRamp": [
+          "#0f3e23",
+          "#1a6d3d",
+          "#269b57",
+          "#31ca72",
+          "#5ed891",
+          "#8de3b1",
+          "#bcefd1",
+          "#eafaf1"
+        ]
+      },
+      "welt-fokus": {
+        "role": "welt",
+        "displayName": "Weltfarbe fokus",
+        "canonical": "#b9d8ff",
+        "tonalRamp": [
+          "#00224c",
+          "#003c87",
+          "#0056c1",
+          "#006ffb",
+          "#378fff",
+          "#71b0ff",
+          "#abd0ff",
+          "#e5f1ff"
+        ]
+      },
+      "welt-streulicht": {
+        "role": "welt",
+        "displayName": "Weltfarbe streulicht",
+        "canonical": "#8e8aa3",
+        "tonalRamp": [
+          "#23222b",
+          "#3e3b4b",
+          "#59556c",
+          "#736f8d",
+          "#938fa7",
+          "#b2afc0",
+          "#d2d0da",
+          "#f1f1f4"
+        ]
+      },
+      "tinte": {
+        "role": "primary",
+        "displayName": "Sterntinte",
+        "canonical": "#bcc7ee",
+        "tonalRamp": [
+          "#402a0c",
+          "#714a15",
+          "#a26a1f",
+          "#d48a28",
+          "#dfa556",
+          "#e8bf87",
+          "#f2d9b8",
+          "#fbf3ea"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Kapitelüberschriften in der Tafel."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Kartuschen-Titel und Sternname."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Tafeltext, max 52ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Versalien-Beschriftungen in --text-3."
+      },
+      "messwert": {
+        "displayName": "Messwert",
+        "purpose": "Alle Zahlen, Azeret Mono, tabellarisch, Rotlicht."
+      }
+    },
+    "shadows": [
+      {
+        "name": "schalterglühen",
+        "value": "0 0 16px rgba(255,180,84,.18)",
+        "purpose": "Aura des Zeitraum-Schalters."
+      },
+      {
+        "name": "punktglühen",
+        "value": "0 0 12px rgba(255,180,84,.5)",
+        "purpose": "Aktiver Kapitelpunkt."
+      },
+      {
+        "name": "zahlenglühen",
+        "value": "text-shadow: 0 0 14px rgba(255,90,60,.35)",
+        "purpose": "Messwerte im Brett."
+      },
+      {
+        "name": "horizontglühen",
+        "value": "linear-gradient(to top, rgba(255,180,84,.32), rgba(255,180,84,.11) 38%, rgba(255,180,84,0))",
+        "purpose": "Armaturenlicht auf der Scheibe, 42vh; einziger Verlauf."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.16, 1, .3, 1)",
+        "purpose": "Träge wie eine schwere Kamera; Cursor, Sternkarte, Labels."
+      },
+      {
+        "name": "nick",
+        "value": "2.4s ease infinite, translateY 0 bis 3px",
+        "purpose": "Hinweis 'Scrollen für den Rückblick'."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "transition-duration 0s, animation none",
+        "purpose": "Gedruckte Karte: fertige statische Darstellung."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "handy",
+        "value": "760px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Kartusche",
+      "kind": "card",
+      "refersTo": "kartusche",
+      "description": "Gerahmter Titelblock wie auf einer gedruckten Sternkarte.",
+      "html": "<div class=\"ds-kartusche\"><h1>Resonanz</h1><p>Himmelsatlas meiner Musik</p></div>",
+      "css": ".ds-kartusche{position:relative;border:1px solid var(--linie);background:rgba(7,9,20,.72);padding:14px 16px 12px;max-width:290px;color:var(--text);font-family:var(--schrift)} .ds-kartusche::after{content:'';position:absolute;inset:3px;border:1px solid var(--gitter);pointer-events:none} .ds-kartusche h1{margin:0;font-size:28px;line-height:1;font-weight:700;letter-spacing:-.02em;font-variation-settings:'opsz' 96,'wdth' 90} .ds-kartusche p{margin:5px 0 0;color:var(--text-2);font-size:13px}"
+    },
+    {
+      "name": "Zeitraum-Schalter",
+      "kind": "nav",
+      "refersTo": "zeit-schalter-knopf",
+      "description": "Drei Zeiträume, Bernstein-Cursor als Lauflicht.",
+      "html": "<div class=\"ds-zeit\"><button class=\"ds-on\">4 W</button><button>6 M</button><button>1 J</button></div>",
+      "css": ".ds-zeit{display:inline-grid;grid-auto-flow:column;border:1px solid var(--linie);font-family:var(--schrift)} .ds-zeit button{padding:7px 14px;font-size:13px;font-weight:500;color:var(--text-2);background:none;border:0;box-shadow:inset 1px 0 var(--linie);cursor:pointer;transition:color .25s} .ds-zeit button:first-child{box-shadow:none} .ds-zeit button:hover{color:var(--text)} .ds-zeit button:focus-visible{outline:1px solid var(--bernstein);outline-offset:3px} .ds-zeit .ds-on{background:var(--bernstein);color:var(--grund)}"
+    },
+    {
+      "name": "Legendenknopf",
+      "kind": "chip",
+      "refersTo": "zeit-schalter-knopf",
+      "description": "Hörwelt als beleuchtete Beschriftung mit Sternanzahl.",
+      "html": "<button class=\"ds-legende\"><i></i>Deutschrap <b>41</b></button>",
+      "css": ".ds-legende{display:inline-flex;align-items:center;gap:8px;padding:6px 10px 6px 8px;border:1px solid var(--bernstein);background:none;font:12px var(--schrift);color:var(--text);letter-spacing:.02em;cursor:pointer} .ds-legende i{width:8px;height:8px;border-radius:50%;background:#ff4fa3} .ds-legende b{font:400 11px var(--mono);color:var(--text-3);font-variant-numeric:tabular-nums} .ds-legende:focus-visible{outline:1px solid var(--bernstein);outline-offset:3px}"
+    },
+    {
+      "name": "Hauptknopf (Dialog)",
+      "kind": "button",
+      "refersTo": "eg-haupt",
+      "description": "Einzige gefüllte Bernstein-Fläche.",
+      "html": "<button class=\"ds-haupt\">Himmel laden</button>",
+      "css": ".ds-haupt{padding:7px 12px;border:1px solid var(--bernstein);background:var(--bernstein);color:var(--grund);font:600 13px var(--schrift);cursor:pointer} .ds-haupt:hover{filter:brightness(1.08)} .ds-haupt:focus-visible{outline:1px solid var(--bernstein);outline-offset:3px}"
+    },
+    {
+      "name": "Eingabefeld",
+      "kind": "input",
+      "refersTo": "eingabe",
+      "description": "Mono-Eingabe im Dialog.",
+      "html": "<input class=\"ds-eingabe\" value=\"abc-123\">",
+      "css": ".ds-eingabe{background:var(--grund-2);border:1px solid var(--linie);color:var(--text);font:13px var(--mono);padding:8px 10px} .ds-eingabe:focus{border-color:var(--bernstein);outline:none}"
+    },
+    {
+      "name": "Messtabelle",
+      "kind": "custom",
+      "refersTo": "tafel",
+      "description": "Zahlen gemessen: Mono, rechts, Rotlicht, Linie je Zeile.",
+      "html": "<table class=\"ds-mess\"><tr><th>Künstler</th><th class=\"z\">Hörzeit</th></tr><tr><td>Beispiel</td><td class=\"z\">12 h</td></tr></table>",
+      "css": ".ds-mess{width:100%;border-collapse:collapse;font:14px var(--schrift);color:var(--text)} .ds-mess th{text-align:left;font-weight:500;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);padding:0 0 6px;border-bottom:1px solid var(--linie)} .ds-mess td{padding:7px 0;border-bottom:1px solid var(--gitter)} .ds-mess .z{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;color:var(--rot);font-size:13px;padding-left:14px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Der Himmelsatlas bei Nachtfahrt",
+    "overview": "Die Szene ist das Werk, die Oberfläche tritt zurück. Ein tiefindigoblauer Nachthimmel trägt Sterne (Künstler) und Galaxien (Hörwelten). Bedienung sieht aus wie Gerät und Karte: dünne Rahmen, ein Armaturenbrett, Bernsteinlicht für Aktives, Rotlicht für Zahlen. Flach, eckig, ohne Verläufe in der Bedienebene; ohne Bewegung ist der Himmel eine fertige gedruckte Sternkarte.",
+    "keyCharacteristics": [
+      "Tiefindigo-Grund (#070914), Himmelsgitter in #1a2140.",
+      "Eine Bedienfarbe (Bernstein), eine Zahlenfarbe (Rotlicht), acht feste Weltfarben.",
+      "Linien 1 px, Ecken eckig, doppelter Rahmen als Kartuschen-Signatur.",
+      "Bricolage Grotesque eng für Titel, Azeret Mono tabellarisch für Gemessenes.",
+      "Ohne Bewegung ist der Himmel eine fertige gedruckte Sternkarte."
+    ],
+    "rules": [
+      {
+        "name": "The One Lamp Rule",
+        "body": "Bernstein ist die einzige Bedienfarbe; Rotlicht gehört nur Zahlen. Weltfarben bezeichnen nur Welten, nie Knöpfe oder Zustände.",
+        "section": "colors"
+      },
+      {
+        "name": "The Fixed Palette Rule",
+        "body": "Neun Weltfarben, fest. Keine Verläufe in der Bedienebene; Transparenz nur als dunkle Tönung von --grund.",
+        "section": "colors"
+      },
+      {
+        "name": "The Gemessen Rule",
+        "body": "Jede Zahl steht in Azeret Mono, tabellarisch, in Rotlicht, mit einer Linie darunter. Keine Zahl wird groß inszeniert.",
+        "section": "typography"
+      },
+      {
+        "name": "The Letter-Space Rule",
+        "body": "Weiter Buchstabenabstand nur bei Versalien-Beschriftungen in --text-3; Titel laufen eng (negativ).",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Glass Rule",
+        "body": "Tafeln sind flache, dunkel getönte Platten mit Linienrahmen. Lichtglühen markiert nur Aktives; Versatzschatten gibt es nicht.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** Bernstein (#ffb454) für alles Bedienbare und Aktive verwenden, Rotlicht (#ff5a3c) nur für Zahlen in Azeret Mono.",
+      "**Do** neue Flächen als 1-px-gerahmte, eckige Platten auf `rgba(7,9,20,.72 bis .92)` bauen, bei Hauptblöcken mit innerem `--gitter`-Rahmen 3 px eingerückt.",
+      "**Do** Zahlen tabellarisch setzen (`font-variant-numeric: tabular-nums`) und mit einer Linie belegen, wie in `.mess`.",
+      "**Do** Zeitraum-Wechsel mit dem gleitenden Cursor und `--ease` (cubic-bezier(.16, 1, .3, 1)) bewegen: träge wie eine schwere Kamera.",
+      "**Do** bei `prefers-reduced-motion` eine fertige statische Karte liefern (Übergänge 0, Animationen aus), nicht eine abgeschaltete.",
+      "**Do** Fokus mit 1-px-Bernsteinring, 3 px Abstand zeigen (`--fokus`)."
+    ],
+    "donts": [
+      "**Don't** Weltfarben für Knöpfe, Links oder Zustände benutzen; sie bezeichnen nur Welten.",
+      "**Don't** Wrapped-Karten mit Verlauf und riesiger Zahl oder Balken-Ranglisten bauen; die Daten stehen im Raum.",
+      "**Don't** Radius, Pillen, Schlagschatten oder Weichzeichner-Glas in die Bedienebene bringen; Verläufe gibt es nur als Horizontglühen.",
+      "**Don't** reines Schwarz als Grund nehmen; Grund ist Tiefindigo.",
+      "**Don't** Text kleiner als 11 px oder dunkler als `--text-3` setzen.",
+      "**Don't** Daten erfinden, die nicht vorliegen (Uhrzeit- und Monatsauswertungen nur aus einem echten Verlauf)."
+    ]
+  }
+}

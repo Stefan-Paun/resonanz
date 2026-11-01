@@ -18,12 +18,12 @@ und Monat kommt aus dem Export, sobald er da ist (Teil 6), rein lokal im Browser
 
 ## Look
 
-Nacht-Fahrt-Ästhetik, bewusst anders als das Apple-Portfolio: tiefes Blauschwarz, glühende Sterne,
-Chromatik pro Hörwelt (Magenta Deutschrap, Violett Nacht/R&B, Cyan Elektronik/Phonk, Bernstein Latino,
-Koralle Rock/Klassiker, Mint Fokus/Lo-fi). Serifen-Display (Instrument Serif) für Kapitel, Inter für UI.
-Details in DESIGN.md.
+Gewürfelte Richtung (Impeccable): Himmelsatlas / Planetarium, gesehen durch die Windschutzscheibe einer
+Nachtfahrt. Tiefindigo statt Schwarz, Gitterkuppel, Sterne mit Halo in der Weltfarbe, Kartuschen wie auf
+gedruckten Sternkarten. Eine Bedienfarbe (Armaturen-Bernstein), Rotlicht nur für Zahlen, Sterntinte für
+Datenflächen. Schrift: Bricolage Grotesque und Azeret Mono, selbst gehostet. Details in DESIGN.md.
 
-## Teile
+## Teile (Stand 1.11.2026: 1–6 gebaut, 7 vorbereitet)
 
 | Teil | Inhalt | Ergebnis |
 |---|---|---|
@@ -33,7 +33,7 @@ Details in DESIGN.md.
 | 4 | Details: Stern antippen → Karte mit Songs, Covern, Vorschau über Deezer (wenn vorhanden) | Hörbar |
 | 5 | Eigenes Konto: „Mit deinem Spotify“ per PKCE direkt im Browser (eigene Client-ID eintragen, wegen Dev-Mode-Grenzen) | Für andere nutzbar |
 | 6 | Verlauf-Import: Export-ZIP per Drag & Drop → Heatmap Uhrzeit × Wochentag, Monate, Nachtphasen, Skip-Quote | Der echte Rückblick |
-| 7 | Feinschliff: Lighthouse, Screenshots, README EN/DE, GitHub Pages, Portfolio-Kachel + Spur | Veröffentlicht |
+| 7 | Feinschliff: Lighthouse, Screenshots, README EN/DE, GitHub Pages, Portfolio-Kachel + Spur | README und Pages-Workflow liegen bereit, Portfolio-Kachel auf Branch `resonanz-kachel`; Repo anlegen und pushen braucht Stefans OK |
 
 ## Regeln
 
@@ -41,3 +41,10 @@ Details in DESIGN.md.
 - Client-ID nie im Repo. Schnappschuss ohne Anzeigenamen, ohne Playlists, ohne E-Mail.
 - Namen, Kommentare und Commits auf Deutsch; README zweisprachig.
 - Spotify-Richtlinien: Metadaten nur anzeigen, Spotify nennen, Links zu Spotify.
+
+## Qualität (1.11.2026)
+
+- Tests: 28 grün (`npm test`), ohne Abhängigkeiten.
+- Impeccable: zwei Finish-Reviews (Himmel, dann Gesamt), alle Funde eingearbeitet; DESIGN.md und `.impeccable/design.json` vom Documenter.
+- Lighthouse lokal mit Software-WebGL (SwiftShader, 4× CPU-Drossel): Accessibility 100, Best Practices 100, SEO 100, Performance 50 mobil / 56 Desktop. Der Hauptposten ist die Shader-Kompilierung in Software; mit echter GPU liegt die Seite deutlich höher. Echte Messung nach der Veröffentlichung nachholen.
+- Offen für später: Streaming-Verlauf von Spotify anfordern und mit echten Daten durchspielen; englische Oberfläche; Spotify-Richtlinien-Check vor einer breiteren Verbreitung.

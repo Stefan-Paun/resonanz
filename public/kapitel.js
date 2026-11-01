@@ -132,7 +132,7 @@ function striche(jahre) {
   const map = new Map(jahre.map((j) => [j.jahr, j]));
   for (let j = von; j <= bis; j++) alle.push(map.get(j) || { jahr: j, anzahl: 0, h: 0 });
   return `<div class="jahre" role="img" aria-label="Erscheinungsjahre: ${jahre.map((j) => `${j.jahr} ${j.anzahl}`).join(", ")}">
-    ${alle.map((j) => `<span class="jahr" style="--h:${j.h.toFixed(3)}" title="${j.jahr}: ${j.anzahl}"><b>${j.anzahl || ""}</b><i></i><small>${j.jahr % 10 === 0 || j.jahr === von || j.jahr === bis ? j.jahr : ""}</small></span>`).join("")}
+    ${alle.map((j) => `<span class="jahr" style="--h:${j.h.toFixed(3)}" title="${j.jahr}: ${j.anzahl}"><b>${j.anzahl && (j.h >= .34 || j.jahr === von) ? j.anzahl : ""}</b><i></i><small class="${j.jahr === von || j.jahr === bis ? "" : "zehner"}">${j.jahr % 10 === 0 || j.jahr === von || j.jahr === bis ? j.jahr : ""}</small></span>`).join("")}
   </div>`;
 }
 
@@ -166,7 +166,7 @@ function verlaufKapitel(v) {
     },
     {
       id: "hoerzeit", titel: "Hörzeit.",
-      text: `Nach Stunden gezählt, nicht nach Rang: ${v.topKuenstler[0] ? `${esc(v.topKuenstler[0].name)} führt mit ${Math.round(v.topKuenstler[0].stunden)} Stunden` : "niemand führt"}.${v.skipQuote !== null ? ` ${prozent(v.skipQuote)} Prozent aller Streams hast du übersprungen.` : ""} Meistgespielt: ${v.topSongs[0] ? `„${esc(v.topSongs[0].name)}“, ${v.topSongs[0].n}-mal` : "–"}.`,
+      text: `Nach Stunden gezählt, nicht nach Rang: ${v.topKuenstler[0] ? `${esc(v.topKuenstler[0].name)} führt mit ${Math.round(v.topKuenstler[0].stunden)} Stunden` : "niemand führt"}.${v.skipQuote !== null ? ` ${prozent(v.skipQuote)} Prozent aller Streams hast du übersprungen.` : ""} Meistgespielt: ${v.topSongs[0] ? `„${esc(v.topSongs[0].name)}“, ${v.topSongs[0].n}\u2011mal` : "–"}.`,
       tabelle: v.topKuenstler.slice(0, 8).map((k) => [esc(k.name), Math.round(k.stunden) + " h"]),
       spalten: ["Künstler", "Stunden"],
       steuer: { zeitraum: "1y", welt: null, fokus: null, blick: "deutschrap" },

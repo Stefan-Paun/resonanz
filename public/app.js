@@ -207,11 +207,19 @@ function zieleSetzen() {
 
 // ---------------------------------------------------------------- Labels (HTML über dem Canvas)
 const labelEls = new Map(); // index → element
+const breiten = new Map();   // Name → gemessene Breite in px
+const messCtx = document.createElement("canvas").getContext("2d");
+function labelBreite(name) {
+  let w = breiten.get(name);
+  if (w === undefined) { messCtx.font = "500 12px 'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif"; w = messCtx.measureText(name).width + 16; breiten.set(name, w); }
+  return w;
+}
 const galaxieEls = new Map();
 const v3 = new THREE.Vector3();
 
 const HIMMELSRICHTUNGEN = [["N", 0], ["O", 90], ["S", 180], ["W", 270]];
 const richtungEls = [];
+document.fonts?.ready?.then(() => breiten.clear());
 function labelsAnlegen(liste) {
   for (const [n, az] of HIMMELSRICHTUNGEN) {
     const el = document.createElement("span");
@@ -274,7 +282,9 @@ function labelsZeichnen() {
       const hf = haufen.get(liste[i].welt) || { minY: Infinity, sumX: 0, n: 0 };
       hf.minY = Math.min(hf.minY, p[1]); hf.sumX += p[0]; hf.n++; haufen.set(liste[i].welt, hf);
     }
-    const sichtbar = p && p[0] > 10 && p[0] < w - 24 - 7.2 * liste[i].name.length && p[1] > 20 && p[1] < h - 110 && !inSperrzone(p[0], p[1]) && !inSperrzone(p[0] + 90, p[1]);
+    const lb = p ? labelBreite(liste[i].name) : 0;
+    const links = p && p[0] + 12 + lb > w - 8; // am rechten Rand steht der Name links vom Stern
+    const sichtbar = p && p[1] > 20 && p[1] < h - 110 && (links ? p[0] - 12 - lb > 8 : p[0] > 10) && !inSperrzone(p[0], p[1]) && !inSperrzone(links ? p[0] - lb : p[0] + lb, p[1]);
     const imFokus = zustand.fokus ? zustand.fokus.has(liste[i].id) : false;
     let zeigen = sichtbar && (istHover || imFokus || (gezeigt < zeigbar && zustand.groesse[i] > 0.05 && zustand.hellZiel[i] > 0.5));
     let ly = p ? p[1] : 0;
@@ -288,7 +298,10 @@ function labelsZeichnen() {
       gezeigt++;
       belegt.push([p[0], ly]);
       const px = 3 + 13 * zustand.groesse[i];
-      el.style.transform = `translate(${(p[0] + px * .5 + 4).toFixed(1)}px, ${ly.toFixed(1)}px) translateY(-50%)`;
+      el.classList.toggle("links", links);
+      el.style.transform = links
+        ? `translate(${(p[0] - px * .5 - 4 - lb).toFixed(1)}px, ${ly.toFixed(1)}px) translateY(-50%)`
+        : `translate(${(p[0] + px * .5 + 4).toFixed(1)}px, ${ly.toFixed(1)}px) translateY(-50%)`;
       el.style.opacity = istHover || imFokus ? 1 : (0.55 + 0.45 * zustand.groesse[i]);
       el.classList.toggle("aktiv", istHover || imFokus);
       el.classList.toggle("gewaehlt", i === zustand.gewaehlt);
@@ -430,7 +443,7 @@ function werteZeigen() {
 }
 function cursorSetzen() {
   const b = $(`#zeit button[data-z="${zustand.zeitraum}"]`), c = $("#zeit .cursor");
-  if (b && c) { c.style.left = b.offsetLeft + "px"; c.style.width = b.offsetWidth + "px"; }
+  if (b && c) { c.style.width = b.offsetWidth + "px"; c.style.transform = `translateX(${b.offsetLeft}px)`; }
 }
 addEventListener("resize", cursorSetzen);
 function zeitraumWaehlen(z) {
@@ -597,6 +610,7 @@ export function himmelAufbauen(snap, { verlauf = null, quelle = "Spotify · Musi
   $("#m-stand").textContent = new Date(snap.erstellt).toLocaleDateString("de-AT", { day: "numeric", month: "short", year: "numeric" });
   $("#m-quelle").textContent = quelle;
   document.body.classList.toggle("eigener", eigener);
+  document.body.classList.toggle("verlauf", !!verlauf);
   status.textContent = "";
   const r = galaxieRichtung("deutschrap");
   zustand.yaw = zustand.zielYaw = -Math.atan2(r[0], -r[2]); zustand.pitch = zustand.zielPitch = Math.asin(r[1]) + 0.07; zustand.drift = true;

@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "dark-glow",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-11-01T09:43:28.238Z",
+        "reason": "Richtungsvertrag OWN-WORLD: Rotlicht-Messwerte und Bernstein-Cursor sind Instrumentenlicht der Nachtfahrt; Finish-Reviewer (1.11.) hat das Glühen der Messwerte als earned bewertet"
+      },
+      {
+        "rule": "tiny-text",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-11-01T09:43:28.279Z",
+        "reason": "11-px-Beschriftungen sind funktionale Labels (Brett-Titel, Tabellenköpfe, Meta), Fließtext ist 14-15 px; Craft-Floor-Untergrenze 11 px eingehalten"
+      }
+    ]
+  }
+}

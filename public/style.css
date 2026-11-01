@@ -10,6 +10,7 @@
   --bernstein: #ffb454;
   --bernstein-dunkel: #8a5a1a;
   --rot: #ff5a3c;
+  --tinte: #bcc7ee;
   --fokus: #ffb454;
   --schrift: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
   --mono: "Azeret Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -26,8 +27,8 @@ body {
 ::selection { background: var(--bernstein); color: var(--grund); }
 :focus-visible { outline: 1px solid var(--fokus); outline-offset: 3px; }
 button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
-h1, p, dl, dd, dt, ul { margin: 0; }
-ul { padding: 0; list-style: none; }
+h1, p, dl, dd, dt, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
 
 /* ---------- Himmel */
 .himmel { position: fixed; inset: 0; z-index: 0; overflow: hidden; touch-action: none; }
@@ -45,6 +46,8 @@ ul { padding: 0; list-style: none; }
   content: ""; position: absolute; left: 0; top: 50%; width: 7px; height: 1px; background: currentColor; opacity: .6;
 }
 .label.aus { transition: none; }
+.label.links { padding-left: 0; padding-right: 14px; }
+.label.links::before { left: auto; right: 0; }
 .label.hell { color: var(--text); font-weight: 500; }
 .label.richtung { padding-left: 0; font-family: var(--mono); font-size: 11px; letter-spacing: .1em; color: var(--bernstein); opacity: 0; }
 .label.richtung::before { width: 1px; height: 8px; left: 50%; top: -11px; transform: none; opacity: .8; }
@@ -54,7 +57,7 @@ ul { padding: 0; list-style: none; }
   transform: translate(-50%, -50%); color: var(--w, var(--text-2));
 }
 .label.galaxie::before { display: none; }
-.label.galaxie small { display: block; letter-spacing: .04em; font-weight: 400; text-transform: none; font-family: var(--mono); font-size: 11px; color: var(--text-3); margin-top: 2px; }
+.label.galaxie small { display: block; letter-spacing: .04em; font-weight: 400; text-transform: none; font-family: var(--mono); font-size: 12px; color: var(--text-3); margin-top: 2px; }
 .scheibe {
   position: absolute; left: 0; right: 0; bottom: 0; height: 42vh; pointer-events: none;
   background: linear-gradient(to top, rgba(255, 180, 84, .32), rgba(255, 180, 84, .11) 38%, rgba(255, 180, 84, 0));
@@ -106,9 +109,8 @@ ul { padding: 0; list-style: none; }
 .zeit-schalter button[aria-pressed="true"] { color: var(--grund); }
 .zeit-schalter .cursor {
   position: absolute; top: 0; bottom: 0; left: 0; width: calc(100% / 3); background: var(--bernstein);
-  transition: left .45s var(--ease), width .45s var(--ease);
+  transition: transform .45s var(--ease); will-change: transform;
 }
-.zeit-schalter::after { content: ""; position: absolute; inset: -1px; pointer-events: none; box-shadow: 0 0 16px rgba(255, 180, 84, .18); }
 .legende { display: flex; flex-wrap: wrap; gap: 4px 6px; justify-content: center; }
 .legende button {
   display: inline-flex; align-items: center; gap: 8px; padding: 6px 10px 6px 8px; border: 1px solid transparent;
@@ -141,7 +143,7 @@ body.tastatur .nur-tastatur { display: block; }
 .buehne { height: 100vh; height: 100svh; }
 .rueckblick { position: relative; z-index: 1; padding-bottom: calc(var(--brett-h) + 40px); }
 .kapitel { min-height: 100vh; min-height: 100svh; display: flex; align-items: center; padding: 10vh var(--rand) calc(var(--brett-h) + 6vh); }
-.kapitel:nth-child(even) { justify-content: flex-end; }
+.kapitel:nth-child(even) { justify-content: flex-end; padding-right: calc(var(--rand) + 30px); }
 .kapitel:nth-child(odd) { padding-top: clamp(280px, 34vh, 360px); }
 .tafel {
   width: min(460px, 100%); border: 1px solid var(--linie); background: rgba(7, 9, 20, .78); padding: 22px 24px 20px;
@@ -169,9 +171,9 @@ body.tastatur .nur-tastatur { display: block; }
 .mess th.zahl { color: var(--text-3); font-family: var(--schrift); }
 .jahre { display: flex; align-items: flex-end; gap: 2px; height: 118px; margin-top: 18px; padding: 14px 0 16px; border-top: 1px solid var(--linie); }
 .jahr { position: relative; flex: 1 1 0; display: grid; grid-template-rows: 1fr auto; align-items: end; height: 100%; min-width: 0; }
-.jahr i { display: block; height: calc(var(--h) * 60px); background: var(--bernstein); min-height: 0; justify-self: stretch; opacity: .95; }
+.jahr i { display: block; height: calc(var(--h) * 60px); background: var(--tinte); min-height: 0; justify-self: stretch; opacity: .9; }
 .jahr[style="--h:0.000"] i { height: 1px; background: var(--gitter); }
-.jahr b { font-family: var(--mono); font-weight: 400; font-size: 11px; color: var(--rot); text-align: center; line-height: 1; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
+.jahr b { font-family: var(--mono); font-weight: 400; font-size: 10px; color: var(--rot); text-align: center; line-height: 1; margin-bottom: 4px; font-variant-numeric: tabular-nums; }
 .jahr b:empty { display: none; }
 .jahr small { position: absolute; left: 50%; bottom: -16px; transform: translateX(-50%); font-family: var(--mono); font-size: 11px; color: var(--text-3); white-space: nowrap; }
 .jahr small:empty { display: none; }
@@ -207,10 +209,10 @@ body.tastatur .nur-tastatur { display: block; }
 @media (max-width: 760px) { body.karte-offen .weiter, body.karte-offen .hinweis { opacity: 0; pointer-events: none; } }
 .stern .zu { position: absolute; right: 10px; top: 10px; z-index: 1; width: 32px; height: 32px; display: grid; place-items: center; color: var(--text-2); border: 1px solid transparent; }
 .stern .zu:hover { color: var(--text); border-color: var(--linie); }
-.stern .welt { display: flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--text-3); padding-right: 36px; }
+.stern .welt { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-2); margin-top: 8px; }
 .stern .welt i { width: 7px; height: 7px; border-radius: 50%; background: var(--w); flex: none; }
-.stern h2 { margin: 6px 0 0; font-size: 28px; line-height: 1; letter-spacing: -.02em; font-variation-settings: "opsz" 96, "wdth" 90; }
-.stern .tags { margin-top: 8px; font-size: 13px; color: var(--text-2); }
+.stern h2 { margin: 0; padding-right: 36px; font-size: 28px; line-height: 1; letter-spacing: -.02em; font-variation-settings: "opsz" 96, "wdth" 90; }
+.stern .tags { margin-top: 4px; font-size: 13px; color: var(--text-3); }
 .plaetze { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 14px; border-top: 1px solid var(--linie); border-bottom: 1px solid var(--linie); }
 .plaetze div { padding: 8px 0; }
 .plaetze div + div { border-left: 1px solid var(--gitter); padding-left: 12px; }
@@ -276,12 +278,14 @@ dialog.eigener::backdrop { background: rgba(2, 3, 8, .7); }
 body.ablage-aktiv::after { content: "Datei loslassen: ZIP mit Streaming-Verlauf oder gespeicherter Himmel"; position: fixed; inset: 12px; z-index: 9; border: 1px dashed var(--bernstein); display: grid; place-items: center; color: var(--bernstein); background: rgba(7, 9, 20, .6); font-size: 16px; pointer-events: none; }
 dialog.eigener .status { margin-top: 14px; }
 body.eigener .kartusche .unter::after { content: " · dein Himmel"; color: var(--bernstein); }
+body.verlauf:not(.eigener) .kartusche .unter::after { content: " · dein Verlauf"; color: var(--bernstein); }
+#m-quelle { white-space: nowrap; }
 
 /* Heatmap: Wochentag × Stunde, Zellen in Bernstein */
 .heat { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--linie); display: grid; gap: 3px; }
 .heat-reihe { display: grid; grid-template-columns: 26px repeat(24, 1fr); gap: 2px; align-items: center; }
 .heat-tag { font-family: var(--mono); font-size: 11px; color: var(--text-3); }
-.heat-reihe i { display: block; aspect-ratio: 1; min-height: 9px; background: var(--bernstein); opacity: calc(.06 + .94 * var(--a)); }
+.heat-reihe i { display: block; aspect-ratio: 1; min-height: 9px; background: var(--tinte); opacity: calc(.05 + .95 * var(--a)); }
 .heat-achse { position: relative; height: 16px; margin-left: 26px; }
 .heat-achse b { position: absolute; left: calc(var(--h) / 24 * 100%); transform: translateX(-50%); font-family: var(--mono); font-weight: 400; font-size: 11px; color: var(--text-3); }
 .monate { gap: 1px; }
@@ -305,7 +309,8 @@ body.eigener .kartusche .unter::after { content: " · dein Himmel"; color: var(-
   .werte { gap: 14px; }
   .werte dd { font-size: 16px; }
   .zeit-schalter button { padding: 6px 11px; font-size: 12px; }
-  .kapitel, .kapitel:nth-child(even), .kapitel:nth-child(odd) { justify-content: center; align-items: flex-end; padding: 8vh var(--rand) calc(var(--brett-h) + 24px); }
+  .jahr small.zehner { display: none; }
+  .kapitel, .kapitel:nth-child(even), .kapitel:nth-child(odd) { justify-content: center; align-items: flex-end; padding: 8vh var(--rand) calc(var(--brett-h) + 24px); padding-right: var(--rand); }
   .tafel { padding: 16px 16px 14px; }
   .tafel h2 { font-size: 26px; }
   .tafel p { font-size: 14px; }

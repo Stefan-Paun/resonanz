@@ -41,8 +41,8 @@ export function karteOeffnen(stern, { rang, beimSchliessen: cb } = {}) {
   const songs = (stern.songs || []).slice(0, 6);
   el.innerHTML = `
     <button type="button" class="zu" data-zu aria-label="Karte schließen"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 2l10 10M12 2 2 12" stroke="currentColor" stroke-width="1.3" fill="none"/></svg></button>
-    <p class="welt" style="--w:${w.farbe}"><i></i>${esc(w.name)}${stern.land ? ` · ${esc(LANDNAMEN[stern.land] || stern.land)}` : ""}</p>
     <h2 id="stern-h">${esc(stern.name)}</h2>
+    <p class="welt" style="--w:${w.farbe}"><i></i>${esc(w.name)}${stern.land ? ` · ${esc(LANDNAMEN[stern.land] || stern.land)}` : ""}</p>
     ${tags.length ? `<p class="tags">${tags.map(esc).join(" · ")}</p>` : ""}
     <dl class="plaetze">${plaetze.map(([n, p]) => `<div><dt>${n}</dt><dd>${p ? `<span class="nr">${p}</span>` : "<span class='leer'>–</span>"}</dd></div>`).join("")}</dl>
     ${songs.length ? `<ol class="songs">${songs.map((s) => `
