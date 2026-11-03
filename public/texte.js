@@ -48,6 +48,7 @@ const DE = {
     stern: "Stern", sterneKlein: "Sterne", az: "Az", hoehe: "Hö", richtungen: ["N", "O", "S", "W"],
     quelleStandard: "Spotify · MusicBrainz", quelleKonto: "eigenes Konto", quelleDatei: "Datei", plusVerlauf: " + Verlauf",
     markeEigen: " · dein Himmel", markeVerlauf: " · dein Verlauf", andereSprache: "EN", andereSpracheTitel: "Switch to English",
+    keinWebgl: "Dein Browser kann den bewegten Himmel gerade nicht zeichnen (kein WebGL). Der Rückblick unten funktioniert trotzdem.",
     ladefehler: (m) => `Der Schnappschuss ließ sich nicht laden (${m}). Seite neu laden hilft meistens.`,
   },
   kapitel: {
@@ -133,6 +134,7 @@ const EN = {
     stern: "star", sterneKlein: "stars", az: "Az", hoehe: "Alt", richtungen: ["N", "E", "S", "W"],
     quelleStandard: "Spotify · MusicBrainz", quelleKonto: "own account", quelleDatei: "file", plusVerlauf: " + history",
     markeEigen: " · your sky", markeVerlauf: " · your history", andereSprache: "DE", andereSpracheTitel: "Auf Deutsch umschalten",
+    keinWebgl: "Your browser can't draw the moving sky right now (no WebGL). The review below still works.",
     ladefehler: (m) => `The snapshot could not be loaded (${m}). Reloading usually helps.`,
   },
   kapitel: {

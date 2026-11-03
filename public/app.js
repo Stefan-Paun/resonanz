@@ -20,8 +20,25 @@ const zustand = {
 };
 
 // ---------------------------------------------------------------- Renderer und Kamera
-const renderer = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: false, powerPreference: "low-power" });
+// Ohne WebGL (Energiesparmodus, altes Gerät, Headless) bleibt ein Attrappen-Renderer: Rückblick und Hinweis
+// funktionieren weiter, nur der bewegte Himmel entfällt (Standbild per CSS).
+let keinWebgl = false, kontextWeg = false;
+function rendererErzeugen() {
+  try {
+    return new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: false, powerPreference: "low-power" });
+  } catch (e) {
+    console.warn("WebGL nicht verfügbar", e);
+    keinWebgl = true;
+    document.body.classList.add("kein-webgl");
+    cv.removeAttribute("tabindex");
+    return { setClearColor() {}, setPixelRatio() {}, setSize() {}, getPixelRatio: () => 1, render() {} };
+  }
+}
+const renderer = rendererErzeugen();
 renderer.setClearColor(0x070914, 1);
+// Verlorener Grafikkontext: Standard verhindern, damit der Browser ihn wiederherstellen darf; danach neu zeichnen
+cv.addEventListener("webglcontextlost", (e) => { e.preventDefault(); kontextWeg = true; });
+cv.addEventListener("webglcontextrestored", () => { kontextWeg = false; groesseSetzen(); renderer.render(szene, kamera); });
 const kamera = new THREE.PerspectiveCamera(62, 1, 0.1, 1000);
 const szene = new THREE.Scene();
 szene.fog = null;
@@ -487,7 +504,7 @@ document.addEventListener("visibilitychange", () => { laeuft = !document.hidden;
 const blickEl = $("#m-blick");
 
 function tick() {
-  if (!laeuft) return;
+  if (!laeuft || keinWebgl) return;
   rafId = requestAnimationFrame(tick);
   const dt = Math.min(uhr.getDelta(), 0.05);
   const t = uhr.elapsedTime;
@@ -518,7 +535,7 @@ function tick() {
     projektionMerken();
     labelsZeichnen();
   }
-  renderer.render(szene, kamera);
+  if (!kontextWeg) renderer.render(szene, kamera);
   if (t - letzteAnzeige > 0.15) {
     letzteAnzeige = t;
     const az = Math.round(((-zustand.yaw * 180 / Math.PI) % 360 + 360) % 360), ho = Math.round(zustand.pitch * 180 / Math.PI);
@@ -618,8 +635,7 @@ export function himmelAufbauen(snap, { verlauf = null, quelle = TU.quelleStandar
   himmelAbbauen();
   const liste = sterne(snap), pos = positionen(liste), paare = sternbilder(snap);
   zustand.sterne = liste; zustand.pos = pos; zustand.paare = paare; zustand.snapshot = snap; zustand.eigener = eigener;
-  sterneBauen(liste, pos, paare);
-  labelsAnlegen(liste);
+  if (!keinWebgl) { sterneBauen(liste, pos, paare); labelsAnlegen(liste); }
   brettBauen(liste);
   zieleSetzen();
   $("#m-stand").textContent = new Date(snap.erstellt).toLocaleDateString(sprache_() === "de" ? "de-AT" : "en-GB", { day: "numeric", month: "short", year: "numeric" });
@@ -628,14 +644,14 @@ export function himmelAufbauen(snap, { verlauf = null, quelle = TU.quelleStandar
   document.body.classList.toggle("verlauf", !!verlauf);
   const unter = $(".kartusche .unter");
   if (eigener) unter.dataset.marke = TU.markeEigen; else if (verlauf) unter.dataset.marke = TU.markeVerlauf; else delete unter.dataset.marke;
-  status.textContent = "";
+  statusMelden(keinWebgl ? TU.keinWebgl : "");
   const r = galaxieRichtung("deutschrap");
   zustand.yaw = zustand.zielYaw = -Math.atan2(r[0], -r[2]); zustand.pitch = zustand.zielPitch = Math.asin(r[1]) + 0.07; zustand.drift = true;
   zeitraumWaehlen("1y");
   const kapitel = kapitelBauen($("#rueckblick"), snap, liste, { verlauf, eigener });
   kapitelVerdrahten(kapitel);
   gebaut = true;
-  if (!laeuftSchonTick) { laeuftSchonTick = true; tick(); }
+  if (!keinWebgl && !laeuftSchonTick) { laeuftSchonTick = true; tick(); }
 }
 let laeuftSchonTick = false;
 

@@ -35,6 +35,9 @@ ul, ol { padding: 0; list-style: none; }
 #cv { display: block; width: 100%; height: 100%; cursor: grab; }
 #cv:active { cursor: grabbing; }
 #cv.zeigt { cursor: pointer; }
+/* Ohne WebGL: Standbild statt leerem Canvas */
+.kein-webgl .himmel { background: #070914 url("og.webp") center / cover no-repeat; }
+.kein-webgl #cv { cursor: default; }
 .labels { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
 .label {
   position: absolute; left: 0; top: 0; transform: translate(-50%, -50%);
