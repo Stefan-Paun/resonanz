@@ -504,7 +504,7 @@ document.addEventListener("visibilitychange", () => { laeuft = !document.hidden;
 const blickEl = $("#m-blick");
 
 function tick() {
-  if (!laeuft) return;
+  if (!laeuft || keinWebgl) return;
   rafId = requestAnimationFrame(tick);
   const dt = Math.min(uhr.getDelta(), 0.05);
   const t = uhr.elapsedTime;
