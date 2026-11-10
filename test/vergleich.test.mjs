@@ -203,3 +203,15 @@ test("Gemerkte Datei: wird beim Lesen erneut streng geprüft, Manipuliertes lief
     assert.equal(gemerkt(), null);
   } finally { delete globalThis.localStorage; }
 });
+
+test("Zusammenführen: Kennung __proto__ aus einer Importdatei verbiegt nichts", () => {
+  const a = himmel("a", [k("__proto__", "Böse", 1, ["x"]), k("a2", "Gut", 0.5, [])]);
+  const b = himmel("b", [k("constructor", "Auch", 1, [])]);
+  const { snapshot, gruppe } = zusammenfuehren(a, b);
+  assert.equal(Object.getPrototypeOf(snapshot.kuenstler), null);
+  assert.equal(Object.getPrototypeOf({}), Object.prototype);
+  assert.equal({}.name, undefined);
+  assert.equal(snapshot.kuenstler["__proto__"].name, "Böse");
+  assert.equal(gruppe.size, 3);
+  for (const z of ["4w", "6m", "1y"]) for (const id of snapshot.zeitraeume[z].kuenstler) assert.ok(snapshot.kuenstler[id], id);
+});

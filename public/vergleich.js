@@ -100,7 +100,7 @@ export function vergleichen(a, b, { max = 12, proGenre = 3 } = {}) {
  */
 export function zusammenfuehren(a, b, erstellt = "") {
   const z = zuordnen(a, b);
-  const kuenstler = {}, gruppe = new Map(), je = new Map();
+  const kuenstler = Object.create(null), gruppe = new Map(), je = new Map();   // ohne Prototyp: eine Kennung "__proto__" aus einer Importdatei darf nichts verbiegen
   const setze = (id, k, g, werte, extraTags = []) => {
     kuenstler[id] = { name: k.name, tags: [...new Set([...k.genres, ...extraTags])], land: k.land || null };
     gruppe.set(id, g); je.set(id, werte);
