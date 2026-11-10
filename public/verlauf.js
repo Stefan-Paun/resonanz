@@ -25,11 +25,11 @@ export async function zipLesen(buffer, filter = () => true) {
     const nameLen = dv.getUint16(p + 28, true), extraLen = dv.getUint16(p + 30, true), kommLen = dv.getUint16(p + 32, true);
     const lokal = dv.getUint32(p + 42, true), flags = dv.getUint16(p + 8, true);
     const name = TEXT.decode(u8.subarray(p + 46, p + 46 + nameLen));
-    if (groesseKomp === 0xFFFFFFFF || groesseRoh === 0xFFFFFFFF || lokal === 0xFFFFFFFF) throw new Error("ZIP64-Eintrag wird nicht unterstützt: " + name);
     if (flags & 1) throw new Error("Das ZIP ist verschlüsselt: " + name);
     if (groesseRoh > MAX_DATEI || lokal + 30 > u8.length) throw new Error("ZIP-Eintrag unbrauchbar: " + name);
     p += 46 + nameLen + extraLen + kommLen;
     if (!filter(name) || name.endsWith("/")) continue;
+    if (groesseKomp === 0xFFFFFFFF || groesseRoh === 0xFFFFFFFF || lokal === 0xFFFFFFFF) throw new Error("ZIP64-Eintrag wird nicht unterstützt: " + name);
     const lNameLen = dv.getUint16(lokal + 26, true), lExtraLen = dv.getUint16(lokal + 28, true);
     const start = lokal + 30 + lNameLen + lExtraLen;
     const roh = u8.subarray(start, start + groesseKomp);

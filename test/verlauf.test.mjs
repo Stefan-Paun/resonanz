@@ -117,7 +117,7 @@ test("verlaufAusZip: kaputte Datei wird übersprungen und benannt, gute zählt",
 
 test("verlaufAusZip: wenn nichts lesbar ist, gibt es einen klaren Fehler", async () => {
   const buf = zipBauen([{ name: "Streaming_History_Audio_2025_0.json", text: "kaputt" }, { name: "Streaming_History_Audio_2025_1.json", text: "{}" }]);
-  await assert.rejects(verlaufAusZip(buf), /nicht lesbar|lesbar/);
+  await assert.rejects(verlaufAusZip(buf), /Keine der Verlaufsdateien/);
 });
 
 test("Normalisieren: identische Streams aus überlappenden Exporten zählen einmal", () => {
