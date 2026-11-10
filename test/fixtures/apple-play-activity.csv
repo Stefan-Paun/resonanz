@@ -1,0 +1,6 @@
+Event Start Timestamp,Event End Timestamp,Song Name,Artist Name,Album Name,Play Duration Milliseconds,End Reason Type
+2025-03-01T22:00:00.000Z,2025-03-01T22:03:20.000Z,Sternenstaub,Lena Beispiel,Nachtfahrt,200000,NATURAL_END_OF_TRACK
+2025-03-01T22:04:00.000Z,2025-03-01T22:04:10.000Z,"Komma, Anführung ""Zitat""",Lena Beispiel,Nachtfahrt,10000,MANUALLY_SKIPPED
+2025-03-02T01:30:00.000Z,2025-03-02T01:33:00.000Z,"Zeile
+Umbruch",Max Muster,,180000,NATURAL_END_OF_TRACK
+,,Ohne Zeit,Max Muster,,100000,

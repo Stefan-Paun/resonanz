@@ -267,6 +267,8 @@ dialog.eigener::backdrop { background: rgba(2, 3, 8, .7); }
 .eg-teil code { font-family: var(--mono); font-size: 12px; color: var(--text); }
 .eg-klein { font-size: 12px !important; color: var(--text-3) !important; }
 .eg-klein button { color: var(--bernstein); border-bottom: 1px solid var(--bernstein-dunkel); }
+.eg-quellen { margin-top: 10px; }
+.eg-quellen summary { cursor: pointer; font-size: 13px; color: var(--bernstein); }
 .eg-code { display: flex; gap: 10px; align-items: center; border: 1px solid var(--linie); padding: 8px 10px; margin-top: 8px; }
 .eg-code code { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .eg-code button, .eg-zeile button { padding: 7px 12px; border: 1px solid var(--linie); font-size: 13px; color: var(--text); white-space: nowrap; }

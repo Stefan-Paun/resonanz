@@ -47,23 +47,23 @@ export const istVerlaufsdatei = (name) => /Streaming_History_Audio.*\.json$/i.te
 
 /**
  * Normalisiert Einträge aus dem erweiterten Export (ts, ms_played, master_metadata_*)
- * und aus dem kleinen Export (endTime, msPlayed, artistName, trackName) zu {t, ms, kuenstler, titel, uebersprungen}.
+ * und aus dem kleinen Export (endTime, msPlayed, artistName, trackName) zu {t, ms, kuenstler, titel, album, uebersprungen, uri, quelle} (Zwischenformat, siehe quellen/format.js).
  */
 export function streamsNormalisieren(eintraege) {
   const out = [];
   for (const e of eintraege) {
     if (!e) continue;
-    let t, ms, kuenstler, titel, skip = null, uri = null;
+    let t, ms, kuenstler, titel, album = null, skip = null, uri = null;
     if (typeof e.ts === "string") {
       t = Date.parse(e.ts); ms = e.ms_played || 0;
-      kuenstler = e.master_metadata_album_artist_name; titel = e.master_metadata_track_name;
+      kuenstler = e.master_metadata_album_artist_name; titel = e.master_metadata_track_name; album = e.master_metadata_album_album_name || null;
       skip = typeof e.skipped === "boolean" ? e.skipped : null; uri = e.spotify_track_uri || null;
     } else if (typeof e.endTime === "string") {
       t = Date.parse(e.endTime.replace(" ", "T") + ":00Z"); ms = e.msPlayed || 0;
       kuenstler = e.artistName; titel = e.trackName;
     } else continue;
     if (!kuenstler || !titel || !Number.isFinite(t)) continue; // Podcasts und kaputte Zeilen
-    out.push({ t, ms, kuenstler, titel, uebersprungen: skip, uri });
+    out.push({ t, ms, kuenstler, titel, album, uebersprungen: skip, uri, quelle: "spotify" });
   }
   out.sort((a, b) => a.t - b.t);
   return out;
