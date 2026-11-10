@@ -22,7 +22,7 @@
 git clone https://github.com/Stefan-Paun/resonanz
 cd resonanz
 npm start          # python3 -m http.server 8742 --directory public
-npm test           # node --test, 31 Tests, keine Abhängigkeiten
+npm test           # node --test, keine Abhängigkeiten
 ```
 
 Dann `http://127.0.0.1:8742/` öffnen. Die Demo nutzt den eingefrorenen Schnappschuss in `data/snapshot.json` (meiner, vom 31.10.2026).
