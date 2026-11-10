@@ -27,6 +27,14 @@ npm test           # node --test, no dependencies
 
 Open `http://127.0.0.1:8742/`. The demo uses the frozen snapshot in `data/snapshot.json` (mine, from 31 Oct 2026).
 
+## Compare two skies
+
+"Your own sky" → *Compare two skies* exports your sky as a small file (`resonanz-vergleich.json`, format version 1) and lays someone else's file over yours. Shared artists glow in a third colour; the three groups also differ by shape (circle: only you, diamond: only the other, square: both). A switch shows A, B or both, the chapter "The two of you" lists the numbers, and *End comparison* brings your own sky back without reloading.
+
+- **The file holds only aggregates:** artist ids and names, weights per period (4 weeks, 6 months, 1 year), up to eight genres per artist, a weighted genre list, the month of the snapshot and a free-text display name. No listening times, no account id, no links, no songs. A test checks the exported fields against an allow-list (`ERLAUBTE_FELDER` in [`public/austausch.js`](public/austausch.js)).
+- **Strict import:** version, types, size (256 KB) and counts are checked, unknown fields are dropped, control characters and angle brackets are stripped, names are shown via `textContent` or escaped. The other file stays in memory; only the checked copy is stored, and only if you tick "remember" (and is re-checked on every read).
+- **The match** ([`public/vergleich.js`](public/vergleich.js)) is the mean of two cosine similarities, over artist weights and over genre weights, both also shown separately. Artists are matched by id, otherwise by normalised name. Lists: shared, only A, only B, bridges (different artists, same genre). Identical skies give 100 %, disjoint ones 0 %, and swapping A and B changes nothing.
+
 ## Refresh the snapshot (owner)
 
 ```bash

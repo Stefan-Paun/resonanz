@@ -6,6 +6,8 @@ import { sterne, sternbilder, positionen, weltenZaehlung, galaxieRichtung, hash0
 import { kapitelBauen } from "./kapitel.js";
 import { karteOeffnen, karteSchliessen, karteOffen, karteElement } from "./karte.js";
 import { tx, sprache_, weltName } from "./texte.js";
+import { himmelExportieren } from "./austausch.js";
+import { vergleichen, zusammenfuehren } from "./vergleich.js";
 const TU = tx().ui;
 
 const RADIUS = 100;
@@ -17,6 +19,7 @@ const zustand = {
   zeitraum: "1y", welt: null, hover: -1, gewaehlt: -1, fokus: null, dunkelZeigen: false, pan: false,
   yaw: 0, pitch: 0.36, zielYaw: 0, zielPitch: 0.36, drift: true,
   sterne: [], pos: [], groesseZiel: null, groesse: null,
+  vergleich: null, modus: "beide", original: null,
 };
 
 // ---------------------------------------------------------------- Renderer und Kamera
@@ -113,13 +116,17 @@ szene.add(kuppel());
 const sternTex = weicheScheibe(64, 1.0);
 let sternPunkte, sternGeo, sternMat, haze = [], sternbildLinien, sternbildGeo;
 const farbeVon = (id) => new THREE.Color(welt(id).farbe);
+// Vergleichsmodus: drei Farben aus der Palette der Welten, zusätzlich drei Formen (Kreis, Raute, Quadrat)
+export const VERGLEICH_STIL = { a: { farbe: welt("deutschrap").farbe, form: 0 }, b: { farbe: welt("elektro").farbe, form: 1 }, beide: { farbe: welt("latino").farbe, form: 2 } };
 
 function sterneBauen(liste, pos, paare) {
   const n = liste.length;
-  const p = new Float32Array(n * 3), col = new Float32Array(n * 3), gr = new Float32Array(n), ph = new Float32Array(n), hell = new Float32Array(n);
+  const p = new Float32Array(n * 3), col = new Float32Array(n * 3), gr = new Float32Array(n), ph = new Float32Array(n), hell = new Float32Array(n), form = new Float32Array(n);
   liste.forEach((s, i) => {
     p.set([pos[i][0] * RADIUS, pos[i][1] * RADIUS, pos[i][2] * RADIUS], i * 3);
-    const c = farbeVon(s.welt); col.set([c.r, c.g, c.b], i * 3);
+    const stil = zustand.vergleich ? VERGLEICH_STIL[zustand.vergleich.gruppe.get(s.id)] : null;
+    const c = stil ? new THREE.Color(stil.farbe) : farbeVon(s.welt); col.set([c.r, c.g, c.b], i * 3);
+    form[i] = stil ? stil.form : 0;
     gr[i] = 1; ph[i] = hash01(s.id, 3) * Math.PI * 2; hell[i] = 1;
   });
   sternGeo = new THREE.BufferGeometry();
@@ -128,14 +135,15 @@ function sterneBauen(liste, pos, paare) {
   sternGeo.setAttribute("groesse", new THREE.BufferAttribute(gr, 1));
   sternGeo.setAttribute("phase", new THREE.BufferAttribute(ph, 1));
   sternGeo.setAttribute("hell", new THREE.BufferAttribute(hell, 1));
+  sternGeo.setAttribute("form", new THREE.BufferAttribute(form, 1));
   sternMat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
     uniforms: { uZeit: { value: 0 }, uDpr: { value: renderer.getPixelRatio() }, uFunkeln: { value: ruhig.matches ? 0 : 1 }, uTex: { value: sternTex } },
     vertexShader: `
-      attribute vec3 farbe; attribute float groesse; attribute float phase; attribute float hell;
-      uniform float uZeit, uDpr, uFunkeln; varying vec3 vFarbe; varying float vKern, vHell;
+      attribute vec3 farbe; attribute float groesse; attribute float phase; attribute float hell; attribute float form;
+      uniform float uZeit, uDpr, uFunkeln; varying vec3 vFarbe; varying float vKern, vHell, vForm;
       void main(){
-        vFarbe = farbe; vHell = hell;
+        vFarbe = farbe; vHell = hell; vForm = form;
         float f = 1.0 + uFunkeln * 0.12 * sin(uZeit * (0.9 + fract(phase) * 1.4) + phase);
         float px = (3.0 + 27.0 * groesse) * f * uDpr;
         vKern = groesse;
@@ -143,9 +151,11 @@ function sterneBauen(liste, pos, paare) {
         gl_PointSize = px; gl_Position = projectionMatrix * mv;
       }`,
     fragmentShader: `
-      uniform sampler2D uTex; varying vec3 vFarbe; varying float vKern, vHell;
+      uniform sampler2D uTex; varying vec3 vFarbe; varying float vKern, vHell, vForm;
       void main(){
-        vec2 c = gl_PointCoord - .5; float d = length(c) * 2.0; if (d > 1.0) discard;
+        vec2 c = gl_PointCoord - .5;
+        float d = vForm < .5 ? length(c) * 2.0 : (vForm < 1.5 ? (abs(c.x) + abs(c.y)) * 2.0 : max(abs(c.x), abs(c.y)) * 2.0);
+        if (d > 1.0) discard;
         float halo = pow(1.0 - d, 2.4);
         float kern = smoothstep(0.26 + 0.12 * (1.0 - vKern), 0.0, d);
         vec3 col = mix(vFarbe, vec3(1.0), kern * 0.9);
@@ -188,6 +198,12 @@ function sterneBauen(liste, pos, paare) {
   }
 }
 
+/** Umschalter A / B / beide: A zeigt A und die gemeinsamen Sterne, B zeigt B und die gemeinsamen. */
+function vergleichSichtbar(id) {
+  const g = zustand.vergleich.gruppe.get(id);
+  return zustand.modus === "beide" || g === "beide" || g === zustand.modus;
+}
+
 // Zielgrößen für den gewählten Zeitraum und Weltfilter
 function zieleSetzen() {
   const { sterne: liste, zeitraum, welt: w } = zustand;
@@ -202,7 +218,9 @@ function zieleSetzen() {
     let groesse = dabei ? 0.08 + 0.92 * Math.pow(g, 0.7) : 0.0;
     if (imFokus && !dabei && zustand.dunkelZeigen) groesse = 0.35; // Verblasste bleiben als dunkle Sterne sichtbar
     zustand.groesseZiel[i] = imFokus ? Math.max(groesse, 0.5) : groesse;
-    zustand.hellZiel[i] = (dabei ? 1 : 0.22) * (passt ? 1 : 0.18) * (imFokus === false ? 0.3 : 1) * (imFokus && zustand.dunkelZeigen ? 0.55 : 1);
+    const sichtbar = !zustand.vergleich || vergleichSichtbar(s.id);
+    if (!sichtbar) groesse = 0;
+    zustand.hellZiel[i] = (sichtbar ? 1 : 0.05) * (dabei ? 1 : 0.22) * (passt ? 1 : 0.18) * (imFokus === false ? 0.3 : 1) * (imFokus && zustand.dunkelZeigen ? 0.55 : 1);
   });
   for (const sp of haze) sp.userData.ziel = (!w || sp.userData.welt === w) ? .3 : .06;
 }
@@ -445,7 +463,7 @@ function werteZeigen() {
   zahlSetzen($("#w-songs"), bilder);
   const jeWelt = new Map();
   for (const s of liste) if (aktiv.has(s.id)) jeWelt.set(s.welt, (jeWelt.get(s.welt) || 0) + 1);
-  for (const b of document.querySelectorAll("#legende button")) {
+  for (const b of document.querySelectorAll("#legende button[data-welt]")) {
     const n = jeWelt.get(b.dataset.welt) || 0;
     zahlSetzen(b.querySelector("b"), n);
     b.classList.toggle("leer", n === 0);
@@ -614,13 +632,15 @@ function himmelAbbauen() {
 }
 
 /** Baut den ganzen Himmel aus einem Schnappschuss (und optional einer Verlaufs-Auswertung) auf. */
-export function himmelAufbauen(snap, { verlauf = null, quelle = TU.quelleStandard, eigener = false } = {}) {
+export function himmelAufbauen(snap, { verlauf = null, quelle = TU.quelleStandard, eigener = false, vergleich = null } = {}) {
   himmelAbbauen();
+  zustand.vergleich = vergleich; zustand.modus = "beide";
+  if (!vergleich) zustand.original = { snap, opts: { verlauf, quelle, eigener } };
   const liste = sterne(snap), pos = positionen(liste), paare = sternbilder(snap);
   zustand.sterne = liste; zustand.pos = pos; zustand.paare = paare; zustand.snapshot = snap; zustand.eigener = eigener;
   sterneBauen(liste, pos, paare);
   labelsAnlegen(liste);
-  brettBauen(liste);
+  if (vergleich) vergleichBrettBauen(vergleich); else brettBauen(liste);
   zieleSetzen();
   $("#m-stand").textContent = new Date(snap.erstellt).toLocaleDateString(sprache_() === "de" ? "de-AT" : "en-GB", { day: "numeric", month: "short", year: "numeric" });
   $("#m-quelle").textContent = quelle;
@@ -632,12 +652,80 @@ export function himmelAufbauen(snap, { verlauf = null, quelle = TU.quelleStandar
   const r = galaxieRichtung("deutschrap");
   zustand.yaw = zustand.zielYaw = -Math.atan2(r[0], -r[2]); zustand.pitch = zustand.zielPitch = Math.asin(r[1]) + 0.07; zustand.drift = true;
   zeitraumWaehlen("1y");
-  const kapitel = kapitelBauen($("#rueckblick"), snap, liste, { verlauf, eigener });
+  document.body.classList.toggle("vergleich", !!vergleich);
+  $("#legende").classList.toggle("vgl", !!vergleich);
+  const kapitel = kapitelBauen($("#rueckblick"), snap, liste, { verlauf, eigener, vergleich });
   kapitelVerdrahten(kapitel);
   gebaut = true;
   if (!laeuftSchonTick) { laeuftSchonTick = true; tick(); }
 }
 let laeuftSchonTick = false;
+
+// ---------------------------------------------------------------- Vergleich zweier Himmel
+const SVG_FORM = {
+  0: '<circle cx="6" cy="6" r="4.5" fill="currentColor"/>',
+  1: '<path d="M6 1 11 6 6 11 1 6z" fill="currentColor"/>',
+  2: '<rect x="1.5" y="1.5" width="9" height="9" fill="currentColor"/>',
+};
+function symbol(gruppe) {
+  const st = VERGLEICH_STIL[gruppe];
+  const span = document.createElement("span");
+  span.className = "vgl-symbol"; span.style.color = st.farbe; span.setAttribute("aria-hidden", "true");
+  span.innerHTML = `<svg width="12" height="12" viewBox="0 0 12 12">${SVG_FORM[st.form]}</svg>`; // feste Zeichen, kein Dateiinhalt
+  return span;
+}
+function vergleichModus(modus) {
+  zustand.modus = modus;
+  for (const b of document.querySelectorAll("#legende button[data-modus]")) b.setAttribute("aria-pressed", String(b.dataset.modus === modus));
+  zieleSetzen();
+}
+/** Legende, Umschalter A/B/beide und Rückweg. Namen aus der fremden Datei nur über textContent. */
+function vergleichBrettBauen({ ergebnis: r, gruppe, nameA, nameB }) {
+  const T = tx().vergleich, leg = $("#legende");
+  const zahlen = { a: r.anzahl.nurA, b: r.anzahl.nurB, beide: r.anzahl.gemeinsam };
+  const text = { a: T.legendeNur(nameA), b: T.legendeNur(nameB), beide: T.gemeinsamLeg };
+  for (const g of ["a", "b", "beide"]) {
+    const li = document.createElement("li"); li.className = "vgl-eintrag";
+    const t = document.createElement("span"); t.textContent = text[g];
+    const n = document.createElement("b"); n.textContent = zahlen[g];
+    li.append(symbol(g), t, n); leg.appendChild(li);
+  }
+  const li = document.createElement("li"); li.className = "vgl-schalter";
+  li.setAttribute("role", "group"); li.setAttribute("aria-label", T.schalter);
+  for (const [modus, label] of [["a", nameA], ["b", nameB], ["beide", T.beide]]) {
+    const b = document.createElement("button"); b.type = "button"; b.dataset.modus = modus;
+    b.setAttribute("aria-pressed", String(modus === "beide")); b.textContent = label;
+    b.addEventListener("click", () => vergleichModus(modus));
+    li.appendChild(b);
+  }
+  leg.appendChild(li);
+  const ende = document.createElement("li");
+  const eb = document.createElement("button"); eb.type = "button"; eb.className = "vgl-ende"; eb.textContent = T.beenden;
+  eb.addEventListener("click", () => vergleichBeenden());
+  ende.appendChild(eb); leg.appendChild(ende);
+  werteZeigen();
+}
+
+/** Legt den Himmel eines anderen (geprüfte Datei) über den aktuellen. Ohne aufgebauten eigenen Himmel passiert nichts. */
+export function vergleichStarten(anderer, nameA = "") {
+  if (!zustand.original) return false;
+  const T = tx().vergleich;
+  const a = himmelExportieren(zustand.original.snap, nameA || T.du);
+  a.name = a.name || T.du;
+  const b = { ...anderer, name: anderer.name || T.andere };
+  const ergebnis = vergleichen(a, b, { max: 10 });
+  const { snapshot, gruppe } = zusammenfuehren(a, b, zustand.original.snap.erstellt);
+  himmelAufbauen(snapshot, { quelle: TU.quelleVergleich, vergleich: { ergebnis, gruppe, nameA: a.name, nameB: b.name } });
+  return true;
+}
+/** Rückweg zum normalen Himmel, ohne die Seite neu zu laden. */
+export function vergleichBeenden() {
+  if (!zustand.vergleich || !zustand.original) return false;
+  const { snap, opts } = zustand.original;
+  himmelAufbauen(snap, opts);
+  return true;
+}
+export const vergleichLaeuft = () => !!zustand.vergleich;
 
 export function statusMelden(text, fehler = false) {
   status.textContent = text || "";
@@ -667,7 +755,7 @@ sprachePruefen();
 async function start() {
   // Eigener Himmel (aus Konto oder Datei) hat Vorrang, sonst Stefans Schnappschuss
   const eigen = await import("./eigener.js").catch((e) => { console.warn("eigener.js fehlt", e); return null; });
-  if (eigen && await eigen.start({ himmelAufbauen, statusMelden })) return;
+  if (eigen && await eigen.start({ himmelAufbauen, statusMelden, vergleichStarten, vergleichBeenden, vergleichLaeuft, snapshot: () => zustand.original?.snap ?? null })) return;
   let snap;
   try {
     const r = await fetch("data/snapshot.json", { cache: "no-cache" });

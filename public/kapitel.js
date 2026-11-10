@@ -9,7 +9,7 @@ const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&l
  * Baut die Kapitel in `main` und gibt die Steuerbefehle pro Kapitel zurück.
  * steuerung: { zeitraum(z), welt(id|null), fokus(ids|null), blick(weltId|null) }
  */
-export function kapitelBauen(main, snapshot, sterne, { verlauf = null, eigener = false } = {}) {
+export function kapitelBauen(main, snapshot, sterne, { verlauf = null, eigener = false, vergleich = null } = {}) {
   const zaehlung = weltenZaehlung(sterne).filter((w) => w.anzahl);
   const auf = aufsteiger(snapshot), weg = verblasst(snapshot), db = dauerbrenner(snapshot);
   const la = laender(sterne), jg = jahrgaenge(snapshot, "1y"), zl = zuletzt(snapshot);
@@ -82,7 +82,12 @@ export function kapitelBauen(main, snapshot, sterne, { verlauf = null, eigener =
       schluss: true,
     },
   ];
-  if (verlauf) kapitel.splice(kapitel.length - 1, 0, ...verlaufKapitel(verlauf, T));
+  if (vergleich) {
+    // Im Vergleich zählt nur, was beide Himmel hergeben: Welten, „Ihr zwei“, Schluss
+    const behalten = kapitel.filter((k) => k.id === "welten" || k.id === "schluss");
+    behalten.splice(1, 0, ihrZwei(vergleich));
+    kapitel.length = 0; kapitel.push(...behalten);
+  } else if (verlauf) kapitel.splice(kapitel.length - 1, 0, ...verlaufKapitel(verlauf, T));
   if (eigener) kapitel[kapitel.length - 1].text = T.schluss.textEigen;
   kapitel[kapitel.length - 1].links.unshift(["#", T.schluss.eigen, "data-eigener"]);
 
@@ -92,6 +97,7 @@ export function kapitelBauen(main, snapshot, sterne, { verlauf = null, eigener =
         <h2 id="k-${k.id}-h">${k.titel}</h2>
         <p>${esc(k.text)}</p>
         ${k.tabelle ? tabelle(k.spalten, k.tabelle) : ""}
+        ${k.listen ? listen(k.listen) : ""}
         ${k.striche ? striche(k.striche, T) : ""}
         ${k.links ? `<p class="links">${k.links.map(([h, t, attr]) => attr ? `<a href="${h}" ${attr}>${t}</a>` : `<a href="${h}" target="_blank" rel="noopener">${t}</a>`).join("")}</p>` : ""}
         ${k.heat ? heatmap(k.heat, T) : ""}
@@ -101,6 +107,29 @@ export function kapitelBauen(main, snapshot, sterne, { verlauf = null, eigener =
     </section>`).join("");
 
   return kapitel;
+}
+
+/** Kapitel „Ihr zwei“: Zahlen aus dem Vergleich, dazu die Listen. Alle Namen stammen aus fremden Dateien und werden escaped. */
+function ihrZwei({ ergebnis: r }) {
+  const T = tx().vergleich.kapitel;
+  const p = { gesamt: prozent(r.uebereinstimmung), kuenstler: prozent(r.kuenstlerAehnlichkeit), genre: prozent(r.genreAehnlichkeit) };
+  const namen = (l) => l.map(knopf);
+  return {
+    id: "ihrzwei", titel: T.titel, text: T.text(r, p),
+    tabelle: T.zeilen(r, p).map(([n, w]) => [esc(n), esc(w)]), spalten: T.spalten,
+    listen: [
+      { titel: T.verbindet, zeilen: namen(r.gemeinsam) },
+      { titel: T.nurEiner(r.nameA), zeilen: namen(r.nurA) },
+      { titel: T.nurEiner(r.nameB), zeilen: namen(r.nurB) },
+      { titel: T.bruecken, zeilen: r.bruecken.map((b) => esc(T.bruecke(b.genre, b.a.join(", "), b.b.join(", ")))) },
+    ],
+    steuer: { zeitraum: "1y", welt: null, fokus: r.gemeinsam.map((g) => g.id), blick: null, pan: !r.gemeinsam.length },
+  };
+}
+
+function listen(l) {
+  const keine = tx().vergleich.kapitel.keine;
+  return `<div class="listen">${l.map((x) => `<h3>${esc(x.titel)}</h3>${x.zeilen.length ? `<ul class="vgl-liste">${x.zeilen.map((z) => `<li>${z}</li>`).join("")}</ul>` : `<p class="leise">${esc(keine)}</p>`}`).join("")}</div>`;
 }
 
 const knopf = (k) => `<button type="button" class="stern-link" data-stern="${esc(k.id)}">${esc(k.name)}</button>`;
