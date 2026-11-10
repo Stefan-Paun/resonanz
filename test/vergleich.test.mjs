@@ -134,3 +134,72 @@ test("Ende zu Ende: Export zweier erfundener Schnappschüsse, Prüfung, Vergleic
   const b = himmelPruefen(JSON.stringify(himmelExportieren(snap("q", "lila welle", ["lo-fi"]), "B"))).himmel;
   assert.ok(Math.abs(vergleichen(a, b).uebereinstimmung - 1) < 1e-9);
 });
+
+// ---------------------------------------------------------------- Darstellung ohne DOM: Kapitel „Ihr zwei“ und Texte
+import { kapitelBauen } from "../public/kapitel.js";
+import { tx, spracheSetzen } from "../public/texte.js";
+import { himmelPruefen } from "../public/austausch.js";
+
+function kapitelFuer(a, b) {
+  const ergebnis = vergleichen(a, b, { max: 10 });
+  const { snapshot, gruppe } = zusammenfuehren(a, b, "2026-10-01T00:00:00Z");
+  const main = { innerHTML: "" };
+  const kapitel = kapitelBauen(main, snapshot, sterne(snapshot), { vergleich: { ergebnis, gruppe, nameA: a.name, nameB: b.name } });
+  return { kapitel, html: main.innerHTML };
+}
+
+test("Kapitel „Ihr zwei“: erscheint im Vergleich, nennt die Zahlen, normaler Himmel hat es nicht", () => {
+  const { kapitel, html } = kapitelFuer(A(), B());
+  assert.deepEqual(kapitel.map((c) => c.id), ["welten", "ihrzwei", "schluss"]);
+  const r = vergleichen(A(), B());
+  assert.ok(html.includes(Math.round(r.uebereinstimmung * 100) + " Prozent"));
+  assert.ok(html.includes("Nova Fuchs") && html.includes("Kai Stein") && html.includes("indie rock"));
+  const snap = { erstellt: "2026-11-01T00:00:00Z", kuenstler: { a: { name: "A", tags: [] } }, zeitraeume: { "4w": { kuenstler: ["a"], songs: [] }, "6m": { kuenstler: ["a"], songs: [] }, "1y": { kuenstler: ["a"], songs: [] } }, zuletzt: [] };
+  const normal = kapitelBauen({ innerHTML: "" }, snap, sterne(snap), {});
+  assert.ok(!normal.some((c) => c.id === "ihrzwei"));
+});
+
+test("Kapitel „Ihr zwei“: bösartige Namen aus der Datei landen nur escaped im HTML", () => {
+  const roh = JSON.parse(JSON.stringify(B()));
+  roh.name = "<img src=x onerror=alert(1)>"; roh.kuenstler[1].name = "\"><script>alert(2)</script>"; roh.kuenstler[1].genres = ["<b>indie rock</b>"];
+  const r = himmelPruefen(JSON.stringify(roh));
+  assert.ok(r.ok);
+  const { html } = kapitelFuer(A(), r.himmel);
+  assert.ok(!html.includes("<script") && !html.includes("<img"));
+});
+
+test("Texte: de und en haben dieselben Schlüssel im Abschnitt „vergleich“", () => {
+  const schluessel = (o, pfad = "") => Object.entries(o).flatMap(([k, v]) => (v && typeof v === "object" ? schluessel(v, pfad + k + ".") : [pfad + k]));
+  spracheSetzen("de"); const de = schluessel(tx().vergleich);
+  spracheSetzen("en"); const en = schluessel(tx().vergleich);
+  spracheSetzen("de");
+  assert.deepEqual(de.sort(), en.sort());
+  assert.ok(de.length > 20);
+});
+
+test("Texte: Kapitel-Sätze in beiden Sprachen enthalten die Zahlen", () => {
+  const r = vergleichen(A(), B());
+  const p = { gesamt: 42, kuenstler: 40, genre: 44 };
+  for (const l of ["de", "en"]) {
+    spracheSetzen(l);
+    const t = tx().vergleich.kapitel;
+    assert.ok(t.text(r, p).includes("42") && t.text(r, p).includes("Ana") && t.text(r, p).includes("Ben"));
+    assert.equal(t.zeilen(r, p).length, 6);
+  }
+  spracheSetzen("de");
+});
+
+test("Gemerkte Datei: wird beim Lesen erneut streng geprüft, Manipuliertes liefert nichts", async () => {
+  const speicher = new Map();
+  globalThis.localStorage = { getItem: (k) => (speicher.has(k) ? speicher.get(k) : null), setItem: (k, v) => speicher.set(k, String(v)), removeItem: (k) => speicher.delete(k) };
+  try {
+    const { gemerkt } = await import("../public/vergleich-ui.js");
+    assert.equal(gemerkt(), null); // nichts gemerkt
+    speicher.set("resonanz.vergleich", JSON.stringify(A()));
+    assert.equal(gemerkt().name, "Ana");
+    speicher.set("resonanz.vergleich", JSON.stringify({ ...A(), version: 99 }));
+    assert.equal(gemerkt(), null);
+    speicher.set("resonanz.vergleich", "{kaputt");
+    assert.equal(gemerkt(), null);
+  } finally { delete globalThis.localStorage; }
+});

@@ -1,11 +1,12 @@
 // „Dein eigener Himmel“: Verlauf-ZIP ablegen, mit eigenem Spotify-Konto anmelden, gespeicherten Himmel laden.
 import { loginStarten, rueckkehrVerarbeiten, tokenLesen, snapshotHolen, genresErgaenzen, redirectUri } from "./konto.js";
 import { verlaufAusZip } from "./verlauf.js";
+import { vergleichSektion } from "./vergleich-ui.js";
 import { tx } from "./texte.js";
 const TE = () => tx().eigener, TUI = () => tx().ui;
 
 const SNAP_KEY = "resonanz.snapshot", VERLAUF_KEY = "resonanz.verlauf", CID_KEY = "resonanz.clientId";
-let api, dlg, eigenerAktiv = false, verlaufAktiv = null;
+let api, dlg, vgl, eigenerAktiv = false, verlaufAktiv = null;
 
 const lies = (k) => { try { return JSON.parse(localStorage.getItem(k) || "null"); } catch { return null; } };
 const schreib = (k, v) => { try { v === null ? localStorage.removeItem(k) : localStorage.setItem(k, JSON.stringify(v)); } catch { /* Speicher voll */ } };
@@ -79,6 +80,7 @@ function zustandZeigen() {
   const cid = dlg.querySelector("#eg-cid"); if (!cid.value) cid.value = lies(CID_KEY) || "";
   const v = dlg.querySelector("#eg-verlauf-stand");
   v.textContent = verlaufAktiv ? TE().verlaufStand(verlaufAktiv) : "";
+  vgl?.aktualisieren();
 }
 
 function anlegen() {
@@ -109,6 +111,7 @@ function anlegen() {
       <p class="eg-zeile"><button type="button" id="eg-speichern" hidden>${T.speichern}</button><button type="button" id="eg-zurueck" hidden>${T.zurueck}</button></p>
       <p class="eg-klein">${T.p3}</p>
     </section>
+    <section class="eg-teil" id="eg-vergleich"></section>
     <p class="status" id="eg-status" role="status"></p>`;
   document.body.appendChild(dlg);
   dlg.querySelector("#eg-kopieren").addEventListener("click", async (e) => { try { await navigator.clipboard.writeText(redirectUri()); e.target.textContent = T.kopiert; setTimeout(() => (e.target.textContent = T.kopieren), 1500); } catch { /* kein Clipboard */ } });
@@ -138,6 +141,9 @@ function anlegen() {
   ablage.addEventListener("dragover", (e) => { e.preventDefault(); ablage.classList.add("drueber"); });
   ablage.addEventListener("dragleave", () => ablage.classList.remove("drueber"));
   ablage.addEventListener("drop", (e) => { e.preventDefault(); ablage.classList.remove("drueber"); if (e.dataTransfer.files[0]) dateiLaden(e.dataTransfer.files[0]); });
+  vgl = vergleichSektion(dlg.querySelector("#eg-vergleich"), {
+    snapshot: () => api.snapshot?.() ?? null, vergleichStarten: api.vergleichStarten, vergleichBeenden: api.vergleichBeenden, vergleichLaeuft: api.vergleichLaeuft,
+  }, { schliessen: () => dlg.close() });
   if (tokenLesen()) dlg.querySelector("#eg-login").textContent = T.nochmal;
 }
 
@@ -152,7 +158,9 @@ async function dateiLaden(datei) {
   oeffnen();
   try {
     if (/\.json$/i.test(datei.name)) {
-      const snap = JSON.parse(await datei.text());
+      const inhalt = await datei.text();
+      if (/"format"\s*:\s*"resonanz-himmel"/.test(inhalt.slice(0, 512))) { vgl.text(inhalt); return; } // Vergleichsdatei eines anderen
+      const snap = JSON.parse(inhalt);
       if (!snap.zeitraeume || !snap.kuenstler || !Object.values(snap.zeitraeume).every((z) => Array.isArray(z.kuenstler) && Array.isArray(z.songs))) throw new Error(TE().keinHimmel);
       aufbauen(snap, TUI().quelleDatei);
       schreib(SNAP_KEY, snap);
