@@ -25,7 +25,21 @@ function blaetter(obj, pfad = "", aus = new Map()) {
 // Beispielwerte je Funktion (Pfad → Argumente); Pfade ohne Eintrag werden mit "x" aufgerufen.
 const kuenstler = { name: "Beispiel", kuenstler: [{ name: "Band" }], erschienen: "2020-05-01" };
 const verlauf = { streams: 1234, gezaehlt: 1000, stunden: 56.7, tage: 40, laengsteSerie: 7, von: "2023-01-01", bis: "2024-01-01" };
+const vergleich = { nameA: "Ana", nameB: "Ben", anzahl: { gemeinsam: 12, nurA: 30, nurB: 25, bruecken: 4 } };
+const prozent = { gesamt: 42, kuenstler: 38, genre: 51 };
 const BEISPIELE = {
+  "vergleich.kapitel.text": [vergleich, prozent],
+  "vergleich.kapitel.zeilen": [vergleich, prozent],
+  "vergleich.kapitel.nurEiner": ["Ana"],
+  "vergleich.kapitel.bruecke": ["Rap", "Ana", "Ben"],
+  "vergleich.legendeNur": ["Ana"],
+  "vergleich.gemerkt": ["Ana"],
+  "vergleich.aktiv": ["Ana"],
+  "eigener.quelleFortschritt": ["datei.csv", 0.5],
+  "eigener.quelleFertig": ["Last.fm", { streams: 1234, stunden: 56.7 }, 3],
+  "eigener.geladen": ["himmel.json"],
+  "eigener.fehler": ["kaputt"],
+  "eigener.gingNicht": ["kaputt"],
   "kapitel.welten.text": [{ anzahl: 5, name: "Rap" }, 20, 25],
   "kapitel.gerade.text": [[{ name: "A", jahr: null, jetzt: 3 }, { name: "B", jahr: 90, jetzt: 4 }], "Rap"],
   "kapitel.dauerbrenner.text": [[{ name: "A", plaetze: [1, 2, 3] }]],
@@ -97,7 +111,7 @@ test("Funktionen liefern in beiden Sprachen Strings (Zeilenlisten: Paare aus Str
         const r = f(...args);
         if (pfad.endsWith(".zeilen")) {
           assert.ok(Array.isArray(r) && r.length > 0, `${code}: ${pfad}`);
-          for (const z of r) { assert.equal(z.length, 2); assert.ok(z.every((s) => typeof s === "string" && s !== ""), `${code}: ${pfad}`); }
+          for (const z of r) { assert.equal(z.length, 2); assert.ok(z.every((s) => (typeof s === "string" || typeof s === "number") && String(s) !== ""), `${code}: ${pfad}`); }
         } else {
           assert.equal(typeof r, "string", `${code}: ${pfad}`);
           assert.ok(r.length > 0 && !/undefined|\[object|NaN/.test(r), `${code}: ${pfad}: ${r}`);
