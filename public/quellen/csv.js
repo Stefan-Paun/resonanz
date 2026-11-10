@@ -16,25 +16,27 @@ export function trennerRaten(text) {
 }
 
 /**
- * Liest CSV-Text → Array von Zeilen (Arrays aus Strings). Leere Zeilen entfallen.
- * Wirft bei mehr als `maxZeilen` Zeilen. Felder länger als `maxFeld` werden gekürzt.
+ * Liest CSV-Text portionsweise: ein Generator, der nach etwa `block` Zeichen `fortschritt (0..1)` liefert und am Ende
+ * die Zeilen (Arrays aus Strings) zurückgibt. Leere Zeilen entfallen. Wirft bei mehr als `maxZeilen` Zeilen.
+ * Felder länger als `maxFeld` werden gekürzt.
  */
-export function csvLesen(text, { trenner = null, maxZeilen = GRENZEN.zeilen, maxFeld = 5000 } = {}) {
+export function* csvScheiben(text, { trenner = null, maxZeilen = GRENZEN.zeilen, maxFeld = 5000, block = 200000 } = {}) {
   if (text.charCodeAt(0) === 0xfeff) text = text.slice(1);
   const sep = trenner || trennerRaten(text);
   const zeilen = [];
-  let feld = "", zeile = [], q = false, i = 0, quoted = false;
+  let feld = "", zeile = [], q = false, i = 0, quoted = false, marke = block;
   const n = text.length;
   const feldEnde = () => { zeile.push(feld.length > maxFeld ? feld.slice(0, maxFeld) : feld); feld = ""; quoted = false; };
   const zeileEnde = () => {
     feldEnde();
     if (!(zeile.length === 1 && zeile[0] === "")) {
-      if (zeilen.length >= maxZeilen) throw new Error(`Die Datei hat mehr als ${maxZeilen.toLocaleString("de-AT")} Zeilen.`);
+      if (zeilen.length >= maxZeilen) throw Object.assign(new Error(`Die Datei hat mehr als ${maxZeilen.toLocaleString("de-AT")} Zeilen.`), { zeilen: maxZeilen });
       zeilen.push(zeile);
     }
     zeile = [];
   };
   while (i < n) {
+    if (i >= marke) { marke = i + block; yield i / n; }
     const c = text[i];
     if (q) {
       if (c === '"') { if (text[i + 1] === '"') { feld += '"'; i += 2; continue; } q = false; i++; continue; }
@@ -48,6 +50,22 @@ export function csvLesen(text, { trenner = null, maxZeilen = GRENZEN.zeilen, max
   }
   if (feld !== "" || zeile.length || quoted) zeileEnde();
   return zeilen;
+}
+
+/** Liest CSV-Text am Stück → Array von Zeilen. */
+export function csvLesen(text, optionen = {}) {
+  const g = csvScheiben(text, optionen);
+  for (let r = g.next(); ; r = g.next()) if (r.done) return r.value;
+}
+
+/** Wie csvLesen, gibt der Seite aber nach jeder Portion Luft (`pause`) und meldet `fortschritt(0..1)`. */
+export async function csvLesenAsync(text, { pause = () => new Promise((r) => setTimeout(r, 0)), fortschritt = () => {}, ...optionen } = {}) {
+  const g = csvScheiben(text, optionen);
+  for (let r = g.next(); ; r = g.next()) {
+    if (r.done) return r.value;
+    fortschritt(r.value);
+    await pause();
+  }
 }
 
 /** Kopfzeile normalisieren: klein, nur Buchstaben und Ziffern („Play Duration Milliseconds“ → playdurationmilliseconds). */

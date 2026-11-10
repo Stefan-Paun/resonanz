@@ -1,7 +1,7 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { csvLesen } from "../public/quellen/csv.js";
+import { csvLesen, csvLesenAsync } from "../public/quellen/csv.js";
 import { eintrag, zeitLesen, fuerAuswertung, GRENZEN } from "../public/quellen/format.js";
 import { appleLesen } from "../public/quellen/apple.js";
 import { lastfmCsvLesen, lastfmJsonLesen } from "../public/quellen/lastfm.js";
@@ -181,4 +181,29 @@ test("Hilfetexte: je Quelle in de und en vorhanden, gleiche Schlüssel", async (
   assert.deepEqual(de.quellenHilfe.map((x) => x[0]), en.quellenHilfe.map((x) => x[0]));
   assert.ok(en.quelleFertig("Last.fm", { streams: 3, stunden: 1 }, 2).includes("skipped"));
   spracheSetzen("de");
+});
+
+test("G24: vorab geparstes JSON wird nicht noch einmal geparst", () => {
+  const e = erkennen("[kaputt, wird nie geparst", { json: [{ ts: "2025-01-01T10:00:00Z" }] });
+  assert.equal(e.quelle, "spotify");
+});
+
+test("G24: CSV wird in Portionen mit Pausen gelesen, Ergebnis wie am Stück", async () => {
+  const text = "a,b\n" + Array.from({ length: 500 }, (_, i) => `${i},"x ${i}"`).join("\n");
+  let pausen = 0; const stand = [];
+  const z = await csvLesenAsync(text, { block: 200, pause: async () => { pausen++; }, fortschritt: (p) => stand.push(p) });
+  assert.deepEqual(z, csvLesen(text));
+  assert.ok(pausen >= 5 && pausen === stand.length);
+  assert.ok(stand.every((p, i) => p > 0 && p < 1 && (i === 0 || p > stand[i - 1])));
+});
+
+test("G24: Fehlermeldungen folgen der Sprache (de/en)", async () => {
+  const { spracheSetzen } = await import("../public/texte.js");
+  try {
+    spracheSetzen("en");
+    assert.throws(() => erkennen("[1,2"), /damaged or cut off.*Expected:/);
+    assert.throws(() => erkennen(""), /file is empty/);
+    await assert.rejects(quelleLesen("a\n1\n2", { portion: 1 }).then(() => { throw new Error("sollte nicht klappen"); }), /columns|empty/);
+  } finally { spracheSetzen("de"); }
+  assert.throws(() => erkennen("[1,2"), /beschädigt.*Erwartet wird/);
 });

@@ -28,6 +28,8 @@ const verlauf = { streams: 1234, gezaehlt: 1000, stunden: 56.7, tage: 40, laengs
 const vergleich = { nameA: "Ana", nameB: "Ben", anzahl: { gemeinsam: 12, nurA: 30, nurB: 25, bruecken: 4 } };
 const prozent = { gesamt: 42, kuenstler: 38, genre: 51 };
 const BEISPIELE = {
+  "eigener.quelleFehler.keinTitel": ["apple"],
+  "eigener.quelleFehler.zeilenMax": [2000000],
   "vergleich.kapitel.text": [vergleich, prozent],
   "vergleich.kapitel.zeilen": [vergleich, prozent],
   "vergleich.kapitel.nurEiner": ["Ana"],
