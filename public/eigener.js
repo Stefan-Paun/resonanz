@@ -164,8 +164,9 @@ async function dateiLaden(datei) {
       const snap = lies(SNAP_KEY) || (await (await fetch("data/snapshot.json", { cache: "no-cache" })).json());
       api.himmelAufbauen(snap, { verlauf: a, quelle: (lies(SNAP_KEY) ? TUI().quelleKonto : TUI().quelleStandard) + TUI().plusVerlauf, eigener: !!lies(SNAP_KEY) });
       eigenerAktiv = eigenerAktiv || false;
-      fortschritt(TE().zipFertig(a));
-      dlg.close();
+      const skip = a.uebersprungeneDateien?.length || 0;
+      fortschritt(TE().zipFertig(a) + (skip ? " " + TE().uebersprungen(skip) : ""), !!skip);
+      if (!skip) dlg.close(); // bei übersprungenen Dateien offen lassen, damit der Hinweis gelesen wird
     }
     zustandZeigen();
   } catch (e) {

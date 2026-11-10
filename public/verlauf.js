@@ -15,6 +15,8 @@ export async function zipLesen(buffer, filter = () => true) {
   }
   if (eocd < 0) throw new Error("Kein ZIP-Archiv");
   const anzahl = dv.getUint16(eocd + 10, true), cdStart = dv.getUint32(eocd + 16, true);
+  // ZIP64: Zähler oder Offset sind Platzhalter, die echten Werte stehen in einem Zusatzblock, den wir nicht lesen.
+  if (anzahl === 0xFFFF || cdStart === 0xFFFFFFFF) throw new Error("Dieses ZIP nutzt das ZIP64-Format (sehr großes Archiv) und wird nicht unterstützt. Bitte die Verlaufsdateien (Streaming_History_Audio_*.json) einzeln entpacken und stattdessen ein neues ZIP nur damit packen.");
   const dateien = [];
   let p = cdStart;
   for (let n = 0; n < anzahl; n++) {
@@ -23,6 +25,7 @@ export async function zipLesen(buffer, filter = () => true) {
     const nameLen = dv.getUint16(p + 28, true), extraLen = dv.getUint16(p + 30, true), kommLen = dv.getUint16(p + 32, true);
     const lokal = dv.getUint32(p + 42, true), flags = dv.getUint16(p + 8, true);
     const name = TEXT.decode(u8.subarray(p + 46, p + 46 + nameLen));
+    if (groesseKomp === 0xFFFFFFFF || groesseRoh === 0xFFFFFFFF || lokal === 0xFFFFFFFF) throw new Error("ZIP64-Eintrag wird nicht unterstützt: " + name);
     if (flags & 1) throw new Error("Das ZIP ist verschlüsselt: " + name);
     if (groesseRoh > MAX_DATEI || lokal + 30 > u8.length) throw new Error("ZIP-Eintrag unbrauchbar: " + name);
     p += 46 + nameLen + extraLen + kommLen;
@@ -50,7 +53,7 @@ export const istVerlaufsdatei = (name) => /Streaming_History_Audio.*\.json$/i.te
  * und aus dem kleinen Export (endTime, msPlayed, artistName, trackName) zu {t, ms, kuenstler, titel, uebersprungen}.
  */
 export function streamsNormalisieren(eintraege) {
-  const out = [];
+  const out = [], gesehen = new Set();
   for (const e of eintraege) {
     if (!e) continue;
     let t, ms, kuenstler, titel, skip = null, uri = null;
@@ -63,6 +66,10 @@ export function streamsNormalisieren(eintraege) {
       kuenstler = e.artistName; titel = e.trackName;
     } else continue;
     if (!kuenstler || !titel || !Number.isFinite(t)) continue; // Podcasts und kaputte Zeilen
+    // Überlappende Exporte: derselbe Stream darf nur einmal zählen.
+    const schluessel = JSON.stringify([t, kuenstler, titel, ms]);
+    if (gesehen.has(schluessel)) continue;
+    gesehen.add(schluessel);
     out.push({ t, ms, kuenstler, titel, uebersprungen: skip, uri });
   }
   out.sort((a, b) => a.t - b.t);
@@ -129,14 +136,22 @@ export function verlaufAuswerten(streams, { zone = "Europe/Vienna", minMs = 3000
   };
 }
 
-/** Komplett: ZIP-Puffer → Auswertung. Wirft, wenn keine Verlaufsdateien drin sind. */
+/**
+ * Komplett: ZIP-Puffer → Auswertung. Wirft, wenn keine Verlaufsdateien drin sind oder keine einzige lesbar ist.
+ * Kaputte Einzeldateien werden übersprungen; ihre Namen stehen in `uebersprungeneDateien`.
+ */
 export async function verlaufAusZip(buffer, optionen) {
   const dateien = await zipLesen(buffer, istVerlaufsdatei);
   if (!dateien.length) throw new Error("Im ZIP ist kein Streaming-Verlauf (Streaming_History_Audio_*.json).");
-  const eintraege = [];
+  const eintraege = [], uebersprungeneDateien = [];
+  let lesbar = 0;
   for (const d of dateien) {
-    const j = JSON.parse(TEXT.decode(d.bytes));
-    if (Array.isArray(j)) eintraege.push(...j);
+    let j;
+    try { j = JSON.parse(TEXT.decode(d.bytes)); } catch { j = null; }
+    if (!Array.isArray(j)) { uebersprungeneDateien.push(d.name); continue; }
+    lesbar++;
+    for (const e of j) eintraege.push(e);
   }
-  return verlaufAuswerten(streamsNormalisieren(eintraege), optionen);
+  if (!lesbar) throw new Error("Keine der Verlaufsdateien im ZIP ist lesbar (kaputtes JSON).");
+  return { ...verlaufAuswerten(streamsNormalisieren(eintraege), optionen), uebersprungeneDateien };
 }

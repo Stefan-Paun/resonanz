@@ -102,3 +102,46 @@ test("verlaufAusZip: komplett vom Archiv zur Auswertung, Fehler ohne Verlaufsdat
   assert.equal(a.streams, 2);
   await assert.rejects(verlaufAusZip(zipBauen([{ name: "x.txt", text: "x", store: true }])), /kein Streaming-Verlauf/);
 });
+
+test("verlaufAusZip: kaputte Datei wird übersprungen und benannt, gute zählt", async () => {
+  const buf = zipBauen([
+    { name: "Streaming_History_Audio_2025_0.json", text: "{ das ist kein json" },
+    { name: "Streaming_History_Audio_2025_1.json", text: JSON.stringify([eintrag("2025-03-02T22:00:00Z", 60000, "Künstler A", "Titel A")]) },
+  ]);
+  const a = await verlaufAusZip(buf);
+  assert.equal(a.streams, 1);
+  assert.deepEqual(a.uebersprungeneDateien, ["Streaming_History_Audio_2025_0.json"]);
+  const sauber = await verlaufAusZip(zipBauen([{ name: "Streaming_History_Audio_2025_1.json", text: "[]" }]));
+  assert.deepEqual(sauber.uebersprungeneDateien, []);
+});
+
+test("verlaufAusZip: wenn nichts lesbar ist, gibt es einen klaren Fehler", async () => {
+  const buf = zipBauen([{ name: "Streaming_History_Audio_2025_0.json", text: "kaputt" }, { name: "Streaming_History_Audio_2025_1.json", text: "{}" }]);
+  await assert.rejects(verlaufAusZip(buf), /nicht lesbar|lesbar/);
+});
+
+test("Normalisieren: identische Streams aus überlappenden Exporten zählen einmal", () => {
+  const a = eintrag("2025-03-01T22:00:00Z", 60000, "Künstler A", "Titel A");
+  const s = streamsNormalisieren([a, { ...a }, eintrag("2025-03-01T22:00:00Z", 60001, "Künstler A", "Titel A"), eintrag("2025-03-01T22:05:00Z", 60000, "Künstler A", "Titel A")]);
+  assert.equal(s.length, 3, "gleiche t/Künstler/Titel/ms nur einmal; andere ms oder t bleiben");
+  assert.deepEqual(streamsNormalisieren([]), []);
+});
+
+test("ZIP64-Marker: verständliche Fehlermeldung statt Müll", async () => {
+  const buf = zipBauen([{ name: "Streaming_History_Audio_2025_0.json", text: "[]" }]);
+  const dv = new DataView(buf), eocd = buf.byteLength - 22;
+  dv.setUint16(eocd + 10, 0xFFFF, true);
+  await assert.rejects(zipLesen(buf), /ZIP64/);
+  const buf2 = zipBauen([{ name: "Streaming_History_Audio_2025_0.json", text: "[]" }]);
+  new DataView(buf2).setUint32(buf2.byteLength - 22 + 16, 0xFFFFFFFF, true);
+  await assert.rejects(zipLesen(buf2), /ZIP64/);
+});
+
+test("Zeitumstellung: 30.03.2025 01:30 UTC ist 03:30 Wiener Sommerzeit, 29.03. 23:30 UTC ist 00:30", () => {
+  const a = verlaufAuswerten(streamsNormalisieren([
+    eintrag("2025-03-30T01:30:00Z", 60000, "Künstler A", "Titel A"),
+    eintrag("2025-03-29T23:30:00Z", 120000, "Künstler A", "Titel B"),
+  ]));
+  assert.equal(a.heat[6][3], 1, "Sonntag 3 Uhr (nach der Umstellung)");
+  assert.equal(a.heat[6][0], 2, "Sonntag 0 Uhr");
+});
