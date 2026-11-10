@@ -171,3 +171,14 @@ test("Welten: bekannte Künstler über den Himmel, Rest „unbekannt“", () => 
   assert.ok(Math.abs(v[1].stunden - (1800000 + 210000) / 3600000) < 1e-9);
   assert.deepEqual(weltenVerteilung([], snap), []);
 });
+
+test("Hilfetexte: je Quelle in de und en vorhanden, gleiche Schlüssel", async () => {
+  const { tx, spracheSetzen } = await import("../public/texte.js");
+  const holen = (l) => { spracheSetzen(l); return tx().eigener; };
+  const de = holen("de"), en = holen("en");
+  assert.deepEqual(Object.keys(de).sort(), Object.keys(en).sort());
+  assert.equal(de.quellenHilfe.length, 3); assert.equal(en.quellenHilfe.length, 3);
+  assert.deepEqual(de.quellenHilfe.map((x) => x[0]), en.quellenHilfe.map((x) => x[0]));
+  assert.ok(en.quelleFertig("Last.fm", { streams: 3, stunden: 1 }, 2).includes("skipped"));
+  spracheSetzen("de");
+});

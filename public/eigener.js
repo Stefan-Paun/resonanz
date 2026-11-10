@@ -1,6 +1,9 @@
 // „Dein eigener Himmel“: Verlauf-ZIP ablegen, mit eigenem Spotify-Konto anmelden, gespeicherten Himmel laden.
 import { loginStarten, rueckkehrVerarbeiten, tokenLesen, snapshotHolen, genresErgaenzen, redirectUri } from "./konto.js";
 import { verlaufAusZip } from "./verlauf.js";
+import { quelleLesen } from "./quellen/erkennen.js";
+import { fuerAuswertung, GRENZEN } from "./quellen/format.js";
+import { verlaufAuswerten } from "./verlauf.js";
 import { tx } from "./texte.js";
 const TE = () => tx().eigener, TUI = () => tx().ui;
 
@@ -92,8 +95,9 @@ function anlegen() {
     <section class="eg-teil">
       <h3>${T.h1}</h3>
       <p>${T.p1}</p>
-      <label class="ablage" id="eg-ablage"><input type="file" id="eg-datei" accept=".zip,.json,application/zip,application/json" hidden><span>${T.ablage}</span></label>
+      <label class="ablage" id="eg-ablage"><input type="file" id="eg-datei" accept=".zip,.json,.csv,application/zip,application/json,text/csv" hidden><span>${T.ablage}</span></label>
       <p class="eg-klein" id="eg-verlauf-stand"></p>
+      <details class="eg-quellen"><summary>${T.quellenH}</summary>${T.quellenHilfe.map(([n, h]) => `<p class="eg-klein"><strong>${n}:</strong> ${h}</p>`).join("")}</details>
     </section>
 
     <section class="eg-teil">
@@ -148,24 +152,48 @@ function ablageVerdrahten() {
   addEventListener("drop", (e) => { document.body.classList.remove("ablage-aktiv"); if (e.dataTransfer.files[0]) { e.preventDefault(); oeffnen(); dateiLaden(e.dataTransfer.files[0]); } });
 }
 
+const istZip = (datei, kopf) => /\.zip$/i.test(datei.name) || (kopf[0] === 0x50 && kopf[1] === 0x4b);
+
+/** Auswertung zeigen: Verlauf merken und den Himmel (eigener oder Standard) mit den Verlaufs-Kapiteln neu bauen. */
+async function verlaufUebernehmen(a) {
+  verlaufAktiv = a; schreib(VERLAUF_KEY, a);
+  const snap = lies(SNAP_KEY) || (await (await fetch("data/snapshot.json", { cache: "no-cache" })).json());
+  api.himmelAufbauen(snap, { verlauf: a, quelle: (lies(SNAP_KEY) ? TUI().quelleKonto : TUI().quelleStandard) + TUI().plusVerlauf, eigener: !!lies(SNAP_KEY) });
+}
+
+function istGespeicherterHimmel(snap) {
+  return !!snap && typeof snap === "object" && !Array.isArray(snap) && !!snap.zeitraeume && !!snap.kuenstler;
+}
+
 async function dateiLaden(datei) {
   oeffnen();
   try {
-    if (/\.json$/i.test(datei.name)) {
-      const snap = JSON.parse(await datei.text());
-      if (!snap.zeitraeume || !snap.kuenstler || !Object.values(snap.zeitraeume).every((z) => Array.isArray(z.kuenstler) && Array.isArray(z.songs))) throw new Error(TE().keinHimmel);
-      aufbauen(snap, TUI().quelleDatei);
-      schreib(SNAP_KEY, snap);
-      fortschritt(TE().geladen(datei.name));
-    } else {
+    if (datei.size > GRENZEN.dateiBytes) throw new Error(TE().zuGross);
+    const kopf = new Uint8Array(await datei.slice(0, 4).arrayBuffer());
+    if (istZip(datei, kopf)) {
       fortschritt(TE().lese(datei.name, (datei.size / 1048576).toFixed(1)));
       const a = await verlaufAusZip(await datei.arrayBuffer());
-      verlaufAktiv = a; schreib(VERLAUF_KEY, a);
-      const snap = lies(SNAP_KEY) || (await (await fetch("data/snapshot.json", { cache: "no-cache" })).json());
-      api.himmelAufbauen(snap, { verlauf: a, quelle: (lies(SNAP_KEY) ? TUI().quelleKonto : TUI().quelleStandard) + TUI().plusVerlauf, eigener: !!lies(SNAP_KEY) });
+      await verlaufUebernehmen(a);
       eigenerAktiv = eigenerAktiv || false;
       fortschritt(TE().zipFertig(a));
       dlg.close();
+    } else {
+      fortschritt(TE().lese(datei.name, (datei.size / 1048576).toFixed(1)));
+      const text = await datei.text();
+      let snap = null;
+      if (/\.json$/i.test(datei.name)) { try { const j = JSON.parse(text); if (istGespeicherterHimmel(j)) snap = j; } catch { /* kein JSON: Quellen-Erkennung meldet es */ } }
+      if (snap) {
+        if (!Object.values(snap.zeitraeume).every((z) => Array.isArray(z.kuenstler) && Array.isArray(z.songs))) throw new Error(TE().keinHimmel);
+        aufbauen(snap, TUI().quelleDatei);
+        schreib(SNAP_KEY, snap);
+        fortschritt(TE().geladen(datei.name));
+      } else {
+        const r = await quelleLesen(text, { fortschritt: (p) => fortschritt(TE().quelleFortschritt(datei.name, p)) });
+        const a = verlaufAuswerten(fuerAuswertung(r.streams));
+        await verlaufUebernehmen(a);
+        fortschritt(TE().quelleFertig(TE().quellenName[r.quelle], a, r.verworfen));
+        dlg.close();
+      }
     }
     zustandZeigen();
   } catch (e) {

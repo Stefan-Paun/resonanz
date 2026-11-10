@@ -15,6 +15,7 @@
 - **Star cards.** Tap a star or a name: ranks, songs with covers and length, a Spotify link, and a 30-second preview fetched from Deezer only when you press play.
 - **German and English.** The interface follows your browser language; the `EN`/`DE` switch in the cartouche (or `?lang=en`) overrides it.
 - **Your own sky.** Drop the ZIP of your Spotify *Extended Streaming History* for an hour-by-weekday heatmap, months, night share and streaks. Or sign in with your own Spotify app (PKCE, in the browser). Everything stays in `localStorage`.
+- **More sources.** The same history chapters work with an Apple Music *Play Activity* CSV, a Last.fm export (CSV or `user.getRecentTracks` JSON) and `watch-history.json` from Google Takeout (YouTube Music entries only). The source is recognised from the content, not the file name. Readers live in [`public/quellen/`](public/quellen/) as pure modules around one shared entry format (`t` in UTC, artist, title, optional album and listening time, source); sources without listening time count 3.5 minutes per entry. Files are capped at 150 MB / 3 million rows and read in chunks with a progress line. Nothing is uploaded; test fixtures are invented.
 
 ## Run it
 
@@ -22,7 +23,7 @@
 git clone https://github.com/Stefan-Paun/resonanz
 cd resonanz
 npm start          # python3 -m http.server 8742 --directory public
-npm test           # node --test, 31 tests, no dependencies
+npm test           # node --test, 51 tests, no dependencies
 ```
 
 Open `http://127.0.0.1:8742/`. The demo uses the frozen snapshot in `data/snapshot.json` (mine, from 31 Oct 2026).

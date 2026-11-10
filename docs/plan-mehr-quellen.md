@@ -20,3 +20,9 @@ Spotify-Weg: gleiches Ergebnis wie vorher.
 
 ## Nicht dazu
 Anmeldung bei den Diensten, Netzanfragen, echte Exportdateien, Genre-Abfragen für neue Künstler.
+
+## Stand
+Etappen 1–5 gebaut und getestet (51 Tests grün). Offen/bewusst klein gehalten:
+- Die Welt-Verteilung (`quellen/welten.js`) ist ein getestetes Modul, aber noch in keinem Kapitel angezeigt.
+- Fehlermeldungen der Leser sind deutsch (auch in der englischen Oberfläche).
+- Der Datei-Dialog ist nur über Tests der Module geprüft, nicht im Browser.
