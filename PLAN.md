@@ -44,7 +44,7 @@ Datenflächen. Schrift: Bricolage Grotesque und Azeret Mono, selbst gehostet. De
 
 ## Qualität (1.11.2026)
 
-- Tests: 28 grün (`npm test`), ohne Abhängigkeiten.
+- Tests: alle grün (`npm test`), ohne Abhängigkeiten.
 - Impeccable: zwei Finish-Reviews (Himmel, dann Gesamt), alle Funde eingearbeitet; DESIGN.md und `.impeccable/design.json` vom Documenter.
 - Lighthouse lokal mit Software-WebGL (SwiftShader, 4× CPU-Drossel): Accessibility 100, Best Practices 100, SEO 100, Performance 50 mobil / 56 Desktop. Der Hauptposten ist die Shader-Kompilierung in Software; mit echter GPU liegt die Seite deutlich höher. Echte Messung nach der Veröffentlichung nachholen.
 - Live-Lighthouse (echte GPU, 1.11.): Desktop 100/100/100/100, Handy 61/100/100/100 (TBT durch Szenenaufbau bei 4× CPU-Drossel).

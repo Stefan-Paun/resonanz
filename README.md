@@ -22,7 +22,7 @@
 git clone https://github.com/Stefan-Paun/resonanz
 cd resonanz
 npm start          # python3 -m http.server 8742 --directory public
-npm test           # node --test, 31 tests, no dependencies
+npm test           # node --test, no dependencies
 ```
 
 Open `http://127.0.0.1:8742/`. The demo uses the frozen snapshot in `data/snapshot.json` (mine, from 31 Oct 2026).
