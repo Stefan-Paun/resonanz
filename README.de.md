@@ -22,10 +22,18 @@
 git clone https://github.com/Stefan-Paun/resonanz
 cd resonanz
 npm start          # python3 -m http.server 8742 --directory public
-npm test           # node --test, 31 Tests, keine Abhängigkeiten
+npm test           # node --test, 60 Tests, keine Abhängigkeiten
 ```
 
 Dann `http://127.0.0.1:8742/` öffnen. Die Demo nutzt den eingefrorenen Schnappschuss in `data/snapshot.json` (meiner, vom 31.10.2026).
+
+## Zwei Himmel vergleichen
+
+„Dein eigener Himmel“ → *Zwei Himmel vergleichen* exportiert deinen Himmel als kleine Datei (`resonanz-vergleich.json`, Formatversion 1) und legt die Datei eines anderen darüber. Gemeinsame Künstler leuchten in einer dritten Farbe; die drei Gruppen unterscheiden sich auch durch die Form (Kreis: nur du, Raute: nur der andere, Quadrat: beide). Ein Umschalter zeigt A, B oder beide, das Kapitel „Ihr zwei“ nennt die Zahlen, und *Vergleich beenden* bringt deinen Himmel ohne Neuladen zurück.
+
+- **Die Datei enthält nur Aggregiertes:** Künstler-Kennungen und -Namen, Gewichte je Zeitraum (4 Wochen, 6 Monate, 1 Jahr), bis zu acht Genres je Künstler, eine gewichtete Genre-Liste, den Monat des Schnappschusses und einen frei getippten Anzeigenamen. Keine Hörzeitpunkte, keine Konto-Kennung, keine Links, keine Songs. Ein Test prüft die exportierten Felder gegen eine Zulassungsliste (`ERLAUBTE_FELDER` in [`public/austausch.js`](public/austausch.js)).
+- **Strenger Import:** Version, Typen, Größe (256 KB) und Anzahlen werden geprüft, unbekannte Felder fallen weg, Steuerzeichen und spitze Klammern werden entfernt, Namen erscheinen per `textContent` oder escaped. Die fremde Datei bleibt im Speicher; nur die geprüfte Kopie wird abgelegt, und nur mit „merken“ (und bei jedem Lesen erneut geprüft).
+- **Die Übereinstimmung** ([`public/vergleich.js`](public/vergleich.js)) ist der Mittelwert zweier Kosinus-Ähnlichkeiten, über Künstler- und über Genre-Gewichte; beide werden auch einzeln gezeigt. Künstler werden über die Kennung zugeordnet, ersatzweise über den normalisierten Namen. Listen: gemeinsam, nur A, nur B, Brücken (andere Künstler, gleiches Genre). Identische Himmel ergeben 100 %, disjunkte 0 %, und A und B zu vertauschen ändert nichts.
 
 ## Schnappschuss erneuern (Besitzer)
 

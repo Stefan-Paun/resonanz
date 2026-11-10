@@ -15,3 +15,10 @@ Nur Node-Tests ohne DOM: Feldliste des Exports gegen Zulassungsliste, Import (ka
 
 ## Bewusst nicht dabei
 Kein Server, kein Hochladen, kein Teilen-Link, keine echten Hördaten im Repo.
+
+## Stand
+Etappen 1–5 sind gebaut und per Node-Tests abgesichert (60 Tests grün). Dateien: `public/austausch.js`, `public/vergleich.js`, `public/vergleich-ui.js`, Änderungen in `app.js`, `kapitel.js`, `eigener.js`, `texte.js`, `style.css`, README (en/de).
+
+Entscheidungen: A = der gerade gezeigte eigene Himmel; die Übereinstimmung ist der Mittelwert aus Künstler- und Genre-Kosinus; Formen Kreis (nur A), Raute (nur B), Quadrat (beide), Farben aus der Weltenpalette; im Vergleich zeigt der Rückblick nur „Welten“, „Ihr zwei“ und den Schluss. Eine gemerkte Datei wird bei jedem Lesen erneut geprüft.
+
+Offen: Die Oberfläche (Shader-Formen, Legende, Umschalter, Dialog-Abschnitt, Layout auf dem Handy) wurde nicht im Browser angesehen.
